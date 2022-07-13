@@ -2,33 +2,125 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\JobStoreRequest;
+use App\Models\Candidate;
+use App\Models\City;
 use App\Models\Job;
+use App\Models\Package;
+use App\Models\User;
 use App\Services\Job\JobFilterService;
 use App\Services\Job\JobHelper;
+use App\Services\StorageService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Omgtheking\OmgIyzicoPayment\Models\OmgPayTransactions;
+use Omgtheking\OmgIyzicoPayment\omgIyzicoPayment;
+use Omgtheking\OmgIyzicoPayment\omgIyzicoPaymentExtra;
+use Stevebauman\Location\Facades\Location;
 
 class JobController extends Controller
 {
-    public function index(Request $request, JobFilterService $jobFilterService)
+
+    private $city;
+    private $product;
+
+    public function __construct()
+    {
+        if ($position = Location::get()) {
+            $this->city = City::find((int)$position->regionCode);
+        }
+
+        $this->product = [
+            'name' => 'İş İlanı Yayımlama Hizmeti',
+            'type' => 'money',
+            'price' => 9.50,
+            'expire_date' => '2022-02-02',
+        ];
+    }
+
+    public function index(Request $request, JobFilterService $jobFilterService, JobHelper $jobHelper)
     {
         $jobs = $jobFilterService->filter($request);
 
-        $jobs = $jobs->orderByDesc('created_at')->paginate(12);
+        $jobs = $jobs->listable()->orderByDesc('created_at')->paginate(12);
 
-        return view('jobs.index', ['jobs' => $jobs]);
+        [
+            $workTypes,
+            $categories,
+            $genders,
+            $jobPackages,
+            $cities,
+            $districts,
+            $selectedDistricts,
+        ] = $jobHelper->getJobCreateData($request->has('city_id') ? City::findOrFail($request->get('city_id')) : $this->city);
+
+        return view('jobs.index', [
+            'jobs' => $jobs,
+            'workTypes' => $workTypes,
+            'categories' => $categories,
+            'genders' => $genders,
+            'jobPackages' => $jobPackages,
+            'cities' => $cities,
+            'districts' => $districts,
+            'selectedCity' => $this->city,
+            'selectedDistricts' => $selectedDistricts,
+            ]);
     }
 
     public function create(JobHelper $jobHelper)
     {
-        [$workTypes, $categories, $genders, $jobPackages, $cities] = $jobHelper->getJobCreateData();
+        $selectedCity = $this->city;
 
-        return view('jobs.create',
-            compact('workTypes','categories','genders','jobPackages','cities'));
+        [
+            $workTypes,
+            $categories,
+            $genders,
+            $jobPackages,
+            $cities,
+            $districts,
+            $selectedDistricts,
+        ] = $jobHelper->getJobCreateData($selectedCity);
+
+
+        return view('jobs.create', compact(
+            'workTypes',
+            'categories',
+            'genders',
+            'jobPackages',
+            'cities',
+            'districts',
+            'selectedCity',
+            'selectedDistricts'));
     }
 
-    public function store(Request $request)
+    public function store(JobStoreRequest $request, StorageService $storageService)
     {
-        //
+        if (!auth()->check()) {
+            $user = User::factory(1)->create()[0];
+            $user->name = 'İsimsiz Kullanıcı';
+            $user->token = Str::slug(Str::random(32));
+            $user->save();
+
+            auth()->loginUsingId($user->id);
+        }
+
+        $user = auth()->user();
+
+        $job = Job::create(array_merge($request->validated(), [
+            'user_id' => $user->id,
+            'slug' => Str::slug($request->get('title')),
+        ]));
+
+        if ($request->hasFile('cover_image')) {
+            $file = $storageService->put(StorageService::JOB_PHOTO, $request->file('cover_image'));
+
+            $job->update([
+                'cover_image' => $file['path']
+            ]);
+        }
+
+        return redirect()->route('job.pricing', $job);
     }
 
     public function show(Job $job)
@@ -36,9 +128,30 @@ class JobController extends Controller
         return view('jobs.show', ['job' => $job]);
     }
 
-    public function edit(Job $job)
+    public function edit(Job $job, JobHelper $jobHelper)
     {
-        //
+        $selectedCity = $this->city;
+
+        [
+            $workTypes,
+            $categories,
+            $genders,
+            $jobPackages,
+            $cities,
+            $districts,
+            $selectedDistricts,
+        ] = $jobHelper->getJobCreateData($selectedCity);
+
+
+        return view('jobs.edit', compact(
+            'workTypes',
+            'categories',
+            'genders',
+            'jobPackages',
+            'cities',
+            'districts',
+            'selectedCity',
+            'selectedDistricts'));
     }
 
     public function update(Request $request, Job $job)
@@ -49,5 +162,69 @@ class JobController extends Controller
     public function destroy(Job $job)
     {
         //
+    }
+
+    public function pricing(Job $job, JobHelper $jobHelper)
+    {
+        if (!auth()->check()) {
+            return view('auth.login');
+        }
+
+        $packages = $jobHelper->getPackageData();
+
+        return view('jobs.pricing', compact('packages', 'job'));
+    }
+
+    public function packageSelectPost(Job $job, Package $package)
+    {
+        $job->update([
+            'package_id' => $package->id,
+        ]);
+
+        return redirect()->route('job.payment',$job);
+    }
+
+    public function payment(Job $job)
+    {
+        $product = [
+            'name' => $job->package->name,
+            'model_type' => Job::class,
+            'model_id' => $job->id,
+            'type' => 'money',
+            'price' => $job->package->price,
+            'expire_date' => now()->addDays($job->package->expire_day)->toDateTimeString(),
+        ];
+
+        $payment = (new omgIyzicoPayment(auth()->user(), $product))
+            ->createIyzicoPaymentForm();
+
+        $form = $payment->getCheckoutFormContent();
+
+        return view('jobs.payment', compact('form', 'job'));
+    }
+
+    public function receiveIyzicoPaymentForm()
+    {
+        if( (new omgIyzicoPayment(auth()->user(), $this->product))->receiveIyzicoPaymentForm()){
+            $payment = OmgPayTransactions::query()->where('user_id',auth()->id())
+                ->where('status','success')
+                ->orderByDesc('updated_at')
+                ->first();
+
+            $productJson = json_decode($payment->product_json);
+            $job = $productJson->model_type::findOrFail($productJson->model_id);
+            $job->status = Job::STATUS['published'];
+            $job->published_until_at = now()->addDays($job->package->expire_day)->toDateTimeString();
+            $job->save();
+
+            return view('jobs.result')->with(['success' => 'Ödemeniz başarıyla alınmıştır.','job' => $job]);
+        }
+
+        $payment = OmgPayTransactions::query()->where('user_id',auth()->id())
+            ->where('status','!=','success')
+            ->orderByDesc('updated_at')
+            ->first();
+
+        return view('jobs.result')->with(['error' => $payment->status_detail]);
     }
 }

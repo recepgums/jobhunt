@@ -55,37 +55,30 @@
                             <div class="profile-title">
                                 <h3>Yeni İş İlanı Ver</h3>
                                 <div class="steps-sec">
-                                    <div class="step active" id="step_1" next="step_2">
+                                    <div class="step active">
                                         <p><i class="la la-info"></i></p>
                                         <span>İş Detayı</span>
                                     </div>
-                                    <div class="step" id="step_2" next="step_3" prev="step_1">
+                                    <div class="step">
                                         <p><i class="la la-cc-mastercard"></i></p>
                                         <span>Paket Seçimi ve Ödeme</span>
                                     </div>
-                                    <div class="step" id="step_3" prev="step_2">
+                                    <div class="step">
                                         <p><i class="la  la-check-circle"></i></p>
                                         <span>İlanınız Yayında!</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="profile-form-edit mb-5 " id="step_1_div" >
+                            <div class="profile-form-edit mb-5 ">
                                 @if ($errors->any())
                                     @foreach ($errors->all() as $error)
                                         <div class="alert-danger">{{$error}}</div>
                                     @endforeach
                                 @endif
                                     <div class="text-center alert" id="responseMessageJobPost"></div>
-                                <form method="post" action="{{route('job.store')}}" enctype="multipart/form-data">
+                                <form method="post" action="{{route('job.store')}}">
                                     @csrf
                                     <div class="row">
-                                        <div class="col-lg-6 mx-auto">
-                                            <div class="pf-field no-margin">
-                                                <img style="height: 150px;width: 150px" id="preview-image" class="form-control mx-auto" src="{{'https://via.placeholder.com/150'}}">
-
-                                                <input id="image" type="file" name="cover_image"/>
-                                            </div>
-                                        </div>
                                         <div class="col-lg-12">
                                             <span class="pf-title">Başlık</span>
                                             <div class="pf-field">
@@ -225,18 +218,5 @@
             });
         }
 
-    </script>
-
-
-    <script type="text/javascript">
-        $('#image').change(function(){
-
-            let reader = new FileReader();
-            reader.onload = (e) => {
-                $('#preview-image').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(this.files[0]);
-
-        });
     </script>
 @endpush

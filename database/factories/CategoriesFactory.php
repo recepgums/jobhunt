@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Blog;
+use App\Models\Employer;
 use App\Models\Job;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -21,13 +22,14 @@ class CategoriesFactory extends Factory
     {
         $name = $this->faker->word;
 
-        $models = [Job::class,Blog::class];
+        $models = [Job::class, Blog::class, Employer::class];
 
         return [
             'name' => $name,
             'slug' => Str::slug($name),
             'model' => $models[array_rand($models)],
-            'description' => $this->faker->paragraph,
+            'description' => $this->faker->paragraph(1),
+            'default_cover_image' => 'https://place-hold.it/1600x800',
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Categories;
 use App\Models\District;
 use App\Models\Job;
 use App\Models\User;
@@ -14,10 +15,10 @@ class EmployerFactory extends Factory
         return [
             'user_id' => User::query()->inRandomOrder()->first()->id,
             'company_name' => $this->faker->company,
-            'category_id' => Job::CATEGORIES[array_rand(Job::CATEGORIES)],
+            'category_id' => Categories::forEmployer()->inRandomOrder()->first()->id,
             'district_id' => District::query()->inRandomOrder()->first()->id,
-            'team_size' => rand(1,94),
-            'since' => rand(1980,2022),
+            'team_size' => rand(1, 94),
+            'since' => rand(1980, 2022),
         ];
     }
 }

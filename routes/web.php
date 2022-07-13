@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('homepage');
+Route::view('contact', 'pages.contact')->name('contact');
 
 Route::get('dashboard', [Controllers\CustomAuthController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('login', [Controllers\CustomAuthController::class, 'index'])->name('login');
@@ -20,6 +21,12 @@ Route::group(['middleware' => 'guest', 'prefix' => 'ajax'], function () {
 });
 
 Route::get('city/{city}/districts',[Controllers\GeneralController::class,'getDistrictsByCity'])->name('city.districts');
+
+Route::group(['prefix' => 'job/{job}','middleware' => 'auth','as'=>'job.'],function (){
+    Route::get('payment', [Controllers\JobController::class,'payment'])->name('payment');
+    Route::get('pricing', [Controllers\JobController::class,'pricing'])->name('pricing');
+    Route::get('package/{package}', [Controllers\JobController::class,'packageSelectPost'])->name('price.post');
+});
 
 Route::resource('job', Controllers\JobController::class);
 Route::resource('employer', Controllers\EmployerController::class);
@@ -42,3 +49,5 @@ Route::get('/candidate', function () {
 
 Route::get('test',function (){
 });
+Route::post('/iyzico-form-retrieve', [App\Http\Controllers\JobController::class, 'receiveIyzicoPaymentForm'])->name('omg-iyzico-form');
+//Route::post('job/{job}/iyzico-form-retrieve', [App\Http\Controllers\JobController::class, 'receiveIyzicoPaymentForm'])->name('omg-iyzico-form');

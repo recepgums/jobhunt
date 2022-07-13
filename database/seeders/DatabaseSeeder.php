@@ -9,6 +9,7 @@ use App\Models\City;
 use App\Models\District;
 use App\Models\Education;
 use App\Models\Employer;
+use App\Models\Gender;
 use App\Models\Job;
 use App\Models\Package;
 use App\Models\Resume;
@@ -55,12 +56,15 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\User::factory(10)->create();
+        Package::factory(3)->create();
 
         WorkType::create(['name' => 'Tam Zamanlı', 'type' => WorkType::TYPES['Full Time']]);
         WorkType::create(['name' => 'Yarı Zamanlı', 'type' => WorkType::TYPES['Part Time']]);
         WorkType::create(['name' => 'Karışık', 'type' => WorkType::TYPES['Hybrit']]);
 
         Categories::factory(50)->create();
+        Gender::insert(['name' => 'Erkek','type' => Gender::TYPES['Erkek']]);
+        Gender::insert(['name' => 'Kadın','type' => Gender::TYPES['Kadin']]);
 
         Blog::factory(300)->create();
         Job::factory(300)->create();
@@ -70,6 +74,5 @@ class DatabaseSeeder extends Seeder
         Education::factory(30)->create();
         Resume::factory(30)->create();
 
-        Package::factory(5)->create();
     }
 }

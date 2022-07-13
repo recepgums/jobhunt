@@ -5,29 +5,31 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class Job extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'user_id',
         'category_id',
         'city_id',
+        'district_id',
+        'package_id',
+        'gender_id',
+        'work_type_id',
         'title',
         'description',
         'slug',
         'cover_image',
-        'work_type_id',
-        'category_id',
-        'district_id',
         'fee',
         'level',
-        'gender',
-        'qualification',
+//        'qualification',
         'has_contract',
         'published_until_at',
         'status',
+        'view_counter',
     ];
 
     public function getRouteKeyName()
@@ -35,47 +37,10 @@ class Job extends Model
         return 'slug';
     }
 
-    const TYPE = [
-        'full_time' => 1,
-        'part_time' => 2,
-        'hibrit' => 3,
-    ];
-
-    const CATEGORIES = [
-        'firinci' => 1,
-        'yazilimci' => 2,
-        'hamal' => 3,
-    ];
-
-    const NEIGHBORHOODS = [
-        'Eyup' => 1,
-        'Balat' => 2,
-        'Akarcesme' => 3,
-    ];
-
     const LEVEL = [
         'Acemi' => 1,
         'Kalfa' => 2,
         'Usta' => 3,
-    ];
-
-    const GENDER = [
-        'Erkek' => 1,
-        'Kadin' => 2,
-    ];
-
-    const QUALIFICATIONS = [
-        'Lise' => 1,
-        'Universite' => 2,
-        'Doktora' => 3,
-    ];
-
-    const PUBLISH_DAYS = [
-        '1 gün (7.99 TL)' => 1,
-        '2 gün (8.99 TL)' => 2,
-        '3 gün (9.99 TL)' => 3,
-        '5 gün (10.99 TL)' => 5,
-        '7 gün (11.99 TL)' => 7,
     ];
 
     const STATUS = [
@@ -87,7 +52,31 @@ class Job extends Model
 
     public function scopeListable($query)
     {
-        return $query->where('published_until_at','>=',now())->where('status',self::STATUS['published']);
+        return $query->where('published_until_at', '>=', now())->where('status', self::STATUS['published']);
+    }
+
+    public function setSlugAttribute($value)
+    {
+        if (self::whereSlug($slug = Str::slug($value))->exists()) {
+            $slug = $this->incrementSlug($slug);
+        }
+
+        $this->attributes['slug'] = $slug;
+    }
+
+    public function incrementSlug($slug) {
+        $original = $slug;
+        $count = 2;
+        while (static::whereSlug($slug)->exists()) {
+            $slug = "{$original}-" . $count++;
+        }
+
+        return $slug;
+    }
+
+    public function getCoverImageAttribute($value)
+    {
+        return $value ?? $this->category->default_cover_image;
     }
 
     public function user()
@@ -103,5 +92,25 @@ class Job extends Model
     public function city()
     {
         return $this->belongsTo(City::class);
+    }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
+
+    public function package()
+    {
+        return $this->belongsTo(Package::class);
+    }
+
+    public function workType()
+    {
+        return $this->belongsTo(WorkType::class);
+    }
+
+    public function gender()
+    {
+        return $this->belongsTo(Gender::class);
     }
 }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->tinyInteger('expire_day');
             $table->float('price');
+            $table->boolean('is_highlighted')->nullable();
 
             $table->timestamps();
         });

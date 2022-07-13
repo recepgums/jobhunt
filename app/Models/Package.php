@@ -13,5 +13,6 @@ class Package extends Model
         'name',
         'expire_day',
         'price',
+        'is_highlighted',
     ];
 }

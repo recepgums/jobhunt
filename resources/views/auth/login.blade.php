@@ -2,24 +2,16 @@
 
 
 @section('content')
-
-    <section>
-        <div class="block no-padding  gray">
-            <div class="container">
+    <section class="overlape">
+        <div class="block no-padding">
+            <div data-velocity="-.1"
+                 style="background: url(https://place-hold.it/1600x800) repeat scroll 50% 422.28px transparent;"
+                 class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="inner2">
-                            <div class="inner-title2">
-                                <h3>Login</h3>
-                                <span>Keep up to date with the latest news</span>
-                            </div>
-                            <div class="page-breacrumbs">
-                                <ul class="breadcrumbs">
-                                    <li><a href="#" title="">Home</a></li>
-                                    <li><a href="#" title="">Pages</a></li>
-                                    <li><a href="#" title="">Login</a></li>
-                                </ul>
-                            </div>
+                        <div class="inner-header">
+                            <h3>Welcome Tera Planer</h3>
                         </div>
                     </div>
                 </div>
@@ -34,6 +26,9 @@
                     <div class="col-lg-12">
                         <div class="account-popup-area signin-popup-box static">
                             <div class="account-popup">
+                                @isset($error)
+                                    <div class="alert-danger">{{$error}}</div>
+                                @endisset
                                 <span>Lorem ipsum dolor sit amet consectetur adipiscing elit odio duis risus at lobortis ullamcorper</span>
                                 <form action="{{route('login.custom')}}" method="POST">
                                     @csrf
@@ -52,7 +47,8 @@
                                         <span class="text-danger">{{ $errors->first('password') }}</span>
                                     @endif
                                     <p class="remember-label">
-                                        <input type="checkbox" name="remember" id="cb1"><label for="cb1">Remember me</label>
+                                        <input type="checkbox" name="remember" id="cb1"><label for="cb1">Remember
+                                            me</label>
                                     </p>
                                     <a href="#" title="">Forgot Password?</a>
                                     <button type="submit">Login</button>

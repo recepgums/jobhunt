@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('model');
             $table->string('description')->nullable();
+            $table->string('default_cover_image')->nullable();
 
             $table->timestamps();
         });

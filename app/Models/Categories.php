@@ -14,6 +14,7 @@ class Categories extends Model
         'slug',
         'model',
         'description',
+        'default_cover_image',
     ];
 
     public function scopeForBlog($query)
@@ -24,5 +25,10 @@ class Categories extends Model
     public function scopeForJob($query)
     {
         return $query->where('model', Job::class);
+    }
+
+    public function scopeForEmployer($query)
+    {
+        return $query->where('model', Employer::class);
     }
 }

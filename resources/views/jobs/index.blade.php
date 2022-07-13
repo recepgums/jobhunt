@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="inner-header">
-                            <h3>Job List Modern</h3>
+                            <h3>İş İlanları</h3>
                         </div>
                     </div>
                 </div>
@@ -24,211 +24,216 @@
             <div class="container">
                 <div class="row no-gape">
                     <aside class="col-lg-3 column border-right">
-                        <div class="widget">
-                            <div class="search_widget_job">
-                                <div class="field_w_search">
-                                    <input type="text" placeholder="Search Keywords"/>
-                                    <i class="la la-search"></i>
-                                </div><!-- Search Widget -->
-                                <div class="field_w_search">
-                                    <input type="text" placeholder="All Locations"/>
-                                    <i class="la la-map-marker"></i>
-                                </div><!-- Search Widget -->
-                            </div>
-                        </div>
-                        <div class="widget">
-                            <h3 class="sb-title open">Date Posted</h3>
-                            <div class="posted_widget">
-                                <input type="radio" name="choose" id="232"><label for="232">Last Hour</label><br/>
-                                <input type="radio" name="choose" id="wwqe"><label for="wwqe">Last 24 hours</label><br/>
-                                <input type="radio" name="choose" id="erewr"><label for="erewr">Last 7 days</label><br/>
-                                <input type="radio" name="choose" id="qwe"><label for="qwe">Last 14 days</label><br/>
-                                <input type="radio" name="choose" id="wqe"><label for="wqe">Last 30 days</label><br/>
-                                <input type="radio" name="choose" id="qweqw"><label class="nm"
-                                                                                    for="qweqw">All</label><br/>
-                            </div>
-                        </div>
-                        <div class="widget">
-                            <h3 class="sb-title open">Job Type</h3>
-                            <div class="type_widget">
-                                <p class="flchek"><input type="checkbox" name="choosetype" id="33r"><label for="33r">Freelance
-                                        (9)</label></p>
-                                <p class="ftchek"><input type="checkbox" name="choosetype" id="dsf"><label for="dsf">Full
-                                        Time (8)</label></p>
-                                <p class="ischek"><input type="checkbox" name="choosetype" id="sdd"><label for="sdd">Internship
-                                        (8)</label></p>
-                                <p class="ptchek"><input type="checkbox" name="choosetype" id="sadd"><label for="sadd">Part
-                                        Time (5)</label></p>
-                                <p class="tpchek"><input type="checkbox" name="choosetype" id="assa"><label for="assa">Temporary
-                                        (5)</label></p>
-                                <p class="vtchek"><input type="checkbox" name="choosetype" id="ghgf"><label for="ghgf">Volunteer
-                                        (8)</label></p>
-                            </div>
-                        </div>
-                        <div class="widget">
-                            <h3 class="sb-title open">Specialism</h3>
-                            <div class="specialism_widget">
-                                <div class="field_w_search">
-                                    <input type="text" placeholder="Search Spaecialisms"/>
-                                </div><!-- Search Widget -->
-                                <div class="simple-checkbox scrollbar">
-                                    <p><input type="checkbox" name="spealism" id="as"><label for="as">Accountancy
-                                            (2)</label></p>
-                                    <p><input type="checkbox" name="spealism" id="asd"><label for="asd">Banking
-                                            (2)</label></p>
-                                    <p><input type="checkbox" name="spealism" id="errwe"><label for="errwe">Charity &
-                                            Voluntary (3)</label></p>
-                                    <p><input type="checkbox" name="spealism" id="fdg"><label for="fdg">Digital &
-                                            Creative (4)</label></p>
-                                    <p><input type="checkbox" name="spealism" id="sc"><label for="sc">Estate Agency
-                                            (3)</label></p>
-                                    <p><input type="checkbox" name="spealism" id="aw"><label for="aw">Graduate
-                                            (2)</label></p>
-                                    <p><input type="checkbox" name="spealism" id="ui"><label for="ui">IT Contractor
-                                            (7)</label></p>
-                                    <p><input type="checkbox" name="spealism" id="saas"><label for="saas">Charity &
-                                            Voluntary (3)</label></p>
-                                    <p><input type="checkbox" name="spealism" id="rrrt"><label for="rrrt">Digital &
-                                            Creative (4)</label></p>
-                                    <p><input type="checkbox" name="spealism" id="eweew"><label for="eweew">Estate
-                                            Agency (3)</label></p>
-                                    <p><input type="checkbox" name="spealism" id="bnbn"><label for="bnbn">Graduate
-                                            (2)</label></p>
-                                    <p><input type="checkbox" name="spealism" id="ffd"><label for="ffd">IT Contractor
-                                            (7)</label></p>
+                        <form action="{{route('job.index')}}" method="get">
+                            <div class="widget">
+                                <div class="search_widget_job">
+                                    @if(!request()->has('keyword'))
+                                        <div class="field_w_search">
+                                            <input type="text" name="keyword" placeholder="Ara..."/>
+                                            <i class="la la-search"></i>
+                                        </div>
+                                    @endif
+                                    <div class="field_w_search">
+                                        <select name="city_id" data-placeholder="Uzmanlık Seçin"
+                                                class="chosen" onchange="cityChangedMethod(this)">
+                                            <option value></option>
+                                            @forelse($cities as $city)
+                                                <option @if($selectedCity->id == $city->id) selected
+                                                        @endif value="{{$city->id}}">{{$city->name}}</option>
+                                            @empty
+                                            @endforelse
+                                        </select>
+                                    </div>
+                                    <div class="field_w_search" id="districtSelect">
+                                        <select name="district_id" data-placeholder="İlçe Seçin"
+                                                class="chosen-city district">
+                                            <option value></option>
+                                            @isset($selectedDistricts)
+                                                @forelse($selectedDistricts as $selectedDistrict)
+                                                    <option
+                                                        value="{{$selectedDistrict->id}}">{{$selectedDistrict->name}}</option>
+                                                @empty
+                                                @endforelse
+                                            @endisset
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="widget">
-                            <h3 class="sb-title closed">Offerd Salary</h3>
-                            <div class="specialism_widget">
-                                <div class="simple-checkbox">
-                                    <p><input type="checkbox" name="smplechk" id="1"><label for="1">10k - 20k</label>
-                                    </p>
-                                    <p><input type="checkbox" name="smplechk" id="2"><label for="2">20k - 30k</label>
-                                    </p>
-                                    <p><input type="checkbox" name="smplechk" id="3"><label for="3">30k - 40k</label>
-                                    </p>
-                                    <p><input type="checkbox" name="smplechk" id="4"><label for="4">40k - 50k</label>
-                                    </p>
+                            <div class="widget">
+                                <h3 class="sb-title open">İlan Tarihi</h3>
+                                <div class="posted_widget">
+                                    <input type="radio" name="created_at" value="24" id="wwqe"><label for="wwqe">Son 24
+                                        Saat</label><br/>
+                                    <input type="radio" name="created_at" value="168" id="erewr"><label for="erewr">Son
+                                        7 Gün</label><br/>
+                                    <input type="radio" name="created_at" value="336" id="qwe"><label for="qwe">Son 14
+                                        Gün</label><br/>
+                                    <input type="radio" name="created_at" value="720" id="wqe"><label for="wqe">Son 30
+                                        Gün</label><br/>
+                                    <input type="radio" name="created_at" id="qweqw"><label class="nm"
+                                                                                            for="qweqw">Hepsi</label><br/>
                                 </div>
                             </div>
-                        </div>
-                        <div class="widget">
-                            <h3 class="sb-title closed">Experince</h3>
-                            <div class="specialism_widget">
-                                <div class="simple-checkbox">
-                                    <p><input type="checkbox" name="smplechk" id="9"><label for="9">1Year to
-                                            2Year</label></p>
-                                    <p><input type="checkbox" name="smplechk" id="10"><label for="10">2Year to
-                                            3Year</label></p>
-                                    <p><input type="checkbox" name="smplechk" id="11"><label for="11">3Year to
-                                            4Year</label></p>
-                                    <p><input type="checkbox" name="smplechk" id="12"><label for="12">4Year to
-                                            5Year</label></p>
+                            <div class="widget">
+                                <h3 class="sb-title closed">Uzmanlığı</h3>
+                                <div class="specialism_widget">
+                                    <div class="simple-checkbox scrollbar">
+                                        @isset($categories)
+                                            @forelse($categories as $key => $category)
+                                                <p>
+                                                    <input type="checkbox" value="{{$category->id}}" name="category_id"
+                                                           id="categoty_{{$key}}">
+                                                    <label for="categoty_{{$key}}">{{$category->name}}</label>
+                                                </p>
+                                            @empty
+                                            @endforelse
+                                        @endisset
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="widget">
-                            <h3 class="sb-title closed">Gender</h3>
-                            <div class="specialism_widget">
-                                <div class="simple-checkbox">
-                                    <p><input type="checkbox" name="smplechk" id="13"><label for="13">Male</label></p>
-                                    <p><input type="checkbox" name="smplechk" id="14"><label for="14">Female</label></p>
-                                    <p><input type="checkbox" name="smplechk" id="15"><label for="15">Others</label></p>
+                            <div class="widget">
+                                <h3 class="sb-title closed">Maaş Aralığı</h3>
+                                <div class="specialism_widget">
+                                    <div class="simple-checkbox">
+                                        <p><input type="checkbox" name="sallary" value="0_5500" id="salary-3">
+                                            <label for="salary-3">0 - 5500 ₺</label>
+                                        </p>
+                                        <p><input type="checkbox" name="smplechk" value="5500_6500" id="salary-4">
+                                            <label for="salary-4">5500₺ - 6500₺</label>
+                                        </p>
+                                        <p><input type="checkbox" name="smplechk" value="6500_7500" id="salary-5">
+                                            <label for="salary-5">6500₺ - 7500₺</label>
+                                        </p>
+                                        <p><input type="checkbox" name="smplechk" value="7500_8500" id="salary-6">
+                                            <label for="salary-6">7500₺ - 8500₺</label>
+                                        </p>
+                                        <p><input type="checkbox" name="smplechk" value="8500_9500" id="salary-7">
+                                            <label for="salary-7">8500₺ - 9500₺</label>
+                                        </p>
+                                        <p><input type="checkbox" name="smplechk" value="9500_1000000" id="salary-8">
+                                            <label for="salary-8">9500₺ +</label>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="widget">
-                            <h3 class="sb-title closed">Industry</h3>
-                            <div class="specialism_widget">
-                                <div class="simple-checkbox">
-                                    <p><input type="checkbox" name="smplechk" id="16"><label for="16">Meezan Job</label>
-                                    </p>
-                                    <p><input type="checkbox" name="smplechk" id="17"><label for="17">Speicalize
-                                            Jobs</label></p>
-                                    <p><input type="checkbox" name="smplechk" id="18"><label for="18">Business
-                                            Jobs</label></p>
+
+                            <div class="widget">
+                                <h3 class="sb-title open">Çalışma Türü</h3>
+                                <div class="type_widget">
+                                    @forelse($workTypes as $key => $workType)
+                                        <p class="ftchek">
+                                            <input type="checkbox" value="{{$workType->id}}" name="work_type_id"
+                                                   id="33r{{$key}}">
+                                            <label for="33r{{$key}}">
+                                                {{$workType->name}}
+                                            </label>
+                                        </p>
+                                    @empty
+                                    @endforelse
                                 </div>
                             </div>
-                        </div>
-                        <div class="widget">
-                            <h3 class="sb-title closed">Qualification</h3>
-                            <div class="specialism_widget">
-                                <div class="simple-checkbox">
-                                    <p><input type="checkbox" name="smplechk" id="19"><label
-                                            for="19">Matriculation</label></p>
-                                    <p><input type="checkbox" name="smplechk" id="20"><label
-                                            for="20">Intermidiate</label></p>
-                                    <p><input type="checkbox" name="smplechk" id="21"><label for="21">Gradute</label>
-                                    </p>
+                            <div class="widget">
+                                <h3 class="sb-title closed">Cinsiyet</h3>
+                                <div class="specialism_widget">
+                                    <div class="simple-checkbox">
+                                        <p><input type="radio" value="1" name="gender_id" id="13"><label
+                                                for="13">Erkek</label></p>
+                                        <p><input type="radio" value="2" name="gender_id" id="14"><label
+                                                for="14">Kadın</label></p>
+                                        <p><input type="radio" value="" name="gender_id" id="15"><label
+                                                for="15">Hepsi</label></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="widget">
-                            <div class="subscribe_widget">
-                                <h3>Still Need Help ?</h3>
-                                <p>Let us now about your issue and a Professional will reach you out.</p>
-                                <form>
-                                    <input placeholder="Enter Valid Email Address" type="text">
-                                    <button type="submit"><i class="la la-paper-plane"></i></button>
-                                </form>
+                            <div class="widget">
+                                <button type="submit">Ara</button>
                             </div>
-                        </div>
+
+                            <div class="widget">
+                                <div class="subscribe_widget">
+                                    <h3>Sorunla mı karşılaşıyorsunuz?</h3>
+                                    <p>Sorununuz hakkında profesyonel çalışanlarımızın sizinle iletişime geçmesini
+                                        sağlayın.</p>
+                                    <form>
+                                        <input placeholder="Enter Valid Email Address" type="text">
+                                        <button type="submit"><i class="la la-paper-plane"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </form>
                     </aside>
                     <div class="col-lg-9 column">
                         <div class="modrn-joblist">
                             <div class="tags-bar">
-                                <span>Full Time<i class="close-tag">x</i></span>
-                                <span>UX/UI Design<i class="close-tag">x</i></span>
-                                <span>Istanbul<i class="close-tag">x</i></span>
+                                @isset($keywords)
+                                    @forelse($keywords as $keyword)
+                                        <span>{{$keyword}}<i class="close-tag">x</i></span>
+                                    @empty
+                                    @endforelse
+                                @endisset
                                 <div class="action-tags">
-                                    <a href="#" title=""><i class="la la-cloud-download"></i> Save</a>
-                                    <a href="#" title=""><i class="la la-trash-o"></i> Clean</a>
+                                    <a href="#" title=""><i class="la la-cloud-download"></i> Kaydet</a>
+                                    <a href="#" title=""><i class="la la-trash-o"></i> Temizle</a>
                                 </div>
                             </div><!-- Tags Bar -->
                             <div class="filterbar">
                                 <span class="emlthis"><a href="mailto:example.com" title=" "><i
-                                            class="la la-envelope-o"></i> Email me Jobs Like These</a></span>
+                                            class="la la-envelope-o"></i> Bu tarz ilanları bana mail olarak gönder</a></span>
                                 <div class="sortby-sec">
-                                    <span>Sort by</span>
+                                    <span>Sıralama</span>
                                     <select name="sort_by" data-placeholder="Most Recent" class="chosen">
-                                        <option value="recent">Most Recent</option>
-                                        <option value="view">Most Viewed</option>
+                                        <option value="recent">En Yeni</option>
+                                        <option value="view">En Çok Görüntülenen</option>
                                     </select>
                                     <select name="per_page" data-placeholder="20 Per Page" class="chosen">
-                                        <option value="30">30 Per Page</option>
-                                        <option value="40">40 Per Page</option>
-                                        <option value="50">50 Per Page</option>
-                                        <option value="60">60 Per Page</option>
+                                        <option value="30">Sayfa başı 10 iş ilanı</option>
+                                        <option value="40">Sayfa başı 20 iş ilanı</option>
+                                        <option value="50">Sayfa başı 30 iş ilanı</option>
+                                        <option value="60">Sayfa başı 50 iş ilanı</option>
                                     </select>
                                 </div>
-                                @if(isset($jobs) && $jobs->total() > 0 )<h5>{{$jobs->total()}} Jobs &
-                                    Vacancies</h5>@endif
+                                @if(isset($jobs) && $jobs->total() > 0 )<h5>{{$jobs->total()}} İş İlanı &
+                                    Açık Pozisyonlar</h5>@endif
                             </div>
                         </div><!-- MOdern Job LIst -->
                         <div class="job-list-modern">
                             <div class="job-listings-sec">
                                 @forelse($jobs as $job)
-{{--                                    {{$job}}--}}
                                     <div class="job-listing wtabs">
-                                        <div class="job-title-sec">
-                                            <div class="c-logo"><img src="{{$job->cover_image}}" alt=""/></div>
+                                        <div class="job-title-sec ">
+                                            <div class="c-logo mr-3 pl-3">
+                                                <img src="{{$job->cover_image}}" alt=""/>
+                                                <span class="job-is ft">{{$job->workType->name}}</span>
+                                            </div>
+
                                             <h3><a href="{{route('job.show',$job->slug)}}" title="">{{$job->title}}</a>
                                             </h3>
                                             <span>{{$job->user->name}}</span>
                                             <div class="job-lctn"><i
-                                                    class="la la-map-marker"></i>{{$job->district_id}},
-                                                California
+                                                    class="la la-map-marker"></i>{{optional($job->district)->name}},
+                                                {{optional($job->city)->name}}
                                             </div>
+
                                         </div>
                                         <div class="job-style-bx">
-                                            <span class="job-is ft">{{$job->type}}</span>
+                                            <a href="{{route('job.show',$job->slug)}}"><span class="job-is ft">Detayları Gör</span></a>
                                             <span class="fav-job"><i class="la la-heart-o"></i></span>
                                             <i>{{$job->created_at->diffForHumans()}}</i>
                                         </div>
                                     </div>
                                 @empty
+                                    <div class="container mx-auto text-center mt-5">
+                                        <span class="mx-auto text-center">
+                                            Aradığınız özelliklerde iş ilanı bulunamadı.
+                                        </span>
+                                    </div>
+                                    <div class="mx-auto text-center mt-5">
+                                        <a href="{{route(('job.index'))}}" class="post-job-btn"
+                                           style="float: initial"><i class="la la-plus"></i>
+                                            Tüm İş İlanlarını Gör
+                                        </a>
+                                    </div>
+
                                 @endforelse
                             </div>
                             {{$jobs->links('vendor.pagination.custom')}}
@@ -243,4 +248,30 @@
 @push('scripts')
 
     <script src="{{asset('assets/js/jquery.scrollbar.min.js')}}" type="text/javascript"></script>
+    <script>
+        function cityChangedMethod(element) {
+            let url = '{{ route("city.districts", ":city") }}';
+            url = url.replace(':city', element.value);
+
+            $.ajax({
+                url: url,
+                type: "GET",
+                success: function (response) {
+                    let html = '<select name="district_id" data-placeholder="İlçe Seçin" class="chosen-city">';
+
+                    $.each(response, function (key, value) {
+                        html += `<option value="${value.id}">${value.name}</option>`
+                    });
+
+                    html += '</select>';
+
+                    $("#districtSelect").html(html)
+
+                    $('.chosen-city').trigger("chosen:updated");
+                }
+            });
+        }
+
+    </script>
+
 @endpush

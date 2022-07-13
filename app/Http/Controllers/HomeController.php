@@ -39,7 +39,7 @@ class HomeController extends Controller
 
         $districts = $selectedCity?->districts;
 
-        return view('home', [
+        return view('pages.home', [
             'isHomepage' => true,
             'selectedCity' => $selectedCity,
             'districts' => $districts,

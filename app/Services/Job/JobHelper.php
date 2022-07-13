@@ -4,6 +4,7 @@ namespace App\Services\Job;
 
 use App\Models\Categories;
 use App\Models\City;
+use App\Models\District;
 use App\Models\Gender;
 use App\Models\Package;
 use App\Models\WorkType;
@@ -11,14 +12,14 @@ use Illuminate\Support\Facades\Cache;
 
 class JobHelper
 {
-    public function getJobCreateData():array
+    public function getJobCreateData($selectedCity = null):array
     {
         $workTypes = Cache::rememberForever('work_types', function () {
             return WorkType::all();
         });
 
         $categories = Cache::rememberForever('categories', function () {
-            return Categories::forJob()->get();
+            return Categories::query()->forJob()->get();
         });
 
         $genders = Cache::rememberForever('genders', function () {
@@ -33,6 +34,17 @@ class JobHelper
             return City::all();
         });
 
-        return [$workTypes, $categories, $genders, $jobPackages, $cities];
+        $districts = Cache::rememberForever('districts', function () {
+            return District::all();
+        });
+
+        $selectedDistricts = $selectedCity?->districts;
+
+        return [$workTypes, $categories, $genders, $jobPackages, $cities, $districts,$selectedDistricts];
+    }
+
+    public function getPackageData()
+    {
+        return Package::query()->select('id','name','expire_day','price')->get();
     }
 }
