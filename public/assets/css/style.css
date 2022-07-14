@@ -5655,8 +5655,8 @@ aside .widget.border:first-child {
     width: 100%;
     display: inherit;
     padding: 0;
-    margin-top: 30px;
-    margin-bottom: 40px;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 .job-single-head.style2 .job-head-info p {
     float: left;

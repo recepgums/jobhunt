@@ -27,18 +27,24 @@
                         <form action="{{route('job.index')}}" method="get">
                             <div class="widget">
                                 <div class="search_widget_job">
-                                    @if(!request()->has('keyword'))
-                                        <div class="field_w_search">
-                                            <input type="text" name="keyword" placeholder="Ara..."/>
-                                            <i class="la la-search"></i>
-                                        </div>
-                                    @endif
+                                    <div class="field_w_search">
+                                        <input type="text" name="keyword" value="{{request()->get('keyword')}}"
+                                               placeholder="Ara..."/>
+                                        <i class="la la-search"></i>
+                                    </div>
                                     <div class="field_w_search">
                                         <select name="city_id" data-placeholder="Uzmanlık Seçin"
                                                 class="chosen" onchange="cityChangedMethod(this)">
                                             <option value></option>
                                             @forelse($cities as $city)
-                                                <option @if($selectedCity->id == $city->id) selected
+                                                <option @if(request()->has('city_id'))
+                                                            @if(request()->get('city_id') == $city->id)
+                                                                selected
+                                                            @endif
+                                                        @else
+                                                                @if($selectedCity->id == $city->id)
+                                                                    selected
+                                                                @endif
                                                         @endif value="{{$city->id}}">{{$city->name}}</option>
                                             @empty
                                             @endforelse

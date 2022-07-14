@@ -8,7 +8,7 @@
                     <div class="col-lg-12">
                         <div class="main-featured-sec style2">
                             <ul class="main-slider-sec style2 text-arrows">
-                                <li class="slideHome"><img src="{{asset('assets/images/src/isci-bulma-sitesi.jpg')}}"
+                                <li class="slideHome"><img src="https://www.gidahatti.com/wp-content/uploads/2015/09/unilever-india.jpg"
                                                            alt=""/></li>
                                 <li class="slideHome"><img src="https://place-hold.it/300x500?text=Something%20Here"
                                                            alt=""/></li>
@@ -59,7 +59,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-lg2 col-md-2 col-sm-3">
-                                                    <button type="submit">FIND JOB <i class="la la-search"></i>
+                                                    <button type="submit">İŞ BUL <i class="la la-search"></i>
                                                     </button>
                                                 </div>
                                             </div>
@@ -135,10 +135,10 @@
                                                 </div>
                                                 <h3><a href="{{route('job.show',$job->slug)}}" title="">{{$job->title}}</a></h3>
                                                 <span>{{-- todo {{$category->name}}--}}</span>
-                                                <span class="fav-job"><i class="la la-heart-o"></i></span>
                                             </div>
                                             <span
-                                                class="job-lctn">neighborhood_id {{--{{todo $job->neighborhood->name}}--}}</span>
+                                                class="job-lctn">@if(optional($job->district)->name) {{$job->district->name}}
+                                                , @endif {{$job->city->name}}</span>
                                             <a href="{{route('job.show',$job->slug)}}" title="">Şimdi Başvur</a>
                                         </div><!-- JOB Grid -->
                                     </div>
@@ -150,6 +150,135 @@
                     <div class="col-lg-12">
                         <div class="browse-all-cat">
                             <a href="{{route('job.index')}}" title="" class="style2">Daha fazla iş ilanı görüntüleyin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="heading">
+                            <h2>Nasıl Çalışıyor</h2>
+                            <span class="text-left">Her ay, 850 kişiden fazla {{env('APP_TARGET_JOB_NAME')}}, {{env('APP_NAME')}} sayesinde iş ve işçi buluyor. İşi için gerekli olan tüm bağlantılar için bizi tercih ediyor. <br/> <br> {{env('APP_NAME')}} ile iş bulun
+                                ya da işinizi büyütün.
+							</span>
+                        </div><!-- Heading -->
+                        <div class="tab-sec">
+                            <ul class="nav nav-tabs my-5">
+                                <li><a class="current" data-tab="fjobs">İş Arıyorum</a></li>
+                                <li><a data-tab="rjobs">İşçi Arıyorum</a></li>
+                            </ul>
+                            <div id="fjobs" class="tab-content current my-5">
+                                <div class="how-to-sec">
+                                    <div class="how-to">
+                                        <span class="how-icon"><i class="la la-user"></i></span>
+                                        <h3>Hesap Oluşturun</h3>
+                                        <p>
+                                            İş ilanı verenler ile iletişime geçmek için hesap açın. Bilgilerinizi doğru girdiğinizden emin olun.
+                                        </p>
+                                    </div>
+                                    <div class="how-to">
+                                        <span class="how-icon"><i class="la la-file-archive-o"></i></span>
+                                        <h3>İş ilanlarını arayın</h3>
+                                        <p><a href="{{route('job.index')}}">İş ilanları</a> sayfasından size uygun iş ilanlarını inceleyin</p>
+                                    </div>
+                                    <div class="how-to">
+                                        <span class="how-icon"><i class="la la-list"></i></span>
+                                        <h3>İş ilanlarına başvurun</h3>
+                                        <p>İlan detaylarından, iş sahibinin numarasını arayın.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="rjobs" class="tab-content mt-5">
+                                <div class="job-listings-tabs">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="job-listing wtabs">
+                                                <div class="job-title-sec">
+                                                    <div class="c-logo"> <img src="https://place-hold.it/98x51" alt="" /> </div>
+                                                    <h3><a href="#" title="">Marketing Dairector</a></h3>
+                                                    <span>Massimo Artemisis</span>
+                                                    <div class="job-lctn"><i class="la la-map-marker"></i>Sacramento, California</div>
+                                                </div>
+                                                <div class="job-style-bx">
+                                                    <span class="job-is ft fill">Full time</span>
+                                                    <span class="fav-job"><i class="la la-heart-o"></i></span>
+                                                </div>
+                                            </div><!-- Job -->
+                                            <div class="job-listing wtabs">
+                                                <div class="job-title-sec">
+                                                    <div class="c-logo"> <img src="https://place-hold.it/98x51" alt="" /> </div>
+                                                    <h3><a href="#" title="">Application Developer</a></h3>
+                                                    <span>Massimo Artemisis</span>
+                                                    <div class="job-lctn"><i class="la la-map-marker"></i>Sacramento, California</div>
+                                                </div>
+                                                <div class="job-style-bx">
+                                                    <span class="job-is pt fill">Part time</span>
+                                                    <span class="fav-job"><i class="la la-heart-o"></i></span>
+                                                </div>
+                                            </div><!-- Job -->
+                                            <div class="job-listing wtabs">
+                                                <div class="job-title-sec">
+                                                    <div class="c-logo"> <img src="https://place-hold.it/98x51" alt="" /> </div>
+                                                    <h3><a href="#" title="">Social Media and Public</a></h3>
+                                                    <span>Massimo Artemisis</span>
+                                                    <div class="job-lctn"><i class="la la-map-marker"></i>Sacramento, California</div>
+                                                </div>
+                                                <div class="job-style-bx">
+                                                    <span class="job-is fl fill">Freelance</span>
+                                                    <span class="fav-job"><i class="la la-heart-o"></i></span>
+                                                </div>
+                                            </div><!-- Job -->
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="job-listing wtabs">
+                                                <div class="job-title-sec">
+                                                    <div class="c-logo"> <img src="https://place-hold.it/98x51" alt="" /> </div>
+                                                    <h3><a href="#" title="">Web Designer / Developer</a></h3>
+                                                    <span>Massimo Artemisis</span>
+                                                    <div class="job-lctn"><i class="la la-map-marker"></i>Sacramento, California</div>
+                                                </div>
+                                                <div class="job-style-bx">
+                                                    <span class="job-is ft fill">Full time</span>
+                                                    <span class="fav-job"><i class="la la-heart-o"></i></span>
+                                                </div>
+                                            </div><!-- Job -->
+                                            <div class="job-listing wtabs">
+                                                <div class="job-title-sec">
+                                                    <div class="c-logo"> <img src="https://place-hold.it/98x51" alt="" /> </div>
+                                                    <h3><a href="#" title="">C Developer (Senior) C .Net</a></h3>
+                                                    <span>Massimo Artemisis</span>
+                                                    <div class="job-lctn"><i class="la la-map-marker"></i>Sacramento, California</div>
+                                                </div>
+                                                <div class="job-style-bx">
+                                                    <span class="job-is pt fill">Part time</span>
+                                                    <span class="fav-job"><i class="la la-heart-o"></i></span>
+                                                </div>
+                                            </div><!-- Job -->
+                                            <div class="job-listing wtabs">
+                                                <div class="job-title-sec">
+                                                    <div class="c-logo"> <img src="https://place-hold.it/98x51" alt="" /> </div>
+                                                    <h3><a href="#" title="">Regional Sales Manager South</a></h3>
+                                                    <span>Massimo Artemisis</span>
+                                                    <div class="job-lctn"><i class="la la-map-marker"></i>Sacramento, California</div>
+                                                </div>
+                                                <div class="job-style-bx">
+                                                    <span class="job-is ft fill">Full time</span>
+                                                    <span class="fav-job"><i class="la la-heart-o"></i></span>
+                                                </div>
+                                            </div><!-- Job -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="browse-all-cat">
+                                <a href="#" title="" class="style2">Load more listings</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -297,58 +426,6 @@
         </div>
     </section>
 
-    <section>
-        <div class="block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="heading">
-                            <h2>Kind Words From Happy Candidates</h2>
-                            <span>What other people thought about the service provided by JobHunt</span>
-                        </div><!-- Heading -->
-                        <div class="reviews-sec" id="reviews">
-                            <div class="col-lg-12">
-                                <div class="reviews style2">
-                                    <img src="https://place-hold.it/101x101" alt=""/>
-                                    <h3>Augusta Silva <span>Web designer</span></h3>
-                                    <p>Without JobHunt i’d be homeless, they found me a job and got me sorted out
-                                        quickly with everything! Can’t quite believe the service level that they
-                                        offer!</p>
-                                </div><!-- Reviews -->
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="reviews style2">
-                                    <img src="https://place-hold.it/101x101" alt=""/>
-                                    <h3>Ali Tufan <span>Web designer</span></h3>
-                                    <p>Without JobHunt i’d be homeless, they found me a job and got me sorted out
-                                        quickly with everything! Can’t quite believe the service level that they
-                                        offer!</p>
-                                </div><!-- Reviews -->
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="reviews style2">
-                                    <img src="https://place-hold.it/101x101" alt=""/>
-                                    <h3>Augusta Silva <span>Web designer</span></h3>
-                                    <p>Without JobHunt i’d be homeless, they found me a job and got me sorted out
-                                        quickly with everything! Can’t quite believe the service level that they
-                                        offer!</p>
-                                </div><!-- Reviews -->
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="reviews style2">
-                                    <img src="https://place-hold.it/101x101" alt=""/>
-                                    <h3>Ali Tufan <span>Web designer</span></h3>
-                                    <p>Without JobHunt i’d be homeless, they found me a job and got me sorted out
-                                        quickly with everything! Can’t quite believe the service level that they
-                                        offer!</p>
-                                </div><!-- Reviews -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section>
         <div class="block gray">
@@ -397,72 +474,6 @@
         </div>
     </section>
 
-    <section>
-        <div class="block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="heading">
-                            <h2>Buy Our Plans And Packeges</h2>
-                            <span>One of our jobs has some kind of flexibility option - such as telecommuting, a part-time schedule or a flexible or flextime schedule.</span>
-                        </div><!-- Heading -->
-                        <div class="plans-sec">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="pricetable">
-                                        <div class="pricetable-head">
-                                            <h3>Basic Jobs</h3>
-                                            <h2><i>$</i>10</h2>
-                                            <span>15 Days</span>
-                                        </div><!-- Price Table -->
-                                        <ul>
-                                            <li>1 job posting</li>
-                                            <li>0 featured job</li>
-                                            <li>Job displayed for 20 days</li>
-                                            <li>Premium Support 24/7</li>
-                                        </ul>
-                                        <a href="#" title="">BUY NOW</a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="pricetable active">
-                                        <div class="pricetable-head">
-                                            <h3>Standard Jobs</h3>
-                                            <h2><i>$</i>45</h2>
-                                            <span>20 Days</span>
-                                        </div><!-- Price Table -->
-                                        <ul>
-                                            <li>11 job posting</li>
-                                            <li>12 featured job</li>
-                                            <li>Job displayed for 30 days</li>
-                                            <li>Premium Support 24/7</li>
-                                        </ul>
-                                        <a href="#" title="">BUY NOW</a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="pricetable">
-                                        <div class="pricetable-head">
-                                            <h3>Golden Jobs</h3>
-                                            <h2><i>$</i>80</h2>
-                                            <span>2 Month</span>
-                                        </div><!-- Price Table -->
-                                        <ul>
-                                            <li>44 job posting</li>
-                                            <li>56 featured job</li>
-                                            <li>Job displayed for 80 days</li>
-                                            <li>Premium Support 24/7</li>
-                                        </ul>
-                                        <a href="#" title="">BUY NOW</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section>
         <div class="block gray">

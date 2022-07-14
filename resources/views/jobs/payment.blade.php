@@ -38,9 +38,11 @@
                                         </li>
                                         <li><a href="employer_packages.html" title=""><i class="la la-user"></i>Packages</a>
                                         </li>
-                                        <li><a href="employer_post_new.html" title=""><i class="la la-file-text"></i>Post a
+                                        <li><a href="employer_post_new.html" title=""><i class="la la-file-text"></i>Post
+                                                a
                                                 New Job</a></li>
-                                        <li><a href="employer_job_alert.html" title=""><i class="la la-flash"></i>Job Alerts</a>
+                                        <li><a href="employer_job_alert.html" title=""><i class="la la-flash"></i>Job
+                                                Alerts</a>
                                         </li>
                                         <li><a href="employer_change_password.html" title=""><i class="la la-lock"></i>Change
                                                 Password</a></li>
@@ -69,18 +71,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="profile-form-edit mb-5 " id="step_1_div" >
+                            <div class="profile-form-edit mb-5 " id="step_1_div">
                                 @if ($errors->any())
                                     @foreach ($errors->all() as $error)
                                         <div class="alert-danger">{{$error}}</div>
                                     @endforeach
                                 @endif
 
-                                    5890040000000016
+                                5890040000000016
                                 <div class="text-center alert" id="responseMessageJobPost"></div>
-                               {!! $form !!}
-                                    <div id="iyzipay-checkout-form" class="responsive my-5"></div>
-                                    <div id="ucs-cards"></div>
+                                {!! $form !!}
+                                <div id="iyzipay-checkout-form" class="responsive my-5"></div>
+                                <div id="ucs-cards"></div>
                             </div>
                         </div>
                     </div>
@@ -96,6 +98,6 @@
     <script src="{{asset('assets/js/jquery.scrollbar.min.js')}}" type="text/javascript"></script>
 
     <script src="{{asset('assets/js/tag.js')}}" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap-datepicker.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap-datepicker.css')}}"/>
     <script src="{{asset('assets/js/bootstrap-datepicker.js')}}" type="text/javascript"></script>
 @endpush

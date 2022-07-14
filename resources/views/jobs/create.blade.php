@@ -1,5 +1,20 @@
 @extends('layout.app')
+@push('styles')
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea',
+            height: 600,
+            plugins: [
+                'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+                'table emoticons template paste help'
+            ],
+            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons',
 
+        });
+    </script>
+    @endpush
 
 @section('content')
     <section class="overlape">
@@ -95,7 +110,8 @@
                                         <div class="col-lg-12">
                                             <span class="pf-title">Açıklama</span>
                                             <div class="pf-field">
-                                                <textarea name="description" placeholder="İlan detayları..."></textarea>
+                                                <textarea id="mytextarea"  name="description" placeholder="İlan detayları..." cols="30"
+                                                          rows="10"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">

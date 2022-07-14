@@ -29,15 +29,15 @@
                     <a href="{{route('homepage')}}" title="">Anasayfa</a>
                 </li>
                 <li><a href="{{route('job.index')}}" title="">İş İlanları</a></li>
-                <li class="menu-item-has-children">
+               {{-- <li class="menu-item-has-children">
                     <a href="{{route('candidates.index')}}" title="">İş Arayanlar</a>
-                </li>
+                </li>--}}
                 <li class="menu-item-has-children">
                     <a href="{{route('blog.index')}}" title="">Blog</a>
-                </li>
+                </li>{{--
                 <li>
                     <a href="{{route('employer.index')}}" title="">İşverenler</a>
-                </li>
+                </li>--}}
             </ul>
         </div>
     </div>
@@ -73,18 +73,18 @@
                     </li>
                     <li>
                         <a href="{{route('job.index')}}" title="">İş İlanları</a>
-                    </li>
+                    </li>{{--
                     <li>
                         <a href="{{route('candidates.index')}}" title="">İş Arayanlar</a>
-                    </li>
+                    </li>--}}
                     <li>
                         <a href="{{route('blog.index')}}" title="">Blog</a>
-                    </li>
+                    </li>{{--
                     <li>
                         <a href="{{route('employer.index')}}" title="">İşverenler</a>
-                    </li>
+                    </li>--}}
                 </ul>
-            </nav><!-- Menus -->
+            </nav>
         </div>
     </div>
 </header>

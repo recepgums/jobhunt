@@ -47,8 +47,8 @@ class JobFilterService
     {
         if ($this->request->get('keyword')) {
             $this->jobs = $this->jobs->where(function ($query) {
-                $query->whereRaw("UPPER('description') LIKE '%'" . $this->request->get('keyword') . "'%'");
-                $query->orWhereRaw("UPPER('title') LIKE '%'" . $this->request->get('keyword') . "'%'");
+                $query->whereRaw('LOWER(`title`) LIKE ? ',[trim(strtolower($this->request->get('keyword'))).'%']);
+                $query->orWhereRaw('LOWER(`description`) LIKE ? ',[trim(strtolower($this->request->get('keyword'))).'%']);
             });
         }
     }
@@ -72,8 +72,8 @@ class JobFilterService
     private function filterBySallary()
     {
         if ($this->request->get('sallary')) {
-            sallary_to_min_max_sallary($this->request->get('sallary'));
-            $this->jobs = $this->jobs->where('category_id', $this->request->get('category_id'));
+            [$min,$max] = sallary_to_min_max_sallary($this->request->get('sallary'));
+            $this->jobs = $this->jobs->whereBetween('fee',[$min, $max]);
         }
     }
 }

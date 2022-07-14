@@ -65,7 +65,7 @@ class JobController extends Controller
             'districts' => $districts,
             'selectedCity' => $this->city,
             'selectedDistricts' => $selectedDistricts,
-            ]);
+        ]);
     }
 
     public function create(JobHelper $jobHelper)
@@ -181,7 +181,7 @@ class JobController extends Controller
             'package_id' => $package->id,
         ]);
 
-        return redirect()->route('job.payment',$job);
+        return redirect()->route('job.payment', $job);
     }
 
     public function payment(Job $job)
@@ -195,6 +195,14 @@ class JobController extends Controller
             'expire_date' => now()->addDays($job->package->expire_day)->toDateTimeString(),
         ];
 
+        if ($product['price'] <= 0) {
+            $job->status = Job::STATUS['published'];
+            $job->published_until_at = now()->addDays($job->package->expire_day)->toDateTimeString();
+            $job->save();
+
+            return view('jobs.show', ['job' => $job]);
+        }
+
         $payment = (new omgIyzicoPayment(auth()->user(), $product))
             ->createIyzicoPaymentForm();
 
@@ -205,9 +213,9 @@ class JobController extends Controller
 
     public function receiveIyzicoPaymentForm()
     {
-        if( (new omgIyzicoPayment(auth()->user(), $this->product))->receiveIyzicoPaymentForm()){
-            $payment = OmgPayTransactions::query()->where('user_id',auth()->id())
-                ->where('status','success')
+        if ((new omgIyzicoPayment(auth()->user(), $this->product))->receiveIyzicoPaymentForm()) {
+            $payment = OmgPayTransactions::query()->where('user_id', auth()->id())
+                ->where('status', 'success')
                 ->orderByDesc('updated_at')
                 ->first();
 
@@ -217,14 +225,19 @@ class JobController extends Controller
             $job->published_until_at = now()->addDays($job->package->expire_day)->toDateTimeString();
             $job->save();
 
-            return view('jobs.result')->with(['success' => 'Ödemeniz başarıyla alınmıştır.','job' => $job]);
+            return view('jobs.result')->with(['success' => 'Ödemeniz başarıyla alınmıştır.', 'job' => $job]);
         }
 
-        $payment = OmgPayTransactions::query()->where('user_id',auth()->id())
-            ->where('status','!=','success')
+        $payment = OmgPayTransactions::query()->where('user_id', auth()->id())
+            ->where('status', '!=', 'success')
             ->orderByDesc('updated_at')
             ->first();
 
         return view('jobs.result')->with(['error' => $payment->status_detail]);
+    }
+
+    public function getContactInfo(Job $job)
+    {
+        return $job->user()->select('phone','email','name')->first();
     }
 }

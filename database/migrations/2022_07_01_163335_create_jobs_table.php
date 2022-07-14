@@ -26,12 +26,11 @@ return new class extends Migration {
 
 
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->string('slug')->unique()->index();
             $table->string('cover_image')->nullable();
 
             $table->integer('fee')->nullable();
-            $table->integer('currency_id')->nullable();
 
             $table->tinyInteger('level')->comment('1=> cirak,2=>kalfa 3 usta')->nullable()->index();
 //            $table->tinyInteger('qualification')->comment('universite mezunu lise mezunu')->nullable()->index();

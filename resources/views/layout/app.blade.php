@@ -56,7 +56,7 @@
 <script>
     $('#loginForm').on('submit', function (e) {
         e.preventDefault();
-        $('#loginSubmitButton').attr('disabled' , true);
+        $('#loginSubmitButton').attr('disabled', true);
 
         let email = $('#emailInput').val();
         let password = $('#passwordInput').val();
@@ -70,37 +70,37 @@
                 password: password,
             },
             success: function (response) {
-                $('#responseMessage').css('color','green').text("Giriş Başarılı");
-                $('#loginSubmitButton').attr('disabled' , false);
-                setTimeout(function (){
+                $('#responseMessage').css('color', 'green').text("Giriş Başarılı");
+                $('#loginSubmitButton').attr('disabled', false);
+                setTimeout(function () {
                     $('.signin-popup-box').fadeOut('fast');
                     $('html').removeClass('no-scroll');
                     window.location.reload();
-                },1500)
+                }, 1500)
             },
             error: function (response) {
                 console.log()
                 let errors = response?.responseJSON?.errors
 
                 let errorMessages = "";
-               if(errors){
-                   for (const [key, value] of Object?.entries(errors)) {
-                       console.log(`${key}: ${value}`);
-                       errorMessages+=value + " \n";
-                   }
-               }else{
-                   errorMessages += response?.responseJSON?.message
-               }
+                if (errors) {
+                    for (const [key, value] of Object?.entries(errors)) {
+                        console.log(`${key}: ${value}`);
+                        errorMessages += value + " \n";
+                    }
+                } else {
+                    errorMessages += response?.responseJSON?.message
+                }
 
-                $('#responseMessage').css('color','red').text(errorMessages);
-                $('#loginSubmitButton').attr('disabled' , false);
+                $('#responseMessage').css('color', 'red').text(errorMessages);
+                $('#loginSubmitButton').attr('disabled', false);
             },
         });
     });
 
     $('#signupForm').on('submit', function (e) {
         e.preventDefault();
-        $('#signupSubmitButton').attr('disabled' , true);
+        $('#signupSubmitButton').attr('disabled', true);
 
         let name = $('#nameRegisterInput').val();
         let email = $('#emailRegisterInput').val();
@@ -119,35 +119,37 @@
                 type: userType,
             },
             success: function (response) {
-                $('#responseMessage').css('color','green').text("Giriş Başarılı");
-                $('#loginSubmitButton').attr('disabled' , false);
-                setTimeout(function (){
+                $('#responseMessage').css('color', 'green').text("Giriş Başarılı");
+                $('#loginSubmitButton').attr('disabled', false);
+                setTimeout(function () {
                     $('.signin-popup-box').fadeOut('fast');
                     $('html').removeClass('no-scroll');
                     window.location.reload();
-                },1500)
+                }, 1500)
             },
             error: function (response) {
                 console.log()
                 let errors = response?.responseJSON?.errors
 
                 let errorMessages = "";
-                if(errors){
+                if (errors) {
                     for (const [key, value] of Object?.entries(errors)) {
                         console.log(`${key}: ${value}`);
-                        errorMessages+=value + " \n";
+                        errorMessages += value + " \n";
                     }
-                }else{
+                } else {
                     errorMessages += response?.responseJSON?.message
                 }
 
-                $('#responseMessage').css('color','red').text(errorMessages);
-                $('#loginSubmitButton').attr('disabled' , false);
+                $('#responseMessage').css('color', 'red').text(errorMessages);
+                $('#loginSubmitButton').attr('disabled', false);
             },
         });
     });
 
-
+    setTimeout(function () {
+        $('.tox-notifications-container').hide()
+    }, 1000)
 
 
 </script>

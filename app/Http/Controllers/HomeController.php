@@ -28,7 +28,7 @@ class HomeController extends Controller
                 $query->where('city_id', $selectedCity->id);
             })
             ->orderBy('published_until_at', 'desc')
-            ->limit(6)
+            ->limit(3)
             ->get();
 
         $blogs = Blog::query()->inRandomOrder()->limit(3)->get();

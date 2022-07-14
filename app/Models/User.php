@@ -18,6 +18,7 @@ class User extends Authenticatable
         'password',
         'phone',
         'candidate_id',
+        'profile_image_url',
         'employer_id',
         'token',
     ];

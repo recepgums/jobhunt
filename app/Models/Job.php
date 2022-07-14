@@ -76,7 +76,7 @@ class Job extends Model
 
     public function getCoverImageAttribute($value)
     {
-        return $value ?? $this->category->default_cover_image;
+        return $value ?? optional($this->category)->default_cover_image;
     }
 
     public function user()
@@ -112,5 +112,10 @@ class Job extends Model
     public function gender()
     {
         return $this->belongsTo(Gender::class);
+    }
+
+    public function employer()
+    {
+        return Employer::where('user_id',$this->user->id)->first();
     }
 }
