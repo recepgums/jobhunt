@@ -38,13 +38,13 @@
                                             <option value></option>
                                             @forelse($cities as $city)
                                                 <option @if(request()->has('city_id'))
-                                                            @if(request()->get('city_id') == $city->id)
-                                                                selected
-                                                            @endif
+                                                        @if(request()->get('city_id') == $city->id)
+                                                        selected
+                                                        @endif
                                                         @else
-                                                                @if($selectedCity->id == $city->id)
-                                                                    selected
-                                                                @endif
+                                                        @if($selectedCity->id == $city->id)
+                                                        selected
+                                                        @endif
                                                         @endif value="{{$city->id}}">{{$city->name}}</option>
                                             @empty
                                             @endforelse
@@ -155,7 +155,7 @@
                                 <button type="submit">Ara</button>
                             </div>
 
-                            <div class="widget">
+                            <div class="widget" style="position: absolute;bottom: 10%;right: 5%;">
                                 <div class="subscribe_widget">
                                     <h3>Sorunla mı karşılaşıyorsunuz?</h3>
                                     <p>Sorununuz hakkında profesyonel çalışanlarımızın sizinle iletişime geçmesini
@@ -177,14 +177,22 @@
                                     @empty
                                     @endforelse
                                 @endisset
-                                <div class="action-tags">
-                                    <a href="#" title=""><i class="la la-cloud-download"></i> Kaydet</a>
-                                    <a href="#" title=""><i class="la la-trash-o"></i> Temizle</a>
-                                </div>
+                                @auth
+                                    <div class="action-tags">
+                                        <a href="#" title=""><i class="la la-cloud-download"></i> Kaydet</a>
+                                        <a href="#" title=""><i class="la la-trash-o"></i> Temizle</a>
+                                    </div>
+                                @endauth
                             </div><!-- Tags Bar -->
                             <div class="filterbar">
-                                <span class="emlthis"><a href="mailto:example.com" title=" "><i
-                                            class="la la-envelope-o"></i> Bu tarz ilanları bana mail olarak gönder</a></span>
+                                @auth
+                                    <span class="emlthis">
+                                        <a href="mailto:example.com" title=" ">
+                                            <i class="la la-envelope-o"></i>
+                                            Bu tarz ilanları bana mail olarak gönder
+                                        </a>
+                                    </span>
+                                @endauth
                                 <div class="sortby-sec">
                                     <span>Sıralama</span>
                                     <select name="sort_by" data-placeholder="Most Recent" class="chosen">

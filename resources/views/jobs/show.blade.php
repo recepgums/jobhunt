@@ -11,8 +11,12 @@
             <div class="container fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="inner-header">
+                        <div class="inner-header d-none d-md-block">
                             <h3>{{$job->employer()?->company_name}}</h3>
+                        </div>
+
+                        <div class="inner-header d-block d-md-none" >
+                            <h3 style="width: 100%;float: initial" class="mx-auto">{{$job->employer()?->company_name}}</h3>
                         </div>
                     </div>
                 </div>
@@ -108,10 +112,10 @@
                             @endauth
 
                             @guest
-                                <a href="{{route(' ')}}" title="" class="apply-job-btn"
-                                   style="cursor: pointer;min-width: 250px;"><i
+                                <a href="{{route('register-user')}}" title="" class="apply-job-btn"
+                                   style="cursor: pointer;padding: 20px 0px"><i
                                         class="la la-paper-plane"></i>
-                                    İletişim Bilgilerini Görüntüle guest
+                                    İletişim Bilgilerini Görüntüle
                                 </a>
                             @endguest
                             <a href="{{route('job.index')}}" title="" class="viewall-jobs">Tüm İş İlanlarını Gör</a>

@@ -12,6 +12,7 @@ use App\Services\Job\JobFilterService;
 use App\Services\Job\JobHelper;
 use App\Services\StorageService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Omgtheking\OmgIyzicoPayment\Models\OmgPayTransactions;
@@ -125,6 +126,12 @@ class JobController extends Controller
 
     public function show(Job $job)
     {
+        if (!auth()->check() || auth()->id() !== $job->user->id){
+            if (!Cache::has(\request()->ip().$job->slug)){
+                $job->increment('view_counter');
+            }
+        }
+
         return view('jobs.show', ['job' => $job]);
     }
 

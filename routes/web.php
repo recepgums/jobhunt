@@ -5,6 +5,8 @@ use App\Http\Controllers;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('homepage');
 Route::view('contact', 'pages.contact')->name('contact');
+Route::view('how-it-works', 'pages.how_it_works')->name('how_it_works');
+Route::view('terms', 'pages.term_conditions')->name('terms');
 
 Route::get('dashboard', [Controllers\CustomAuthController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('login', [Controllers\CustomAuthController::class, 'index'])->name('login');

@@ -1,6 +1,6 @@
 <div class="responsive-header">
     <div class="responsive-menubar">
-        <div class="res-logo"><a href="{{route('homepage')}}" title=""><img src="https://place-hold.it/178x40" alt=""/></a>
+        <div class="res-logo"><a href="{{route('homepage')}}" title=""><img src="{{asset('assets/images/logo.png')}}" alt=""/></a>
         </div>
         <div class="menu-resaction">
             <div class="res-openmenu">
@@ -47,7 +47,9 @@
     <div class="menu-sec">
         <div class="container fluid">
             <div class="logo">
-                <a href="{{route('homepage')}}" title=""><img src="https://place-hold.it/178x40" alt=""/></a>
+                <a href="{{route('homepage')}}" title="">
+                    <img style="width: 100px" src="{{asset('assets/images/logo.png')}}" alt=""/>
+                </a>
             </div><!-- Logo -->
             <div class="btn-extars">
                 <a href="{{route('job.create')}}" title="" class="post-job-btn"><i class="la la-plus"></i>İş İlanı

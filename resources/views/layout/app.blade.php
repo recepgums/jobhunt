@@ -24,7 +24,7 @@
 
 <div class="page-loading">
     <img src="{{asset('assets/images/loader.gif')}}" alt=""/>
-    <span>Skip Loader</span>
+    <span>Yükleyiciyi Atla</span>
 </div>
 
 <div class="theme-layout" id="scrollup">

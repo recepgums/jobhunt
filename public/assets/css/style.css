@@ -316,7 +316,7 @@ button{
     width: 14px;
     height: 14px;
     background: none;
-    border: 2px solid #ffffff;
+    border: 2px solid red;
 
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -349,7 +349,7 @@ button{
 }
 .slick-dots li.slick-active button {
     opacity: 1;
-    background: #ffffff;
+    background: red;
 }
 .slick-prev, .slick-next {
     background: none;
@@ -5681,7 +5681,7 @@ aside .widget.border:first-child {
 .apply-job-btn {
     background: #fb236a;
     font-family: Open Sans;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: bold;
     color: #ffffff;
     padding: 20px 0;
@@ -11167,7 +11167,7 @@ footer.ft .scrollup {
 .browse-all-cat.green a:hover {
     background: #7dc246;
 }
-.job-field.with-icon.nolbel input {
+.job-field.with-icon.nolbel select {
     margin: 41px 0;
 }
 .browse-all-cat .style2.noradius {

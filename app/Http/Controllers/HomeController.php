@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\City;
 use App\Models\Job;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Stevebauman\Location\Facades\Location;
 
 class HomeController extends Controller
@@ -23,12 +24,17 @@ class HomeController extends Controller
     {
         $selectedCity = $this->city ?? null;
 
-        $recentJobs = Job::query()->listable()
+        $locationRecentJobs = Job::query()->listable()
             ->when($selectedCity, function ($query) use ($selectedCity) {
                 $query->where('city_id', $selectedCity->id);
             })
             ->orderBy('published_until_at', 'desc')
-            ->limit(3)
+            ->limit(6)
+            ->get();
+
+        $recentJobs = Job::query()->listable()
+            ->orderBy('published_until_at', 'desc')
+            ->limit(2)
             ->get();
 
         $blogs = Blog::query()->inRandomOrder()->limit(3)->get();
@@ -38,6 +44,13 @@ class HomeController extends Controller
         });
 
         $districts = $selectedCity?->districts;
+        $opePositionCategoriesWithCount = Job::listable()
+            ->whereNotNull('category_id')
+            ->limit(5)
+            ->groupBy('category_id')
+            ->select('category_id', DB::raw('count(*) as total'))
+            ->with('category')
+            ->get();
 
         return view('pages.home', [
             'isHomepage' => true,
@@ -45,7 +58,9 @@ class HomeController extends Controller
             'districts' => $districts,
             'blogs' => $blogs,
             'cities' => $cities,
-            'recentJobs' => $recentJobs
+            'opePositionCategoriesWithCount' => $opePositionCategoriesWithCount,
+            'recentJobs' => $recentJobs,
+            'locationRecentJobs' => $locationRecentJobs,
         ]);
     }
 }
