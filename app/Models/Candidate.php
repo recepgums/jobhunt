@@ -12,20 +12,27 @@ class Candidate extends Model
 
     protected $fillable = [
         'user_id',
-        'profile_image_url',
+        'city_id',
+        'description',
         'is_searchable',
-        'minimum_salary',
+        'expected_salary',
         'maximum_salary',
         'experience_year',
         'age',
-        'description',
-        'facebook_url',
-        'linkedin_url',
-        'website_url',
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    public function categories()
+    {
+        return $this->hasMany(CandidateCategory::class,'candidate_id');
     }
 }

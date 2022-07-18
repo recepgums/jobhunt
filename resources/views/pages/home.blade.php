@@ -45,7 +45,7 @@
                                                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                                                     <div class="job-field">
                                                         <label>Şehir</label>
-                                                        <select data-placeholder="İlçe" name="district_id"
+                                                        <select data-placeholder="İlçe" name="district_id[]"
                                                                 class="chosen-city" id="districtSelect">
                                                             <option value selected></option>
                                                             @forelse($districts as $district)
@@ -76,34 +76,93 @@
 
             <div class="container">
                 <div class="row">
+                <div class="col">
                     <div class="col-lg-9 column">
                         <div class="heading left">
-                            <h2>Şehrinizdeki iş ilanları</h2>
-                        </div><!-- Heading -->
-                        <div class="job-listings-sec style2">
-                            @forelse($locationRecentJobs as $job)
-                            <div class="job-listing">
-                                <div class="job-title-sec">
-                                    <div class="c-logo">
-                                        <img src="{{$job->cover_image ?? 'https://place-hold.it/235x115'}}"
-                                             alt="{{$job->title}}"/>
+                            <h2>{{ucfirst(strtolower($selectedCity->name))}} 'da ki ilanlar</h2>
+
+                            <div class="tab-sec">
+                                <ul class="nav nav-tabs my-5 text-left " style="height: 28px">
+                                    <li><a class="current" data-tab="job_nav">İş ilanları</a></li>
+                                    <li><a data-tab="rjobsa">Dükkan ilanları</a></li>
+                                    <li><a data-tab="rjobsa">Dükkan ilanları</a></li>
+                                </ul>
+                                <br>
+                                <div style="width: 100%; height: 1px;background-color: gray;width: 133%"></div>
+                                <div id="job_nav" class="tab-content current my-5 bg-white">
+                                    <div class="job-listings-sec style2" style="padding-top: 15px">
+                                        @forelse($locationRecentJobs as $job)
+                                            <div style="width: 133%" class="job-listing text-left">
+                                                <div class="row">
+                                                    <div class="col-md-9 job-title-sec">
+                                                        <div class="c-logo">
+                                                            <img src="{{$job->cover_image ?? 'https://place-hold.it/235x115'}}"
+                                                                 alt="{{$job->title}}"/>
+                                                        </div>
+                                                        <h3 class="px-2">
+                                                            <a href="{{route('job.show',$job->slug)}}" >
+                                                                {{$job->title}}
+                                                            </a>
+                                                        </h3>
+                                                        <div class="col text-left">
+                                                           <div class="row">
+                                                               <div class="col-sm">
+                                                                   <p class="job-lctn pl-2">
+                                                                       @if(optional($job->district)->name)
+                                                                           {{$job->district->name}}
+                                                                       @endif
+                                                                       {{$job->city->name}}
+                                                                   </p>
+                                                               </div>
+                                                               <div class="col-sm">
+                                                                   <span class="job-is ft">
+                                                                       {{optional($job->workType)->name}}
+                                                                   </span>
+                                                               </div>
+                                                           </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <a href="{{route('job.show',$job->slug)}}" class="aply-btn" style="font-size: 18px;padding: 10px;">Şimdi Başvur</a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @empty
+                                        @endforelse
                                     </div>
-                                    <h3 class="px-2">
-                                        <a href="{{route('job.show',$job->slug)}}" title="">
-                                            {{$job->title}}
-                                        </a>
-                                    </h3>
-                                    @if(optional($job->district)->name)
-                                        <span class="pl-2">{{$job->district->name}}</span>
-                                    @endif
-                                    <span class="job-lctn">{{$job->city->name}}</span>
                                 </div>
-                                <a href="{{route('job.show',$job->slug)}}" title="" class="aply-btn">Şimdi Başvur</a>
-                                <span class="job-is ft">{{optional($job->workType)->name}}</span>
+                                <div id="rjobsa" class="tab-content  my-5">
+
+                                <div class="job-listings-sec style2">
+                                    @forelse($locationRecentJobs as $job)
+                                        <div style="width: 133%" class="job-listing">
+                                            <div class="job-title-sec">
+                                                <div class="c-logo">
+                                                    <img src="{{$job->cover_image ?? 'https://place-hold.it/235x115'}}"
+                                                         alt="{{$job->title}}"/>
+                                                </div>
+                                                <h3 class="px-2">
+                                                    <a href="{{route('job.show',$job->slug)}}" title="">
+                                                        {{$job->title}}
+                                                    </a>
+                                                </h3>
+                                                @if(optional($job->district)->name)
+                                                    <span class="pl-2">{{$job->district->name}}</span>
+                                                @endif
+                                                <span class="job-lctn">{{$job->city->name}}</span>
+                                            </div>
+                                            <a href="{{route('job.show',$job->slug)}}" title="" class="aply-btn">Şimdi Başvur</a>
+                                            <span class="job-is ft">{{optional($job->workType)->name}}</span>
+                                        </div>
+                                    @empty
+                                    @endforelse
+                                </div>
                             </div>
-                            @empty
-                            @endforelse
+                            </div>
                         </div>
+                        </div><!-- Heading -->
+
                     </div>
 
                     <div class="col-lg-3 column d-none d-md-block">
@@ -125,7 +184,6 @@
                                         <div class="grid-info-box">
                                             <span class="job-is">Full Time</span>
                                             <a  href="#" title="">APPLY NOW</a>
-                                            <span class="fav-job"><i class="la la-heart-o"></i></span>
                                         </div>
                                     </div><!-- JOB Grid -->
                                 </div>
@@ -142,6 +200,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </section>

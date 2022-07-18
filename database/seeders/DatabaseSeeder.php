@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Blog;
 use App\Models\Candidate;
+use App\Models\CandidateCategory;
 use App\Models\Categories;
 use App\Models\City;
 use App\Models\District;
@@ -51,11 +52,15 @@ class DatabaseSeeder extends Seeder
             'name' => fake()->name(),
             'email' => 'asd@asd.com',
             'email_verified_at' => now(),
-            'password' => Hash::make('asdasdasd'),
+            'password' => 'asdasdasd',
+            'phone' => fake()->phoneNumber,
             'remember_token' => Str::random(10),
         ]);
+        Candidate::factory(1)->create(['user_id'=> 1]);
 
-        \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(10)->create()->each(function ($user){
+            Candidate::factory(1)->create(['user_id'=> $user->id]);
+        });
         Package::factory(3)->create();
 
         WorkType::create(['name' => 'Tam Zamanlı', 'type' => WorkType::TYPES['Full Time']]);
@@ -69,10 +74,16 @@ class DatabaseSeeder extends Seeder
         Blog::factory(300)->create();
         Job::factory(300)->create();
         Employer::factory(30)->create();
-        Candidate::factory(30)->create();
+
         WorkExperience::factory(30)->create();
-        Education::factory(30)->create();
-        Resume::factory(30)->create();
+
+
+       for ($i= 0; $i<50; $i++){
+           CandidateCategory::create([
+               'candidate_id' => Candidate::query()->inRandomOrder()->first()->id,
+               'category_id' => Categories::query()->forJob()->inRandomOrder()->first()->id,
+           ]);
+       }
 
     }
 }

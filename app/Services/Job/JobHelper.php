@@ -38,7 +38,7 @@ class JobHelper
             return District::all();
         });
 
-        $selectedDistricts = $selectedCity?->districts;
+        $selectedDistricts = $selectedCity->districts;
 
         return [$workTypes, $categories, $genders, $jobPackages, $cities, $districts,$selectedDistricts];
     }

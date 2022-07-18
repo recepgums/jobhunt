@@ -14,10 +14,12 @@
     <div class="responsive-opensec">
         <div class="btn-extars">
             <a href="{{route('job.create')}}" title="" class="post-job-btn"><i class="la la-plus"></i>İş İlanı Ver</a>
+            @if(!request()->is('register') && !request()->is('login'))
             <ul class="account-btns">
                 <li class="signup-popup"><a title=""><i class="la la-key"></i> Kayıt Ol</a></li>
                 <li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Giriş Yap</a></li>
             </ul>
+            @endif
         </div><!-- Btn Extras -->
         <form class="res-search">
             <input type="text" placeholder="Job title, keywords or company name"/>
@@ -33,7 +35,7 @@
                     <a href="{{route('candidates.index')}}" title="">İş Arayanlar</a>
                 </li>--}}
                 <li class="menu-item-has-children">
-                    <a href="{{route('blog.index')}}" title="">Blog</a>
+                    <a href="{{route('blog.index')}}" title="">Haberler</a>
                 </li>{{--
                 <li>
                     <a href="{{route('employer.index')}}" title="">İşverenler</a>
@@ -56,8 +58,8 @@
                     Ver</a>
 
                 <ul class="account-btns">
+                    @if(!request()->is('register') && !request()->is('login'))
                     @guest
-
                         <li class="signup-popup"><a title=""><i class="la la-key"></i> Kayıt Ol</a></li>
                         <li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Giriş Yap</a>
                         </li>
@@ -65,6 +67,7 @@
                     @auth
                         <li><a href="{{route('dashboard')}}"><i class="la la-dashboard"></i> {{auth()->user()->name}}</a></li>
                     @endauth
+                        @endif
                 </ul>
 
             </div><!-- Btn Extras -->
@@ -80,7 +83,7 @@
                         <a href="{{route('candidates.index')}}" title="">İş Arayanlar</a>
                     </li>--}}
                     <li>
-                        <a href="{{route('blog.index')}}" title="">Blog</a>
+                        <a href="{{route('blog.index')}}" title="">Haberler</a>
                     </li>{{--
                     <li>
                         <a href="{{route('employer.index')}}" title="">İşverenler</a>

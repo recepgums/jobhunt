@@ -12,7 +12,7 @@
                                 <a href="{{route('contact')}}" title="">İletişim</a>
                             </div>
                             <span>Eyüp/İstanbul 34050</span>
-                            <span>{{env('CONTACT_PHONE_NUMBER')}}</span>
+{{--                            <span>{{env('CONTACT_PHONE_NUMBER')}}</span>--}}
                             <span>{{env('CONTACT_EMAIL_ADDRESS')}}</span>
                         </div>
                     </div>

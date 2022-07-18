@@ -22,8 +22,7 @@
         <div class="extra-login">
             <span>Or</span>
             <div class="login-social">
-                <a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
-                <a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
+                <a class="tw-login" href="{{route('socialite.redirect','google')}}" title=""><i class="fa fa-google"></i></a>
             </div>
         </div>
     </div>

@@ -62,7 +62,7 @@
         let password = $('#passwordInput').val();
 
         $.ajax({
-            url: "{{route('login.ajax')}}",
+            url: "{{route('login.custom')}}",
             type: "POST",
             data: {
                 "_token": "{{ csrf_token() }}",

@@ -118,7 +118,7 @@
                                     İletişim Bilgilerini Görüntüle
                                 </a>
                             @endguest
-                            <a href="{{route('job.index')}}" title="" class="viewall-jobs">Tüm İş İlanlarını Gör</a>
+                            <a href="{{route('job.index')}}" title="" class="viewall-jobs">İş sahibinin profilini görüntüle</a>
                         </div><!-- Job Head -->
                     </div>
                 </div>

@@ -6,6 +6,7 @@ use App\Http\Requests\JobStoreRequest;
 use App\Models\Candidate;
 use App\Models\City;
 use App\Models\Job;
+use App\Models\JobUser;
 use App\Models\Package;
 use App\Models\User;
 use App\Services\Job\JobFilterService;
@@ -42,6 +43,10 @@ class JobController extends Controller
 
     public function index(Request $request, JobFilterService $jobFilterService, JobHelper $jobHelper)
     {
+        if (!$request->has('city_id')) {
+            return redirect()->route('job.index', ['city_id' => $this->city->id]);
+        }
+
         $jobs = $jobFilterService->filter($request);
 
         $jobs = $jobs->listable()->orderByDesc('created_at')->paginate(12);
@@ -126,8 +131,8 @@ class JobController extends Controller
 
     public function show(Job $job)
     {
-        if (!auth()->check() || auth()->id() !== $job->user->id){
-            if (!Cache::has(\request()->ip().$job->slug)){
+        if (!auth()->check() || auth()->id() !== $job->user->id) {
+            if (!Cache::has(\request()->ip() . $job->slug)) {
                 $job->increment('view_counter');
             }
         }
@@ -245,6 +250,18 @@ class JobController extends Controller
 
     public function getContactInfo(Job $job)
     {
-        return $job->user()->select('phone','email','name')->first();
+        try {
+            $jobUser = JobUser::updateOrCreate([
+                'user_id' => auth()->id(),
+                'job_id' => $job->id,
+            ], [
+                'user_id' => auth()->id(),
+                'job_id' => $job->id,
+            ]);
+        } catch (\Exception $exception) {
+            return redirect()->back()->with(['error' => $exception->getMessage()]);
+        }
+
+        return $job->user()->select('phone', 'email', 'name')->first();
     }
 }

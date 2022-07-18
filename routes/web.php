@@ -10,14 +10,15 @@ Route::view('terms', 'pages.term_conditions')->name('terms');
 
 Route::get('dashboard', [Controllers\CustomAuthController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('login', [Controllers\CustomAuthController::class, 'index'])->name('login');
-Route::post('custom-login', [Controllers\CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::get('register', [Controllers\CustomAuthController::class, 'register'])->name('register-user');
-Route::post('custom-registration', [Controllers\CustomAuthController::class, 'customRegistration'])->name('register.custom');
 Route::get('signout', [Controllers\CustomAuthController::class, 'signOut'])->name('signout');
+
+Route::post('custom-login', [Controllers\CustomAuthController::class, 'customLogin'])->name('login.custom');
+Route::post('custom-registration', [Controllers\CustomAuthController::class, 'customRegistration'])->name('register.custom');
 Route::post('change_password_post',[Controllers\CustomAuthController::class,'changePasswordPost'])->name('change_password_post');
 
 Route::group(['middleware' => 'guest', 'prefix' => 'ajax'], function () {
-    Route::post('login', [Controllers\CustomAuthController::class, 'login'])->name('login.ajax');
+    Route::post('login', [Controllers\CustomAuthController::class, 'customLogin'])->name('login.ajax');
     Route::post('signup', [Controllers\CustomAuthController::class, 'register'])->name('signup.ajax');
     Route::post('logout', [Controllers\CustomAuthController::class, 'signOut'])->name('logout.ajax');
 });
@@ -36,8 +37,10 @@ Route::resource('job', Controllers\JobController::class);
 Route::resource('employer', Controllers\EmployerController::class);
 Route::resource('blog', Controllers\BlogController::class);
 
-Route::group(['prefix'=>'candidate','as'=>'candidate.'],function (){
+Route::group(['prefix'=>'candidate','as'=>'candidate.','middleware' => 'auth'],function (){
    Route::get('profile',[Controllers\CandidateController::class,'profile'])->name('profile');
+   Route::post('profile',[Controllers\CandidateController::class,'profileUpdate'])->name('update');
+
     Route::get('my-resume',[Controllers\CandidateController::class,'my_resume'])->name('my_resume');
     Route::get('shortlist',[Controllers\CandidateController::class,'shortlist'])->name('shortlist');
     Route::get('applied_jobs',[Controllers\CandidateController::class,'applied_jobs'])->name('applied_jobs');
@@ -50,8 +53,14 @@ Route::get('/candidate', function () {
     return view('candidates.index');
 })->name('candidates.index');
 
-
 Route::get('test',function (){
 });
 Route::post('/iyzico-form-retrieve', [App\Http\Controllers\JobController::class, 'receiveIyzicoPaymentForm'])->name('omg-iyzico-form');
 //Route::post('job/{job}/iyzico-form-retrieve', [App\Http\Controllers\JobController::class, 'receiveIyzicoPaymentForm'])->name('omg-iyzico-form');
+
+Route::get('redirect/{driver}', [Controllers\UserController::class, 'socialiteRedirect'])->name('socialite.redirect');
+Route::get('callback/{driver}', [Controllers\UserController::class, 'socialiteCallback'])->name('socialite.callback');
+
+Route::get('test',function (){
+   return string_to_ten_digits_phone_number('05350339711');
+});

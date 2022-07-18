@@ -14,6 +14,7 @@ class StorageService
     ];
 
     const JOB_PHOTO = "job/photo/";
+    const USER_PHOTO = "user/photo/";
 
     public function put($pathType, $file)
     {

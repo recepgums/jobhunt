@@ -26,7 +26,7 @@
                     <aside class="col-lg-3 column border-right">
                         <form action="{{route('job.index')}}" method="get">
                             <div class="widget">
-                                <div class="search_widget_job">
+                                <div class="search_widget_job ">
                                     <div class="field_w_search">
                                         <input type="text" name="keyword" value="{{request()->get('keyword')}}"
                                                placeholder="Ara..."/>
@@ -37,26 +37,35 @@
                                                 class="chosen" onchange="cityChangedMethod(this)">
                                             <option value></option>
                                             @forelse($cities as $city)
-                                                <option @if(request()->has('city_id'))
+                                                <option
+                                                    @if(request()->has('city_id'))
                                                         @if(request()->get('city_id') == $city->id)
-                                                        selected
+                                                            selected
                                                         @endif
                                                         @else
-                                                        @if($selectedCity->id == $city->id)
-                                                        selected
+                                                            @if($selectedCity->id == $city->id)
+                                                                selected
+                                                            @endif
                                                         @endif
-                                                        @endif value="{{$city->id}}">{{$city->name}}</option>
-                                            @empty
-                                            @endforelse
+                                                    value="{{$city->id}}"
+                                                >
+                                                    {{$city->name}}
+                                                </option>
+                                                    @empty
+                                                    @endforelse
                                         </select>
                                     </div>
                                     <div class="field_w_search" id="districtSelect">
-                                        <select name="district_id" data-placeholder="İlçe Seçin"
-                                                class="chosen-city district">
+                                        <select name="district_id[]" data-placeholder="İlçe Seçin"
+                                                class="chosen-city district" multiple>
                                             <option value></option>
                                             @isset($selectedDistricts)
                                                 @forelse($selectedDistricts as $selectedDistrict)
-                                                    <option
+                                                    <option @if(request()->has('district_id') && is_array(request()->get('district_id')))
+                                                            @if(in_array($selectedDistrict->id,request()->get('district_id')))
+                                                            selected
+                                                            @endif
+                                                            @endif
                                                         value="{{$selectedDistrict->id}}">{{$selectedDistrict->name}}</option>
                                                 @empty
                                                 @endforelse
@@ -65,30 +74,21 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="widget">
-                                <h3 class="sb-title open">İlan Tarihi</h3>
-                                <div class="posted_widget">
-                                    <input type="radio" name="created_at" value="24" id="wwqe"><label for="wwqe">Son 24
-                                        Saat</label><br/>
-                                    <input type="radio" name="created_at" value="168" id="erewr"><label for="erewr">Son
-                                        7 Gün</label><br/>
-                                    <input type="radio" name="created_at" value="336" id="qwe"><label for="qwe">Son 14
-                                        Gün</label><br/>
-                                    <input type="radio" name="created_at" value="720" id="wqe"><label for="wqe">Son 30
-                                        Gün</label><br/>
-                                    <input type="radio" name="created_at" id="qweqw"><label class="nm"
-                                                                                            for="qweqw">Hepsi</label><br/>
-                                </div>
-                            </div>
-                            <div class="widget">
-                                <h3 class="sb-title closed">Uzmanlığı</h3>
+                                <h3 class="sb-title open">Uzmanlığı</h3>
                                 <div class="specialism_widget">
                                     <div class="simple-checkbox scrollbar">
                                         @isset($categories)
                                             @forelse($categories as $key => $category)
                                                 <p>
-                                                    <input type="checkbox" value="{{$category->id}}" name="category_id"
-                                                           id="categoty_{{$key}}">
+                                                    <input type="checkbox" value="{{$category->id}}" name="category_id[]" id="categoty_{{$key}}"
+                                                    @if(request()->has('category_id'))
+                                                        @if( in_array($category->id,request()->get('category_id')))
+                                                        checked
+                                                        @endif
+                                                    @endif
+                                                    >
                                                     <label for="categoty_{{$key}}">{{$category->name}}</label>
                                                 </p>
                                             @empty
@@ -98,7 +98,7 @@
                                 </div>
                             </div>
                             <div class="widget">
-                                <h3 class="sb-title closed">Maaş Aralığı</h3>
+                                <h3 class="sb-title open">Maaş Aralığı</h3>
                                 <div class="specialism_widget">
                                     <div class="simple-checkbox">
                                         <p><input type="checkbox" name="sallary" value="0_5500" id="salary-3">
@@ -122,9 +122,23 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="widget">
-                                <h3 class="sb-title open">Çalışma Türü</h3>
+                                <h3 class="sb-title closed">İlan Tarihi</h3>
+                                <div class="posted_widget">
+                                    <input type="radio"  @if(request()->get('created_at') == 24) checked @endif name="created_at" value="24" id="wwqe"><label for="wwqe">Son 24
+                                        Saat</label><br/>
+                                    <input type="radio"   @if(request()->get('created_at') == 168) checked @endif name="created_at" value="168" id="erewr"><label for="erewr">Son
+                                        7 Gün</label><br/>
+                                    <input type="radio"  @if(request()->get('created_at') == 336) checked @endif  name="created_at" value="336" id="qwe"><label for="qwe">Son 14
+                                        Gün</label><br/>
+                                    <input type="radio"  @if(request()->get('created_at') == 720) checked @endif  name="created_at" value="720" id="wqe"><label for="wqe">Son 30
+                                        Gün</label><br/>
+                                    <input type="radio" @if(!request()->has('created_at')) checked @endif  name="created_at" id="qweqw">
+                                    <label class="nm" for="qweqw">Hepsi</label><br/>
+                                </div>
+                            </div>
+                            <div class="widget">
+                                <h3 class="sb-title closed">Çalışma Türü</h3>
                                 <div class="type_widget">
                                     @forelse($workTypes as $key => $workType)
                                         <p class="ftchek">
@@ -151,20 +165,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="widget">
-                                <button type="submit">Ara</button>
-                            </div>
 
-                            <div class="widget" style="position: absolute;bottom: 10%;right: 5%;">
-                                <div class="subscribe_widget">
-                                    <h3>Sorunla mı karşılaşıyorsunuz?</h3>
-                                    <p>Sorununuz hakkında profesyonel çalışanlarımızın sizinle iletişime geçmesini
-                                        sağlayın.</p>
-                                    <form>
-                                        <input placeholder="Enter Valid Email Address" type="text">
-                                        <button type="submit"><i class="la la-paper-plane"></i></button>
-                                    </form>
-                                </div>
+                            <div class="widget" >
+                                <button type="submit">Ara</button>
                             </div>
                         </form>
                     </aside>
@@ -195,9 +198,9 @@
                                 @endauth
                                 <div class="sortby-sec">
                                     <span>Sıralama</span>
-                                    <select name="sort_by" data-placeholder="Most Recent" class="chosen">
-                                        <option value="recent">En Yeni</option>
-                                        <option value="view">En Çok Görüntülenen</option>
+                                    <select onchange="sortTypeChangedMethod(this)" name="order_by" data-placeholder="Most Recent" class="chosen">
+                                        <option value="created_at">En Yeni</option>
+                                        <option value="view_counter">En Çok Görüntülenen</option>
                                     </select>
                                     <select name="per_page" data-placeholder="20 Per Page" class="chosen">
                                         <option value="30">Sayfa başı 10 iş ilanı</option>
@@ -231,7 +234,6 @@
                                         </div>
                                         <div class="job-style-bx">
                                             <a href="{{route('job.show',$job->slug)}}"><span class="job-is ft">Detayları Gör</span></a>
-                                            <span class="fav-job"><i class="la la-heart-o"></i></span>
                                             <i>{{$job->created_at->diffForHumans()}}</i>
                                         </div>
                                     </div>
@@ -242,7 +244,7 @@
                                         </span>
                                     </div>
                                     <div class="mx-auto text-center mt-5">
-                                        <a href="{{route(('job.index'))}}" class="post-job-btn"
+                                        <a href="{{route('job.index',['city_id' =>null])}}" class="post-job-btn"
                                            style="float: initial"><i class="la la-plus"></i>
                                             Tüm İş İlanlarını Gör
                                         </a>
@@ -264,6 +266,7 @@
     <script src="{{asset('assets/js/jquery.scrollbar.min.js')}}" type="text/javascript"></script>
     <script>
         function cityChangedMethod(element) {
+
             let url = '{{ route("city.districts", ":city") }}';
             url = url.replace(':city', element.value);
 
@@ -284,6 +287,13 @@
                     $('.chosen-city').trigger("chosen:updated");
                 }
             });
+        }
+
+        function sortTypeChangedMethod(element){
+            let href = new URL(window.location.href);
+            href.searchParams.set('order_by', element.value);
+
+            window.location.href = href;
         }
 
     </script>

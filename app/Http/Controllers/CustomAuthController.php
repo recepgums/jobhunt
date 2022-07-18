@@ -1,8 +1,11 @@
 <?php
+
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginAttemptRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -14,17 +17,14 @@ class CustomAuthController extends Controller
         return view('auth.login');
     }
 
-    public function customLogin(Request $request)
+    public function customLogin(LoginAttemptRequest $request)
     {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
-
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($request->validated())) {
             return redirect()->intended('dashboard');
+        }
+
+        if ($request->ajax()){
+            dd('sds');
         }
 
         return redirect("login")->with(['error' => 'Giriş bilgileri yanlış']);
@@ -40,13 +40,13 @@ class CustomAuthController extends Controller
         $a = $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
+            'password' => 'required|min:7',
         ]);
 
         $data = $request->all();
         $check = $this->create($data);
 
-        return redirect("dashboard")->withSuccess('You have signed-in');
+        return redirect("dashboard")->withSuccess('Giriş yaptınız');
     }
 
     public function create(array $data)
@@ -63,35 +63,37 @@ class CustomAuthController extends Controller
 
     public function dashboard()
     {
-        if(Auth::check()){
-            return view('dashboard.index',['user'=> \auth()->user()]);
+        if (Auth::check()) {
+            return view('dashboard.index', ['user' => \auth()->user()]);
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');
     }
 
-    public function signOut() {
+    public function signOut()
+    {
         Session::flush();
         Auth::logout();
 
         return Redirect('login');
     }
 
-    public function changePasswordPost(Request $request) {
+    public function changePasswordPost(Request $request)
+    {
         if (!(Hash::check($request->get('old_password'), Auth::user()->password))) {
             // The passwords matches
-            return redirect()->back()->with("error","Your current password does not matches with the password.");
+            return redirect()->back()->with("error", "Your current password does not matches with the password.");
         }
 
-        if(strcmp($request->get('old_password'), $request->get('password')) == 0){
+        if (strcmp($request->get('old_password'), $request->get('password')) == 0) {
             // Current password and new password same
-            return redirect()->back()->with("error","New Password cannot be same as your current password.");
+            return redirect()->back()->with("error", "New Password cannot be same as your current password.");
         }
         //Change Password
         $user = Auth::user();
         $user->password = $request->get('password');
         $user->save();
 
-        return redirect()->back()->with("success","Password successfully changed!");
+        return redirect()->back()->with("success", "Password successfully changed!");
     }
 }
