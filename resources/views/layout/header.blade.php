@@ -13,7 +13,7 @@
     </div>
     <div class="responsive-opensec">
         <div class="btn-extars">
-            <a href="{{route('job.create')}}" title="" class="post-job-btn"><i class="la la-plus"></i>İş İlanı Ver</a>
+            <a href="{{route('job.create')}}" title="" class="post-job-btn"><i class="la la-plus"></i>İlan Ver</a>
             @if(!request()->is('register') && !request()->is('login'))
             <ul class="account-btns">
                 <li class="signup-popup"><a title=""><i class="la la-key"></i> Kayıt Ol</a></li>
@@ -54,7 +54,7 @@
                 </a>
             </div><!-- Logo -->
             <div class="btn-extars">
-                <a href="{{route('job.create')}}" title="" class="post-job-btn"><i class="la la-plus"></i>İş İlanı
+                <a href="{{route('job.create')}}" title="" class="post-job-btn"><i class="la la-plus"></i>İlan
                     Ver</a>
 
                 <ul class="account-btns">

@@ -15,7 +15,6 @@ use App\Models\Job;
 use App\Models\Package;
 use App\Models\Resume;
 use App\Models\User;
-use App\Models\WorkExperience;
 use App\Models\WorkType;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -72,10 +71,8 @@ class DatabaseSeeder extends Seeder
         Gender::insert(['name' => 'Kadın','type' => Gender::TYPES['Kadin']]);
 
         Blog::factory(300)->create();
-        Job::factory(300)->create();
+        Job::factory(30000)->create();
         Employer::factory(30)->create();
-
-        WorkExperience::factory(30)->create();
 
 
        for ($i= 0; $i<50; $i++){

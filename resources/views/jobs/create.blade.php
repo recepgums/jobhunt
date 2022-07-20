@@ -10,7 +10,8 @@
                 'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
                 'table emoticons template paste help'
             ],
-            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons',
+            language:"tr",
+            toolbar: 'language|insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons',
 
         });
     </script>
@@ -26,7 +27,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="inner-header">
-                            <h3>Welcome Tera Planer</h3>
+                            <h3>İlan Oluştur</h3>
                         </div>
                     </div>
                 </div>

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('job_id')->constrained('jobs');
             $table->foreignId('user_id')->constrained('users');
             $table->dateTime('hired_at')->nullable();
+            $table->dateTime('get_contact_info_at')->nullable();
             $table->timestamps();
         });
     }

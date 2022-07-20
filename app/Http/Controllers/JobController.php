@@ -14,11 +14,9 @@ use App\Services\Job\JobHelper;
 use App\Services\StorageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Omgtheking\OmgIyzicoPayment\Models\OmgPayTransactions;
 use Omgtheking\OmgIyzicoPayment\omgIyzicoPayment;
-use Omgtheking\OmgIyzicoPayment\omgIyzicoPaymentExtra;
 use Stevebauman\Location\Facades\Location;
 
 class JobController extends Controller

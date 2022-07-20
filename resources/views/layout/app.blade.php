@@ -149,7 +149,7 @@
 
     setTimeout(function () {
         $('.tox-notifications-container').hide()
-    }, 1000)
+    }, 2000)
 
 
 </script>

@@ -13,6 +13,7 @@ class JobUser extends Model
         'job_id',
         'user_id',
         'hired_at',
+        'get_contact_info_at',
     ];
 
     public function user()
