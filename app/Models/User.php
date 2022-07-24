@@ -7,20 +7,31 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Omgtheking\OmgIyzicoPayment\OmgPayable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, OmgPayable;
+    use HasApiTokens, HasFactory, Notifiable, OmgPayable,HasRoles;
 
     protected $fillable = [
         'name',
         'email',
-        'password',
         'phone',
-        'candidate_id',
+        'about',
+        'age',
         'profile_image_url',
-        'employer_id',
-        'token',
+        'experience_year',
+        'expected_sallary',
+        'company_name',
+        'is_searchable_for_job',
+        'user_type',
+        'city_id',
+        'district_id',
+        'category_id',
+        'email_verified_at',
+        'phone_verified_at',
+        'verify_code',
+        'password',
     ];
 
     protected $hidden = [

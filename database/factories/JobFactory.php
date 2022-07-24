@@ -42,6 +42,7 @@ class JobFactory extends Factory
             'has_contract' => rand(0,1),
             'status' => Job::STATUS['published'],
             'published_until_at' => $this->faker->dateTimeBetween('now','+2 weeks'),
+            'highlighted_until_at' => rand(0,1) ? $this->faker->dateTimeBetween('now','+2 weeks') : null,
         ];
     }
 }

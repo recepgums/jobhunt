@@ -171,12 +171,19 @@
                         </div><!-- Heading -->
                         <div class="job-grid-sec">
                             <div class="row">
-                                @forelse($recentJobs as $job)
+                                @forelse($highlightedLocationJobs as $job)
                                 <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
                                     <div class="job-grid style2">
                                         <div class="job-title-sec">
-                                            <div class="c-logo"> <img src="https://place-hold.it/235x115" alt="" /> </div>
-                                            <h3><a href="#" title="">Web Designer / Developer</a></h3>
+                                            <div class="c-logo" style="padding: 0">
+                                                <img src="{{$job->cover_image ?? 'https://place-hold.it/235x115'}}"
+                                                     alt="{{$job->title}}"/>
+                                            </div>
+                                            <h3>
+                                                <a href="{{route('job.show',$job->slug)}}" >
+                                                    {{\Illuminate\Support\Str::limit($job->title,40)}}
+                                                </a>
+                                            </h3>
                                             <span>Massimo Artemisis</span>
                                         </div>
                                         <span class="job-lctn">Sacramento, California</span>

@@ -26,9 +26,4 @@ class Categories extends Model
     {
         return $query->where('model', Job::class);
     }
-
-    public function scopeForEmployer($query)
-    {
-        return $query->where('model', Employer::class);
-    }
 }

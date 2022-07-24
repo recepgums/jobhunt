@@ -38,6 +38,7 @@ return new class extends Migration {
             $table->tinyInteger('experience_year')->nullable();
 
             $table->dateTime('published_until_at')->nullable();
+            $table->dateTime('highlighted_until_at')->nullable();
             $table->tinyInteger('status')->default(\App\Models\Job::STATUS['pending']);
             $table->integer('view_counter')->default(0);
             $table->softDeletes($column = 'deleted_at', $precision = 0);

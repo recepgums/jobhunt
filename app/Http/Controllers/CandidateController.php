@@ -7,7 +7,6 @@ use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Categories;
 use App\Models\City;
 use App\Services\StorageService;
-use Illuminate\Http\Request;
 
 class CandidateController extends Controller
 {
@@ -15,7 +14,7 @@ class CandidateController extends Controller
     {
         $data = [
             'cities' => City::select('id','name')->get(),
-            'user' => auth()->user()->load(['candidate','candidate.categories']),
+            'user' => auth()->user(),
             'categories' => Categories::forJob()->select('id','name')->get(),
         ];
 

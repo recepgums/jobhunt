@@ -65,7 +65,7 @@
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                                 <textarea name="description"
-                                                    placeholder="İşverenler buraya yazdığınızı görecek. Kendiniz ve iş deneyimleriniz hakkında bilgi verin...">{{$user->candidate?->description}}</textarea>
+                                                    placeholder="İşverenler buraya yazdığınızı görecek. Kendiniz ve iş deneyimleriniz hakkında bilgi verin...">{{$user->about}}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -110,7 +110,7 @@
                                                         name="city_id">
                                                     @forelse($cities as $city)
                                                         <option
-                                                            @if($user->candidate?->city->id == $city->id)
+                                                            @if($user->city_id == $city->id)
                                                             selected
                                                             @endif
 
@@ -128,7 +128,7 @@
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                                 <ul class="tags">
-                                                    @isset($user->candidate?->categories)
+                                                    {{--@isset($user->candidate?->categories)
                                                         @forelse($user->candidate?->categories as $category)
                                                             <li class="addedTag">
                                                                 {{$category->category->name}}
@@ -142,7 +142,7 @@
                                                             </li>
                                                         @empty
                                                         @endforelse
-                                                    @endisset
+                                                    @endisset--}}
                                                     <li class="tagAdd taglist">
 
                                                     </li>
@@ -172,10 +172,10 @@
 
                                                 <select name="is_searchable" data-placeholder="Allow In Search"
                                                         class="chosen">
-                                                    <option @if($user->candidate?->is_searchable == 1) selected
+                                                    <option @if($user->is_searchable_for_job == 1) selected
                                                             @endif value="1">Evet
                                                     </option>
-                                                    <option @if($user->candidate?->is_searchable == 0) selected
+                                                    <option @if($user->is_searchable_for_job == 0) selected
                                                             @endif value="0">Hayır
                                                     </option>
                                                 </select>
@@ -189,7 +189,7 @@
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                                 <input type="text" name="experience_year"
-                                                       value="{{$user->candidate?->experience_year}}"
+                                                       value="{{$user->experience_year}}"
                                                        placeholder="Deneyim yılınız">
                                             </div>
                                         </div>
@@ -202,7 +202,7 @@
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                                 <input type="number" placeholder="Minimum maaş beklentiniz"
-                                                       value="{{$user->candidate?->expected_salary}}"
+                                                       value="{{$user->expected_salary}}"
                                                        name="expected_salary"/>
                                             </div>
                                         </div>
@@ -215,7 +215,7 @@
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                                 <input type="number" placeholder="Kaç yaşındasınız"
-                                                       value="{{$user->candidate?->age}}" name="age"/>
+                                                       value="{{$user->age}}" name="age"/>
                                             </div>
                                         </div>
 

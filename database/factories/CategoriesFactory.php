@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Blog;
-use App\Models\Employer;
 use App\Models\Job;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -22,7 +21,7 @@ class CategoriesFactory extends Factory
     {
         $name = $this->faker->word;
 
-        $models = [Job::class, Blog::class, Employer::class];
+        $models = [Job::class, Blog::class];
 
         return [
             'name' => $name,
