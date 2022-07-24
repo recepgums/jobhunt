@@ -10,6 +10,7 @@ use App\Models\City;
 use App\Models\District;
 use App\Models\Education;
 use App\Models\Employer;
+use App\Models\Faq;
 use App\Models\Gender;
 use App\Models\Job;
 use App\Models\Package;
@@ -17,6 +18,7 @@ use App\Models\Resume;
 use App\Models\User;
 use App\Models\WorkType;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -29,6 +31,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Faq::factory(10)->create();
+        $this->call(ReviewSeeder::class);
+
 
         $data = json_decode(file_get_contents('https://gist.githubusercontent.com/SadMap/13b2fd1a5a8e6ff47442c72cbed86dc3/raw/896f8c76abbfb5bddf6368d5b59e775a71f5fd11/mgm-iller.json'));
 
@@ -70,8 +75,8 @@ class DatabaseSeeder extends Seeder
         Gender::insert(['name' => 'Erkek','type' => Gender::TYPES['Erkek']]);
         Gender::insert(['name' => 'Kadın','type' => Gender::TYPES['Kadin']]);
 
-        Blog::factory(300)->create();
-        Job::factory(30000)->create();
+        Blog::factory(100)->create();
+        Job::factory(1000)->create();
         Employer::factory(30)->create();
 
 
@@ -81,6 +86,7 @@ class DatabaseSeeder extends Seeder
                'category_id' => Categories::query()->forJob()->inRandomOrder()->first()->id,
            ]);
        }
+        Artisan::call('cache:clear');
 
     }
 }

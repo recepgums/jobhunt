@@ -284,7 +284,7 @@
                                 </div>
 
                                 <div class="browse-all-cat">
-                                    <a href="{{route('register-user')}}" title="" class="style2">İş ilanlarını inceleyin</a>
+                                    <a href="{{route('job.index')}}" title="" class="style2">İş ilanlarını inceleyin</a>
                                 </div>
                             </div>
                             <div id="rjobs" class="tab-content mt-5">
@@ -414,57 +414,30 @@
                 <div class="row">
                     <div class="col-lg-8 column">
                         <div class="heading left">
-                            <h2>Frequently Asked Questions?</h2>
+                            <h2>Sıkça Sorulan Sorular</h2>
                         </div><!-- Heading -->
                         <div id="toggle-widget" class="experties">
-                            <h2>How We Share Information?</h2>
-                            <div class="content">
-                                <p>Book your car, all you need is a credit or debit card. When you pick the car up, you’ll need Different car hire companies have different requirements, so please make sure you check the car’s terms and conditions as well.</p>
-                            </div>
-                            <h2>In Which We Explain How And With Whom We Share Your Information?</h2>
-                            <div class="content">
-                                <p>Book your car, all you need is a credit or debit card. When you pick the car up, you’ll need Different car hire companies have different requirements, so please make sure you check the car’s terms and conditions as well.</p>
-                            </div>
-                            <h2>Special Provisions Applicable To Employer?</h2>
-                            <div class="content">
-                                <p>Book your car, all you need is a credit or debit card. When you pick the car up, you’ll need Different car hire companies have different requirements, so please make sure you check the car’s terms and conditions as well.</p>
-                            </div>
-                            <h2>How Do I Find Contact Information For Harvard Students, Faculty?</h2>
-                            <div class="content">
-                                <p>Book your car, all you need is a credit or debit card. When you pick the car up, you’ll need Different car hire companies have different requirements, so please make sure you check the car’s terms and conditions as well.</p>
-                            </div>
+                            @forelse($faqs as $faq)
+                                <h2>{{$faq->question}}</h2>
+                                <div class="content">
+                                    <p>{{$faq->answer}}</p>
+                                </div>
+                            @empty
+                            @endforelse
                         </div>
                     </div>
                     <div class="col-lg-4 column">
                         <div class="reviews-sec" id="reviews">
-                            <div class="col-lg-6">
+                            @forelse($reviews as $review)
+                                <div class="col-lg-6">
                                 <div class="reviews style2">
-                                    <img src="https://place-hold.it/101x101" alt="" />
-                                    <h3>Augusta Silva <span>Web designer</span></h3>
-                                    <p>Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything!  Can’t quite believe the service level that they offer!</p>
-                                </div><!-- Reviews -->
+                                    <img src="{{$review->image_url}}" alt="{{$review->review}}" />
+                                    <h3>{{$review->name}}<span>{{$review->role}}</span></h3>
+                                    <p>{{$review->review}}</p>
+                                </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="reviews style2">
-                                    <img src="https://place-hold.it/101x101" alt="" />
-                                    <h3>Ali Tufan <span>Web designer</span></h3>
-                                    <p>Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything!  Can’t quite believe the service level that they offer!</p>
-                                </div><!-- Reviews -->
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="reviews style2">
-                                    <img src="https://place-hold.it/101x101" alt="" />
-                                    <h3>Augusta Silva <span>Web designer</span></h3>
-                                    <p>Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything!  Can’t quite believe the service level that they offer!</p>
-                                </div><!-- Reviews -->
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="reviews style2">
-                                    <img src="https://place-hold.it/101x101" alt="" />
-                                    <h3>Ali Tufan <span>Web designer</span></h3>
-                                    <p>Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything!  Can’t quite believe the service level that they offer!</p>
-                                </div><!-- Reviews -->
-                            </div>
+                            @empty
+                            @endforelse
                         </div>
                     </div>
                 </div>
