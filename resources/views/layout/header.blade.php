@@ -36,7 +36,11 @@
                 </li>--}}
                 <li class="menu-item-has-children">
                     <a href="{{route('blog.index')}}" title="">Haberler</a>
-                </li>{{--
+                </li>
+                <li class="menu-item-has-children">
+                    <a href="{{route('blog.index')}}" title="">Blog</a>
+                </li>
+                {{--
                 <li>
                     <a href="{{route('employer.index')}}" title="">İşverenler</a>
                 </li>--}}
@@ -84,7 +88,11 @@
                     </li>--}}
                     <li>
                         <a href="{{route('blog.index')}}" title="">Haberler</a>
-                    </li>{{--
+                    </li>
+                    <li>
+                        <a href="{{route('blog.index')}}" title="">Blog</a>
+                    </li>
+                    {{--
                     <li>
                         <a href="{{route('employer.index')}}" title="">İşverenler</a>
                     </li>--}}

@@ -48,7 +48,7 @@
                             <h3>Güncel Bloglar</h3>
                             <div class="post_widget">
                                 @forelse($recentBlogs as $recentBlog)
-                                    <div class="mini-blog">
+                                    <div class="mini-blog" style="cursor:pointer;" onclick="location.href=`{{route('blog.show',$recentBlog->slug)}}`;">
                                         <span>
                                             <a href="{{route('blog.show',$recentBlog->slug)}}" title="">
                                                 <img src="{{$recentBlog->cover_image ?? 'https://place-hold.it/74x64'}}" alt="{{$recentBlog->title}}" />
@@ -56,7 +56,7 @@
                                         </span>
                                         <div class="mb-info">
                                             <h3>
-                                                <a href="{{route('blog.show',$recentBlog->title)}}" title="">{{$recentBlog->title}}</a>
+                                                <a href="{{route('blog.show',$recentBlog->slug)}}" title="">{{$recentBlog->title}}</a>
                                             </h3>
                                             <span>
                                                 {{$recentBlog->created_at->format('M d, Y')}}

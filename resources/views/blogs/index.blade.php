@@ -27,10 +27,11 @@
                         <div class="blog-sec">
                             <div class="row" id="masonry">
                                 @forelse($blogs as $blog)
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                        <div class="my-blog">
+                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" onclick="location.href=`{{route('blog.show',$blog->slug)}}`;" style="cursor:pointer;">
+                                        <a href="{{route('blog.show',$blog->slug)}}" title="">
+                                            <div class="my-blog">
                                             <div class="blog-thumb">
-                                                <a href="{{route('blog.show',$blog->id)}}" title="">
+                                                <a href="{{route('blog.show',$blog->slug)}}" title="">
                                                     <img src="{{$blog->cover_image}}"alt=""/>
                                                 </a>
                                                 <div class="blog-metas">
@@ -40,18 +41,19 @@
                                             </div>
                                             <div class="blog-details">
                                                 <h3>
-                                                    <a href="{{route('blog.show',$blog->id)}}" title="">
+                                                    <a href="{{route('blog.show',$blog->slug)}}" title="">
                                                         {{$blog->title}}
                                                     </a>
                                                 </h3>
                                                 <p>
                                                     {{$blog->summary}}
                                                 </p>
-                                                <a href="{{route('blog.show',$blog->id)}}" title="">Read More
+                                                <a href="{{route('blog.show',$blog->slug)}}" title="">Read More
                                                     <i class="la la-long-arrow-right"></i>
                                                 </a>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                 @empty
                                 @endforelse
