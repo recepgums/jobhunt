@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Job extends Model
+class Job extends Model implements HasMedia
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, InteractsWithMedia;
 
     protected $fillable = [
         'user_id',
@@ -27,6 +29,7 @@ class Job extends Model
         'level',
 //        'qualification',
         'has_contract',
+        'highlighted_until_at',
         'published_until_at',
         'status',
         'view_counter',
@@ -114,8 +117,4 @@ class Job extends Model
         return $this->belongsTo(Gender::class);
     }
 
-    public function employer()
-    {
-        return Employer::where('user_id',$this->user->id)->first();
-    }
 }

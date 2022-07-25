@@ -26,14 +26,24 @@ class HomeController extends Controller
     {
         $selectedCity = $this->city ?? null;
 
-        $locationRecentJobs = Job::query()->listable()
+        $cities = Cache::rememberForever('cities',fn()=> City::all());
+
+        $faqs = Cache::remember('faqs',3600, fn()=> Faq::listable()->orderBy('order')->limit(5)->get());
+
+        $reviews = Cache::remember('reviews',3600,fn()=> Review::orderBy('order')->limit(5)->get());
+
+        $locationRecentJobsQuery = Job::query()->listable()
             ->when($selectedCity, function ($query) use ($selectedCity) {
                 $query->where('city_id', $selectedCity->id);
-            })
+            });
+
+        $locationRecentJobs = $locationRecentJobsQuery
             ->orderBy('created_at', 'desc')
             ->orderBy('published_until_at', 'desc')
             ->limit(6)
             ->get();
+
+        $highlightedLocationJobs = $locationRecentJobsQuery->where('highlighted_until_at','>',now())->limit(3)->get();
 
         $recentJobs = Job::query()->listable()
             ->orderBy('published_until_at', 'desc')
@@ -41,18 +51,6 @@ class HomeController extends Controller
             ->get();
 
         $blogs = Blog::query()->inRandomOrder()->limit(3)->get();
-
-        $cities = Cache::rememberForever('cities',function (){
-            return City::all();
-        });
-
-        $faqs = Cache::remember('faqs',60*60,function (){
-           return Faq::listable()->orderBy('order')->limit(5)->get();
-        });
-
-        $reviews = Cache::remember('reviews',60*60,function (){
-           return Review::orderBy('order')->limit(5)->get();
-        });
 
         $districts = $selectedCity?->districts;
         $opePositionCategoriesWithCount = Job::listable()
@@ -74,6 +72,7 @@ class HomeController extends Controller
             'locationRecentJobs' => $locationRecentJobs,
             'faqs' => $faqs,
             'reviews' => $reviews,
+            'highlightedLocationJobs' => $highlightedLocationJobs,
         ]);
     }
 }

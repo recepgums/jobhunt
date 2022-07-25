@@ -12,11 +12,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="inner-header d-none d-md-block">
-                            <h3>{{$job->employer()?->company_name}}</h3>
+                            <h3>{{$job->user?->company_name}}</h3>
                         </div>
 
                         <div class="inner-header d-block d-md-none" >
-                            <h3 style="width: 100%;float: initial" class="mx-auto">{{$job->employer()?->company_name}}</h3>
+                            <h3 style="width: 100%;float: initial" class="mx-auto">{{$job->user?->company_name}}</h3>
                         </div>
                     </div>
                 </div>

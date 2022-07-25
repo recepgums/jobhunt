@@ -4,19 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Employer extends Model
+class CategoryUser extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory;
+
+    public $timestamps = false;
 
     protected $fillable = [
-        'user_id',
-        'company_name',
         'category_id',
-        'district_id',
-        'team_size',
-        'since'
+        'user_id',
     ];
 
     public function user()
@@ -24,5 +21,8 @@ class Employer extends Model
         return $this->belongsTo(User::class);
     }
 
-
+    public function category()
+    {
+        return $this->belongsTo(Categories::class);
+    }
 }

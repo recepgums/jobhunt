@@ -15,7 +15,7 @@ class CandidateController extends Controller
     {
         $data = [
             'cities' => City::select('id','name')->get(),
-            'user' => auth()->user()->load(['candidate','candidate.categories']),
+            'user' => auth()->user(),
             'categories' => Categories::forJob()->select('id','name')->get(),
         ];
 
@@ -25,29 +25,13 @@ class CandidateController extends Controller
     public function profileUpdate(ProfileUpdateRequest $request,StorageService $storageService)
     {
         $user = auth()->user();
-        $user->update([
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
+        $user->update(array_merge($request->validated(),[
             'phone' => string_to_ten_digits_phone_number($request->get('phone')),
-        ]);
+        ]));
 
-        if ($request->has('profile_image_file')){
-         /*   $file = $storageService->put(StorageService::USER_PHOTO, $request->file('profile_image_file'));
-
-            $user->update([
-                'profile_image_url' => $file['path']
-            ]);*/
+        if ($request->filled('profile_image_file')){
+            $user->addMedia($request->file('profile_image_file'))->toMediaCollection('images');
         }
-
-        $candidate = $user->candidate;
-        $candidate->update([
-            'city_id'=>$request->get('city_id'),
-            'is_searchable'=>$request->get('is_searchable'),
-            'expected_salary'=>$request->get('expected_salary'),
-            'experience_year'=>$request->get('experience_year'),
-            'age'=>$request->get('age'),
-            'description'=>$request->get('description'),
-        ]);
 
         return redirect()->back()->with('message', 'Bilgileriniz güncellenmiştir');
     }
