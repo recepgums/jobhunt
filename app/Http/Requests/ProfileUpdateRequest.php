@@ -16,7 +16,7 @@ class ProfileUpdateRequest extends FormRequest
         return [
             'profile_image_file' => 'nullable',
             'name' => 'required',
-            'description' => 'nullable',
+            'about' => 'nullable',
             'phone' => 'required',
             'email' => 'required|email',
             'city_id' => 'nullable|exists:cities,id',

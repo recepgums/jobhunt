@@ -29,7 +29,8 @@ class CandidateController extends Controller
             'phone' => string_to_ten_digits_phone_number($request->get('phone')),
         ]));
 
-        if ($request->filled('profile_image_file')){
+        if ($request->hasFile('profile_image_file')){
+            $user->clearMediaCollection('images');
             $user->addMedia($request->file('profile_image_file'))->toMediaCollection('images');
         }
 

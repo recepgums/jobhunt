@@ -14,7 +14,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable, OmgPayable,HasRoles,InteractsWithMedia;
+    use HasApiTokens, HasFactory, Notifiable, OmgPayable, HasRoles, InteractsWithMedia;
 
     protected $fillable = [
         'name',
