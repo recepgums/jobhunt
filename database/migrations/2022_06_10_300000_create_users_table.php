@@ -22,13 +22,12 @@ return new class extends Migration
             $table->integer('age')->nullable();
             $table->string('profile_image_url')->nullable();
             $table->integer('experience_year')->nullable();
-            $table->bigInteger('expected_sallary')->nullable();
+            $table->bigInteger('expected_salary')->nullable();
             $table->string('company_name')->nullable();
             $table->boolean('is_searchable_for_job')->nullable();
             $table->unsignedBigInteger('user_type')->nullable()->index();
             $table->foreignId('city_id')->nullable()->constrained('cities');
             $table->foreignId('district_id')->nullable()->constrained('districts');
-            $table->foreignId('category_id')->nullable()->constrained('categories');
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('phone_verified_at')->nullable();
             $table->string('verify_code')->nullable();

@@ -9,9 +9,12 @@ use Laravel\Sanctum\HasApiTokens;
 use Omgtheking\OmgIyzicoPayment\OmgPayable;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+
+class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable, OmgPayable,HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, OmgPayable,HasRoles,InteractsWithMedia;
 
     protected $fillable = [
         'name',
@@ -21,13 +24,12 @@ class User extends Authenticatable
         'age',
         'profile_image_url',
         'experience_year',
-        'expected_sallary',
+        'expected_salary',
         'company_name',
         'is_searchable_for_job',
         'user_type',
         'city_id',
         'district_id',
-        'category_id',
         'email_verified_at',
         'phone_verified_at',
         'verify_code',
@@ -53,8 +55,9 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($value);
     }
 
-    public function candidate()
+    public function categories()
     {
-        return $this->hasOne(Candidate::class,'user_id');
+        return $this->hasMany(CategoryUser::class);
     }
+
 }

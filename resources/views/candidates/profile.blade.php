@@ -32,7 +32,7 @@
                             </div>
                         @endif
 
-                        <form method="post" action="{{route('candidate.update')}}">
+                        <form method="post" action="{{route('candidate.update')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="padding-left">
                                 <div class="profile-title">
@@ -61,10 +61,10 @@
                                         <div class="col-lg-12">
                                             <span class="pf-title">Hakkımda</span>
                                             <div class="pf-field">
-                                                @error('description')
+                                                @error('about')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
-                                                <textarea name="description"
+                                                <textarea name="about"
                                                     placeholder="İşverenler buraya yazdığınızı görecek. Kendiniz ve iş deneyimleriniz hakkında bilgi verin...">{{$user->about}}</textarea>
                                             </div>
                                         </div>
@@ -128,8 +128,8 @@
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                                 <ul class="tags">
-                                                    {{--@isset($user->candidate?->categories)
-                                                        @forelse($user->candidate?->categories as $category)
+                                                    @isset($user->categories)
+                                                        @forelse($user->categories as $category)
                                                             <li class="addedTag">
                                                                 {{$category->category->name}}
                                                                 <span
@@ -142,7 +142,7 @@
                                                             </li>
                                                         @empty
                                                         @endforelse
-                                                    @endisset--}}
+                                                    @endisset
                                                     <li class="tagAdd taglist">
 
                                                     </li>

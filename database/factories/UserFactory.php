@@ -34,13 +34,12 @@ class UserFactory extends Factory
             'age' => rand(20,50),
             'profile_image_url' => fake()->imageUrl,
             'experience_year' => rand(1,20),
-            'expected_sallary' => rand(5500,15000),
+            'expected_salary' => rand(5500,15000),
             'company_name' => fake()->company,
             'is_searchable_for_job' => rand(0,1),
             'user_type' => User::TYPES[array_rand(User::TYPES)],
             'city_id' => $city->id,
             'district_id' => $city->districts()->inRandomOrder()->first()->id,
-            'category_id' => Categories::forJob()->inRandomOrder()->first()->id,
             'verify_code' => rand(10000,99999),
 
         ];

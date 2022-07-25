@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Blog;
 use App\Models\Categories;
+use App\Models\CategoryUser;
 use App\Models\City;
 use App\Models\District;
 use App\Models\Faq;
@@ -78,6 +79,8 @@ class DatabaseSeeder extends Seeder
 
         Blog::factory(100)->create();
         Job::factory(1000)->create();
+
+        CategoryUser::factory(100)->create();
 
 
         Artisan::call('cache:clear');
