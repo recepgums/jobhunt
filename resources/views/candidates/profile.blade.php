@@ -39,7 +39,7 @@
                                     <h3>Profilim</h3>
                                     <div class="upload-img-bar">
                                         <span class="round">
-                                            <img src="{{$user->profile_image_url ?? 'https://place-hold.it/140x140'}}"
+                                            <img src="{{$user->getFirstMediaUrl('images') ?? 'https://place-hold.it/140x140'}}"
                                                  alt=""/>
                                         </span>
                                         <div class="upload-info">

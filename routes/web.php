@@ -53,8 +53,6 @@ Route::get('/candidate', function () {
     return view('candidates.index');
 })->name('candidates.index');
 
-Route::get('test',function (){
-});
 Route::post('/iyzico-form-retrieve', [App\Http\Controllers\JobController::class, 'receiveIyzicoPaymentForm'])->name('omg-iyzico-form');
 //Route::post('job/{job}/iyzico-form-retrieve', [App\Http\Controllers\JobController::class, 'receiveIyzicoPaymentForm'])->name('omg-iyzico-form');
 
@@ -62,5 +60,7 @@ Route::get('redirect/{driver}', [Controllers\UserController::class, 'socialiteRe
 Route::get('callback/{driver}', [Controllers\UserController::class, 'socialiteCallback'])->name('socialite.callback');
 
 Route::get('test',function (){
-   return string_to_ten_digits_phone_number('05350339711');
+    $user = auth()->user();
+
+    dd( $user->getFirstMediaUrl('images'));
 });
