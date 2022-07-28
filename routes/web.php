@@ -60,4 +60,6 @@ Route::get('redirect/{driver}', [Controllers\UserController::class, 'socialiteRe
 Route::get('callback/{driver}', [Controllers\UserController::class, 'socialiteCallback'])->name('socialite.callback');
 
 Route::get('test', function () {
+
+    return view('admin.dashboard');
 });
