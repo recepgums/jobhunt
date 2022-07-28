@@ -21,15 +21,23 @@ if (!function_exists('string_to_ten_digits_phone_number')){
         return  (int)$phoneNumber;
     }
 }
-if (!function_exists('sesli_harflere_gore_e_a_yapma')){
-    function sesli_harflere_gore_e_a_yapma(string $string ):int
+if (!function_exists('is_last_letter_bold')){
+    function is_last_letter_bold(string $word):bool
     {
-        $phoneNumber = str_replace(' ', '', $phoneNumber);
-        $firstChar = substr($phoneNumber,0,1);
-        if ($firstChar == 0){
-            $phoneNumber = substr($phoneNumber, 1);
+        $length = strlen($word);
+        $slenderVowel = ['e', 'i', 'ö', 'ü','E','İ','Ö','Ü'];
+        $boldVowel = ['a', 'ı', 'o', 'u','A','I','O','U'];
+
+        for ($i = 0; $i < $length; $i++) {
+            if (in_array($word[$length-$i-1],$slenderVowel)){
+                return false;
+            }
+
+            if (in_array($word[$length-$i-1],$boldVowel)){
+                return true;
+            }
         }
 
-        return  (int)$phoneNumber;
+        return false;
     }
 }

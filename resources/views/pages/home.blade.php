@@ -79,8 +79,8 @@
                 <div class="col">
                     <div class="col-lg-9 column">
                         <div class="heading left">
-                            <h2>{{ucfirst(strtolower($selectedCity->name))}} 'da ki ilanlar</h2>
-
+                            <h2>
+                                {{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki ilanlar</h2>
                             <div class="tab-sec">
                                 <ul class="nav nav-tabs my-5 text-left " style="height: 28px">
                                     <li><a class="current" data-tab="job_nav">İş ilanları</a></li>
