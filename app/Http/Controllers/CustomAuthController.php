@@ -54,8 +54,10 @@ class CustomAuthController extends Controller
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => $data['password']
+            'password' => $data['password'],
         ]);
+        $user->setRoleByTypeId($data);
+
 
         Auth::login($user);
         return $user;

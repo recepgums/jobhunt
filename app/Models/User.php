@@ -47,7 +47,7 @@ class User extends Authenticatable implements HasMedia
 
     const TYPES = [
         'candidate' => 1,
-        'employer' => 2,
+        'employee' => 2,
     ];
 
     public function setPasswordAttribute($value)
@@ -58,6 +58,20 @@ class User extends Authenticatable implements HasMedia
     public function categories()
     {
         return $this->hasMany(CategoryUser::class);
+    }
+
+    public function setRoleByTypeId($data)
+    {
+        if (isset($data['type'])) {
+            $id = $data['type']; // id role
+            foreach (self::TYPES as $k => $v) { // $k => candidate, $v => 1
+                if ($id == $v) {
+                    $this->assignRole($k);
+                }
+            }
+        }
+
+        $this->save();
     }
 
 }
