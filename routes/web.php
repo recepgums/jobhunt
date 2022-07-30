@@ -15,7 +15,7 @@ Route::get('signout', [Controllers\CustomAuthController::class, 'signOut'])->nam
 
 Route::post('custom-login', [Controllers\CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::post('custom-registration', [Controllers\CustomAuthController::class, 'customRegistration'])->name('register.custom');
-Route::post('change_password_post',[Controllers\CustomAuthController::class,'changePasswordPost'])->name('change_password_post');
+Route::post('change_password_post', [Controllers\CustomAuthController::class, 'changePasswordPost'])->name('change_password_post');
 
 Route::group(['middleware' => 'guest', 'prefix' => 'ajax'], function () {
     Route::post('login', [Controllers\CustomAuthController::class, 'customLogin'])->name('login.ajax');
@@ -23,30 +23,30 @@ Route::group(['middleware' => 'guest', 'prefix' => 'ajax'], function () {
     Route::post('logout', [Controllers\CustomAuthController::class, 'signOut'])->name('logout.ajax');
 });
 
-Route::get('city/{city}/districts',[Controllers\GeneralController::class,'getDistrictsByCity'])->name('city.districts');
+Route::get('city/{city}/districts', [Controllers\GeneralController::class, 'getDistrictsByCity'])->name('city.districts');
 
-Route::group(['prefix' => 'job/{job}','middleware' => 'auth','as'=>'job.'],function (){
-    Route::get('payment', [Controllers\JobController::class,'payment'])->name('payment');
-    Route::get('pricing', [Controllers\JobController::class,'pricing'])->name('pricing');
-    Route::get('package/{package}', [Controllers\JobController::class,'packageSelectPost'])->name('price.post');
+Route::group(['prefix' => 'job/{job}', 'middleware' => 'auth', 'as' => 'job.'], function () {
+    Route::get('payment', [Controllers\JobController::class, 'payment'])->name('payment');
+    Route::get('pricing', [Controllers\JobController::class, 'pricing'])->name('pricing');
+    Route::get('package/{package}', [Controllers\JobController::class, 'packageSelectPost'])->name('price.post');
 
-    Route::post('get_contact_info',[Controllers\JobController::class,'getContactInfo'])->name('get_contact_info');
+    Route::post('get_contact_info', [Controllers\JobController::class, 'getContactInfo'])->name('get_contact_info');
 });
 
 Route::resource('job', Controllers\JobController::class);
 Route::resource('employer', Controllers\EmployerController::class);
 Route::resource('blog', Controllers\BlogController::class);
 
-Route::group(['prefix'=>'candidate','as'=>'candidate.','middleware' => 'auth'],function (){
-   Route::get('profile',[Controllers\CandidateController::class,'profile'])->name('profile');
-   Route::post('profile',[Controllers\CandidateController::class,'profileUpdate'])->name('update');
+Route::group(['prefix' => 'candidate', 'as' => 'candidate.', 'middleware' => 'auth'], function () {
+    Route::get('profile', [Controllers\CandidateController::class, 'profile'])->name('profile');
+    Route::post('profile', [Controllers\CandidateController::class, 'profileUpdate'])->name('update');
 
-    Route::get('my-resume',[Controllers\CandidateController::class,'my_resume'])->name('my_resume');
-    Route::get('shortlist',[Controllers\CandidateController::class,'shortlist'])->name('shortlist');
-    Route::get('applied_jobs',[Controllers\CandidateController::class,'applied_jobs'])->name('applied_jobs');
-    Route::get('job_alert',[Controllers\CandidateController::class,'job_alert'])->name('job_alert');
-    Route::get('cv_cover_letter',[Controllers\CandidateController::class,'cv_cover_letter'])->name('cv_cover_letter');
-    Route::get('change_password',[Controllers\CandidateController::class,'change_password'])->name('change_password');
+    Route::get('my-resume', [Controllers\CandidateController::class, 'my_resume'])->name('my_resume');
+    Route::get('shortlist', [Controllers\CandidateController::class, 'shortlist'])->name('shortlist');
+    Route::get('applied_jobs', [Controllers\CandidateController::class, 'applied_jobs'])->name('applied_jobs');
+    Route::get('job_alert', [Controllers\CandidateController::class, 'job_alert'])->name('job_alert');
+    Route::get('cv_cover_letter', [Controllers\CandidateController::class, 'cv_cover_letter'])->name('cv_cover_letter');
+    Route::get('change_password', [Controllers\CandidateController::class, 'change_password'])->name('change_password');
 });
 
 Route::get('/candidate', function () {
@@ -59,8 +59,7 @@ Route::post('/iyzico-form-retrieve', [App\Http\Controllers\JobController::class,
 Route::get('redirect/{driver}', [Controllers\UserController::class, 'socialiteRedirect'])->name('socialite.redirect');
 Route::get('callback/{driver}', [Controllers\UserController::class, 'socialiteCallback'])->name('socialite.callback');
 
-Route::get('test',function (){
-    $user = auth()->user();
+Route::get('test', function () {
 
-    dd( $user->getFirstMediaUrl('images'));
+    return view('admin.dashboard');
 });
