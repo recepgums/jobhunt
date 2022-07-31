@@ -60,6 +60,7 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => fake()->name(),
+            'username' => Str::slug(fake()->name()),
             'email' => 'asd@asd.com',
             'email_verified_at' => now(),
             'password' => 'asdasdasd',

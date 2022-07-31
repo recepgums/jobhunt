@@ -116,12 +116,10 @@ class JobController extends Controller
             'slug' => Str::slug($request->get('title')),
         ]));
 
-        if ($request->hasFile('cover_image')) {
-            $file = $storageService->put(StorageService::JOB_PHOTO, $request->file('cover_image'));
-
-            $job->update([
-                'cover_image' => $file['path']
-            ]);
+        if ($request->hasFile('files')) {
+            foreach ($request->file('files') as $file){
+                $job->addMedia($file)->toMediaCollection('images');
+            }
         }
 
         return redirect()->route('job.pricing', $job);

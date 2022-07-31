@@ -6,7 +6,7 @@
         <div class="block no-padding">
             <div data-velocity="-.1"
                  style="background: url(https://place-hold.it/1600x800) repeat scroll 50% 422.28px transparent;"
-                 class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+                 class="parallax scrolly-invisible no-parallax"></div>
             <div class="container fluid">
                 <div class="row">
                     <div class="col-lg-12">
@@ -219,7 +219,7 @@
                                     <div class="job-listing wtabs">
                                         <div class="job-title-sec ">
                                             <div class="c-logo mr-3 pl-3">
-                                                <img src="{{$job->cover_image}}" alt=""/>
+{{--                                                <img src="{{$job->cover_image}}" alt=""/>--}}
                                                 <span class="job-is ft">{{$job->workType->name}}</span>
                                             </div>
 

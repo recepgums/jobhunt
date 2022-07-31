@@ -85,9 +85,10 @@
                                                                         <div class="job-grid">
                                                                             <div class="job-title-sec">
                                                                                 <div class="c-logo">
-                                                                                    <img
+
+                                                                                    {{-- todo slider <img
                                                                                         src="{{$job->cover_image ?? 'https://place-hold.it/235x115'}}"
-                                                                                        alt="{{$job->title}}"/>
+                                                                                        alt="{{$job->title}}"/>--}}
                                                                                 </div>
                                                                                 <h3>
                                                                                     <a href="{{route('job.show',$job->slug)}}"

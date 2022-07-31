@@ -5539,7 +5539,7 @@ aside .widget.border:first-child {
     float: left;
     width: 100%;
     padding-bottom: 50px;
-    border-bottom: 1px solid #e8ecec;
+    /*border-bottom: 1px solid #e8ecec;*/
 }
 .job-title2 {
     float: left;

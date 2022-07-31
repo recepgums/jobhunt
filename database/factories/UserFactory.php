@@ -22,8 +22,10 @@ class UserFactory extends Factory
     public function definition()
     {
         $city = City::inRandomOrder()->first();
+        $name = fake()->name();
         return [
-            'name' => fake()->name(),
+            'name' => $name,
+            'username' => Str::slug($name),
             'email' => fake()->safeEmail(),
             'email_verified_at' => now(),
             'phone_verified_at' => now(),

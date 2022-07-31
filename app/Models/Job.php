@@ -24,7 +24,6 @@ class Job extends Model implements HasMedia
         'title',
         'description',
         'slug',
-        'cover_image',
         'fee',
         'level',
 //        'qualification',
@@ -79,7 +78,7 @@ class Job extends Model implements HasMedia
 
     public function getCoverImageAttribute($value)
     {
-        return $value ?? optional($this->category)->default_cover_image;
+        return $this->getFirstMediaUrl() ?? optional($this->category)->default_cover_image;
     }
 
     public function user()

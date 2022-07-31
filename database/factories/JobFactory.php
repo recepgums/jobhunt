@@ -34,7 +34,6 @@ class JobFactory extends Factory
             'title' => $title,
             'description' => $this->faker->text(30),
             'slug' => Str::slug($title),
-            'cover_image' => $this->faker->imageUrl,
             'work_type_id' => WorkType::query()->inRandomOrder()->first()->id,
             'fee' => rand(10,1500),
             'level' => Job::LEVEL[array_rand(Job::LEVEL)],

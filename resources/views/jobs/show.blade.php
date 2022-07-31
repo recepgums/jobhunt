@@ -1,6 +1,8 @@
 @extends('layout.app')
 
-
+@push('styles')
+    <link rel="stylesheet" href="{{asset('assets/css/bo-slider.min.css')}}" />
+@endpush
 @section('content')
 
     <section class="overlape">
@@ -30,19 +32,41 @@
                 <div class="row">
                     <div class="col-lg-8 column">
                         <div class="job-single-sec">
+                            @if($job->getFirstMedia('images'))
+                                <div class="card-title mx-auto text-center">
+                                    <ul class="bo-slider">
+                                        @forelse($job->getMedia('images') as $media)
+                                            <li data-url="{{$media->getUrl()}}" data-type="image"></li>
+                                        @empty
+                                        @endforelse
+                                    </ul>
+                                </div>
+                            @endif
+
+
                             <div class="job-single-head2">
                                 <div class="job-title2"><h3>{{$job->title}}</h3>
-                                    <span class="job-is ft">{{$job->workType->name}}</span>
+{{--                                    <span class="job-is ft">{{$job->workType->name}}</span>--}}
                                 </div>
                                 <ul class="tags-jobs">
                                     <li>
                                         <i class="la la-map-marker"></i> @if(optional($job->district)->name) {{$job->district->name}}
                                         , @endif {{$job->city->name}}</li>
                                     @if($job->fee)
-                                        <li><i class="la la-money"></i> Aylık Maaş : <span>{{$job->fee}} ₺</span>
-                                        </li> @endif
-                                    <li><i class="la la-calendar-o"></i> Yayınlanma
-                                        Tarihi: {{$job->created_at->diffForHumans()}}</li>
+                                        <li>
+                                            <i class="la la-money"></i> Aylık Maaş : <span>{{$job->fee}} ₺</span>
+                                        </li>
+                                    @endif
+                                    <li>
+                                        <i class="la la-calendar-o"></i>
+                                        Yayınlanma Tarihi:
+                                        {{$job->created_at->diffForHumans()}}
+                                    </li>
+                                    <li>
+                                        <i class="la la-calendar-o"></i>
+                                       Çalışma Türü
+                                        <span>{{$job->workType->name}}</span>
+                                    </li>
                                 </ul>
                                 @if(optional($job->category)->name)
                                     <span>
@@ -51,16 +75,10 @@
                                 </span>
                                 @endif
                             </div>
-                            @if($job->cover_image)
-                                <div class="card-title mx-auto text-center">
-                                    <img src="https://place-hold.it/350x250" alt="">
-                                </div>
-                            @endif
-                            <div class="job-details">
+                            <div class="job-details" style="border-bottom: 1px solid #e8ecec;padding-bottom: 10px">
                                 {!! $job->description !!}
                             </div>
                             <div class="job-overview">
-                                <h3>Genel Bakış</h3>
                                 <ul>
                                     @if($job->fee)
                                         <li><i class="la la-money"></i>
@@ -94,7 +112,7 @@
                     <div class="col-lg-4 column">
                         <div class="job-single-head style2">
                             <div class="job-thumb">
-                                <img
+                                <img style="width: 30%"
                                     src="{{optional($job->user)->profile_image_url ?? 'https://place-hold.it/124x124'}}"/>
                             </div>
                             <div class="job-head-info" id="job-head-info">
@@ -118,7 +136,7 @@
                                     İletişim Bilgilerini Görüntüle
                                 </a>
                             @endguest
-                            <a href="{{route('job.index')}}" title="" class="viewall-jobs">İş sahibinin profilini görüntüle</a>
+                            <a href="{{route('user.show',$job->user->id)}}" title="" class="viewall-jobs">İş sahibinin profilini görüntüle</a>
                         </div><!-- Job Head -->
                     </div>
                 </div>
@@ -131,8 +149,13 @@
 @push('scripts')
 
     <script src="{{asset('assets/js/jquery.scrollbar.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/js/bo-slider.min.js')}}" type="text/javascript"></script>
 
     <script>
+        $(function(){
+            $('.bo-slider').boSlider();
+        });
+
         function showContact(e, slug) {
             e.preventDefault();
             $('#show_contact_info_button_auth').text('Yükleniyor . . . ')
