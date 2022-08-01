@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 use Omgtheking\OmgIyzicoPayment\OmgPayable;
 use Spatie\Permission\Traits\HasRoles;
@@ -74,4 +75,14 @@ class User extends Authenticatable implements HasMedia
         $this->save();
     }
 
+    protected static function boot()
+    {
+        parent::boot();
+        static::created(function ($user) {
+            if (!$user->username) {
+                $user->username = Str::slug(Str::slug($user->name) . '-' . Str::random(4));
+                $user->save();
+            }
+        });
+    }
 }
