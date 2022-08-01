@@ -33,7 +33,7 @@ Route::group(['prefix' => 'job/{job}', 'middleware' => 'auth', 'as' => 'job.'], 
     Route::post('get_contact_info', [Controllers\JobController::class, 'getContactInfo'])->name('get_contact_info');
 });
 
-Route::get('employee/{user}',[Controllers\UserController::class,'show'])->name('user.show');
+Route::get('user/{user:username}',[Controllers\UserController::class,'show'])->name('user.show');
 
 Route::resource('job', Controllers\JobController::class);
 Route::resource('employer', Controllers\EmployerController::class);

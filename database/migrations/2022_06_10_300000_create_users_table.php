@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('phone')->unique()->nullable();
-            $table->longText('about')->nullable();
+            $table->longText('about')->comment('html')->nullable();
             $table->integer('age')->nullable();
             $table->string('profile_image_url')->nullable();
             $table->integer('experience_year')->nullable();

@@ -28,7 +28,7 @@ class CategoriesFactory extends Factory
             'slug' => Str::slug($name),
             'model' => $models[array_rand($models)],
             'description' => $this->faker->paragraph(1),
-            'default_cover_image' => 'https://place-hold.it/1600x800',
+            'default_cover_image' => $this->faker->imageUrl,
         ];
     }
 }

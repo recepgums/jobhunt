@@ -47,7 +47,7 @@ class User extends Authenticatable implements HasMedia
 
     const TYPES = [
         'candidate' => 1,
-        'employee' => 2,
+        'employer' => 2,
     ];
 
     public function setPasswordAttribute($value)
@@ -74,4 +74,8 @@ class User extends Authenticatable implements HasMedia
         $this->save();
     }
 
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
+    }
 }
