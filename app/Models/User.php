@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 use Omgtheking\OmgIyzicoPayment\OmgPayable;
 use Spatie\Permission\Traits\HasRoles;
@@ -47,7 +48,7 @@ class User extends Authenticatable implements HasMedia
 
     const TYPES = [
         'candidate' => 1,
-        'employer' => 2,
+        'employee' => 2,
     ];
 
     public function setPasswordAttribute($value)
@@ -74,8 +75,4 @@ class User extends Authenticatable implements HasMedia
         $this->save();
     }
 
-    public function jobs()
-    {
-        return $this->hasMany(Job::class);
-    }
 }
