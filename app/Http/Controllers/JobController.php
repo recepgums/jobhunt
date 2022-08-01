@@ -104,6 +104,7 @@ class JobController extends Controller
             $user = User::factory(1)->create()[0];
             $user->name = 'İsimsiz Kullanıcı';
             $user->token = Str::slug(Str::random(32));
+            $user->attachRole('employee'); // default role is "employee" when user creates a job
             $user->save();
 
             auth()->loginUsingId($user->id);

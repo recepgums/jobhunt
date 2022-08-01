@@ -130,7 +130,7 @@
                             @endauth
 
                             @guest
-                                <a href="{{route('register-user')}}" title="" class="apply-job-btn"
+                                <a href="#" title="" class="apply-job-btn signup-popup"
                                    style="cursor: pointer;padding: 20px 0px"><i
                                         class="la la-paper-plane"></i>
                                     İletişim Bilgilerini Görüntüle
