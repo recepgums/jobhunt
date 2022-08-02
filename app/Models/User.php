@@ -75,4 +75,14 @@ class User extends Authenticatable implements HasMedia
         $this->save();
     }
 
+    protected static function boot()
+    {
+        parent::boot();
+        static::created(function ($user) {
+            if (!$user->username) {
+                $user->username = Str::slug(Str::slug($user->name) . '-' . Str::random(4));
+                $user->save();
+            }
+        });
+    }
 }
