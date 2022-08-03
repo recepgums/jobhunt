@@ -61,7 +61,8 @@ class JobFilterService
         if ($this->request->get('keyword')) {
             $this->jobs = $this->jobs->where(function ($query) {
                 $query->whereRaw('LOWER(`title`) LIKE ? ',[trim(strtolower($this->request->get('keyword'))).'%']);
-                $query->orWhereRaw('LOWER(`description`) LIKE ? ',[trim(strtolower($this->request->get('keyword'))).'%']);
+                $query->orWhereRaw('LOWER(`tasks`) LIKE ? ',[trim(strtolower($this->request->get('keyword'))).'%']);
+                $query->orWhereRaw('LOWER(`benefits`) LIKE ? ',[trim(strtolower($this->request->get('keyword'))).'%']);
             });
         }
     }

@@ -25,7 +25,8 @@ class JobStoreRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'description' => 'required',
+            'tasks' => 'required',
+            'benefits' => 'required',
             'work_type_id' => 'required|exists:work_types,id',
             'category_id' => 'nullable|exists:categories,id',
             'city_id' => 'nullable|exists:cities,id',

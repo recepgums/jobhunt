@@ -86,9 +86,15 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
-                                            <span class="pf-title">Açıklama</span>
+                                            <span class="pf-title">İşçiden beklediğiniz göevler</span>
                                             <div class="pf-field">
-                                                <textarea name="description" placeholder="İlan detayları..."></textarea>
+                                                <textarea name="tasks" placeholder="Sizinle çalışırken ne iş yapacağı, kaç saat çalışacağı gibi bilgileri yazınız..."></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <span class="pf-title">İşçiye sağlayacağınız koşullar</span>
+                                            <div class="pf-field">
+                                                <textarea name="benefits" placeholder="Aylık ya da haftalık ücret, yol yemek parası, sigorta gibi çalışana sağlayacağınız şartları yazınız..."></textarea>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">

@@ -75,8 +75,13 @@
                                 </span>
                                 @endif
                             </div>
+                                <h2>İş tanımı</h2>
                             <div class="job-details" style="border-bottom: 1px solid #e8ecec;padding-bottom: 10px">
-                                {!! $job->description !!}
+                                {!! $job->tasks !!}
+                            </div>
+                                <h2>Karşılığında alacağınız</h2>
+                            <div class="job-details" style="border-bottom: 1px solid #e8ecec;padding-bottom: 10px">
+                                {!! $job->benefits !!}
                             </div>
                             <div class="job-overview">
                                 <ul>

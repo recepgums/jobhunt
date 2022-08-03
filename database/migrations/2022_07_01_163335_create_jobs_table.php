@@ -26,7 +26,8 @@ return new class extends Migration {
 
 
             $table->string('title');
-            $table->longText('description');
+            $table->longText('tasks');
+            $table->longText('benefits');
             $table->string('slug')->unique()->index();
 
             $table->integer('fee')->nullable();
