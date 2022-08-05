@@ -9,7 +9,7 @@
             <div class="container fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="main-featured-sec style3">
+                        <div class="main-featured-sec style3" style="">
                             <ul class="main-slider-sec style3 text-arrows">
                                 <li><img src="https://creativelayers.net/themes/jobhunt-html/images/resource/sn1.jpg" alt="" /></li>
                                 <li><img src="https://www.gidahatti.com/wp-content/uploads/2015/09/unilever-india.jpg" alt="" /></li>
@@ -19,7 +19,7 @@
                                     <h3>Mükemmel İş</h3>
                                     <h3>Mükemmel Yetenek</h3>
                                     <span>Aradığınız güvenilir işi ve işçiyi bulmanın en kolay yolu.</span>
-                                    <div class="search-job2 style2">
+                                    <div class="search-job2 style2 d-none d-md-block">
                                         <form method="get" action="{{route('job.index')}}">
                                             <div class="row no-gape">
                                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -87,6 +87,24 @@
                                     <li><a data-tab="rjobsa">Dükkan ilanları</a></li>
                                     <li><a data-tab="rjobsa">Dükkan ilanları</a></li>
                                 </ul>
+
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">a</div>
+                                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">b</div>
+                                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">c</div>
+                                </div>
+
                                 <br>
                                 <div style="width: 100%; height: 1px;background-color: gray;width: 133%"></div>
                                 <div id="job_nav" class="tab-content current my-5 bg-white">
@@ -438,7 +456,7 @@
                             @forelse($reviews as $review)
                                 <div class="col-lg-6">
                                 <div class="reviews style2">
-                                    <img src="{{$review->image_url}}" alt="{{$review->review}}" />
+                                    <img src="{{$review->cover_image}}" alt="{{$review->review}}" />
                                     <h3>{{$review->name}}<span>{{$review->role}}</span></h3>
                                     <p>{{$review->review}}</p>
                                 </div>

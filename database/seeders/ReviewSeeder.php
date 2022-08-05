@@ -14,6 +14,8 @@ class ReviewSeeder extends Seeder
      */
     public function run()
     {
-        Review::factory()->count(5)->create();
+        Review::factory(5)->create()->each(function ($review){
+            $review->addMediaFromUrl('https://st.depositphotos.com/1224365/2498/i/450/depositphotos_24980235-stock-photo-portrait-of-a-normal-man.jpg')->toMediaCollection('images');
+        });
     }
 }

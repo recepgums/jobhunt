@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\HasMedia;
 
-class Blog extends Model
+class Blog extends Model implements HasMedia
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes,InteractsWithMedia;
 
     protected $fillable = [
         'category_id',
@@ -28,5 +30,11 @@ class Blog extends Model
     public function category()
     {
         return $this->belongsTo(Categories::class);
+    }
+
+    public function getCoverImageAttribute($value)
+    {
+        $firstMediaUrl = $this->getFirstMediaUrl('images');
+        return strlen($firstMediaUrl)>0 ? $firstMediaUrl : optional($this->category)->default_cover_image;
     }
 }

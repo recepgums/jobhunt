@@ -1,19 +1,19 @@
 <div class="responsive-header">
     <div class="responsive-menubar">
-        <div class="res-logo"><a href="{{route('homepage')}}" title=""><img src="{{asset('assets/images/logo.png')}}" alt=""/></a>
+        <div class="res-logo"><a href="{{route('homepage')}}" title=""><img style="height: 50px;width: 50px" src="{{asset('assets/images/logo.png')}}" alt=""/></a>
         </div>
         <div class="menu-resaction">
             <div class="res-openmenu">
-                <img src="{{asset('assets/images/icon.png')}}" alt=""/> Menu
+                <img src="{{asset('assets/images/icon.png')}}" alt=""/> Menü
             </div>
             <div class="res-closemenu">
-                <img src="{{asset('assets/images/icon2.png')}}" alt=""/> Close
+                <img src="{{asset('assets/images/icon2.png')}}" alt=""/> Kapat
             </div>
         </div>
     </div>
     <div class="responsive-opensec">
         <div class="btn-extars">
-            <a href="{{route('job.create')}}" title="" class="post-job-btn"><i class="la la-plus"></i>İlan Ver</a>
+            <a href="{{route('job.create')}}" title="" class="post-job-btn"><i class="la la-plus"></i>Ücretsiz* ilan Ver</a>
             @if(!request()->is('register') && !request()->is('login'))
             <ul class="account-btns">
                 <li class="signup-popup"><a title=""><i class="la la-key"></i> Kayıt Ol</a></li>
@@ -58,8 +58,7 @@
                 </a>
             </div><!-- Logo -->
             <div class="btn-extars">
-                <a href="{{route('job.create')}}" title="" class="post-job-btn"><i class="la la-plus"></i>İlan
-                    Ver</a>
+                <a href="{{route('job.create')}}" title="" class="post-job-btn active"><i class="la la-plus"></i>Ücretsiz* ilan Ver</a>
 
                 <ul class="account-btns">
                     @if(!request()->is('register') && !request()->is('login'))

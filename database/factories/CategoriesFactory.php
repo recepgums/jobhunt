@@ -28,7 +28,7 @@ class CategoriesFactory extends Factory
             'slug' => Str::slug($name),
             'model' => $models[array_rand($models)],
             'description' => $this->faker->paragraph(1),
-            'default_cover_image' => $this->faker->imageUrl,
+            'default_cover_image' => 'https://image.shutterstock.com/image-photo/suleymaniye-mosque-during-sunset-istanbul-600w-1889028265.jpg',
         ];
     }
 }

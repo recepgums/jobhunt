@@ -79,7 +79,7 @@ class Job extends Model implements HasMedia
 
     public function getCoverImageAttribute($value)
     {
-        $firstMediaUrl = $this->getFirstMediaUrl();
+        $firstMediaUrl = $this->getFirstMediaUrl('images');
         return strlen($firstMediaUrl)>0 ? $firstMediaUrl : optional($this->category)->default_cover_image;
     }
 

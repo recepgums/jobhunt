@@ -79,12 +79,16 @@ class DatabaseSeeder extends Seeder
         });
 
 
-        Blog::factory(100)->create();
-        Job::factory(1000)->create();
+        Blog::factory(10)->create()->each(function ($blog){
+            $blog->addMediaFromUrl('https://img.imageus.dev/https://depo.isbul.net/v2/home/bilisim-is-ilanlari.jpg?width=400&height=267&mode=contain&background=ffffff')->toMediaCollection('images');
+        });
+        Job::factory(300)->create()->each(function ($job){
+            $job->addMediaFromUrl('https://image.shutterstock.com/image-photo/suleymaniye-mosque-during-sunset-istanbul-600w-1889028265.jpg')->toMediaCollection('images');
+        });
 
         CategoryUser::factory(100)->create();
 
-        $this->call(WorkshopSeeder::class);
+//        $this->call(WorkshopSeeder::class);
 
 
         Artisan::call('cache:clear');

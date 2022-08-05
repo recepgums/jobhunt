@@ -18,7 +18,6 @@ class ReviewFactory extends Factory
     {
         $roles = ['Pişirici', 'Fırın Sahibi','Uncu','Ekipman Satıcısı'];
         return [
-            'image_url' => $this->faker->imageUrl,
             'name' => $this->faker->firstName . " " . $this->faker->lastName,
             'role' => $roles[array_rand($roles)],
             'review' => $this->faker->paragraph(2),
