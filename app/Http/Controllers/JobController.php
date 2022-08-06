@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\JobStoreRequest;
-use App\Models\Candidate;
 use App\Models\City;
 use App\Models\Job;
 use App\Models\JobUser;
@@ -27,7 +26,7 @@ class JobController extends Controller
 
     public function __construct()
     {
-        if ($position = Location::get(\request()->ip())) {
+        if ($position = Location::get()) {
             if (strlen($position->zipCode) == 4){
                 $position->zipCode = "0".$position->zipCode;
             }
@@ -101,14 +100,15 @@ class JobController extends Controller
             'selectedDistricts'));
     }
 
-    public function store(JobStoreRequest $request, StorageService $storageService)
+    public function store(JobStoreRequest $request)
     {
         if (!auth()->check()) {
             $user = User::factory(1)->create()[0];
             $user->name = 'İsimsiz Kullanıcı';
             $user->token = Str::slug(Str::random(32));
-            $user->attachRole('employee'); // default role is "employee" when user creates a job
             $user->save();
+
+            $user->assignRole('employee'); // default role is "employee" when user creates a job
 
             auth()->loginUsingId($user->id);
         }

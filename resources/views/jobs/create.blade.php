@@ -3,8 +3,8 @@
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
-            selector: '#mytextarea',
-            height: 600,
+            selector: '.mytextarea',
+            height: 400,
             plugins: [
                 'advlist autolink link image lists charmap print preview hr anchor pagebreak',
                 'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
@@ -17,9 +17,6 @@
     </script>
 
     <style>
-        html * {
-            box-sizing: border-box;
-        }
 
         p {
             margin: 0;
@@ -42,12 +39,11 @@
             color: #fff;
             text-align: center;
             min-width: 116px;
-            padding: 5px;
+            padding: 15px;
             transition: all 0.3s ease;
             cursor: pointer;
-            border: 2px solid;
             background-color: #4045ba;
-            border-color: #4045ba;
+            border: 2px solid #4045ba;
             border-radius: 10px;
             line-height: 26px;
             font-size: 14px;
@@ -57,8 +53,13 @@
             color: #4045ba;
             transition: all 0.3s ease;
         }
-        .upload__btn-box {
-            margin-bottom: 10px;
+
+        .upload__btn-box label p {
+            color:#fff
+        }
+        .upload__btn-box label p:hover{
+            color: #4045ba;
+            transition: all 0.3s ease;
         }
         .upload__img-wrap {
             display: flex;
@@ -74,8 +75,9 @@
             width: 24px;
             height: 24px;
             border-radius: 50%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: white;
             position: absolute;
+            transform: rotate(45deg);
             top: 10px;
             right: 10px;
             text-align: center;
@@ -103,7 +105,7 @@
     <section class="overlape">
         <div class="block no-padding">
             <div data-velocity="-.1"
-                 style="background: url(https://place-hold.it/1600x800) repeat scroll 50% 422.28px transparent;"
+                 style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;"
                  class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
             <div class="container fluid">
                 <div class="row">
@@ -152,7 +154,7 @@
                         <div class="padding-left">
                             <div class="profile-title">
                                 <h3>Yeni İş İlanı Ver</h3>
-                                <div class="steps-sec">
+                                <div class="steps-sec d-none d-md-block">
                                     <div class="step active" id="step_1" next="step_2">
                                         <p><i class="la la-info"></i></p>
                                         <span>İş Detayı</span>
@@ -177,34 +179,35 @@
                                 <form method="post" action="{{route('job.store')}}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
-                                       {{-- <div class="col-lg-6 mx-auto">
-                                            <div class="pf-field no-margin">
-                                                <img style="height: 150px;width: 150px" id="preview-image" class="form-control mx-auto" src="{{'https://via.placeholder.com/150'}}">
-
-                                                <input id="image" type="file" name="cover_image"/>
-                                            </div>
-                                        </div>--}}
                                         <div class="col-lg-12">
                                             <span class="pf-title">Başlık</span>
                                             <div class="pf-field">
                                                 <input name="title" type="text" placeholder="Başlık"/>
                                             </div>
                                         </div>
+
                                         <div class="col-lg-12">
-                                            <span class="pf-title">Açıklama</span>
+                                            <span class="pf-title">İşçiden beklediğiniz göevler</span>
                                             <div class="pf-field">
-                                                <textarea id="mytextarea"  name="description" placeholder="Bireysel kullanıcılarımızda alıcı ve satıcı güvenliğini sağlamak için açıklama alanına telefon numarası yazılan ilanlar onaylanmamaktadır." cols="30"
-                                                          rows="10"></textarea>
+                                                <textarea name="tasks" class="mytextarea" placeholder="Sizinle çalışırken ne iş yapacağı, kaç saat çalışacağı gibi bilgileri yazınız..."></textarea>
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
+                                            <span class="pf-title">İşçiye sağlayacağınız koşullar</span>
+                                            <div class="pf-field">
+                                                <textarea name="benefits" class="mytextarea" placeholder="Aylık ya da haftalık ücret, yol yemek parası, sigorta gibi çalışana sağlayacağınız şartları yazınız..."></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12 text-center">
                                             <span class="pf-title">Resim ve videolar yükleyiniz</span>
 
-                                            <div class="upload__box">
+                                            <div class="upload__box " >
                                                 <div class="upload__btn-box">
                                                     <label class="upload__btn" style="height: auto">
                                                         <p>Resim ve Video</p>
-                                                        <input type="file" name="files[]" multiple="true" data-max_length="20" class="upload__inputfile">
+                                                        <input type="file" name="files[]" multiple="true" data-max_length="20" class="upload__inputfile"
+                                                        accept="image/*, video/*">
                                                     </label>
                                                 </div>
                                                 <div class="upload__img-wrap"></div>

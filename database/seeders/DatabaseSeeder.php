@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         Faq::factory(10)->create();
         $this->call(ReviewSeeder::class);
         Role::create(['name'=>'candidate']);
-        Role::create(['name'=>'employer']);
+        Role::create(['name'=>'employee']);
         WorkType::create(['name' => 'Tam Zamanlı', 'type' => WorkType::TYPES['Full Time']]);
         WorkType::create(['name' => 'Yarı Zamanlı', 'type' => WorkType::TYPES['Part Time']]);
         WorkType::create(['name' => 'Karışık', 'type' => WorkType::TYPES['Hybrit']]);
@@ -75,7 +75,7 @@ class DatabaseSeeder extends Seeder
             $user->assignRole('candidate');
         });
         \App\Models\User::factory(10)->create()->each(function ($user){
-            $user->assignRole('employer');
+            $user->assignRole('employee');
         });
 
 

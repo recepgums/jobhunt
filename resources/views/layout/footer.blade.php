@@ -5,7 +5,7 @@
                 <div class="col-lg-12">
                     <div class="widget">
                         <div class="mega-widget">
-                            <div class="logo"><a href="#" title=""><img src="https://place-hold.it/93x40" alt="" /></a></div>
+{{--                            <div class="logo"><a href="#" title=""><img src="https://placehold.jp/93x40" alt="" /></a></div>--}}
                             <div class="links">
                                 <a href="{{route('terms')}}" title="">Şartlar ve Politikalar</a>
                                 <a href="{{route('how_it_works')}}" title="">Nasıl Çalışır</a>

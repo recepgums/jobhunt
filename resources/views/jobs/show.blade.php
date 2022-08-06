@@ -2,13 +2,65 @@
 
 @push('styles')
     <link rel="stylesheet" href="{{asset('assets/css/bo-slider.min.css')}}" />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
 @endpush
 @section('content')
 
     <section class="overlape">
         <div class="block no-padding">
             <div data-velocity="-.1"
-                 style="background: url(https://place-hold.it/1600x800) repeat scroll 50% 422.28px transparent;"
+                 style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;"
                  class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
             <div class="container fluid">
                 <div class="row">
@@ -32,17 +84,28 @@
                 <div class="row">
                     <div class="col-lg-8 column">
                         <div class="job-single-sec">
-                            @if($job->getFirstMedia('images'))
-                                <div class="card-title mx-auto text-center">
-                                    <ul class="bo-slider">
+                                <div class="swiper mySwiper">
+                                    <div class="swiper-wrapper">
                                         @forelse($job->getMedia('images') as $media)
-                                            <li data-url="{{$media->getUrl()}}" data-type="image"></li>
+                                            @if(str_contains($media->mime_type,"image"))
+                                                <div class="swiper-slide">
+                                                    <img src="{{$media->getUrl()}}" alt="">
+                                                </div>
+                                            @else
+                                                <div class="swiper-slide">
+                                                    <video width="320" height="240" controls>
+                                                        <source src="{{$media->getUrl()}}" type="video/mp4">
+                                                        Your browser does not support the video tag.
+                                                    </video>
+                                                </div>
+                                            @endif
                                         @empty
                                         @endforelse
-                                    </ul>
+                                    </div>
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-pagination"></div>
                                 </div>
-                            @endif
-
 
                             <div class="job-single-head2">
                                 <div class="job-title2"><h3>{{$job->title}}</h3>
@@ -75,11 +138,11 @@
                                 </span>
                                 @endif
                             </div>
-                                <h2>İş tanımı</h2>
+                                <h2>Beklenti</h2>
                             <div class="job-details" style="border-bottom: 1px solid #e8ecec;padding-bottom: 10px">
                                 {!! $job->tasks !!}
                             </div>
-                                <h2>Karşılığında alacağınız</h2>
+                                <h2>Kazanç</h2>
                             <div class="job-details" style="border-bottom: 1px solid #e8ecec;padding-bottom: 10px">
                                 {!! $job->benefits !!}
                             </div>
@@ -118,7 +181,7 @@
                         <div class="job-single-head style2">
                             <div class="job-thumb">
                                 <img style="width: 30%"
-                                    src="{{optional($job->user)->profile_image_url ?? 'https://place-hold.it/124x124'}}"/>
+                                    src="{{optional($job->user)->profile_image_url ?? 'https://placehold.jp/124x124'}}"/>
                             </div>
                             <div class="job-head-info" id="job-head-info">
                                 <h4>{{optional($job->user)->name}}</h4>
@@ -155,7 +218,7 @@
 
     <script src="{{asset('assets/js/jquery.scrollbar.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('assets/js/bo-slider.min.js')}}" type="text/javascript"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script>
         $(function(){
             $('.bo-slider').boSlider();
@@ -190,5 +253,23 @@
                 },
             });
         }
+
+        var swiper = new Swiper(".mySwiper", {
+       /*     autoplay:{
+                delay:3000,
+                disableOnInteraction: false
+            },*/
+            pagination: {
+                el: ".swiper-pagination",
+                dynamicBullets: true,
+                clickable:true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            spaceBetween: 30,
+            loop: true,
+        });
     </script>
 @endpush
