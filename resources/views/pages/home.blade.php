@@ -80,41 +80,18 @@
                     <div class="col-lg-9 column">
                         <div class="heading left">
                             <h2>
-                                {{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki ilanlar</h2>
-                            <div class="tab-sec">
-                                <ul class="nav nav-tabs my-5 text-left " style="height: 28px">
-                                    <li><a class="current" data-tab="job_nav">İş ilanları</a></li>
-                                    <li><a data-tab="rjobsa">Dükkan ilanları</a></li>
-                                    <li><a data-tab="rjobsa">Dükkan ilanları</a></li>
-                                </ul>
-
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">a</div>
-                                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">b</div>
-                                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">c</div>
-                                </div>
-
+                                {{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları</h2>
+                            <div class="">
                                 <br>
                                 <div style="width: 100%; height: 1px;background-color: gray;width: 133%"></div>
-                                <div id="job_nav" class="tab-content current my-5 bg-white">
+                                <div id="job_nav" class="tab-content current my-1 bg-white">
                                     <div class="job-listings-sec style2" style="padding-top: 15px">
                                         @forelse($locationRecentJobs as $job)
                                             <div style="width: 133%" class="job-listing text-left">
                                                 <div class="row">
                                                     <div class="col-md-9 job-title-sec">
                                                         <div class="c-logo">
-                                                            <img src="{{$job->cover_image ?? 'https://place-hold.it/235x115'}}"
+                                                            <img src="{{asset($job->cover_image) ?? 'https://place-hold.it/235x115'}}"
                                                                  alt="{{$job->title}}"/>
                                                         </div>
                                                         <h3 class="px-2">
@@ -184,8 +161,8 @@
                     </div>
 
                     <div class="col-lg-3 column d-none d-md-block">
-                        <div class="heading left">
-                            <h2>Güncel İlanlar</h2>
+                        <div class="heading left text-center">
+                            <h2>VIP ilanlar</h2>
                         </div><!-- Heading -->
                         <div class="job-grid-sec">
                             <div class="row">
@@ -219,7 +196,7 @@
                     </div>
 
                     <div class="col-lg-12">
-                        <div class="browse-all-cat">
+                        <div class="browse-all-cat" style="margin-top: 0">
                             <a href="{{route('job.index')}}" title="" class="style2">Daha fazla iş ilanı
                                 görüntüleyin</a>
                         </div>

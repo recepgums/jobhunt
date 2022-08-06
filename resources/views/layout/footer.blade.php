@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="bottom-line style2">
-        <span>© {{now()->format('Y')}} {{env('APP_NAME')}} tüm hakları saklıdır.</span>
+        <span>© {{now()->format('Y')}} {{env('APP_NAME')}}</span>
         <a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
     </div>
 </footer>

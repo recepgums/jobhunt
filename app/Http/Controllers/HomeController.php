@@ -18,7 +18,10 @@ class HomeController extends Controller
     public function __construct()
     {
         if ($position = Location::get()) {
-            $this->city = City::find((int)$position->regionCode);
+            if (strlen($position->zipCode) == 4){
+                $position->zipCode = "0".$position->zipCode;
+            }
+            $this->city = City::find((int)substr($position->zipCode, 0, 2));
         }
     }
 
