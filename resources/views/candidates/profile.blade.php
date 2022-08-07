@@ -5,7 +5,7 @@
     <section class="overlape">
         <div class="block no-padding">
             <div data-velocity="-.1"
-                 style="background: url(https://place-hold.it/1600x800) repeat scroll 50% 422.28px transparent;"
+                 style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;"
                  class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
             <div class="container fluid">
                 <div class="row">
@@ -39,7 +39,7 @@
                                     <h3>Profilim</h3>
                                     <div class="upload-img-bar">
                                         <span class="round">
-                                            <img src="{{$user->getFirstMediaUrl('images') ?? 'https://place-hold.it/140x140'}}"
+                                            <img src="{{strlen($user->getFirstMediaUrl('images')) > 0 ? $user->getFirstMediaUrl('images') : 'https://placehold.jp/1600x800'}}"
                                                  alt=""/>
                                         </span>
                                         <div class="upload-info">

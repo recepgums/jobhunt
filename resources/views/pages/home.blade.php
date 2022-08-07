@@ -1,5 +1,46 @@
 @extends('layout.app')
+@push('styles')
+    <!-- Link Swiper's CSS -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
 
+    <!-- Demo styles -->
+    <style>
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+@endpush
 @section('content')
 
 
@@ -81,7 +122,7 @@
                         <div class="heading left">
                             <h2>
                                 {{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları</h2>
-                            <div class="">
+                            <div class="tab-sec">
                                 <br>
                                 <div style="width: 100%; height: 1px;background-color: gray;width: 133%"></div>
                                 <div id="job_nav" class="tab-content current my-1 bg-white">
@@ -91,7 +132,7 @@
                                                 <div class="row">
                                                     <div class="col-md-9 job-title-sec">
                                                         <div class="c-logo">
-                                                            <img src="{{asset($job->cover_image) ?? 'https://place-hold.it/235x115'}}"
+                                                            <img src="{{$job->cover_image ?? 'https://place-hold.it/235x115'}}"
                                                                  alt="{{$job->title}}"/>
                                                         </div>
                                                         <h3 class="px-2">
@@ -118,7 +159,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <a href="{{route('job.show',$job->slug)}}" class="aply-btn" style="font-size: 18px;padding: 10px;">Şimdi Başvur</a>
+                                                        <a href="{{route('job.show',$job->slug)}}" class="aply-btn" style="font-size: 18px;padding: 20px;border-radius:5px;font-weight: 700 ">Şimdi Başvur</a>
 
                                                     </div>
                                                 </div>
@@ -129,30 +170,6 @@
                                 </div>
                                 <div id="rjobsa" class="tab-content  my-5">
 
-                                <div class="job-listings-sec style2">
-                                    @forelse($locationRecentJobs as $job)
-                                        <div style="width: 133%" class="job-listing">
-                                            <div class="job-title-sec">
-                                                <div class="c-logo">
-                                                    <img src="{{$job->cover_image ?? 'https://place-hold.it/235x115'}}"
-                                                         alt="{{$job->title}}"/>
-                                                </div>
-                                                <h3 class="px-2">
-                                                    <a href="{{route('job.show',$job->slug)}}" title="">
-                                                        {{$job->title}}
-                                                    </a>
-                                                </h3>
-                                                @if(optional($job->district)->name)
-                                                    <span class="pl-2">{{$job->district->name}}</span>
-                                                @endif
-                                                <span class="job-lctn">{{$job->city->name}}</span>
-                                            </div>
-                                            <a href="{{route('job.show',$job->slug)}}" title="" class="aply-btn">Şimdi Başvur</a>
-                                            <span class="job-is ft">{{optional($job->workType)->name}}</span>
-                                        </div>
-                                    @empty
-                                    @endforelse
-                                </div>
                             </div>
                             </div>
                         </div>
@@ -162,7 +179,7 @@
 
                     <div class="col-lg-3 column d-none d-md-block">
                         <div class="heading left text-center">
-                            <h2>VIP ilanlar</h2>
+                            <h2>Yıldızlı ilanlar</h2>
                         </div><!-- Heading -->
                         <div class="job-grid-sec">
                             <div class="row">
@@ -374,34 +391,42 @@
                         <div class="blog-sec">
                             <div class="row">
 
-                                @forelse($blogs as $blog)
-                                    <div class="col-lg-4">
-                                        <div class="my-blog">
-                                            <div class="blog-thumb">
-                                                <a href="{{route('blog.show',$blog->slug)}}" title="">
-                                                    <img src="{{$blog->cover_image ?? 'https://place-hold.it/360x200'}}"
-                                                         alt="{{$blog->title}}"/></a>
-                                                <div class="blog-date">
-                                                    <a>{{$blog->created_at->format('Y')}}
-                                                        <i>{{$blog->created_at->format('M d')}}</i></a>
+
+                                <div class="swiper mySwiper">
+                                    <div class="swiper-wrapper">
+                                        @forelse($blogs as $blog)
+                                            <div class="swiper-slide col-lg-4">
+                                                <div class="my-blog">
+                                                    <div class="blog-thumb">
+                                                        <a href="{{route('blog.show',$blog->slug)}}" title="">
+                                                            <img
+                                                                src="{{$blog->cover_image ?? 'https://place-hold.it/360x200'}}"
+                                                                alt="{{$blog->title}}"/></a>
+                                                        <div class="blog-date">
+                                                            <a>{{$blog->created_at->format('Y')}}
+                                                                <i>{{$blog->created_at->format('M d')}}</i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="blog-details">
+                                                        <h3 >
+                                                            <a href="{{route('blog.show',$blog->slug)}}" title="">
+                                                                {{$blog->title}}
+                                                            </a>
+                                                        </h3>
+                                                        <p>{{\Illuminate\Support\Str::limit($blog->summary,40)}}</p>
+                                                        <a href="{{route('blog.show',$blog->slug)}}" title="">
+                                                            Devamını Oku
+                                                            <i class="la la-long-arrow-right"></i>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="blog-details">
-                                                <h3>
-                                                    <a href="{{route('blog.show',$blog->slug)}}" title="">
-                                                        {{$blog->title}}
-                                                    </a>
-                                                </h3>
-                                                <p>{{$blog->summary}}</p>
-                                                <a href="{{route('blog.show',$blog->slug)}}" title="">
-                                                    Devamını Oku
-                                                    <i class="la la-long-arrow-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
+                                        @empty
+                                        @endforelse
                                     </div>
-                                @empty
-                                @endforelse
+{{--                                    <div class="swiper-pagination" style="top: 2px;"></div>--}}
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -476,8 +501,58 @@
 
 @endsection
 @push('scripts')
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            lazy: true,
+            pagination: {
+                el: ".swiper-pagination",
+                dynamicBullets: true,
+            },
+            autoplay:{
+              delay:3000
+            },
+            loop:true,
+            breakpoints: {
+                545: {
+                    slidesPerView: 2,
+                    autoplay:{
+                        delay:3000
+                    },
+                },
+                768: {
+                    slidesPerView: 2,
+                    autoplay:{
+                        delay:3000
+                    },
+                },
+                992: {
+                    slidesPerView: 3,
+                    autoplay:{
+                        delay:3000
+                    },
+                    spaceBetween: 20,
+                },
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                    autoplay:{
+                        delay:3000
+                    },
+                },
+                1400: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                    autoplay:{
+                        delay:3000
+                    },
+                }
+            },
+        });
+
+
         function cityChangedMethod(element) {
             let url = '{{ route("city.districts", ":city") }}';
             url = url.replace(':city', element.value);

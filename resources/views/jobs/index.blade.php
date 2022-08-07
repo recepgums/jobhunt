@@ -5,7 +5,7 @@
     <section class="overlape">
         <div class="block no-padding">
             <div data-velocity="-.1"
-                 style="background: url(https://place-hold.it/1600x800) repeat scroll 50% 422.28px transparent;"
+                 style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;"
                  class="parallax scrolly-invisible no-parallax"></div>
             <div class="container fluid">
                 <div class="row">
@@ -209,32 +209,45 @@
                                         <option value="60">Sayfa başı 50 iş ilanı</option>
                                     </select>
                                 </div>
-                                @if(isset($jobs) && $jobs->total() > 0 )<h5>{{$jobs->total()}} İş İlanı &
-                                    Açık Pozisyonlar</h5>@endif
+{{--                                @if(isset($jobs) && $jobs->total() > 0 )<h5>{{$jobs->total()}} İş İlanı </h5>@endif--}}
                             </div>
                         </div><!-- MOdern Job LIst -->
-                        <div class="job-list-modern">
+                        <div class="job-list-modern d-none d-lg-block">
                             <div class="job-listings-sec">
                                 @forelse($jobs as $job)
-                                    <div class="job-listing wtabs">
-                                        <div class="job-title-sec ">
-                                            <div class="c-logo mr-3 pl-3">
-{{--                                                <img src="{{$job->cover_image}}" alt=""/>--}}
-                                                <span class="job-is ft">{{$job->workType->name}}</span>
+                                    <div class="job-listing wtabs" style="padding: 10px 0">
+                                        <div class="job-title-sec " style="width: 79%">
+                                            <div class="c-logo mr-3 pl-3" style="width: 170px;">
+                                                <img src="{{$job->cover_image}}" alt=""/>
                                             </div>
-
-                                            <h3><a href="{{route('job.show',$job->slug)}}" title="">{{$job->title}}</a>
+                                            <span><i class="la la-user"></i>{{$job->user->name}}</span>
+                                            <h3>
+                                                <a href="{{route('job.show',$job->slug)}}" title="">
+                                                    {{\Illuminate\Support\Str::limit($job->title,80)}}
+                                                </a>
                                             </h3>
-                                            <span>{{$job->user->name}}</span>
-                                            <div class="job-lctn"><i
-                                                    class="la la-map-marker"></i>{{optional($job->district)->name}},
+
+                                            <div class="job-lctn" style="position: absolute;bottom: 11px">
+                                                <i class="la la-map-marker"></i>
+                                                {{optional($job->district)->name}},
                                                 {{optional($job->city)->name}}
+{{--                             todo                   <span class="float-right text-black" style="color: black">{{$job->workType->name}}</span>--}}
                                             </div>
 
                                         </div>
-                                        <div class="job-style-bx">
-                                            <a href="{{route('job.show',$job->slug)}}"><span class="job-is ft">Detayları Gör</span></a>
-                                            <i>{{$job->created_at->diffForHumans()}}</i>
+                                        <div class="job-style-bx" style="bottom: 100%;right: -10%">
+                                            <a href="{{route('job.show',$job->slug)}}">
+                                                <i class="text-muted" style="position: absolute;bottom: 0">
+                                                    {{$job->created_at->diffForHumans()}}
+                                                </i>
+                                            </a>
+                                        </div>
+                                        <div class="job-style-bx" style="top: 40%;right: -10%">
+                                            <a href="{{route('job.show',$job->slug)}}">
+                                                <span class="job-is ft" style="position: absolute;bottom: 0;padding: 12px;width: 130px;font-size: 14px;font-weight: 700">
+                                                    İletişime Geç
+                                                </span>
+                                            </a>
                                         </div>
                                     </div>
                                 @empty

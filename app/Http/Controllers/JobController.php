@@ -49,7 +49,7 @@ class JobController extends Controller
 
         $jobs = $jobFilterService->filter($request);
 
-        $jobs = $jobs->listable()->orderByDesc('created_at')->paginate(12);
+        $jobs = $jobs->listable()->orderByDesc('created_at')->paginate(8);
 
         [
             $workTypes,

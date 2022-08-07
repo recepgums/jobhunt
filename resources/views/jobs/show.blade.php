@@ -108,7 +108,8 @@
                                 </div>
 
                             <div class="job-single-head2">
-                                <div class="job-title2"><h3>{{$job->title}}</h3>
+                                <div class="job-title2 pt-3">
+                                    <h2>{{$job->title}}</h2>
 {{--                                    <span class="job-is ft">{{$job->workType->name}}</span>--}}
                                 </div>
                                 <ul class="tags-jobs">
@@ -138,11 +139,11 @@
                                 </span>
                                 @endif
                             </div>
-                                <h2>Beklenti</h2>
+                                <h3>Beklenti</h3>
                             <div class="job-details" style="border-bottom: 1px solid #e8ecec;padding-bottom: 10px">
                                 {!! $job->tasks !!}
                             </div>
-                                <h2>Kazanç</h2>
+                                <h3>Kazanç</h3>
                             <div class="job-details" style="border-bottom: 1px solid #e8ecec;padding-bottom: 10px">
                                 {!! $job->benefits !!}
                             </div>
@@ -181,7 +182,7 @@
                         <div class="job-single-head style2">
                             <div class="job-thumb">
                                 <img style="width: 30%"
-                                    src="{{optional($job->user)->profile_image_url ?? 'https://placehold.jp/124x124'}}"/>
+                                    src="{{/*optional($job->user)->profile_image_url ??*/ 'https://placehold.jp/1600x800'}}"/>
                             </div>
                             <div class="job-head-info" id="job-head-info">
                                 <h4>{{optional($job->user)->name}}</h4>

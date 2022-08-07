@@ -53,7 +53,7 @@ class HomeController extends Controller
             ->limit(2)
             ->get();
 
-        $blogs = Blog::query()->inRandomOrder()->limit(3)->get();
+        $blogs = Blog::query()->inRandomOrder()->limit(6)->get();
 
         $districts = $selectedCity?->districts;
         $opePositionCategoriesWithCount = Job::listable()
