@@ -35,6 +35,8 @@ class User extends Authenticatable implements HasMedia
         'phone_verified_at',
         'verify_code',
         'password',
+        'coin',
+        'highlighted_until_at',
     ];
 
     protected $hidden = [
@@ -73,6 +75,11 @@ class User extends Authenticatable implements HasMedia
         }
 
         $this->save();
+    }
+
+    public function jobs()
+    {
+        return $this->hasMany(JobUser::class);
     }
 
     protected static function boot()

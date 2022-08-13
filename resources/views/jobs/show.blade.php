@@ -205,7 +205,10 @@
                                     İletişim Bilgilerini Görüntüle
                                 </a>
                             @endguest
-                            <a href="{{route('user.show',$job->user->username)}}" title="" class="viewall-jobs">İş sahibinin profilini görüntüle</a>
+                            <a href="{{route('user.show',$job->user->username)}}" title="" class="viewall-jobs">
+                                <i class="la la-user"></i>
+                                İş sahibinin profilini görüntüle
+                            </a>
                         </div><!-- Job Head -->
                     </div>
                 </div>

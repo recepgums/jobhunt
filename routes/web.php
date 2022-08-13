@@ -35,6 +35,8 @@ Route::group(['prefix' => 'job/{job}', 'middleware' => 'auth', 'as' => 'job.'], 
 
 Route::get('user/{user:username}',[Controllers\UserController::class,'show'])->name('user.show');
 
+Route::get('user/verify',[Controllers\UserVerifyController::class,'verify'])->name('verify');
+
 Route::resource('job', Controllers\JobController::class);
 Route::resource('employer', Controllers\EmployerController::class);
 Route::resource('blog', Controllers\BlogController::class);

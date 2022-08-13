@@ -19,7 +19,7 @@ class PackageFactory extends Factory
         return [
             'name' => $this->faker->word,
             'expire_day' => rand(1, 5),
-            'price' => rand(10, 40),
+            'price' => rand(0, 40),
         ];
     }
 }

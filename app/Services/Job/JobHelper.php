@@ -45,6 +45,11 @@ class JobHelper
 
     public function getPackageData()
     {
-        return Package::query()->select('id','name','expire_day','price')->get();
+        return Package::query()->where('price','!=',0)->select('id','name','expire_day','price')->get();
+    }
+
+    public function getFreePackageData()
+    {
+        return Package::query()->where('price','<',1)->select('id','name','expire_day','price')->get();
     }
 }

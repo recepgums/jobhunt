@@ -12,6 +12,14 @@
             width: 100%;
             height: 100%;
         }
+        p.job-type-custom {
+            color: #26AE61;
+            font-size: 13px;
+            padding: 0px 8px;
+            top: 90px;
+            position: absolute;
+            left: 215px;
+        }
 
         .swiper-slide {
             text-align: center;
@@ -30,6 +38,7 @@
             -ms-flex-align: center;
             -webkit-align-items: center;
             align-items: center;
+            margin-right: 20px;
         }
 
         .swiper-slide img {
@@ -39,70 +48,79 @@
             object-fit: cover;
         }
 
+        .swiper-slide {
+            width: 80%;
+        }
+}
+
+        @media only screen and (max-width: 600px) {
+            .custom-job-title{
+                margin: 0;
+                padding: 0;
+                float: left;
+                max-height: 45px;
+                overflow: hidden;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 18px;
+                color: #333;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+        }
     </style>
 @endpush
 @section('content')
 
-
     <section>
-        <div class="block no-padding overlape">
-
+        <div class="block no-padding">
             <div class="container fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="main-featured-sec style3" style="">
-                            <ul class="main-slider-sec style3 text-arrows">
-                                <li><img src="https://creativelayers.net/themes/jobhunt-html/images/resource/sn1.jpg" alt="" /></li>
-                                <li><img src="https://www.gidahatti.com/wp-content/uploads/2015/09/unilever-india.jpg" alt="" /></li>
-                            </ul>
-                            <div class="job-search-sec style3">
-                                <div class="job-search style2">
+                        <div class="main-featured-sec style2">
+                            <ul class="main-slider-sec style2 text-arrows slick-initialized slick-slider"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+                                <div aria-live="polite" class="slick-list draggable">
+                                    <div class="slick-track" style="opacity: 1; width: 1970px; transform: translate3d(-394px, 0px, 0px);" role="listbox">
+                                        <li class="slideHome slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 394px;" tabindex="-1">
+                                            <img src="https://creativelayers.net/themes/jobhunt-html/images/resource/sn1.jpg" alt="">
+                                        </li>
+                                    </div>
+                                </div>
+
+
+                                <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button></ul>
+                            <div class="job-search-sec">
+                                <div class="job-search text-center mx-auto">
                                     <h3>Mükemmel İş</h3>
                                     <h3>Mükemmel Yetenek</h3>
                                     <span>Aradığınız güvenilir işi ve işçiyi bulmanın en kolay yolu.</span>
-                                    <div class="search-job2 style2 d-none d-md-block">
-                                        <form method="get" action="{{route('job.index')}}">
-                                            <div class="row no-gape">
-                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                    <div class="job-field">
-                                                        <label>Anahtar kelime</label>
-                                                        <input type="text" placeholder="Ara... (Kara firin, Hamurker)" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                                                    <div class="job-field">
-                                                        <label>Şehir</label>
-
-                                                        <select data-placeholder="Şehir" name="city_id"
-                                                                onchange="cityChangedMethod(this)" class="chosen-city">
-                                                            @forelse($cities as $city)
-                                                                <option @if($city->id == $selectedCity?->id) selected
-                                                                        @endif value="{{$city->id}}">{{$city->name}}</option>
-                                                            @empty
-                                                            @endforelse
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                                                    <div class="job-field">
-                                                        <label>Şehir</label>
-                                                        <select data-placeholder="İlçe" name="district_id[]"
-                                                                class="chosen-city" id="districtSelect">
-                                                            <option value selected></option>
-                                                            @forelse($districts as $district)
-                                                                <option
-                                                                    value="{{$district?->id}}">{{$district?->name}}</option>
-                                                            @empty
-                                                            @endforelse
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
-                                                    <button type="submit"><i class="la la-search"></i> İŞ BUL </button>
+                                    <form method="get" action="{{route('job.index')}}">
+                                        <div class="row">
+                                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                                <div class="job-field">
+                                                    <input type="text" name="keyword" placeholder="Ara... (Kara firin, Hamurker)" />
+                                                    <i class="la la-keyboard-o"></i>
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div><!-- Job Search 2 -->
+                                            <div class="col-lg-4 col-md-5 c bol-sm-12 col-xs-12">
+                                                <div class="job-field">
+                                                    <select data-placeholder="Şehir" name="city_id"
+                                                            class="chosen-city">
+                                                        @forelse($cities as $city)
+                                                            <option @if($city->id == $selectedCity?->id) selected
+                                                                    @endif value="{{$city->id}}">{{$city->name}}</option>
+                                                        @empty
+                                                        @endforelse
+                                                    </select>
+                                                    <i class="la la-map-marker"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
+                                                <button type="submit"><i class="la la-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -117,66 +135,88 @@
 
             <div class="container">
                 <div class="row">
-                <div class="col">
                     <div class="col-lg-9 column">
                         <div class="heading left">
-                            <h2>
-                                {{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları</h2>
-                            <div class="tab-sec">
-                                <br>
-                                <div style="width: 100%; height: 1px;background-color: gray;width: 133%"></div>
-                                <div id="job_nav" class="tab-content current my-1 bg-white">
-                                    <div class="job-listings-sec style2" style="padding-top: 15px">
-                                        @forelse($locationRecentJobs as $job)
-                                            <div style="width: 133%" class="job-listing text-left">
-                                                <div class="row">
-                                                    <div class="col-md-9 job-title-sec">
-                                                        <div class="c-logo">
-                                                            <img src="{{$job->cover_image ?? 'https://place-hold.it/235x115'}}"
-                                                                 alt="{{$job->title}}"/>
-                                                        </div>
-                                                        <h3 class="px-2">
-                                                            <a href="{{route('job.show',$job->slug)}}" >
-                                                                {{$job->title}}
-                                                            </a>
-                                                        </h3>
-                                                        <div class="col text-left">
-                                                           <div class="row">
-                                                               <div class="col-sm">
-                                                                   <p class="job-lctn pl-2">
-                                                                       @if(optional($job->district)->name)
-                                                                           {{$job->district->name}}
-                                                                       @endif
-                                                                       {{$job->city->name}}
-                                                                   </p>
-                                                               </div>
-                                                               <div class="col-sm">
-                                                                   <span class="job-is ft">
-                                                                       {{optional($job->workType)->name}}
-                                                                   </span>
-                                                               </div>
-                                                           </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <a href="{{route('job.show',$job->slug)}}" class="aply-btn" style="font-size: 18px;padding: 20px;border-radius:5px;font-weight: 700 ">Şimdi Başvur</a>
+                            <h2>  {{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları</h2>
+                        </div><!-- Heading -->
+                        {{--DEsktop--}}
+                        <div class="job-listings-sec style2 d-none d-md-block">
+                            @forelse($locationRecentJobs as $job)
+                            <div class="job-listing py-1 row">
+                                <div class="job-title-sec col-sm-10" style="position:relative;">
+                                    <div class="c-logo px-2" style="width: 150px">
+                                        <img src="{{$job->cover_image ?? 'https://place-hold.it/235x115'}}"
+                                             alt="{{$job->title}}"/>
+                                    </div>
+                                    <h3><a href="#" title="">{{\Illuminate\Support\Str::limit($job->title,100)}}</a></h3>
+                                    <div style=" display: flex;">
+                                        <span class="job-lctn" style="color: green!important;width: auto;">
+                                            <i class="la la-money" style="font-size: 15px"></i>
+                                            {{$job->fee}}₺
+                                        </span>
+                                        <p class="job-lctn" style="margin-left: 0;align-self: flex-end;width: 100%;">
+                                            <i class="la la-map-marker" style="font-size: 15px"></i>
+                                              @if(optional($job->district)->name)
+                                                {{$job->district->name}},
+                                            @endif
+                                            {{$job->city->name}}
+                                    </p>
 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @empty
-                                        @endforelse
                                     </div>
                                 </div>
-                                <div id="rjobsa" class="tab-content  my-5">
-
+                                <div class="col-sm-2 text-right">
+                                    <small class=" text-muted mb-0">{{$job->created_at->diffForHumans()}}</small>
+                                    <p class="job-is float-right">
+                                        <a href="{{route('job.show',$job->slug)}}" title="" class="btn btn-success">Hemen Başvur</a>
+                                    </p>
+                                </div>
                             </div>
-                            </div>
+                            @empty
+                            @endforelse
                         </div>
-                        </div><!-- Heading -->
+                        {{--Mobile--}}
+                        <div class="job-listings-sec style2 d-block d-md-none">
+                            @forelse($locationRecentJobs as $job)
+                            <div class="job-listing pr-0" @if(!$loop->last) style="border-bottom: 1px solid #ccc;" @endif>
+                                <div class="job-title-sec">
+                                    <div class="c-logo" style="width: 100%">
+                                        <img src="{{$job->cover_image ?? 'https://place-hold.it/235x115'}}"
+                                             alt="{{$job->title}}"/>
+                                    </div>
+                                    <h3 class="text-left">
+                                        <a href="{{route('job.show',$job->slug)}}" title="">
+                                            {{\Illuminate\Support\Str::limit($job->title,100)}}
+                                        </a>
+                                    </h3>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-1 text-left p-0 text-success">
+                                                <i class="la la-money" style="font-size: 15px"></i>
+                                            </div>
+                                            <div class="col-1 text-left p-0 text-success" >
+                                                {{$job->fee}}₺
+                                            </div>
 
+                                            <div class="col-9 text-right p-0 m-0 text-primary">
+                                                @if(optional($job->district)->name)
+                                                    {{$job->district->name}},
+                                                @endif
+                                                {{$job->city->name}}
+                                            </div>
+                                            <div class="col-1 text-right p-0 text-primary">
+                                                <i class="la la-map-marker" style="font-size: 15px"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <a href="{{route('job.show',$job->slug)}}" title="" class="aply-btn rounded-0 py-3" style="width: 100%;font-size: 20px">Hemen Başvur</a>
+                            </div>
+                                <hr>
+                            @empty
+                            @endforelse
+                        </div>
                     </div>
-
                     <div class="col-lg-3 column d-none d-md-block">
                         <div class="heading left text-center">
                             <h2>Yıldızlı ilanlar</h2>
@@ -184,34 +224,37 @@
                         <div class="job-grid-sec">
                             <div class="row">
                                 @forelse($highlightedLocationJobs as $job)
-                                <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="job-grid style2">
-                                        <div class="job-title-sec">
-                                            <div class="c-logo" style="padding: 0">
-                                                <img src="{{$job->cover_image ?? 'https://place-hold.it/235x115'}}"
-                                                     alt="{{$job->title}}"/>
+                                    <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="job-grid style2">
+                                            <div class="job-title-sec">
+                                                <div class="c-logo" style="padding: 0">
+                                                    <img src="{{$job->cover_image ?? 'https://place-hold.it/235x115'}}"
+                                                         alt="{{$job->title}}"/>
+                                                </div>
+                                                <h3>
+                                                    <a href="{{route('job.show',$job->slug)}}" >
+                                                        {{\Illuminate\Support\Str::limit($job->title,40)}}
+                                                    </a>
+                                                </h3>
+                                                <span>Massimo Artemisis</span>
                                             </div>
-                                            <h3>
-                                                <a href="{{route('job.show',$job->slug)}}" >
-                                                    {{\Illuminate\Support\Str::limit($job->title,40)}}
-                                                </a>
-                                            </h3>
-                                            <span>Massimo Artemisis</span>
-                                        </div>
-                                        <span class="job-lctn">Sacramento, California</span>
-                                        <p>Offer strategic and technical health and nutrition advice to headquarters and field staff, as well as training</p>
-                                        <div class="grid-info-box">
-                                            <span class="job-is">Full Time</span>
-                                            <a  href="#" title="">APPLY NOW</a>
-                                        </div>
-                                    </div><!-- JOB Grid -->
-                                </div>
+                                            <span class="job-lctn">@if(optional($job->district)->name)
+                                                    {{$job->district->name}},
+                                                @endif
+                                                {{$job->city->name}}</span>
+                                            <p>
+                                                {{\Illuminate\Support\Str::limit($job->benefits,60)}}
+                                            </p>
+                                            <div class="grid-info-box">
+                                                <a  href="#" title="">APPLY NOW</a>
+                                            </div>
+                                        </div><!-- JOB Grid -->
+                                    </div>
                                 @empty
                                 @endforelse
                             </div>
                         </div>
                     </div>
-
                     <div class="col-lg-12">
                         <div class="browse-all-cat" style="margin-top: 0">
                             <a href="{{route('job.index')}}" title="" class="style2">Daha fazla iş ilanı
@@ -221,7 +264,6 @@
                 </div>
             </div>
             </div>
-        </div>
     </section>
 
     <section>
@@ -551,30 +593,5 @@
                 }
             },
         });
-
-
-        function cityChangedMethod(element) {
-            let url = '{{ route("city.districts", ":city") }}';
-            url = url.replace(':city', element.value);
-
-            $.ajax({
-                url: url,
-                type: "GET",
-                success: function (response) {
-                    let html = '<select name="district_id" data-placeholder="All Regions" class="chosen-city">';
-
-                    $.each(response, function (key, value) {
-                        html += `<option value="${value.id}">${value.name}</option>`
-                    });
-
-                    html += '</select>';
-
-                    $("#districtSelect").html(html)
-
-                    $('.chosen-city').trigger("chosen:updated");
-                }
-            });
-        }
-
     </script>
 @endpush

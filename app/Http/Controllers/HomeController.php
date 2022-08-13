@@ -46,7 +46,7 @@ class HomeController extends Controller
             ->limit(6)
             ->get();
 
-        $highlightedLocationJobs = $locationRecentJobsQuery->where('highlighted_until_at','>',now())->limit(3)->get();
+        $highlightedLocationJobs = $locationRecentJobsQuery->where('highlighted_until_at','>',now())->limit(2)->get();
 
         $recentJobs = Job::query()->listable()
             ->orderBy('published_until_at', 'desc')
@@ -56,13 +56,6 @@ class HomeController extends Controller
         $blogs = Blog::query()->inRandomOrder()->limit(6)->get();
 
         $districts = $selectedCity?->districts;
-        $opePositionCategoriesWithCount = Job::listable()
-            ->whereNotNull('category_id')
-            ->limit(5)
-            ->groupBy('category_id')
-            ->select('category_id', DB::raw('count(*) as total'))
-            ->with('category')
-            ->get();
 
         return view('pages.home', [
             'isHomepage' => true,
@@ -70,7 +63,6 @@ class HomeController extends Controller
             'districts' => $districts,
             'blogs' => $blogs,
             'cities' => $cities,
-            'opePositionCategoriesWithCount' => $opePositionCategoriesWithCount,
             'recentJobs' => $recentJobs,
             'locationRecentJobs' => $locationRecentJobs,
             'faqs' => $faqs,

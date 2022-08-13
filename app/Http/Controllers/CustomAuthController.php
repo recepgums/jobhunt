@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginAttemptRequest;
+use App\Http\Requests\UserRegisterRequest;
+use App\Jobs\SendMailJob;
+use App\Jobs\SendSmsJob;
+use App\Mail\VerifyEmailAddressMail;
+use App\Models\UserVerify;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
@@ -35,16 +40,26 @@ class CustomAuthController extends Controller
         return view('auth.register');
     }
 
-    public function customRegistration(Request $request)
+    public function customRegistration(UserRegisterRequest $request)
     {
-        $a = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:7',
+        try {
+         $newUser = $this->create($request->validated());
+        }catch (\Exception $exception){
+            return  \redirect()->back()->withErrors(['errors' => $exception->getMessage()]);
+        }
+
+        $phoneVerifyCode = rand(10000,99999);
+        $emailVerifyCode = rand(10000,99999);
+        UserVerify::create([
+            'user_id' => $newUser->id,
+            'phone_verify_code' => $phoneVerifyCode,
+            'email_verify_code' => $emailVerifyCode,
         ]);
 
-        $data = $request->all();
-        $check = $this->create($data);
+        if ($newUser->phone)
+            SendSmsJob::dispatch($newUser->phone,$phoneVerifyCode . " kodunu kullanarak telefon numaranizi onaylayiniz");
+        if ($newUser->email)
+            SendMailJob::dispatch($newUser->email, new VerifyEmailAddressMail($phoneVerifyCode));
 
         return redirect("dashboard")->withSuccess('Giriş yaptınız');
     }

@@ -33,6 +33,8 @@ return new class extends Migration
             $table->timestamp('phone_verified_at')->nullable();
             $table->string('verify_code')->nullable();
             $table->string('password');
+            $table->integer('coin')->default(0);
+            $table->dateTime('highlighted_until_at')->nullable();
             $table->string('token')->unique()->nullable();
             $table->rememberToken();
             $table->timestamps();

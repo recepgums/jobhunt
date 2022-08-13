@@ -6,6 +6,8 @@ use App\Models\Blog;
 use App\Models\Categories;
 use App\Models\CategoryUser;
 use App\Models\City;
+use App\Models\Coupons;
+use App\Models\CouponUser;
 use App\Models\District;
 use App\Models\Faq;
 use App\Models\Gender;
@@ -29,6 +31,7 @@ class DatabaseSeeder extends Seeder
     {
         //no foreign key needed
         Faq::factory(10)->create();
+        Coupons::factory(2)->create();
         $this->call(ReviewSeeder::class);
         Role::create(['name'=>'candidate']);
         Role::create(['name'=>'employee']);
@@ -92,6 +95,6 @@ class DatabaseSeeder extends Seeder
 
 
         Artisan::call('cache:clear');
-
+        CouponUser::factory(30)->create();
     }
 }

@@ -45,7 +45,6 @@ class UserController extends Controller
             }
 
         } catch (Exception $exception) {
-            dd($exception->getMessage());
             return redirect()->route('login')->with(['error' => 'Giriş yapılamadı. '. $exception->getMessage()]);
         }
     }

@@ -5690,7 +5690,7 @@ aside .widget.border:first-child {
     -moz-border-radius: 40px;
     -ms-border-radius: 40px;
     -o-border-radius: 40px;
-    border-radius: 40px;
+    border-radius: 10px;
 
     width: 250px;
     height: 60px;
@@ -5750,7 +5750,7 @@ aside .widget.border:first-child {
     -moz-border-radius: 40px;
     -ms-border-radius: 40px;
     -o-border-radius: 40px;
-    border-radius: 40px;
+    border-radius: 10px;
 
     margin-top: 35px;
 }

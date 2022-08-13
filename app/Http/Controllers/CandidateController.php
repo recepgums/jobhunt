@@ -49,7 +49,9 @@ class CandidateController extends Controller
 
     public function applied_jobs()
     {
-        return view('candidates.applied_jobs');
+        $user = auth()->user();
+        $jobs = $user->jobs->load('job');
+        return view('candidates.applied_jobs',compact('jobs'));
     }
 
     public function job_alert()
