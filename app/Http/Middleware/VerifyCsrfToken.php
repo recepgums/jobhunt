@@ -8,6 +8,6 @@ class VerifyCsrfToken extends Middleware
 {
 
     protected $except = [
-        'iyzico-form-retrieve'
+        '/job/*/iyzico-form-retrieve'
     ];
 }

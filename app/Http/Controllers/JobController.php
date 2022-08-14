@@ -100,7 +100,7 @@ class JobController extends Controller
             'selectedDistricts'));
     }
 
-    public function store(JobStoreRequest $request)
+    public function store(/*JobStoreRequest*/ Request $request)
     {
         if (!auth()->check()) {
             $user = User::factory(1)->create()[0];
@@ -220,6 +220,7 @@ class JobController extends Controller
         }
 
         $payment = (new omgIyzicoPayment(auth()->user(), $product))
+            ->setCallback(route('omg-iyzico-form',$job->slug))
             ->createIyzicoPaymentForm();
 
         $form = $payment->getCheckoutFormContent();
@@ -227,7 +228,7 @@ class JobController extends Controller
         return view('jobs.payment', compact('form', 'job'));
     }
 
-    public function receiveIyzicoPaymentForm()
+    public function receiveIyzicoPaymentForm(Job $job)
     {
         if ((new omgIyzicoPayment(auth()->user(), $this->product))->receiveIyzicoPaymentForm()) {
             $payment = OmgPayTransactions::query()->where('user_id', auth()->id())

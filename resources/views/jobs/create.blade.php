@@ -120,6 +120,15 @@
     </section>
 
     <section>
+        Vue
+        <div id="app">
+            <div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center py-4 sm:pt-0">
+                <job-create/>
+            </div>
+        </div>
+        <script src="{{ mix('js/app.js') }}"></script>
+    </section>
+    <section>
         <div class="block no-padding">
             <div class="container">
                 <div class="row no-gape">
@@ -206,7 +215,7 @@
                                                 <div class="upload__btn-box">
                                                     <label class="upload__btn" style="height: auto">
                                                         <p>Resim ve Video</p>
-                                                        <input type="file" name="files[]" multiple="true" data-max_length="20" class="upload__inputfile"
+                                                        <input type="file" name="files[]" multiple="true" data-max_length="20" class="upload__inputfiledsds"
                                                         accept="image/*, video/*">
                                                     </label>
                                                 </div>
