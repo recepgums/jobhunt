@@ -14,5 +14,12 @@
         "sass": "^1.32.11",
         "sass-loader": "^11.0.1",
         "vite": "^2.9.11"
+    },
+    "dependencies": {
+        "@vitejs/plugin-vue": "^2.3.4",
+        "element-ui": "^2.15.9",
+        "vue": "^3.2.36",
+        "vue-loader": "^17.0.0",
+        "vue-select": "^3.20.0"
     }
 }
