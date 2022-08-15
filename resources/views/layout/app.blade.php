@@ -9,10 +9,11 @@
     <meta name="author" content="CreativeLayers">
 
     <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}"/>
+
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap-grid.css')}}"/>
     <link rel="stylesheet" href="{{asset('assets/css/icons.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/animate.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/chosen.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/colors/colors.css')}}"/>

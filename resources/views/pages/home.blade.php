@@ -132,10 +132,7 @@
 
     <section>
         <div class="block gray" style="padding-top: 6rem">
-            <div id="app">
-                <job-filter></job-filter>
-            </div>
-            <script src="{{asset('js/app.js')}}"></script>
+
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 column">

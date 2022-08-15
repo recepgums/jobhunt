@@ -18,5 +18,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('city',[Controllers\PublicDataController::class,'city']);
+Route::get('category/{category}/sub-category',[Controllers\PublicDataController::class,'subCategory']);
+Route::get('job-categories',[Controllers\PublicDataController::class,'jobCategories']);
+
 Route::get('city/{city}/district',[Controllers\PublicDataController::class,'district']);
 Route::post('job',[Controllers\JobController::class,'store']);

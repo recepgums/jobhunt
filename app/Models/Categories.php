@@ -11,6 +11,7 @@ class Categories extends Model
 
     protected $fillable = [
         'name',
+        'parent_id',
         'slug',
         'model',
         'description',
@@ -25,5 +26,20 @@ class Categories extends Model
     public function scopeForJob($query)
     {
         return $query->where('model', Job::class);
+    }
+
+    public function scopeOnlyParent($query)
+    {
+        return $query->whereNull('parent_id');
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(Categories::class,'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(Categories::class, 'parent_id', 'id');
     }
 }

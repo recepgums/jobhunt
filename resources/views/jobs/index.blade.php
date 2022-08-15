@@ -18,7 +18,11 @@
             </div>
         </div>
     </section>
-
+    aaaaa
+    <div id="app">
+        <job-filter></job-filter>
+    </div>
+    <script src="{{asset('js/app.js')}}"></script>
     <section>
         <div class="block no-padding">
             <div class="container">

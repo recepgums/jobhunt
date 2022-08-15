@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Blog;
+use App\Models\Categories;
 use App\Models\Job;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -22,9 +23,10 @@ class CategoriesFactory extends Factory
         $name = $this->faker->word;
 
         $models = [Job::class, Blog::class];
-
+        $rand = rand(1,4);
         return [
             'name' => $name,
+            'parent_id' => $rand %3 ===0 ? optional(Categories::query()->inRandomOrder()->first())->id : null,
             'slug' => Str::slug($name),
             'model' => $models[array_rand($models)],
             'description' => $this->faker->paragraph(1),
