@@ -102,6 +102,7 @@ class JobController extends Controller
 
     public function store(/*JobStoreRequest*/ Request $request)
     {
+        dd($request->all());
         if (!auth()->check()) {
             $user = User::factory(1)->create()[0];
             $user->name = 'İsimsiz Kullanıcı';

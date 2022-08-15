@@ -99,14 +99,22 @@
             padding-bottom: 100%;
         }
     </style>
-    @vite('resources/css/app.css')
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     @endpush
 
 @section('content')
     <section>
 
-        <div id="app"></div>
-        @vite('resources/js/app.js')
+        <div id="app">
+            <v-app>
+                <v-main>
+                    <v-container>
+                        <job-create csrf="{{ csrf_token() }}"/>
+                    </v-container>
+                </v-main>
+            </v-app>
+        </div>
+        <script src="{{asset('js/app.js')}}"></script>
     </section>
 
 @endsection
