@@ -12186,3 +12186,11 @@ header.style4 .account-btns > li a,
     -o-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s;
 }
+
+
+.bg-overlay{
+
+    background:
+    linear-gradient(to bottom, rgba(100, 100, 0, 0.5), rgba(100, 100, 0, 0.5)),
+    url(../images/bg.jpeg) 0 0 no-repeat fixed;
+}

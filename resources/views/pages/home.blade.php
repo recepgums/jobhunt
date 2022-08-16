@@ -82,12 +82,12 @@ p.job-type-custom {
                                 role="button" style="display: block;">Previous</button>
                             <div aria-live="polite" class="slick-list draggable">
                                 <div class="slick-track"
-                                    style="opacity: 1; width: 1970px; transform: translate3d(-394px, 0px, 0px);"
+                                    style="opacity: 1; transform: translate3d(-394px, 0px, 0px); height: 675px;">
                                     role="listbox">
                                     <li class="slideHome slick-slide slick-cloned" data-slick-index="-1"
                                         aria-hidden="true" style="width: 400rem;" tabindex="-1">
-                                        <img src="https://creativelayers.net/themes/jobhunt-html/images/resource/sn1.jpg"
-                                            alt="">
+                                        <img src="{{asset('assets/images/bg.jpeg')}}" alt="" class="tw-object-fill ">
+
                                     </li>
                                 </div>
                             </div>
@@ -96,25 +96,21 @@ p.job-type-custom {
                             <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next"
                                 role="button" style="display: block;">Next</button>
                         </ul>
-                        <div class="job-search-sec tw-ml-[7rem]">
+                        <div class="job-search-sec  tw-ml-[5rem]  ">
                             <div class="job-search text-center mx-auto">
-                                <div class="tw-ml-[-14rem] tw-text-white tw-font-bold tw-text-[40px]">
+                                <div
+                                    class="lg:tw-ml-[-14rem] tw-ml-[-0.4rem] tw-text-white tw-font-bold lg:tw-text-[40px] tw-text-[20px]">
                                     <h3>Mükemmel İş</h3>
                                     <h3>Mükemmel Yetenek</h3>
-                                    <span class="tw-font-light tw-text-[25px]">Aradığınız güvenilir işi ve işçiyi
+                                    <span class="tw-font-light lg:tw-text-[25px] tw-text-[15px] ">Aradığınız
+                                        güvenilir işi ve işçiyi
                                         bulmanın en kolay yolu.</span>
                                 </div>
 
                                 <form method="get" action="{{route('job.index')}}">
-                                    <div class="row">
-                                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                            <div class="job-field  ">
-                                                <input type="text" name="keyword" class="tw-rounded-[36px]"
-                                                    placeholder="Ara... (Kara firin, Hamurker)" />
-                                                <i class="la la-keyboard-o"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-5 c bol-sm-12 col-xs-12">
+                                    <div
+                                        class="tw-grid tw-grid-rows-1  lg:tw-grid-cols-3  lg:tw-gap-y-6  lg:tw-gap-x-[10rem] tw-ml-[1.1rem] lg:tw-ml-[-5rem]">
+                                        <div class="lg:tw-w-[25rem] tw-w-[20rem]">
                                             <div class="job-field">
                                                 <select data-placeholder="Şehir" name="city_id"
                                                     class="chosen-city tw-rounded-[16px]">
@@ -127,8 +123,25 @@ p.job-type-custom {
                                                 <i class="la la-map-marker"></i>
                                             </div>
                                         </div>
-                                        <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
-                                            <button type="submit"><i class="la la-search"></i></button>
+                                        <div class="lg:tw-w-[25rem] tw-w-[20rem]">
+                                            <div class="job-field  ">
+                                                <input type="text" name="keyword" class="tw-rounded-[36px]"
+                                                    placeholder="Ara..." />
+                                                <i class=" la la-keyboard-o"></i>
+                                            </div>
+                                        </div>
+
+                                        <div class=" tw-w-[20rem] lg:tw-w-[15rem]">
+                                            <button type="submit">
+                                                <div class="tw-flex tw-justify-center">
+                                                    <i class="la la-search tw-mr-[0.5rem] tw-text-white"></i>
+                                                    <p
+                                                        class="tw-text-[15px] lg:tw-text-[12px] tw-font-semibold tw-text-white">
+                                                        İlanları Görüntüle</p>
+                                                </div>
+
+
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -144,16 +157,17 @@ p.job-type-custom {
 <section>
     <div class="block gray" style="padding-top: 6rem">
         <div id="app">
+            <div class="tw-ml-[5rem]">
+                <h2> {{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki
+                    iş ilanları</h2>
+            </div>
             <classifiedsec></classifiedsec>
         </div>
         <script src="{{asset('js/app.js')}}"></script>
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 column">
-                    <div class="heading left">
-                        <h2> {{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki
-                            iş ilanları</h2>
-                    </div><!-- Heading -->
+                    <!-- Heading -->
 
                     <div class="col-lg-12">
                         <div class="browse-all-cat" style="margin-top: 0">

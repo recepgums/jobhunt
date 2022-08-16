@@ -1,5 +1,7 @@
 <template>
-    <div></div>
+    <div>
+        <div class="tw-bg-gray-300"></div>
+    </div>
 </template>
 
 <script>
