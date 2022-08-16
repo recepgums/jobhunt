@@ -3,6 +3,9 @@
 /public/hot
 /public/storage
 /public/media
+/public/js/app.js
+/public/css/app.css
+/package-lock.json
 /storage/*.key
 /vendor
 .env
