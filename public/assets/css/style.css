@@ -402,8 +402,8 @@ iframe {
 i {
     font-style: italic;
 }
-{
-/*! float:left; */ /*! height:auto */
+ {
+    /*! float:left; */ /*! height:auto */
 }
 :-webkit-input-placeholder {
     opacity: 1;
@@ -1458,8 +1458,8 @@ label::after {
     padding: 19px 30px 18px 30px;
 }
 .dropdown-field
-.chosen-container.chosen-container-single.chosen-container-single-nosearch.chosen-with-drop.chosen-container-active
-.chosen-single {
+    .chosen-container.chosen-container-single.chosen-container-single-nosearch.chosen-with-drop.chosen-container-active
+    .chosen-single {
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
@@ -3786,10 +3786,10 @@ header.style4 .menu-sec nav > ul > li.menu-item-has-children > a::before {
     bottom: -4px;
 }
 .search-job2.style2
-.job-field
-.chosen-container-single
-.chosen-single
-div::before {
+    .job-field
+    .chosen-container-single
+    .chosen-single
+    div::before {
     top: 12px;
 }
 .search-job2.style2 {
@@ -4728,8 +4728,8 @@ section.overlape {
     color: #737373;
 }
 .sortby-sec
-.chosen-container.chosen-container-single.chosen-container-single-nosearch.chosen-with-drop.chosen-container-active
-a {
+    .chosen-container.chosen-container-single.chosen-container-single-nosearch.chosen-with-drop.chosen-container-active
+    a {
     background: #dfdfdf;
     color: #222222;
 }
@@ -11182,8 +11182,8 @@ header.style5 .post-job-btn:hover {
     color: #ffffff;
 }
 .pf-field
-.chosen-container.chosen-container-single.chosen-container-single-nosearch.chosen-with-drop.chosen-container-active
-a {
+    .chosen-container.chosen-container-single.chosen-container-single-nosearch.chosen-with-drop.chosen-container-active
+    a {
     border: 2px solid #e8ecec;
 }
 .pf-field .chosen-container-single .chosen-drop {
@@ -12044,8 +12044,8 @@ footer.ft .scrollup {
 }
 
 .newbg
-.chosen-container.chosen-container-single.chosen-container-single-nosearch.chosen-with-drop.chosen-container-active
-> a {
+    .chosen-container.chosen-container-single.chosen-container-single-nosearch.chosen-with-drop.chosen-container-active
+    > a {
     -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
     -ms-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
