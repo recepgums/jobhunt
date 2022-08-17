@@ -24,10 +24,8 @@ return new class extends Migration {
             $table->foreignId('district_id')->nullable()->constrained('districts');
             $table->foreignId('package_id')->nullable()->constrained('packages');
 
-
             $table->string('title');
-            $table->longText('tasks');
-            $table->longText('benefits');
+            $table->longText('description');
             $table->string('slug')->unique()->index();
 
             $table->integer('fee')->nullable();

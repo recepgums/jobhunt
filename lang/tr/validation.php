@@ -168,8 +168,7 @@ return [
 
     'attributes' => [
         'title' => 'Başlık',
-        'tasks' => 'Görevler',
-        'benefits' => 'Kazanç',
+        'description' => 'Açıklama',
         'fee' => 'Maaş',
     ],
 

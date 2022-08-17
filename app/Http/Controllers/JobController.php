@@ -100,9 +100,8 @@ class JobController extends Controller
             'selectedDistricts'));
     }
 
-    public function store(/*JobStoreRequest*/ Request $request)
+    public function store(JobStoreRequest $request)
     {
-
         if (!auth()->check()) {
             $user = User::factory(1)->create()[0];
             $user->name = 'İsimsiz Kullanıcı';

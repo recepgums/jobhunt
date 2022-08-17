@@ -21,5 +21,7 @@ Route::get('city',[Controllers\PublicDataController::class,'city']);
 Route::get('category/{category}/sub-category',[Controllers\PublicDataController::class,'subCategory']);
 Route::get('job-categories',[Controllers\PublicDataController::class,'jobCategories']);
 
+Route::get('job-create-data',[Controllers\PublicDataController::class,'jobCreateData']);
+
 Route::get('city/{city}/district',[Controllers\PublicDataController::class,'district']);
 Route::post('job',[Controllers\JobController::class,'store']);
