@@ -31,7 +31,7 @@ class JobStoreRequest extends FormRequest
             'city_id' => 'nullable|exists:cities,id',
             'district_id' => 'nullable|exists:districts,id',
             'gender_id' => 'nullable|exists:genders,id',
-            'fee' => 'required|numeric',
+            'fee' => 'nullable|numeric',
             'files' => 'nullable|array',
             'files.*' => 'nullable',//todo image and video max file size 10 mb
         ];

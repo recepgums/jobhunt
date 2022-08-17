@@ -29,6 +29,7 @@ Route::group(['prefix' => 'job/{job}', 'middleware' => 'auth', 'as' => 'job.'], 
     Route::get('payment', [Controllers\JobController::class, 'payment'])->name('payment');
     Route::get('pricing', [Controllers\JobController::class, 'pricing'])->name('pricing');
     Route::get('package/{package}', [Controllers\JobController::class, 'packageSelectPost'])->name('price.post');
+    Route::get('package/{package}/api', [Controllers\JobController::class, 'packageSelectPostApi']);
 
     Route::post('get_contact_info', [Controllers\JobController::class, 'getContactInfo'])->name('get_contact_info');
 });

@@ -9,8 +9,8 @@
                          finishButtonText="Yayınla"
                          stepSize="sm"
                          ref="wizard"
-                         @on-complete="onSubmit"
-                                 class="'mb-5'"
+                                 @on-complete="toPaymentPage"
+                         class="'mb-5'"
                     >
                         <wizard-step
                             slot-scope="props"
@@ -71,7 +71,6 @@
                                     :data="formInline"
                                     :on-progress="handleProgress"
                                     :auto-upload="false"
-                                    :on-success="handleSuccess"
                                     multiple
                                     accept="image/*,video/*"
                                 >
@@ -92,11 +91,11 @@
                             <div class="col-lg-12">
                                 <span class="pf-title">İş tanımı</span>
                                 <div class="pf-field">
-                                    <textarea v-model="formInline.description" class="mytextarea" placeholder="Sizinle çalışırken ne iş yapacağı, kaç saat çalışacağı gibi bilgileri yazınız...Aylık ya da haftalık ücret, yol yemek parası, sigorta gibi çalışana sağlayacağınız şartları yazınız..."></textarea>
+                                    <textarea v-model="formInline.description" placeholder="Sizinle çalışırken ne iş yapacağı, kaç saat çalışacağı gibi bilgileri yazınız...Aylık ya da haftalık ücret, yol yemek parası, sigorta gibi çalışana sağlayacağınız şartları yazınız..."></textarea>
                                 </div>
                             </div>
                         </tab-content>
-                        <tab-content title="Paket Seçimi ve Ödeme" icon="la la-cc-mastercard">
+                        <tab-content :before-change="onSubmit" title="Paket Seçimi ve Ödeme" icon="la la-cc-mastercard">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <span class="pf-title">Ücret</span>
@@ -140,6 +139,27 @@
                                 </div>
                             </div>
                         </tab-content>
+                        <tab-content title="Paket Seçimi ve Ödeme2" icon="la la-cc-mastercard">
+                            <div class="plans-sec">
+                                <div class="row">
+                                    <div @click="formInline.package_id = c.id" class="col-lg-4" v-for="c in packages">
+                                        <div :class="['pricetable', c.is_highlighted ? 'active':'']">
+                                            <div class="pricetable-head">
+                                                <h3>{{c.name}}</h3>
+                                                <h2><i>₺ </i>{{c.price}}</h2>
+                                                <span>{{ c.expire_day }} Gün</span>
+                                            </div><!-- Price Table -->
+                                            <ul>
+                                                <li>1 job posting</li>
+                                                <li>İş ilanınız 2 gün boyunca yayında</li>
+                                                <li>7/24 Premium Destek</li>
+                                            </ul>
+                                            <a href="#" title="">SEÇ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </tab-content>
                     </form-wizard>
                 </div>
             </div>
@@ -149,7 +169,8 @@
 
 <script>
 import 'vue-select/dist/vue-select.css';
-const appUrl = process.env.MIX_API_URL;
+const apiUrl = process.env.MIX_API_URL;
+const appUrl = process.env.APP_URL;
 export default {
         props: ['csrf'],
         data() {
@@ -165,19 +186,23 @@ export default {
                     district:null,
                     fee:null,
                     gender:null,
+                    package_id:null
                 },
                 percentage: 0,
+                slug:null,
+                isJobCreated:false,
                 fileList: [],
                 url: '',
                 id: '',
                 actualFiles: [],
                 fee_disabled:false,
                 categories:[],
-                actionUrl:appUrl+'job',
+                actionUrl:appUrl+'/job',
                 cities:[],
                 work_types:[],
                 genders:[],
                 districts:[],
+                packages:[],
             }
         },
         mounted() {
@@ -185,19 +210,26 @@ export default {
         },
         methods: {
             onSubmit() {
-
+                if (this.isJobCreated){
+                    return true
+                }
                 let { uploadFiles } = this.$refs.upload
                 let form = new FormData()
-                Object.entries(this.formInline).map( ([key, val] = entry) => {
-                    form.append(key,val)
-                });
-
                 uploadFiles.forEach(item => {
                     form.append('files[]', item.raw)
                 })
 
+                form.append('gender_id',this.formInline.gender?.value ?? null)
+                form.append('work_type_id',this.formInline.work_type?.value ?? null)
+                form.append('city_id',this.formInline.city?.value ?? null)
+                form.append('district_id',this.formInline.district?.value ?? null)
+                form.append('title',this.formInline.title)
+                form.append('description',this.formInline.description)
+                form.append('fee',this.formInline.fee ?? null)
+                form.append('category_id',this.formInline.category_id)
+
                 axios.post(
-                    this.actionUrl,
+                    '/job',
                     form,
                     {
                         headers: {
@@ -207,8 +239,53 @@ export default {
                         onUploadProgress: this.handleProgress
                     })
                     .then(resp => {
-                        this.getDatas();
-                        this.$refs.upload.clearFiles()
+                        this.slug = resp.data.slug
+                        this.isJobCreated = true;
+                        this.$refs.wizard.nextTab()
+                    })
+                .catch(err=>{
+                    //todo
+                    this.$notify({
+                        title: 'Eksik alanları doldurunuz.',
+                        type: 'error',
+                        message: err.response.data.message
+                    });
+                })
+            },
+
+            toPaymentPage(){
+                if (!this.slug){
+                    this.$notify({
+                        title: 'Is ilani olustururken hata olustu!',
+                        type: 'error',
+                        message: 'Sayfayi yenileyip tekrar deneyiniz 🙏'
+                    });
+
+                    return false
+                }
+
+                axios.get(
+                    '/job/'+this.slug + '/package/' + this.formInline.package_id+'/api',
+                    {
+                        headers: {
+                            'X-CSRF-TOKEN': this.csrf,
+                            'content-type': 'multipart/form-data'
+                        },
+                    })
+                    .then(resp => {
+                        setTimeout(()=>{
+                            window.location.href = window.location.origin + '/job/'+this.slug+'/payment';
+
+                        },500)
+
+                    })
+                    .catch(err=>{
+                        //todo
+                        this.$notify({
+                            title: 'Eksik alanları doldurunuz.',
+                            type: 'error',
+                            message: err.response.data.message
+                        });
                     })
             },
             handleProgress(progressEvent) {
@@ -218,24 +295,11 @@ export default {
             handleUploadChange(file) {
                 this.actualFiles.push(file);
             },
-            handleSuccess(file, fileList) {
-                // this.getDatas()
-                this.$refs.upload.clearFiles()
-                this.$notify({
-                    title: 'File Uploaded',
-                    type: 'success',
-                    message: 'Check the files below'
-                });
-            },
             handleRemove(file, fileList) {
                 this.actualFiles.pop();
             },
-            fileAdded(files) {
-                console.log(files)
-            },
             getDatas() {
-                axios.get(appUrl+'job-create-data').then(resp=>{
-                    console.log(resp.data)
+                axios.get(apiUrl+'job-create-data').then(resp=>{
                     this.categories = resp.data.categories
                     this.cities = resp.data.cities.map(q=>{return {label:q.name,value:q.id}})
                     this.work_types = resp.data.work_types.map(q=>{return {label:q.name,value:q.id}})
@@ -245,11 +309,14 @@ export default {
                     this.formInline.gender = this.genders.filter(q=>q.label == 'Erkek')[0]
                     this.formInline.work_type = this.work_types.filter(q=>q.value == 1)[0]
                     this.formInline.city = this.cities.filter(q=>q.value === resp.data.selected_city.id)[0]
+
+                    this.packages = resp.data.packages
+                    this.formInline.package_id = this.packages.filter(q=>q.is_highlighted == true)[0].id
                 })
             },
 
             categoryClicked(category){
-                axios.get(appUrl+'category/'+category.id+'/sub-category')
+                axios.get(apiUrl+'category/'+category.id+'/sub-category')
                 .then(resp=>resp.data)
                 .then(resp=>{
                     if (resp.length > 1){
@@ -275,5 +342,11 @@ export default {
     color: white;
     font-weight: 600;
     font-size: 20px;
+}
+.pf-title{
+    font-weight: 600;
+    font-size: 18px;
+    color: #ccc;
+
 }
 </style>

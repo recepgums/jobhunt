@@ -126,7 +126,11 @@ class JobController extends Controller
             }
         }
 
-        return redirect()->route('job.pricing', $job);
+        return response()->json([
+            'message' => 'İş ilanı kaydedildi. Ödeme bekleniyor',
+            'slug' => $job->slug,
+            'url' => route('job.pricing', $job)
+        ]);
     }
 
     public function show(Job $job)
@@ -168,7 +172,7 @@ class JobController extends Controller
 
     public function update(Request $request, Job $job)
     {
-        //
+
     }
 
     public function destroy(Job $job)
@@ -198,6 +202,15 @@ class JobController extends Controller
         ]);
 
         return redirect()->route('job.payment', $job);
+    }
+
+    public function packageSelectPostApi(Job $job, Package $package)
+    {
+        $job->update([
+            'package_id' => $package->id,
+        ]);
+
+        return response()->json(['message'=>'success']);
     }
 
     public function payment(Job $job)

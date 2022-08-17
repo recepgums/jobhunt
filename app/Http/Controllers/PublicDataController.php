@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\City;
 use App\Models\Gender;
+use App\Models\Package;
 use App\Models\WorkType;
 use Illuminate\Support\Facades\Cache;
 use Stevebauman\Location\Facades\Location;
@@ -41,7 +42,8 @@ class PublicDataController extends Controller
             'work_types' => Cache::rememberForever('work-types', fn() => WorkType::all()),
             'selected_city' => $selectedCity,
             'districts' => $selectedCity?->districts,
-            'genders' => Cache::rememberForever('genders', fn() => Gender::all())
+            'genders' => Cache::rememberForever('genders', fn() => Gender::all()),
+            'packages' => Cache::rememberForever('packages', fn() => Package::all())
         ]);
     }
 
