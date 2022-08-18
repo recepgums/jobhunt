@@ -280,6 +280,7 @@ class JobController extends Controller
             return redirect()->back()->with(['error' => $exception->getMessage()]);
         }
 
-        return $job->user()->select('phone', 'email', 'name')->first();
+        $user = $job->user;
+        return  response()->json(['phone'=>$job->phone,'email'=>$user->email,'name'=>$user->name]);
     }
 }

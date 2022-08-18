@@ -68,7 +68,7 @@
                         </li>
                     @endguest
                     @auth
-                        <li><a href="{{route('dashboard')}}"><i class="la la-dashboard"></i> {{auth()->user()->name}}</a></li>
+                        <li><a href="{{route('dashboard')}}"><i class="la la-user"></i> {{auth()->user()->name}}</a></li>
                     @endauth
                         @endif
                 </ul>

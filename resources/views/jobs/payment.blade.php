@@ -23,54 +23,8 @@
         <div class="block no-padding">
             <div class="container">
                 <div class="row no-gape">
-                    <aside class="col-lg-3 column border-right">
-                        @auth
-                            <div class="widget">
-                                <div class="tree_widget-sec">
-                                    <ul>
-                                        <li><a href="employer_profile.html" title=""><i class="la la-file-text"></i>Company
-                                                Profile</a></li>
-                                        <li><a href="employer_manage_jobs.html" title=""><i class="la la-briefcase"></i>Manage
-                                                Jobs</a></li>
-                                        <li><a href="employer_transactions.html" title=""><i class="la la-money"></i>Transactions</a>
-                                        </li>
-                                        <li><a href="employer_resume.html" title=""><i class="la la-paper-plane"></i>Resumes</a>
-                                        </li>
-                                        <li><a href="employer_packages.html" title=""><i class="la la-user"></i>Packages</a>
-                                        </li>
-                                        <li><a href="employer_post_new.html" title=""><i class="la la-file-text"></i>Post
-                                                a
-                                                New Job</a></li>
-                                        <li><a href="employer_job_alert.html" title=""><i class="la la-flash"></i>Job
-                                                Alerts</a>
-                                        </li>
-                                        <li><a href="employer_change_password.html" title=""><i class="la la-lock"></i>Change
-                                                Password</a></li>
-                                        <li><a href="#" title=""><i class="la la-unlink"></i>Logout</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        @endauth
-                    </aside>
-                    <div class="col-lg-9 column">
+                    <div class="col-lg-10 mx-auto column">
                         <div class="padding-left">
-                            <div class="profile-title">
-                                <h3>Yeni İş İlanı Ver</h3>
-                                <div class="steps-sec">
-                                    <div class="step " id="step_1" next="step_2">
-                                        <p><i class="la la-info"></i></p>
-                                        <span>İş Detayı</span>
-                                    </div>
-                                    <div class="step active" id="step_2" next="step_3" prev="step_1">
-                                        <p><i class="la la-cc-mastercard"></i></p>
-                                        <span>Paket Seçimi ve Ödeme</span>
-                                    </div>
-                                    <div class="step" id="step_3" prev="step_2">
-                                        <p><i class="la  la-check-circle"></i></p>
-                                        <span>İlanınız Yayında!</span>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="profile-form-edit mb-5 " id="step_1_div">
                                 @if ($errors->any())
                                     @foreach ($errors->all() as $error)

@@ -25,13 +25,14 @@ class Job extends Model implements HasMedia
         'description',
         'slug',
         'fee',
+        'phone',
         'level',
-//        'qualification',
         'has_contract',
         'highlighted_until_at',
         'published_until_at',
         'status',
         'view_counter',
+        'sleep_after_at',
     ];
 
     public function getRouteKeyName()
@@ -80,6 +81,15 @@ class Job extends Model implements HasMedia
     {
         $firstMediaUrl = $this->getFirstMediaUrl('images');
         return strlen($firstMediaUrl)>0 ? $firstMediaUrl : optional($this->category)->default_cover_image;
+    }
+
+    public function getPhoneAttribute($value)
+    {
+        if (is_null($value)){
+            return $this->user->phone;
+        }
+
+        return $value;
     }
 
     public function user()

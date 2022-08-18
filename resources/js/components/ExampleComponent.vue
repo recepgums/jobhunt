@@ -137,13 +137,27 @@
                                                   v-model="formInline.work_type"></v-select>
                                     </div>
                                 </div>
+                                <div class="col-lg-6">
+                                    <span class="pf-title">Uyku modu</span>
+                                    <div class="pf-field">
+                                        <v-select :options="genders" v-model="formInline.gender"></v-select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <span class="pf-title">Telefo - {{formInline.phone}}n</span>
+                                    <div class="pf-field">
+                                        <VuePhoneNumberInput
+                                            default-country-code="TR"
+                                            v-model="formInline.phone" />
+                                    </div>
+                                </div>
                             </div>
                         </tab-content>
                         <tab-content title="Paket Seçimi ve Ödeme2" icon="la la-cc-mastercard">
                             <div class="plans-sec">
                                 <div class="row">
                                     <div @click="formInline.package_id = c.id" class="col-lg-4" v-for="c in packages">
-                                        <div :class="['pricetable', c.is_highlighted ? 'active':'']">
+                                        <div :class="['pricetable', formInline.package_id === c.id ? 'active':'']">
                                             <div class="pricetable-head">
                                                 <h3>{{c.name}}</h3>
                                                 <h2><i>₺ </i>{{c.price}}</h2>
@@ -169,10 +183,16 @@
 
 <script>
 import 'vue-select/dist/vue-select.css';
+import 'vue-phone-number-input/dist/vue-phone-number-input.css';
+
+import VuePhoneNumberInput from 'vue-phone-number-input';
 const apiUrl = process.env.MIX_API_URL;
 const appUrl = process.env.APP_URL;
 export default {
         props: ['csrf'],
+    components:{
+      VuePhoneNumberInput
+    },
         data() {
             return {
                 dialogImageUrl: '',
@@ -186,7 +206,8 @@ export default {
                     district:null,
                     fee:null,
                     gender:null,
-                    package_id:null
+                    package_id:null,
+                    phone:null
                 },
                 percentage: 0,
                 slug:null,
@@ -227,6 +248,7 @@ export default {
                 form.append('description',this.formInline.description)
                 form.append('fee',this.formInline.fee ?? null)
                 form.append('category_id',this.formInline.category_id)
+
 
                 axios.post(
                     '/job',

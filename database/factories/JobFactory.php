@@ -32,6 +32,7 @@ class JobFactory extends Factory
             'district_id' => $city->districts()->inRandomOrder()->first()->id,
             'category_id' => Categories::query()->forJob()->inRandomOrder()->first()->id,
             'title' => $title,
+            'phone' => string_to_ten_digits_phone_number($this->faker->phoneNumber),
             'description' => $this->faker->text(30),
             'slug' => Str::slug($title),
             'work_type_id' => WorkType::query()->inRandomOrder()->first()->id,

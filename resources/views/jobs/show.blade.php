@@ -109,8 +109,7 @@
 
                             <div class="job-single-head2">
                                 <div class="job-title2 pt-3">
-                                    <h2>{{$job->title}}</h2>
-{{--                                    <span class="job-is ft">{{$job->workType->name}}</span>--}}
+                                    <h2 style="font-size: 18px;font-weight: 600;">{{$job->title}}</h2>
                                 </div>
                                 <ul class="tags-jobs">
                                     <li>
@@ -178,11 +177,10 @@
                         <div class="job-single-head style2">
                             <div class="job-thumb">
                                 <img style="width: 30%"
-                                    src="{{/*optional($job->user)->profile_image_url ??*/ 'https://placehold.jp/1600x800'}}"/>
+                                    src="{{optional($job->user)->profile_image_url ?? 'https://placehold.jp/1600x800'}}"/>
                             </div>
                             <div class="job-head-info" id="job-head-info">
                                 <h4>{{optional($job->user)->name}}</h4>
-
                             </div>
                             @auth
                                 <span style="cursor: pointer;padding: 20px 5px" id="show_contact_info_button_auth"

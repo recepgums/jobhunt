@@ -27,6 +27,8 @@ return new class extends Migration {
             $table->string('title');
             $table->longText('description');
             $table->string('slug')->unique()->index();
+            $table->string('phone');
+            $table->timestamp('sleep_after_at')->nullable();
 
             $table->integer('fee')->nullable();
 

@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="inner-header">
-                            <h3>Welcome Tera Planer</h3>
+{{--                            <h3>Welcome Tera Planer</h3>--}}
                         </div>
                     </div>
                 </div>
@@ -22,36 +22,7 @@
         <div class="block no-padding">
             <div class="container">
                 <div class="row no-gape">
-                    <aside class="col-lg-3 column border-right">
-                        @auth
-                            <div class="widget">
-                                <div class="tree_widget-sec">
-                                    <ul>
-                                        <li><a href="employer_profile.html" title=""><i class="la la-file-text"></i>Company
-                                                Profile</a></li>
-                                        <li><a href="employer_manage_jobs.html" title=""><i class="la la-briefcase"></i>Manage
-                                                Jobs</a></li>
-                                        <li><a href="employer_transactions.html" title=""><i class="la la-money"></i>Transactions</a>
-                                        </li>
-                                        <li><a href="employer_resume.html" title=""><i class="la la-paper-plane"></i>Resumes</a>
-                                        </li>
-                                        <li><a href="employer_packages.html" title=""><i class="la la-user"></i>Packages</a>
-                                        </li>
-                                        <li><a href="employer_post_new.html" title=""><i class="la la-file-text"></i>Post
-                                                a
-                                                New Job</a></li>
-                                        <li><a href="employer_job_alert.html" title=""><i class="la la-flash"></i>Job
-                                                Alerts</a>
-                                        </li>
-                                        <li><a href="employer_change_password.html" title=""><i class="la la-lock"></i>Change
-                                                Password</a></li>
-                                        <li><a href="#" title=""><i class="la la-unlink"></i>Logout</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        @endauth
-                    </aside>
-                    <div class="col-lg-9 column">
+                    <div class="col-lg-10 mx-auto column">
                         <section>
                             <div class="block">
                                 <div class="container">
@@ -66,8 +37,8 @@
                                             </div><!-- Heading -->
 
                                             <div class="plans-sec">
-                                                <div class="row">
-                                                    <div class="col-9 mx-auto">
+                                                <div class="row p-0">
+                                                    <div class="col-md-9 col-sm-12 mx-auto">
                                                         @if ($errors->any())
                                                             @foreach ($errors->all() as $error)
                                                                 <div class="alert alert-primary" role="alert">
@@ -79,27 +50,117 @@
                                                             <div class="alert alert-success" role="alert">
                                                                 {{$success}}
                                                             </div>
-                                                            <div class="job-grid-sec">
+
+                                                            <div class="alert alert-primary mx-auto row" role="alert">
+                                                                <div class="col-sm-7">
+                                                                    <img src="{{asset('assets/images/google-reklam.png')}}"
+                                                                         style="width: 400px">
+                                                                </div>
+                                                                <div class="col-sm-5">
+                                                                    İlanınızı Google'da
+                                                                    @if(optional($job->category)->name)
+                                                                        <b>
+                                                                            {{optional($job->category)->name}}
+                                                                        </b>
+                                                                    @endif
+                                                                    aratan herkese gözükmesi iş ilanınıza 4 kat daha fazla kişinin başvurmasını sağlar
+                                                                    <br><br>
+                                                                    <a href="" class="btn-primary text-white btn float-right"> Google reklamı ver</a>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="job-grid-sec mt-2 card p-3" style="background-color: #eee">
                                                                 <div class="row">
                                                                     <div class="col-lg-12">
-                                                                        <div class="job-grid">
-                                                                            <div class="job-title-sec">
-                                                                                <div class="c-logo">
-
-                                                                                    {{-- todo slider <img
-                                                                                        src="{{$job->cover_image ?? 'https://place-hold.it/235x115'}}"
-                                                                                        alt="{{$job->title}}"/>--}}
+                                                                        <div class="job-single-sec">
+                                                                            <div class="swiper mySwiper">
+                                                                                <div class="swiper-wrapper">
+                                                                                    @forelse($job->getMedia('images') as $media)
+                                                                                        @if(str_contains($media->mime_type,"image"))
+                                                                                            <div class="swiper-slide">
+                                                                                                <img src="{{$media->getUrl()}}" alt="">
+                                                                                            </div>
+                                                                                        @else
+                                                                                            <div class="swiper-slide">
+                                                                                                <video width="320" height="240" controls>
+                                                                                                    <source src="{{$media->getUrl()}}" type="video/mp4">
+                                                                                                    Your browser does not support the video tag.
+                                                                                                </video>
+                                                                                            </div>
+                                                                                        @endif
+                                                                                    @empty
+                                                                                    @endforelse
                                                                                 </div>
-                                                                                <h3>
-                                                                                    <a href="{{route('job.show',$job->slug)}}"
-                                                                                       title="">{{$job->title}}</a></h3>
-                                                                                <span>{{-- todo {{$category->name}}--}}</span>
+                                                                                <div class="swiper-button-next"></div>
+                                                                                <div class="swiper-button-prev"></div>
+                                                                                <div class="swiper-pagination"></div>
                                                                             </div>
-                                                                            <span
-                                                                                class="job-lctn">neighborhood_id {{--{{todo $job->neighborhood->name}}--}}</span>
-                                                                            <a href="{{route('job.show',$job->slug)}}"
-                                                                               title="">İlanı Görüntüle</a>
-                                                                        </div><!-- JOB Grid -->
+
+                                                                            <div class="job-single-head2">
+                                                                                <div class="job-title2 pt-3">
+                                                                                    <h2>{{$job->title}}</h2>
+                                                                                    {{--                                    <span class="job-is ft">{{$job->workType->name}}</span>--}}
+                                                                                </div>
+                                                                                <ul class="tags-jobs">
+                                                                                    <li>
+                                                                                        <i class="la la-map-marker"></i> @if(optional($job->district)->name) {{$job->district->name}}
+                                                                                        , @endif {{$job->city->name}}</li>
+                                                                                    @if($job->fee)
+                                                                                        <li>
+                                                                                            <i class="la la-money"></i> Aylık Maaş : <span>{{$job->fee}} ₺</span>
+                                                                                        </li>
+                                                                                    @endif
+
+                                                                                    @if(optional($job->category)->name)
+                                                                                        <li>
+                                                                                            <i class="la la-calendar-o"></i>
+                                                                                            {{optional($job->category)->name}}
+                                                                                        </li>
+                                                                                    @endif
+                                                                                    <li>
+                                                                                        <i class="la la-calendar-o"></i>
+                                                                                        Yayınlanma Tarihi:
+                                                                                        {{$job->created_at->diffForHumans()}}
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                            <div class="job-details" style="border-bottom: 1px solid #e8ecec;padding-bottom: 10px">
+                                                                                {!! $job->description !!}
+                                                                            </div>
+                                                                            <div class="job-overview">
+                                                                                <ul>
+                                                                                    @if($job->fee)
+                                                                                        <li><i class="la la-money"></i>
+                                                                                            <h3>Teklif Edilen Maaş</h3><span>{{$job->fee}}₺</span></li>
+                                                                                    @endif
+                                                                                    @if(optional($job->gender)->name)
+                                                                                        <li><i class="la la-mars-double"></i>
+                                                                                            <h3>Cinsiyet</h3><span>{{$job->gender->name}}</span></li>
+                                                                                    @endif
+                                                                                    @if(optional($job->category)->name)
+                                                                                        <li><i class="la la-puzzle-piece"></i>
+                                                                                            <h3>Rol</h3><span>{{optional($job->category)->name}}</span></li>
+                                                                                    @endif
+
+                                                                                    @if(optional($job->workType)->name)
+                                                                                        <li><i class="la la-clock-o"></i>
+                                                                                            <h3>Çalışma Türü</h3><span>{{$job->workType->name}}</span></li>
+                                                                                    @endif
+
+                                                                                    <li><i class="la la-location-arrow"></i>
+                                                                                        <h3>Konum</h3><span>@if(optional($job->district)->name) {{$job->district->name}}
+                                                                                            , @endif {{$job->city->name}}</span></li>
+                                                                                    <li><i class="la la-hand-paper-o"></i>
+                                                                                        <h3>Sözleşme</h3><span>@if($job->has_contract) Var @else Yok @endif</span></li>
+                                                                                    <li><i class="la la-eye"></i>
+                                                                                        <h3>Görüntüleyen Kişi Sayısı</h3><span>{{$job->view_counter}}</span></li>
+
+                                                                                </ul>
+                                                                                <a href="{{route('job.show',$job->slug)}}"
+                                                                                   title="">İlanı Görüntüle</a>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
