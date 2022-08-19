@@ -39,7 +39,7 @@ Route::get('user/{user:username}',[Controllers\UserController::class,'show'])->n
 Route::get('user/verify',[Controllers\UserVerifyController::class,'verify'])->name('verify');
 
 Route::resource('job', Controllers\JobController::class);
-Route::resource('employer', Controllers\EmployerController::class);
+//Route::resource('employer', Controllers\EmployerController::class);
 Route::resource('blog', Controllers\BlogController::class);
 
 Route::group(['prefix' => 'candidate', 'as' => 'candidate.', 'middleware' => 'auth'], function () {
@@ -65,7 +65,11 @@ Route::post('job/{job}/iyzico-form-retrieve', [App\Http\Controllers\JobControlle
 Route::get('redirect/{driver}', [Controllers\UserController::class, 'socialiteRedirect'])->name('socialite.redirect');
 Route::get('callback/{driver}', [Controllers\UserController::class, 'socialiteCallback'])->name('socialite.callback');
 
-Route::get('test', function () {
-
-    return view('admin.dashboard');
+Route::group(['prefix'=>'admin','middleware' => 'role:admin','as'=>'admin.'],function (){
+    Route::get('/',[Controllers\Admin\AdminController::class,'dashboard'])->name('index');
+    Route::resource('faq',Controllers\Admin\FaqController::class);
+    Route::get('reviews',[Controllers\Admin\AdminController::class,'reviews'])->name('reviews');
+});
+Route::get('test',function (){
+    dd(auth()->user());
 });
