@@ -67,6 +67,12 @@ p.job-type-custom {
         -webkit-box-orient: vertical;
     }
 }
+
+.bg-overlay {
+
+    background: linear-gradient(to bottom, rgba(184, 24, 40, 0.88), rgba(23, 23, 22, 0.5)),
+    url("{{ asset('assets/images/bg.jpeg') }}") 0 0 no-repeat fixed;
+}
 </style>
 @endpush
 @section('content')
@@ -74,100 +80,91 @@ p.job-type-custom {
 <section class="">
     <div class="block no-padding">
         <div class="container fluid">
-            <div class="row tw-h-[40rem]">
-                <div class="col-lg-12">
-                    <div class="main-featured-sec style2">
-                        <ul class="main-slider-sec style2 text-arrows slick-initialized slick-slider"><button
-                                type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous"
-                                role="button" style="display: block;">Previous</button>
-                            <div aria-live="polite" class="slick-list draggable">
-                                <div class="slick-track"
-                                    style="opacity: 1; transform: translate3d(-394px, 0px, 0px); height: 675px;">
-                                    role="listbox">
-                                    <li class="slideHome slick-slide slick-cloned" data-slick-index="-1"
-                                        aria-hidden="true" style="width: 400rem;" tabindex="-1">
-                                        <img src="{{asset('assets/images/bg.jpeg')}}" alt="" class="tw-object-fill ">
+            <div class="tw-h-[40rem]">
 
-                                    </li>
+
+
+                <img class="bg-overlay lg:tw-w-[200rem] tw-h-[60rem] tw-w-[80rem]"></img>
+
+            </div>
+
+            <div class="job-search-sec  tw-ml-[5rem]">
+                <div class="job-search text-center">
+                    <div
+                        class="lg:tw-ml-[-14rem] tw-ml-[-10rem] tw-text-white tw-font-bold lg:tw-text-[40px] tw-text-[20px]">
+                        <h3>Mükemmel İş</h3>
+                        <h3>Mükemmel Yetenek</h3>
+                        <span class="tw-font-light lg:tw-text-[25px] tw-text-[15px] ">Aradığınız
+                            güvenilir işi ve işçiyi
+                            bulmanın en kolay yolu.</span>
+                    </div>
+
+                    <form method="get" action="{{route('job.index')}}" class="tw-ml-[-5rem]">
+                        <div
+                            class="tw-grid tw-grid-rows-1  lg:tw-grid-cols-3  lg:tw-gap-y-6  lg:tw-gap-x-[10rem] lg:tw-ml-[-5rem] ">
+                            <div class="lg:tw-w-[25rem] tw-w-[20rem]">
+                                <div class="job-field">
+                                    <select data-placeholder="Şehir" name="city_id"
+                                        class="chosen-city tw-rounded-[16px]">
+                                        @forelse($cities as $city)
+                                        <option @if($city->id == $selectedCity?->id) selected
+                                            @endif value="{{$city->id}}">{{$city->name}}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
+                                    <i class="la la-map-marker"></i>
                                 </div>
                             </div>
-
-
-                            <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next"
-                                role="button" style="display: block;">Next</button>
-                        </ul>
-                        <div class="job-search-sec  tw-ml-[5rem]  ">
-                            <div class="job-search text-center mx-auto">
-                                <div
-                                    class="lg:tw-ml-[-14rem] tw-ml-[-0.4rem] tw-text-white tw-font-bold lg:tw-text-[40px] tw-text-[20px]">
-                                    <h3>Mükemmel İş</h3>
-                                    <h3>Mükemmel Yetenek</h3>
-                                    <span class="tw-font-light lg:tw-text-[25px] tw-text-[15px] ">Aradığınız
-                                        güvenilir işi ve işçiyi
-                                        bulmanın en kolay yolu.</span>
-                                </div>
-
-                                <form method="get" action="{{route('job.index')}}">
-                                    <div
-                                        class="tw-grid tw-grid-rows-1  lg:tw-grid-cols-3  lg:tw-gap-y-6  lg:tw-gap-x-[10rem] tw-ml-[1.1rem] lg:tw-ml-[-5rem]">
-                                        <div class="lg:tw-w-[25rem] tw-w-[20rem]">
-                                            <div class="job-field">
-                                                <select data-placeholder="Şehir" name="city_id"
-                                                    class="chosen-city tw-rounded-[16px]">
-                                                    @forelse($cities as $city)
-                                                    <option @if($city->id == $selectedCity?->id) selected
-                                                        @endif value="{{$city->id}}">{{$city->name}}</option>
-                                                    @empty
-                                                    @endforelse
-                                                </select>
-                                                <i class="la la-map-marker"></i>
-                                            </div>
-                                        </div>
-                                        <div class="lg:tw-w-[25rem] tw-w-[20rem]">
-                                            <div class="job-field  ">
-<!--                                                <input type="text" name="keyword" class="tw-rounded-[36px]"
+                            <div class="lg:tw-w-[25rem] tw-w-[20rem]">
+                                <div class="job-field  ">
+                                    <!--                                                <input type="text" name="keyword" class="tw-rounded-[36px]"
                                                     placeholder="dsdsdsdsra..." />-->
 
-                                                <select data-placeholder="Şehir" name="category_id[]"
-                                                        class="chosen-city tw-rounded-[16px]">
-                                                    @forelse($categories as $category)
-                                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                                    @empty
-                                                    @endforelse
-                                                </select>
-                                                <i class=" la la-keyboard-o"></i>
-                                            </div>
-                                        </div>
+                                    <select data-placeholder="Şehir" name="category_id[]"
+                                        class="chosen-city tw-rounded-[16px]">
+                                        @forelse($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
+                                    <i class=" la la-keyboard-o"></i>
+                                </div>
+                            </div>
 
-                                        <div class=" tw-w-[20rem] lg:tw-w-[15rem]">
-                                            <button type="submit">
-                                                <div class="tw-flex tw-justify-center">
-                                                    <i class="la la-search tw-mr-[0.5rem] tw-text-white"></i>
-                                                    <p
-                                                        class="tw-text-[15px] lg:tw-text-[12px] tw-font-semibold tw-text-white">
-                                                        İlanları Görüntüle</p>
-                                                </div>
-                                            </button>
-                                        </div>
+                            <div class=" tw-w-[20rem] lg:tw-w-[15rem]">
+                                <button type="submit">
+                                    <div class="tw-flex tw-justify-center">
+                                        <i class="la la-search tw-mr-[0.5rem] tw-text-white"></i>
+                                        <p class="tw-text-[15px] lg:tw-text-[12px] tw-font-semibold tw-text-white">
+                                            İlanları Görüntüle</p>
                                     </div>
-                                </form>
+                                </button>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
+    </div>
     </div>
 </section>
 
 <section>
     <div class="block gray" style="padding-top: 6rem">
         <div id="app">
-            <div class="tw-ml-[5rem]">
+            <div class="lg:tw-ml-[3rem] tw-ml-[-2rem] tw-px-12">
                 <h2> {{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki
                     iş ilanları</h2>
+                <h1 class="tw-font-bold tw-mt-3">
+                    592 İlan
+                </h1>
+
+                <classifiedsec />
             </div>
-            <classifiedsec></classifiedsec>
+
+
         </div>
         <script src="{{asset('js/app.js')}}"></script>
         <div class="container">
