@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Categories;
 use App\Models\City;
 use App\Models\Faq;
 use App\Models\Job;
@@ -28,12 +29,10 @@ class HomeController extends Controller
     public function index()
     {
         $selectedCity = $this->city ?? null;
-
         $cities = Cache::rememberForever('cities',fn()=> City::all());
-
         $faqs = Cache::remember('faqs',3600, fn()=> Faq::listable()->orderBy('order')->limit(5)->get());
-
         $reviews = Cache::remember('reviews',3600,fn()=> Review::orderBy('order')->limit(5)->get());
+        $categories = Cache::rememberForever('job-categories-all', fn() => Categories::forJob()->get());
 
         $locationRecentJobsQuery = Job::query()->listable()
             ->when($selectedCity, function ($query) use ($selectedCity) {
@@ -67,6 +66,7 @@ class HomeController extends Controller
             'locationRecentJobs' => $locationRecentJobs,
             'faqs' => $faqs,
             'reviews' => $reviews,
+            'categories' => $categories,
             'highlightedLocationJobs' => $highlightedLocationJobs,
         ]);
     }

@@ -138,12 +138,6 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <span class="pf-title">Uyku modu</span>
-                                    <div class="pf-field">
-                                        <v-select :options="genders" v-model="formInline.gender"></v-select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
                                     <span class="pf-title">Telefo - {{formInline.phone}}n</span>
                                     <div class="pf-field">
                                         <VuePhoneNumberInput
@@ -207,7 +201,8 @@ export default {
                     fee:null,
                     gender:null,
                     package_id:null,
-                    phone:null
+                    phone:null,
+                    sleep_after_at:null
                 },
                 percentage: 0,
                 slug:null,
@@ -248,6 +243,8 @@ export default {
                 form.append('description',this.formInline.description)
                 form.append('fee',this.formInline.fee ?? null)
                 form.append('category_id',this.formInline.category_id)
+                form.append('phone',this.formInline.phone)
+                form.append('sleep_after_at',this.formInline.sleep_after_at)
 
 
                 axios.post(
@@ -333,6 +330,7 @@ export default {
                     this.formInline.city = this.cities.filter(q=>q.value === resp.data.selected_city.id)[0]
 
                     this.packages = resp.data.packages
+                    this.formInline.phone = resp.data.phone
                     this.formInline.package_id = this.packages.filter(q=>q.is_highlighted == true)[0].id
                 })
             },

@@ -43,7 +43,8 @@ class PublicDataController extends Controller
             'selected_city' => $selectedCity,
             'districts' => $selectedCity?->districts,
             'genders' => Cache::rememberForever('genders', fn() => Gender::all()),
-            'packages' => Cache::rememberForever('packages', fn() => Package::all())
+            'packages' => Cache::rememberForever('packages', fn() => Package::all()),
+            'phone' => auth()->check() ? auth()->user()->phone : null
         ]);
     }
 

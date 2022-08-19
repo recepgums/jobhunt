@@ -50,6 +50,12 @@
                                             </td>
                                         </tr>
                                     @empty
+                                        <p class="text-center mx-auto">Hiçbir ilana başvurmadınız.
+                                            <a href="{{route('job.index')}}" class="text-primary mx-auto">
+                                                İlanları gör
+                                            </a>
+                                        </p>
+
                                     @endforelse
                                     </tbody>
                                 </table>

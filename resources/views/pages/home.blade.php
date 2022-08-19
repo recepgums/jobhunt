@@ -125,8 +125,16 @@ p.job-type-custom {
                                         </div>
                                         <div class="lg:tw-w-[25rem] tw-w-[20rem]">
                                             <div class="job-field  ">
-                                                <input type="text" name="keyword" class="tw-rounded-[36px]"
-                                                    placeholder="Ara..." />
+<!--                                                <input type="text" name="keyword" class="tw-rounded-[36px]"
+                                                    placeholder="dsdsdsdsra..." />-->
+
+                                                <select data-placeholder="Şehir" name="category_id[]"
+                                                        class="chosen-city tw-rounded-[16px]">
+                                                    @forelse($categories as $category)
+                                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                                    @empty
+                                                    @endforelse
+                                                </select>
                                                 <i class=" la la-keyboard-o"></i>
                                             </div>
                                         </div>
@@ -139,8 +147,6 @@ p.job-type-custom {
                                                         class="tw-text-[15px] lg:tw-text-[12px] tw-font-semibold tw-text-white">
                                                         İlanları Görüntüle</p>
                                                 </div>
-
-
                                             </button>
                                         </div>
                                     </div>

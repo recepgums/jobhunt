@@ -18,7 +18,6 @@
             </div>
         </div>
     </section>
-    aaaaa
     <div id="app">
         <job-filter></job-filter>
     </div>

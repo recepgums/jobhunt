@@ -237,7 +237,7 @@
                 },
                 success: function (response) {
                     let html = `<h4>${response?.name}</h4><p><i class="la la-phone"></i>`
-                    html += response?.phone ? `${response?.phone}</p><p><i class="la la-envelope-o"></i>` : 'Kullanicinin telefon numarasi bulunmuyor </p><p><i class="la la-envelope-o"></i>'
+                    html += response?.phone ? `<a href="tel:${response?.phone}">${response?.phone}</p><p><i class="la la-envelope-o"></i>` : 'Kullanicinin telefon numarasi bulunmuyor </p><p><i class="la la-envelope-o"></i>'
                     html += response?.email ? `${response?.email}</p>` : 'Kullanicinin mail adresi bulunmuyor</p>';
 
                     $('#job-head-info').fadeOut(300, function () {
@@ -247,7 +247,7 @@
                     $('#show_contact_info_button_auth').css('display', 'none')
                 },
                 error: function (response) {
-                    alert('Bizden kaynakli bir hata olustu. Lutfen bizimle iletisime gecip durumu bildirin');
+                    alert('Sunucu kaynakli bir hata olustu. Lutfen bizimle iletisime gecip durumu bildirin');
                 },
             });
         }

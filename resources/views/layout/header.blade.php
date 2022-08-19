@@ -35,9 +35,6 @@
                     <a href="{{route('candidates.index')}}" title="">İş Arayanlar</a>
                 </li>--}}
                 <li class="menu-item-has-children">
-                    <a href="{{route('blog.index')}}" title="">Haberler</a>
-                </li>
-                <li class="menu-item-has-children">
                     <a href="{{route('blog.index')}}" title="">Blog</a>
                 </li>
                 {{--
@@ -85,9 +82,6 @@
                     <li>
                         <a href="{{route('candidates.index')}}" title="">İş Arayanlar</a>
                     </li>--}}
-                    <li>
-                        <a href="{{route('blog.index')}}" title="">Haberler</a>
-                    </li>
                     <li>
                         <a href="{{route('blog.index')}}" title="">Blog</a>
                     </li>

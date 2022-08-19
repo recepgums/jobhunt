@@ -6,7 +6,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Categories;
 use App\Models\City;
+use App\Models\Job;
 use App\Services\StorageService;
+use Illuminate\Console\View\Components\Task;
 use Illuminate\Http\Request;
 
 class CandidateController extends Controller
@@ -45,6 +47,13 @@ class CandidateController extends Controller
     public function shortlist()
     {
         return view('candidates.shortlist');
+    }
+
+    public function myJobs()
+    {
+        $jobs = Job::where('user_id',auth()->id())->paginate(10);
+
+        return view('candidates.shortlist',compact('jobs'));
     }
 
     public function applied_jobs()
