@@ -72,6 +72,7 @@ p.job-type-custom {
 
     background: linear-gradient(to bottom, rgba(184, 24, 40, 0.88), rgba(23, 23, 22, 0.5)),
     url("{{ asset('assets/images/bg.jpeg') }}") 0 0 no-repeat fixed;
+    background-size: cover;
 }
 </style>
 @endpush
@@ -80,18 +81,14 @@ p.job-type-custom {
 <section class="">
     <div class="block no-padding">
         <div class="container fluid">
-            <div class="tw-h-[40rem]">
+            <div class="tw-h-[40rem] bg-overlay " />
 
 
 
-                <img class="bg-overlay lg:tw-w-[200rem] tw-h-[60rem] tw-w-[80rem]"></img>
-
-            </div>
-
-            <div class="job-search-sec  tw-ml-[5rem]">
+            <div class="job-search-sec tw-ml-[22vw] lg:tw-ml-[6vw]">
                 <div class="job-search text-center">
                     <div
-                        class="lg:tw-ml-[-14rem] tw-ml-[-10rem] tw-text-white tw-font-bold lg:tw-text-[40px] tw-text-[20px]">
+                        class="lg:tw-ml-[-14rem] tw-ml-[-40vw] tw-text-white tw-font-bold lg:tw-text-[40px] tw-text-[20px]">
                         <h3>Mükemmel İş</h3>
                         <h3>Mükemmel Yetenek</h3>
                         <span class="tw-font-light lg:tw-text-[25px] tw-text-[15px] ">Aradığınız
@@ -101,7 +98,7 @@ p.job-type-custom {
 
                     <form method="get" action="{{route('job.index')}}" class="tw-ml-[-5rem]">
                         <div
-                            class="tw-grid tw-grid-rows-1  lg:tw-grid-cols-3  lg:tw-gap-y-6  lg:tw-gap-x-[10rem] lg:tw-ml-[-5rem] ">
+                            class="tw-grid tw-grid-rows-1  lg:tw-grid-cols-3  lg:tw-gap-y-6  lg:tw-gap-x-[10rem] lg:tw-ml-[-5rem] md:tw-ml-[14vw]">
                             <div class="lg:tw-w-[25rem] tw-w-[20rem]">
                                 <div class="job-field">
                                     <select data-placeholder="Şehir" name="city_id"
@@ -154,7 +151,7 @@ p.job-type-custom {
 <section>
     <div class="block gray" style="padding-top: 6rem">
         <div id="app">
-            <div class="lg:tw-ml-[3rem] tw-ml-[-2rem] tw-px-12">
+            <div class="lg:tw-ml-[3rem] tw-ml-[-2rem] tw-px-12 tw-text-[2vh]">
                 <h2> {{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki
                     iş ilanları</h2>
                 <h1 class="tw-font-bold tw-mt-3">
@@ -172,8 +169,8 @@ p.job-type-custom {
                 <div class="col-lg-9 column">
                     <!-- Heading -->
 
-                    <div class="col-lg-12">
-                        <div class="browse-all-cat" style="margin-top: 0">
+                    <div class="col-lg-12 ">
+                        <div class="browse-all-cat tw-mb-[8vh]" style="margin-top: 0">
                             <a href="{{route('job.index')}}" title="" class="style2">Daha fazla iş ilanı
                                 görüntüleyin</a>
                         </div>

@@ -2557,11 +2557,11 @@ header.style2 nav {
     background: #ffffff;
     border: navajowhite;
 
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    -ms-border-radius: 30px;
-    -o-border-radius: 30px;
-    border-radius: 30px;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    -ms-border-radius: 14px;
+    -o-border-radius: 14px;
+    border-radius: 14px;
 
     padding: 15px 44px;
 
@@ -12187,10 +12187,11 @@ header.style4 .account-btns > li a,
     transition: all 0.4s ease 0s;
 }
 
-
-.bg-overlay{
-
-    background:
-    linear-gradient(to bottom, rgba(100, 100, 0, 0.5), rgba(100, 100, 0, 0.5)),
-    url(../images/bg.jpeg) 0 0 no-repeat fixed;
+.bg-overlay {
+    background: linear-gradient(
+            to bottom,
+            rgba(100, 100, 0, 0.5),
+            rgba(100, 100, 0, 0.5)
+        ),
+        url(../images/bg.jpeg) 0 0 no-repeat fixed;
 }
