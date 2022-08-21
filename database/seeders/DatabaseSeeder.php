@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
         Faq::factory(10)->create();
         Coupons::factory(2)->create();
         $this->call(ReviewSeeder::class);
+        $this->call(CategoriesSeeder::class);
         Role::create(['name'=>'candidate']);
         Role::create(['name'=>'employee']);
         WorkType::create(['name' => 'Tam Zamanlı', 'type' => WorkType::TYPES['Full Time']]);

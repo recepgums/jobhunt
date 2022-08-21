@@ -36,7 +36,6 @@
                                 <div class="col-lg-12">
                                     <div class="cat-sec">
                                         <div class="row no-gape">
-
                                             <div @click="categoryClicked(category)"  v-for="category in categories" class="col-lg-4 col-md-4 col-sm-5 text-center">
                                                 <div class="p-category mx-auto">
                                                     <a href="#" title="">
@@ -342,7 +341,8 @@ export default {
                     if (resp.length > 1){
                         this.categories = resp
                     }else{
-                        this.formInline.category_id = category.id
+                        this.formInline.category_id = category.id;
+                        this.fileList.push({name:category.name,url:category.default_cover_image})
                         this.$refs.wizard.nextTab()
                     }
                 })
@@ -366,7 +366,16 @@ export default {
 .pf-title{
     font-weight: 600;
     font-size: 18px;
-    color: #ccc;
+    color: #000000;
 
+}
+.img-wrap {
+    position: relative;
+}
+.img-wrap .close {
+    top: 2px;
+    color:red;
+    right: 2px;
+    z-index: 100;
 }
 </style>

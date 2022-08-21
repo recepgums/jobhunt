@@ -126,6 +126,10 @@ class JobController extends Controller
             }
         }
 
+        if (count($job->getMedia('images')) < 1){
+            $job->addMediaFromUrl($job->category->default_cover_image)->toMediaCollection('images');
+        }
+
         return response()->json([
             'message' => 'İş ilanı kaydedildi. Ödeme bekleniyor',
             'slug' => $job->slug,
