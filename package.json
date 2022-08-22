@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "element-ui": "^2.15.9",
+        "laravel-vue-pagination": "^3.0.0",
         "vue-form-wizard": "^0.8.4",
         "vue-phone-number-input": "^1.1.12",
         "vue-select": "^3.20.0"

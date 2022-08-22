@@ -82,9 +82,7 @@
                                 </h1>
                             </div>
 
-                            <div
-                                class="tw-flex tw-py-[0.5vh] tw-px-[6vw] tw-space-x-8"
-                            >
+                            <div class="tw-flex tw-py-[0.5vh] tw-px-[6vw] tw-space-x-8">
                                 <div>
                                     <h1 class="tw-font-bold tw-text-[2vh]">
                                         Çalışma Türü
@@ -132,7 +130,29 @@
 </template>
 
 <script>
-export default {};
+
+const apiUrl = process.env.MIX_API_URL;
+const appUrl = process.env.APP_URL;
+export default {
+    data(){
+        return {
+            jobs:[],
+
+        }
+    },
+    mounted() {
+        this.getJobList()
+    },
+    methods: {
+        getJobList(page=1) {
+            axios.get(apiUrl+`job?page=${page}`)
+            .then(resp=>{
+                let data = resp.data.data
+                this.jobs = resp
+            })
+        },
+    }
+};
 </script>
 
 <style></style>

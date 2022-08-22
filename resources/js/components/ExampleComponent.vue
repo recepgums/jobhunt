@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container-fluid p-0">
         <div class="row no-gape">
             <div class="col-lg-10 column mx-auto">
                 <div class="padding-left">
@@ -33,26 +33,16 @@
                         </div>
                         <tab-content title="Kategori secimi" icon="la la-info">
                             <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="cat-sec">
-                                        <div class="row no-gape">
-                                            <div @click="categoryClicked(category)"  v-for="category in categories" class="col-lg-4 col-md-4 col-sm-5 text-center">
-                                                <div class="p-category mx-auto">
-                                                    <a href="#" title="">
-                                                        <img style="
-                                                        width: 200px;
-                                                         height: 200px;
-                                                         object-fit: cover;"
-                                                             :src="category.default_cover_image"
-                                                             :alt="category.name"
-                                                             class="mx-auto"
-                                                        >
-                                                        <span>{{category.name}}</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div @click="categoryClicked(category)" v-for="category in categories" class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                    <a href="#" title="" class="text-center card my-2">
+                                        <img style="
+                                         object-fit: cover;"
+                                             :src="category.default_cover_image"
+                                             :alt="category.name"
+                                             class="mx-auto"
+                                        >
+                                        <div class="mx-auto text-center font-weight-bold " style="font-size:18px">{{category.name}}</div>
+                                    </a>
                                 </div>
                             </div>
                         </tab-content>
@@ -351,11 +341,21 @@ export default {
     }
 </script>
 <style>
+.vue-form-wizard {
+    margin-left: auto !important;
+    margin-right: auto!important;
+    max-width: 1800px;
+}
 .vue-form-wizard .wizard-icon-circle .wizard-icon-container{
     border-radius: 60%;
 }
 .vue-form-wizard .wizard-tab-content {
     padding: 65px 20px 10px;
+}
+@media only screen and (max-width: 600px) {
+    .vue-form-wizard .wizard-tab-content {
+        padding: 35px;
+    }
 }
 .el-input__inner{
     background-color: #3cb0e6!important;

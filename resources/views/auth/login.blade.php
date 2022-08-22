@@ -32,7 +32,7 @@
                                 <form action="{{route('login.custom')}}" method="POST">
                                     @csrf
                                     <div class="cfield">
-                                        <input name="email" type="email" placeholder="Email Adresiniz" required/>
+                                        <input autocomplete="nope" name="email" type="email" placeholder="Email Adresiniz" required/>
                                         <i class="la la-user"></i>
                                     </div>
                                     <div class="cfield">

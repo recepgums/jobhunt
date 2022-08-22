@@ -24,3 +24,4 @@ Route::get('job-categories',[Controllers\PublicDataController::class,'jobCategor
 Route::get('job-create-data',[Controllers\PublicDataController::class,'jobCreateData']);
 
 Route::get('city/{city}/district',[Controllers\PublicDataController::class,'district']);
+Route::get('job',[Controllers\JobController::class,'index']);

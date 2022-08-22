@@ -51,26 +51,28 @@
                                                                 {{$success}}
                                                             </div>
 
-                                                            <div class="alert alert-primary mx-auto row" role="alert">
-                                                                <div class="col-sm-7">
-                                                                    <img src="{{asset('assets/images/google-reklam.png')}}"
-                                                                         style="width: 400px">
-                                                                </div>
-                                                                <div class="col-sm-5">
-                                                                    İlanınızı Google'da
-                                                                    @if(optional($job->category)->name)
-                                                                        <b>
-                                                                            {{optional($job->category)->name}}
-                                                                        </b>
-                                                                    @endif
-                                                                    aratan herkese gözükmesi iş ilanınıza 4 kat daha fazla kişinin başvurmasını sağlar
-                                                                    <br><br>
-                                                                    <a href="" class="btn-primary text-white btn float-right"> Google reklamı ver</a>
-                                                                </div>
-                                                            </div>
+                                                          @if(env('GOOGLE_REKLAMI_ACIK_MI',false))
 
+                                                                    <div class="alert alert-primary mx-auto row" role="alert">
+                                                                        <div class="col-sm-7">
+                                                                            <img src="{{asset('assets/images/google-reklam.png')}}"
+                                                                                 style="width: 400px">
+                                                                        </div>
+                                                                        <div class="col-sm-5">
+                                                                            İlanınızı Google'da
+                                                                            @if(optional($job->category)->name)
+                                                                                <b>
+                                                                                    {{optional($job->category)->name}}
+                                                                                </b>
+                                                                            @endif
+                                                                            aratan herkese gözükmesi iş ilanınıza 4 kat daha fazla kişinin başvurmasını sağlar
+                                                                            <br><br>
+                                                                            <a href="" class="btn-primary text-white btn float-right"> Google reklamı ver</a>
+                                                                        </div>
+                                                                    </div>
 
-                                                            <div class="job-grid-sec mt-2 card p-3" style="background-color: #eee">
+                                                                @endif
+                                                                    <div class="job-grid-sec mt-2 card p-3" style="background-color: #eee">
                                                                 <div class="row">
                                                                     <div class="col-lg-12">
                                                                         <div class="job-single-sec">

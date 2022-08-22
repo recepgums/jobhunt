@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\JobStoreRequest;
+use App\Http\Resources\JobResource;
 use App\Models\City;
 use App\Models\Job;
 use App\Models\JobUser;
@@ -60,6 +61,10 @@ class JobController extends Controller
             $districts,
             $selectedDistricts,
         ] = $jobHelper->getJobCreateData($request->has('city_id') ? City::findOrFail($request->get('city_id')) : $this->city);
+
+        if ($request->acceptsJson()){
+            return  JobResource::collection($jobs);
+        }
 
         return view('jobs.index', [
             'jobs' => $jobs,
