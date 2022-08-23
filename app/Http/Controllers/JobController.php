@@ -63,7 +63,6 @@ class JobController extends Controller
         ] = $jobHelper->getJobCreateData($request->has('city_id') ? City::findOrFail($request->get('city_id')) : $this->city);
 
         if ($request->ajax()){
-            dd('ds');
             return JobResource::collection($jobs);
         }
 
