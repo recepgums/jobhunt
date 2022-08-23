@@ -81,10 +81,7 @@ p.job-type-custom {
 <section class="">
     <div class="block no-padding">
         <div class="container fluid">
-            <div class="tw-h-[40rem] bg-overlay " />
-
-
-
+            <div class="tw-h-[40rem] bg-overlay"></div>
             <div class="job-search-sec tw-ml-[22vw] lg:tw-ml-[6vw]">
                 <div class="job-search text-center">
                     <div
@@ -114,9 +111,6 @@ p.job-type-custom {
                             </div>
                             <div class="lg:tw-w-[25rem] tw-w-[20rem]">
                                 <div class="job-field  ">
-                                    <!--                                                <input type="text" name="keyword" class="tw-rounded-[36px]"
-                                                    placeholder="dsdsdsdsra..." />-->
-
                                     <select data-placeholder="Şehir" name="category_id[]"
                                         class="chosen-city tw-rounded-[16px]">
                                         @forelse($categories as $category)
@@ -143,22 +137,14 @@ p.job-type-custom {
             </div>
         </div>
     </div>
-    </div>
-    </div>
-    </div>
 </section>
 
 <section>
     <div class="block gray" style="padding-top: 6rem">
         <div id="app">
-            <div class="lg:tw-ml-[3rem] tw-ml-[-2rem] tw-px-12 tw-text-[2vh]">
-                <h2> {{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki
-                    iş ilanları</h2>
-                <h1 class="tw-font-bold tw-mt-3">
-                    592 İlan
-                </h1>
-
-                <classifiedsec />
+            <div class="container">
+                <classifiedsec currentLocation="{{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları"
+                />
             </div>
 
 

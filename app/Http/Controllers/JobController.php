@@ -62,8 +62,9 @@ class JobController extends Controller
             $selectedDistricts,
         ] = $jobHelper->getJobCreateData($request->has('city_id') ? City::findOrFail($request->get('city_id')) : $this->city);
 
-        if ($request->acceptsJson()){
-            return  JobResource::collection($jobs);
+        if ($request->ajax()){
+            dd('ds');
+            return JobResource::collection($jobs);
         }
 
         return view('jobs.index', [
