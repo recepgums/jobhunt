@@ -143,27 +143,25 @@ p.job-type-custom {
     <div class="block gray" style="padding-top: 6rem">
         <div id="app">
             <div class="container">
-                <classifiedsec currentLocation="{{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları"
-                />
+                <classifiedsec
+                    currentLocation="{{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları" />
             </div>
 
 
         </div>
         <script src="{{asset('js/app.js')}}"></script>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-9 column">
-                    <!-- Heading -->
 
-                    <div class="col-lg-12 ">
-                        <div class="browse-all-cat tw-mb-[8vh]" style="margin-top: 0">
-                            <a href="{{route('job.index')}}" title="" class="style2">Daha fazla iş ilanı
-                                görüntüleyin</a>
-                        </div>
-                    </div>
+            <!-- Heading -->
+
+            <div class="tw-flex tw-justify-center tw-mt-8 tw-mb-8">
+                <div class="browse-all-cat ">
+                    <a href="{{route('job.index')}}" title="" class="style2">Daha fazla iş ilanı
+                        görüntüleyin</a>
                 </div>
             </div>
         </div>
+
 </section>
 
 <section>
