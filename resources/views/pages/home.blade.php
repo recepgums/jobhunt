@@ -165,159 +165,73 @@ p.job-type-custom {
 </section>
 
 <section>
-    <div class="block">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="heading">
-                        <h2>Nasıl Çalışıyor</h2>
-                        <span>Her ay, 850 kişiden fazla {{env('APP_TARGET_JOB_NAME')}}, {{env('APP_NAME')}} sayesinde iş
-                            buluyor. İşi için gerekli olan tüm bağlantılar için bizi tercih ediyor. <br />
-                            {{env('APP_NAME')}} ile iş bulun ya da işinizi büyütün.
-                        </span>
-                    </div><!-- Heading -->
-
-                    <div class="tab-sec">
-                        <ul class="nav nav-tabs my-5">
-                            <li><a class="current" data-tab="fjobs">İşçiyim</a></li>
-                            <li><a data-tab="rjobs">İşverenim</a></li>
-                        </ul>
-                        <div id="fjobs" class="tab-content current my-5">
-                            <div class="how-to-sec d-none d-md-block">
-                                <div class="how-to">
-                                    <a href="{{route('register-user')}}">
-                                        <span class="how-icon"><i class="la la-user"></i></span>
-                                        <h3>Hesap Oluşturun</h3>
-                                        <p>
-                                            İş ilanı verenler ile iletişime geçmek için hesap açın. Bilgilerinizi
-                                            doğru girdiğinizden emin olun.
-                                        </p>
-                                    </a>
-                                </div>
-                                <div class="how-to">
-                                    <a href="{{route('job.index')}}">
-                                        <span class="how-icon"><i class="la la-file-archive-o"></i></span>
-                                        <h3>İş ilanlarını arayın</h3>
-                                        <p>İş ilanları sayfasından size uygun iş ilanlarını inceleyin</p>
-                                    </a>
-                                </div>
-                                <div class="how-to">
-                                    <a href="{{route('job.index')}}">
-                                        <span class="how-icon"><i class="la la-list"></i></span>
-                                        <h3>İş ilanlarına başvurun</h3>
-                                        <p>İlan detaylarından, iş sahibinin numarasını arayın.</p>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="reviews-sec d-block d-md-none" id="reviews-carousel">
-                                <div class="col-lg-6 how-to-sec">
-                                    <div class="how-to">
-                                        <a href="{{route('register-user')}}">
-                                            <span class="how-icon"><i class="la la-user"></i></span>
-                                            <h3>Hesap Oluşturun</h3>
-                                            <p>
-                                                İş ilanı verenler ile iletişime geçmek için hesap açın. Bilgilerinizi
-                                                doğru girdiğinizden emin olun.
-                                            </p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 how-to-sec">
-                                    <div class="how-to">
-                                        <a href="{{route('job.index')}}">
-                                            <span class="how-icon"><i class="la la-file-archive-o"></i></span>
-                                            <h3>İş ilanlarını arayın</h3>
-                                            <p>İş ilanları sayfasından size uygun iş ilanlarını inceleyin</p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 how-to-sec">
-                                    <div class="how-to">
-                                        <a href="{{route('job.index')}}">
-                                            <span class="how-icon"><i class="la la-list"></i></span>
-                                            <h3>İş ilanlarına başvurun</h3>
-                                            <p>İlan detaylarından, iş sahibinin numarasını arayın.</p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="browse-all-cat">
-                                <a href="{{route('job.index')}}" title="" class="style2">İş ilanlarını inceleyin</a>
-                            </div>
-                        </div>
-                        <div id="rjobs" class="tab-content mt-5">
-                            <div class="how-to-sec d-none d-md-block">
-                                <div class="how-to">
-                                    <a href="{{route('register-user')}}">
-                                        <span class="how-icon"><i class="la la-user"></i></span>
-                                        <h3>Hesap Oluşturun</h3>
-                                        <p>
-                                            İş ilanı vermek için hesap açın. Bilgilerinizi eksiksiz ve
-                                            doğru girdiğinizden emin olun.
-                                        </p>
-                                    </a>
-                                </div>
-                                <div class="how-to">
-                                    <a href="{{route('job.index')}}">
-                                        <span class="how-icon"><i class="la la-file-archive-o"></i></span>
-                                        <h3>İş İlanlanınızı Yayınlayın</h3>
-                                        <p>Doğru kişiye ulaşmak için çalışma şartlarınızı ve çalışandan beklediğiniz tüm
-                                            özellikleri belirtin.</p>
-                                    </a>
-                                </div>
-                                <div class="how-to">
-                                    <a href="{{route('job.index')}}">
-                                        <span class="how-icon"><i class="la la-list"></i></span>
-                                        <h3>Telefonunuz Susmasın</h3>
-                                        <p>Dakikalar içerinde iş başvuruları almaya başlayın</p>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="reviews-sec d-block d-md-none" id="reviews-carousel-2">
-                                <div class="col-lg-6 how-to-sec">
-                                    <div class="how-to">
-                                        <a href="{{route('register-user')}}">
-                                            <span class="how-icon"><i class="la la-user"></i></span>
-                                            <h3>Hesap Oluşturun</h3>
-                                            <p>
-                                                İş ilanı vermek için hesap açın. Bilgilerinizi eksiksiz ve
-                                                doğru girdiğinizden emin olun.
-                                            </p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 how-to-sec">
-                                    <div class="how-to">
-                                        <a href="{{route('job.index')}}">
-                                            <span class="how-icon"><i class="la la-file-archive-o"></i></span>
-                                            <h3>İş İlanlanınızı Yayınlayın</h3>
-                                            <p>Doğru kişiye ulaşmak için çalışma şartlarınızı ve çalışandan beklediğiniz
-                                                tüm özellikleri belirtin.</p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 how-to-sec">
-                                    <div class="how-to">
-                                        <a href="{{route('job.index')}}">
-                                            <span class="how-icon"><i class="la la-list"></i></span>
-                                            <h3>Telefonunuz Susmasın</h3>
-                                            <p>Dakikalar içerinde iş başvuruları almaya başlayın</p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+    <div class="tw-bg-white tw-mx-8 tw-grid lg:tw-grid-cols-2  tw-grid-rows-2 tw-text-white tw-gap-4 ">
+        <div class="tw-grid tw-grid-rows-4 tw-justify-items-center tw-bg-red-500 tw-rounded-lg">
+            <img class="tw-w-36 tw-pt-6" src="{{asset('assets/images/bakerworker.png')}}">
 
 
-                            <div class="browse-all-cat">
-                                <a href="{{route('job.create')}}" title="" class="style2">İş ilanlanı yayınlayın</a>
-                            </div>
-                        </div>
-                    </div>
+
+            <div class="tw-space-y-4 tw-text-center tw-w-56 tw-row-span-2 tw-pt-8">
+                <div>
+                    <h1 class="tw-font-bold">Hesap Oluşturun</h1>
+                    <h1 class="tw-mt-4 ">
+                        İş ilanı verenler ile iletişime geçmek için hesap açın. Bilgilerinizi doğru girdiğinizden emin
+                        olun.
+                    </h1>
                 </div>
+
+                <div>
+                    <h1 class="tw-font-bold">İş ilanlarını arayın</h1>
+                    <h1 class="tw-mt-4 ">
+                        İş ilanları sayfasından size uygun iş ilanlarını inceleyin
+                    </h1>
+                </div>
+
+                <div>
+                    <h1 class="tw-font-bold">İş ilanlarına başvurun</h1>
+                    <h1 class="tw-mt-4 ">
+                        İlan detaylarından, iş sahibinin numarasını arayın.
+                    </h1>
+                </div>
+
+
             </div>
+
+            <button class="tw-bg-red-600 tw-mt-12 tw-h-20 lg:tw-h-10 tw-w-56 tw-rounded-lg">İş İlanlarını
+                İnceleyin</button>
+
+        </div>
+
+        <div class="tw-grid tw-grid-rows-4 tw-justify-items-center tw-bg-blue-500 tw-rounded-lg">
+            <img class="tw-w-36 tw-pt-6" src="{{asset('assets/images/baker.png')}}">
+            <div class="tw-space-y-4 tw-text-center tw-w-56 tw-row-span-2 tw-pt-8">
+                <div>
+                    <h1 class="tw-font-bold">Hesap Oluşturun</h1>
+                    <h1 class="tw-mt-4 ">
+                        İş ilanı vermek için hesap açın. Bilgilerinizi eksiksiz ve
+                        doğru girdiğinizden emin olun.
+                    </h1>
+                </div>
+
+                <div>
+                    <h1 class="tw-font-bold">İş İlanlanınızı Yayınlayın</h1>
+                    <h1 class="tw-mt-4 ">
+                        Doğru kişiye ulaşmak için çalışma şartlarınızı ve çalışandan beklediğiniz
+                        tüm özellikleri belirtin.
+                    </h1>
+                </div>
+
+                <div>
+                    <h1 class="tw-font-bold">Telefonunuz Susmasın</h1>
+                    <h1 class="tw-mt-4 ">
+                        Dakikalar içerinde iş başvuruları almaya başlayın
+                    </h1>
+                </div>
+
+            </div>
+
+            <button class="tw-bg-blue-600  tw-mt-12 tw-h-20 lg:tw-h-10 tw-w-56 tw-rounded-lg">İş İlanı
+                Yayınlayın</button>
         </div>
     </div>
 </section>
