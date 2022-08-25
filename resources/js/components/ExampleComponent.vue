@@ -173,9 +173,9 @@ const apiUrl = process.env.MIX_API_URL;
 const appUrl = process.env.APP_URL;
 export default {
         props: ['csrf'],
-    components:{
-      VuePhoneNumberInput
-    },
+        components:{
+          VuePhoneNumberInput
+        },
         data() {
             return {
                 dialogImageUrl: '',

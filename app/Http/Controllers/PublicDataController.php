@@ -63,4 +63,18 @@ class PublicDataController extends Controller
 
         return null;
     }
+
+    public function homepageDatas()
+    {
+        $selectedCity = $this->getSelectedCity();
+
+        return response()->json([
+            'cities' => Cache::rememberForever('cities', fn() => City::all()),
+            'categories' => Cache::rememberForever('job-categories', fn() => Categories::forJob()->onlyParent()->get()),
+            'work_types' => Cache::rememberForever('work-types', fn() => WorkType::all()),
+            'selected_city' => $selectedCity,
+            'districts' => $selectedCity?->districts,
+            'genders' => Cache::rememberForever('genders', fn() => Gender::all()),
+        ]);
+    }
 }
