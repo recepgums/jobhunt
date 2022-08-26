@@ -82,55 +82,49 @@ p.job-type-custom {
     <div class="block no-padding">
         <div class="container fluid">
             <div class="tw-h-[40rem] bg-overlay"></div>
-            <div class="job-search-sec tw-ml-[22vw] lg:tw-ml-[6vw]">
-                <div class="job-search text-center">
-                    <div
-                        class="lg:tw-ml-[-14rem] tw-ml-[-40vw] tw-text-white tw-font-bold lg:tw-text-[40px] tw-text-[20px]">
+            <div class="job-search-sec">
+                <div class="job-search text-center tw-text-white tw-font-bold tw-text-xl">
+                    <div class="">
                         <h3>Mükemmel İş</h3>
                         <h3>Mükemmel Yetenek</h3>
-                        <span class="tw-font-light lg:tw-text-[25px] tw-text-[15px] ">Aradığınız
+                        <span class="tw-font-light l">Aradığınız
                             güvenilir işi ve işçiyi
                             bulmanın en kolay yolu.</span>
                     </div>
 
-                    <form method="get" action="{{route('job.index')}}" class="tw-ml-[-5rem]">
-                        <div
-                            class="tw-grid tw-grid-rows-1  lg:tw-grid-cols-3  lg:tw-gap-y-6  lg:tw-gap-x-[10rem] lg:tw-ml-[-5rem] md:tw-ml-[14vw]">
-                            <div class="lg:tw-w-[25rem] tw-w-[20rem]">
-                                <div class="job-field">
-                                    <select data-placeholder="Şehir" name="city_id"
-                                        class="chosen-city tw-rounded-[16px]">
-                                        @forelse($cities as $city)
-                                        <option @if($city->id == $selectedCity?->id) selected
-                                            @endif value="{{$city->id}}">{{$city->name}}</option>
-                                        @empty
-                                        @endforelse
-                                    </select>
-                                    <i class="la la-map-marker"></i>
-                                </div>
-                            </div>
-                            <div class="lg:tw-w-[25rem] tw-w-[20rem]">
-                                <div class="job-field  ">
-                                    <select data-placeholder="Şehir" name="category_id[]"
-                                        class="chosen-city tw-rounded-[16px]">
-                                        @forelse($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                        @empty
-                                        @endforelse
-                                    </select>
-                                    <i class=" la la-keyboard-o"></i>
-                                </div>
-                            </div>
+                    <form method="get" action="{{route('job.index')}}" class="">
 
-                            <div class=" tw-w-[20rem] lg:tw-w-[15rem]">
-                                <button type="submit">
-                                    <div class="tw-flex tw-justify-center">
-                                        <i class="la la-search tw-mr-[0.5rem] tw-text-white"></i>
-                                        <p class="tw-text-[15px] lg:tw-text-[12px] tw-font-semibold tw-text-white">
-                                            İlanları Görüntüle</p>
-                                    </div>
-                                </button>
+                        <div class="job-field tw-pb-4">
+                            <select data-placeholder="Şehir" name="city_id" class="chosen-city ">
+                                @forelse($cities as $city)
+                                <option @if($city->id == $selectedCity?->id) selected
+                                    @endif value="{{$city->id}}">{{$city->name}}</option>
+                                @empty
+                                @endforelse
+                            </select>
+                            <i class="la la-map-marker"></i>
+                        </div>
+                        <div class="">
+                            <div class="job-field  tw-pb-4">
+                                <select data-placeholder="Şehir" name="category_id[]" class="chosen-city">
+                                    @forelse($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @empty
+                                    @endforelse
+                                </select>
+                                <i class=" la la-keyboard-o"></i>
                             </div>
+                        </div>
+
+                        <div>
+                            <button type="submit">
+                                <div class="tw-flex tw-justify-center">
+                                    <i class="la la-search tw-mr-[0.5rem] tw-text-white"></i>
+                                    <p class=" tw-font-semibold tw-text-white">
+                                        İlanları Görüntüle</p>
+                                </div>
+                            </button>
+
                         </div>
                     </form>
                 </div>

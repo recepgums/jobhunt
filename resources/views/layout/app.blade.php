@@ -27,21 +27,13 @@
 </head>
 
 <body>
-<div id="g_id_onload"
-     data-client_id="512968062111-ph3ks28o8m42irvghft2f9522vo104ef.apps.googleusercontent.com"
-     data-login_uri="{{env('APP_URL')}}/login"
-     data-auto_prompt="false"
->
-</div>
+    <div id="g_id_onload" data-client_id="512968062111-ph3ks28o8m42irvghft2f9522vo104ef.apps.googleusercontent.com"
+        data-login_uri="{{env('APP_URL')}}/login" data-auto_prompt="false">
+    </div>
 
-<div class="g_id_signin"
-     data-type="standard"
-     data-size="large"
-     data-theme="outline"
-     data-text="sign_in_with"
-     data-shape="rectangular"
-     data-logo_alignment="left">
-</div>
+    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with"
+        data-shape="rectangular" data-logo_alignment="left">
+    </div>
 
     <div class="page-loading">
         <img src="{{asset('assets/images/loader.gif')}}" alt="" />
@@ -58,9 +50,10 @@
 
     </div>
 
+
     @include('layout.sign_in')
     @include('layout.sign_up')
-
+    @include('layout.bottombar')
     <script src="{{asset('assets/js/jquery.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('assets/js/modernizr.js')}}" type="text/javascript"></script>
     <script src="{{asset('assets/js/script.js')}}" type="text/javascript"></script>
