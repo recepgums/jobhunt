@@ -54,8 +54,8 @@
                     <div class="tw-mt-7 tw-ml-7 tw-grid tw-grid-rows-2 tw-gap-y-8">
                         <div class="tw-grid tw-grid-cols-6 tw-row-span-2">
                             <div class="tw-grid tw-grid-rows-3 tw-col-span-4">
-                                <h1 class="tw-font-bold">Reklam Pazarlama Uzmanı</h1>
-                                <h1 class="tw-mt-3">Esenyurt, Istanbul</h1>
+                                <h1 class="tw-font-bold">{{ selectedJob?.title }}</h1>
+                                <h1 class="tw-mt-3">{{selectedJob?.district?.name}}, {{selectedJob?.city?.name}}</h1>
                                 <p class="tw-underline tw-underline-offset-2">
                                     Haritada Gör
                                 </p>
@@ -71,16 +71,14 @@
                             <div>
                                 <h1 class="tw-font-bold">İş Tanımı</h1>
                                 <h1 class="tw-mt-4">
-                                    Iş ilanı verilen web sitemiz için reklam
-                                    kampanyalarını yönetecek junior ya da mid level
-                                    pazarlamacı arıyoruz
+                                    {{selectedJob?.description}}
                                 </h1>
                             </div>
 
                             <div class="tw-grid tw-grid-cols-2">
                                 <div class="tw-flex tw-flex-col">
                                     <h1 class="tw-font-bold">Çalışma Türü</h1>
-                                    <h1 class="tw-mt-2">Tam Zamanlı</h1>
+                                    <h1 class="tw-mt-2">{{ selectedJob?.work_type?.name }}</h1>
                                 </div>
 
                                 <div class="tw-flex tw-flex-col">
@@ -88,16 +86,21 @@
                                     <h1 class="tw-mt-2">10</h1>
                                 </div>
                             </div>
-
-                            <div class="tw-flex tw-flex-col">
-                                <h1 class="tw-font-bold">Maaş Bilgisi</h1>
-                                <h1 class="tw-mt-2">30.000TL</h1>
+                            <div class="tw-grid tw-grid-cols-2">
+                                <div class="tw-flex tw-flex-col">
+                                    <h1 class="tw-font-bold">Maaş Bilgisi</h1>
+                                    <h1 class="tw-mt-2">{{selectedJob?.fee ? selectedJob?.fee + 'TL' : 'Belirtilmemiş'}}</h1>
+                                </div>
+                                <div class="tw-flex tw-flex-col">
+                                    <h1 class="tw-font-bold">Cinsiyet</h1>
+                                    <h1 class="tw-mt-2">{{selectedJob?.gender?.name ?? 'Farketmez'}}</h1>
+                                </div>
                             </div>
                             <h1 class="tw-text-red-500">İlani Şikayet Et</h1>
 
                             <div class="tw-flex tw-flex-col">
                                 <h1 class="tw-font-bold">İşveren Hakkında</h1>
-                                <h1 class="tw-mt-2">Eyüpsultan, Istanbul</h1>
+                                <h1 class="tw-mt-2">{{ selectedJob?.user?.name }}</h1>
                                 <h1 class="tw-mt-2 tw-w-60">
                                     Iş ilanı verilecek sitemiz için reklam
                                     kampanyalarını yönetecek eleman arıyorum
@@ -158,6 +161,7 @@ export default {
             }).then((resp) => {
                 let data = resp.data.data;
                 this.jobs = data;
+                this.selectedJob = this.jobs[0]
             });
         },
     },

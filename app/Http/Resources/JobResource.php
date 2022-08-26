@@ -30,6 +30,8 @@ class JobResource extends JsonResource
             'phone' => $this->phone,
             'level' => $this->level,
             'has_contract' => $this->has_contract,
+            'media' => $this->getMedia('images'),
+            'apply_count' = $this->
             'highlighted_until_at' => $this->highlighted_until_at,
             'published_until_at' => $this->published_until_at,
             'status' => $this->status,

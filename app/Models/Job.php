@@ -127,4 +127,8 @@ class Job extends Model implements HasMedia
         return $this->belongsTo(Gender::class);
     }
 
+    public function users()
+    {
+        return $this->hasMany(JobUser::class);
+    }
 }
