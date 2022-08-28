@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="col-12 mx-auto bg-white d-sm-none d-md-block py-3 mb-2">
+        <div class="col-12 d-none d-md-block mx-auto bg-white d-sm-none d-md-block py-3 mb-2">
             <div class="row">
                 <div class="col-2">
                     <v-select  placeholder="İl" @change="getJobList" :options="cities" v-model="selectedCity" :multiple="false"></v-select>
@@ -19,31 +19,60 @@
         <div class="col-12">
             <div class="tw-grid lg:tw-grid-cols-5 tw-gap-x-10 tw-grid-cols-1">
                 <div class="tw-grid tw-grid-rows-8 tw-w-full tw-col-span-3">
-                    <div @click="selectedJob = job" v-for="(job,index) in jobs" class="tw-bg-white tw-h-30 tw-rounded-lg my-1" :class="{'active-job' : job?.id === selectedJob?.id}">
+                    <div @click="selectedJob = job" v-for="(job,index) in jobs" class="d-none d-md-block tw-bg-white tw-h-30 tw-rounded-lg my-1" :class="{'active-job' : job?.id === selectedJob?.id}">
                         <div
                             class="tw-grid lg:tw-grid-cols-6 tw-mt-7 tw-ml-4 tw-grid-cols-3 md:tw-grid-cols-5 tw-w-full"
                         >
-                            <img
-                                src="https://cdn.dribbble.com/userupload/3158902/file/original-7c71bfa677e61dea61bc2acd59158d32.jpg?resize=400x0"
-                                class="tw-rounded-xl tw-col-span-1 tw-h-20 tw-w-20"
-                            />
+                            <img :src="job?.media[0]"
+                                 class="tw-rounded-xl tw-col-span-1 tw-h-20 tw-w-20"/>
                             <div
                                 class="tw-col-span-2 lg:tw-col-span-5 md:tw-col-span-4"
                             >
                                 <div class="tw-grid tw-grid-cols-8 tw-w-full">
                                     <div class="md:tw-col-span-7 tw-col-span-6">
                                         <h1 class="tw-font-bold">
-                                            Reklam Pazarlama Uzmanı
+                                            {{job?.category?.name}}
                                         </h1>
-                                        <h1 class="tw-font-semibold">Adonis Network</h1>
+                                        <h1 class="tw-font-semibold">
+                                            {{job?.user?.company_name}}
+                                        </h1>
                                     </div>
                                     <i class="fa-regular fa-bookmark tw-col-span-1"></i>
                                 </div>
                                 <!--                            <i class="fa-regular fa-bookmark tw-mt-3"></i>-->
 
                                 <div>
-                                    <h1>Esenyurt, Istanbul</h1>
-                                    <h1>14 gün</h1>
+                                    <h1>{{ job?.district?.name }}, {{ job?.city?.name }}</h1>
+                                    <h1>{{ job?.created_at }}</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div @click="jobClicked(job)" v-for="(job,index) in jobs" class="d-block d-md-none tw-bg-white tw-h-30 tw-rounded-lg my-1" :class="{'active-job' : job?.id === selectedJob?.id}">
+                        <div
+                            class="tw-grid lg:tw-grid-cols-6 tw-mt-7 tw-ml-4 tw-grid-cols-3 md:tw-grid-cols-5 tw-w-full"
+                        >
+                            <img :src="job?.media[0]"
+                                 class="tw-rounded-xl tw-col-span-1 tw-h-20 tw-w-20"/>
+                            <div
+                                class="tw-col-span-2 lg:tw-col-span-5 md:tw-col-span-4"
+                            >
+                                <div class="tw-grid tw-grid-cols-8 tw-w-full">
+                                    <div class="md:tw-col-span-7 tw-col-span-6">
+                                        <h1 class="tw-font-bold">
+                                           {{job?.category?.name}}
+                                        </h1>
+                                        <h1 class="tw-font-semibold">
+                                            {{job?.user?.company_name}}
+                                        </h1>
+                                    </div>
+                                    <i class="fa-regular fa-bookmark tw-col-span-1"></i>
+                                </div>
+                                <!--                            <i class="fa-regular fa-bookmark tw-mt-3"></i>-->
+
+                                <div>
+                                    <h1>{{ job?.district?.name }}, {{ job?.city?.name }}</h1>
+                                    <h1>{{ job?.created_at }}</h1>
                                 </div>
                             </div>
                         </div>
@@ -53,18 +82,17 @@
                 <div class="tw-col-span-2 tw-bg-white tw-h-[calc(100%+2rem)] tw-hidden lg:tw-block tw-rounded-lg">
                     <div class="tw-mt-7 tw-ml-7 tw-grid tw-grid-rows-2 tw-gap-y-8">
                         <div class="tw-grid tw-grid-cols-6 tw-row-span-2">
-                            <div class="tw-grid tw-grid-rows-3 tw-col-span-4">
+                            <div class="tw-grid mb-3 tw-col-span-5 text-center mx-auto">
+                                <img v-for="media in selectedJob?.media" :src="media"
+                                     class="tw-rounded-xl  tw-w-200 tw-h-200 tw-col-span-1"/>
+                            </div>
+                            <div class="tw-grid tw-grid-rows-3 tw-col-span-5 text-left mx-auto">
                                 <h1 class="tw-font-bold">{{ selectedJob?.title }}</h1>
                                 <h1 class="tw-mt-3">{{selectedJob?.district?.name}}, {{selectedJob?.city?.name}}</h1>
                                 <p class="tw-underline tw-underline-offset-2">
                                     Haritada Gör
                                 </p>
                             </div>
-
-                            <img
-                                src="https://cdn.dribbble.com/userupload/3158902/file/original-7c71bfa677e61dea61bc2acd59158d32.jpg?resize=400x0"
-                                class="tw-rounded-xl tw-w-20 tw-h-20 tw-col-span-1"
-                            />
                         </div>
 
                         <div class="tw-grid tw-rows-5 tw-gap-y-8">
@@ -80,7 +108,6 @@
                                     <h1 class="tw-font-bold">Çalışma Türü</h1>
                                     <h1 class="tw-mt-2">{{ selectedJob?.work_type?.name }}</h1>
                                 </div>
-
                                 <div class="tw-flex tw-flex-col">
                                     <h1 class="tw-font-bold">Başvuru Sayısı</h1>
                                     <h1 class="tw-mt-2">10</h1>
@@ -97,7 +124,6 @@
                                 </div>
                             </div>
                             <h1 class="tw-text-red-500">İlani Şikayet Et</h1>
-
                             <div class="tw-flex tw-flex-col">
                                 <h1 class="tw-font-bold">İşveren Hakkında</h1>
                                 <h1 class="tw-mt-2">{{ selectedJob?.user?.name }}</h1>
@@ -111,12 +137,75 @@
                 </div>
             </div>
         </div>
+            <el-drawer
+                title="I'm inner Drawer"
+                :direction="'ltr'"
+                size="80%"
+                :append-to-body="true"
+                :visible.sync="drawer"
+            >
+                <div class="tw-mt-7 tw-ml-7 tw-grid tw-grid-rows-2 tw-gap-y-8">
+                    <div class="tw-grid tw-grid-cols-6 tw-row-span-2">
+                        <div class="tw-grid mb-3 tw-col-span-5 text-center mx-auto">
+                            <img v-for="media in selectedJob?.media" :src="media"
+                                 class="tw-rounded-xl  tw-w-200 tw-h-200 tw-col-span-1"/>
+                        </div>
+                        <div class="tw-grid tw-grid-rows-3 tw-col-span-5 text-left mx-auto">
+                            <h1 class="tw-font-bold">{{ selectedJob?.title }}</h1>
+                            <h1 class="tw-mt-3">{{selectedJob?.district?.name}}, {{selectedJob?.city?.name}}</h1>
+                            <p class="tw-underline tw-underline-offset-2">
+                                Haritada Gör
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tw-grid tw-rows-5 tw-gap-y-8">
+                        <div>
+                            <h1 class="tw-font-bold">İş Tanımı</h1>
+                            <h1 class="tw-mt-4">
+                                {{selectedJob?.description}}
+                            </h1>
+                        </div>
+
+                        <div class="tw-grid tw-grid-cols-2">
+                            <div class="tw-flex tw-flex-col">
+                                <h1 class="tw-font-bold">Çalışma Türü</h1>
+                                <h1 class="tw-mt-2">{{ selectedJob?.work_type?.name }}</h1>
+                            </div>
+                            <div class="tw-flex tw-flex-col">
+                                <h1 class="tw-font-bold">Başvuru Sayısı</h1>
+                                <h1 class="tw-mt-2">10</h1>
+                            </div>
+                        </div>
+                        <div class="tw-grid tw-grid-cols-2">
+                            <div class="tw-flex tw-flex-col">
+                                <h1 class="tw-font-bold">Maaş Bilgisi</h1>
+                                <h1 class="tw-mt-2">{{selectedJob?.fee ? selectedJob?.fee + 'TL' : 'Belirtilmemiş'}}</h1>
+                            </div>
+                            <div class="tw-flex tw-flex-col">
+                                <h1 class="tw-font-bold">Cinsiyet</h1>
+                                <h1 class="tw-mt-2">{{selectedJob?.gender?.name ?? 'Farketmez'}}</h1>
+                            </div>
+                        </div>
+                        <h1 class="tw-text-red-500">İlani Şikayet Et</h1>
+                        <div class="tw-flex tw-flex-col">
+                            <h1 class="tw-font-bold">İşveren Hakkında</h1>
+                            <h1 class="tw-mt-2">{{ selectedJob?.user?.name }}</h1>
+                            <h1 class="tw-mt-2 tw-w-60">
+                                Iş ilanı verilecek sitemiz için reklam
+                                kampanyalarını yönetecek eleman arıyorum
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </el-drawer>
     </div>
 </template>
 
 <script>
 const apiUrl = process.env.MIX_API_URL;
 const appUrl = process.env.APP_URL;
+
 export default {
     props: ["currentLocation"],
     data() {
@@ -135,6 +224,8 @@ export default {
             categories: [],
             salaries: [],
             orderTypes: [],
+
+            drawer:false
         }
     },
     mounted() {
@@ -150,6 +241,10 @@ export default {
               this.categories = resp.data.categories.map(q=>{return {label:q.name,value:q.id}})
               this.selectedCity = {label:resp.data.selected_city.name,value:resp.data.selected_city.id}
           })
+        },
+        jobClicked(job){
+          this.selectedJob = job
+          this.drawer = true;
         },
         getJobList(page = 1) {
             axios.get(apiUrl + `job`,{

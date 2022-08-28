@@ -30,13 +30,16 @@ class JobResource extends JsonResource
             'phone' => $this->phone,
             'level' => $this->level,
             'has_contract' => $this->has_contract,
-            'media' => $this->getMedia('images'),
-            'apply_count' = $this->
+            'media' => $this->getMedia('images')->map(function ($media){
+                return $media->getFullUrl();
+            }),
+//            'apply_count' = $this->users()->count(),
             'highlighted_until_at' => $this->highlighted_until_at,
             'published_until_at' => $this->published_until_at,
             'status' => $this->status,
             'view_counter' => $this->view_counter,
             'sleep_after_at' => $this->sleep_after_at,
+            'created_at' => $this->created_at->diffForHumans(),
         ];
     }
 
