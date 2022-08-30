@@ -138,16 +138,13 @@ p.job-type-custom {
         <div id="app">
             <div class="container">
                 <classifiedsec
-                    currentLocation="{{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları" />
+                    currentLocation="{{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları" >
+                </classifiedsec>
             </div>
-
-
         </div>
         <script src="{{asset('js/app.js')}}"></script>
         <div class="container">
-
             <!-- Heading -->
-
             <div class="tw-flex tw-justify-center tw-mt-8 tw-mb-8">
                 <div class="browse-all-cat ">
                     <a href="{{route('job.index')}}" title="" class="style2">Daha fazla iş ilanı
@@ -155,77 +152,47 @@ p.job-type-custom {
                 </div>
             </div>
         </div>
-
+    </div>
 </section>
 
 <section>
-    <div class="tw-bg-white tw-mx-8 tw-grid lg:tw-grid-cols-2  tw-grid-rows-2 tw-text-white tw-gap-4 ">
-        <div class="tw-grid tw-grid-rows-4 tw-justify-items-center tw-bg-red-500 tw-rounded-lg">
-            <img class="tw-w-36 tw-pt-6" src="{{asset('assets/images/bakerworker.png')}}">
+    <div class="tw-bg-white tw-grid lg:tw-grid-cols-2 tw-text-white">
+        <div class="tw-grid tw-grid-rows-2 tw-justify-items-center pb-3" style="background-color: #bfc4f2;">
+            <img class="tw-pt-6 tw-row-span-1" width="250" height="250" src="{{asset('assets/images/bakerworker.png')}}">
+            <div class="tw-space-y-1 tw-text-center  tw-row-span-1 tw-pt-8">
+                <div class="px-3">
+                    <h1 style="font-size: 28px;font-weight:600" class="tw-text-red-600">İş Arayanlar</h1>
 
-
-
-            <div class="tw-space-y-4 tw-text-center tw-w-56 tw-row-span-2 tw-pt-8">
-                <div>
-                    <h1 class="tw-font-bold">Hesap Oluşturun</h1>
-                    <h1 class="tw-mt-4 ">
-                        İş ilanı verenler ile iletişime geçmek için hesap açın. Bilgilerinizi doğru girdiğinizden emin
-                        olun.
-                    </h1>
+                    <h3 class="tw-mt-4" style="font-size: 20px;font-weight:500;">
+                        Türkiye'nin her yerinden eleman arayan fırıncılara {{env('APP_NAME')}} ile ulaşın.
+                        Sokak sokak iş aramakla zaman kaybetmeyin.
+                        Hemen şimdi kayıt olun ve iş ilanları sahipleriyle iletişime geçin!
+                    </h3>
                 </div>
 
-                <div>
-                    <h1 class="tw-font-bold">İş ilanlarını arayın</h1>
-                    <h1 class="tw-mt-4 ">
-                        İş ilanları sayfasından size uygun iş ilanlarını inceleyin
-                    </h1>
-                </div>
-
-                <div>
-                    <h1 class="tw-font-bold">İş ilanlarına başvurun</h1>
-                    <h1 class="tw-mt-4 ">
-                        İlan detaylarından, iş sahibinin numarasını arayın.
-                    </h1>
-                </div>
-
-
+                <a class="tw-bg-red-600 tw-mt-12 p-3 tw-rounded-lg fs-22 btn btn-danger">
+                    İş İlanlarını İnceleyin
+                </a>
             </div>
-
-            <button class="tw-bg-red-600 tw-mt-12 tw-h-20 lg:tw-h-10 tw-w-56 tw-rounded-lg">İş İlanlarını
-                İnceleyin</button>
-
         </div>
 
-        <div class="tw-grid tw-grid-rows-4 tw-justify-items-center tw-bg-blue-500 tw-rounded-lg">
-            <img class="tw-w-36 tw-pt-6" src="{{asset('assets/images/baker.png')}}">
-            <div class="tw-space-y-4 tw-text-center tw-w-56 tw-row-span-2 tw-pt-8">
-                <div>
-                    <h1 class="tw-font-bold">Hesap Oluşturun</h1>
-                    <h1 class="tw-mt-4 ">
-                        İş ilanı vermek için hesap açın. Bilgilerinizi eksiksiz ve
-                        doğru girdiğinizden emin olun.
-                    </h1>
+        <div class="tw-grid tw-grid-rows-2 tw-justify-items-center pb-3" style="background-color: #ff6767e8;">
+            <img class="tw-pt-6 tw-row-span-1" width="250" height="250" src="{{asset('assets/images/baker.png')}}">
+            <div class="tw-space-y-1 tw-text-center  tw-row-span-1 tw-pt-8">
+                <div class="px-5">
+                    <h1 style="font-size: 28px;font-weight:600" class="text-primary">İş Arayanlar</h1>
+
+                    <h3 class="tw-mt-4" style="font-size: 20px;font-weight:500;">
+                        Türkiye'nin her yerinden eleman arayan fırıncılara {{env('APP_NAME')}} ile ulaşın.
+                        Sokak sokak iş aramakla zaman kaybetmeyin.
+                        Hemen şimdi kayıt olun ve iş ilanları sahipleriyle iletişime geçin!
+                    </h3>
                 </div>
 
-                <div>
-                    <h1 class="tw-font-bold">İş İlanlanınızı Yayınlayın</h1>
-                    <h1 class="tw-mt-4 ">
-                        Doğru kişiye ulaşmak için çalışma şartlarınızı ve çalışandan beklediğiniz
-                        tüm özellikleri belirtin.
-                    </h1>
-                </div>
-
-                <div>
-                    <h1 class="tw-font-bold">Telefonunuz Susmasın</h1>
-                    <h1 class="tw-mt-4 ">
-                        Dakikalar içerinde iş başvuruları almaya başlayın
-                    </h1>
-                </div>
-
+                <a class="tw-bg-blue-600 tw-mt-12 p-3 tw-rounded-lg fs-22 btn btn-danger">
+                    İş İlanlarını İnceleyin
+                </a>
             </div>
-
-            <button class="tw-bg-blue-600  tw-mt-12 tw-h-20 lg:tw-h-10 tw-w-56 tw-rounded-lg">İş İlanı
-                Yayınlayın</button>
         </div>
     </div>
 </section>
