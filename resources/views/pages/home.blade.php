@@ -1,74 +1,102 @@
 @extends('layout.app')
 @push('styles')
-<!-- Link Swiper's CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-
-<!-- Demo styles -->
 <style>
-.swiper {
-    width: 100%;
-    height: 100%;
-}
-
-p.job-type-custom {
-    color: #26AE61;
-    font-size: 13px;
-    padding: 0px 8px;
-    top: 90px;
-    position: absolute;
-    left: 215px;
-}
-
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
-
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    margin-right: 20px;
-}
-
-.swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.swiper-slide {
-    width: 80%;
-}
-}
-
-@media only screen and (max-width: 600px) {
-    .custom-job-title {
-        margin: 0;
-        padding: 0;
-        float: left;
-        max-height: 45px;
-        overflow: hidden;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 18px;
-        color: #333;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
+    .swiper {
+        width: 100%;
+        height: 100%;
     }
-}
 
-.bg-overlay {
+    p.job-type-custom {
+        color: #26AE61;
+        font-size: 13px;
+        padding: 0px 8px;
+        top: 90px;
+        position: absolute;
+        left: 215px;
+    }
+    .padding-t{
+        padding-top: 50px;
+    }
+    .padding-t1{
+        padding-top: 36px;
+    }
+    .h7{
+        font-size: 1.4rem;
+    }
+    .px-6{
+        padding-right: 8rem;
+    }
+    .visibility{
+        visibility: hidden;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        margin-right: 20px;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .swiper-slide {
+        width: 80%;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .padding-t{
+            padding-top: 25px;
+        }
+        .px-6{
+            padding-right: 1rem;
+        }
+        .mobile_mt{
+            position: relative;
+            top: -4rem;
+        }
+        .mobile_mt2{
+            position: relative;
+            top: -1rem;
+        }
+
+    }
+    @media  only screen and (max-width: 600px) {
+        .custom-job-title {
+            margin: 0;
+            padding: 0;
+            float: left;
+            max-height: 45px;
+            overflow: hidden;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 18px;
+            color: #333;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+    }
+
+    .bg-overlay {
 
     background: linear-gradient(to bottom, rgba(184, 24, 40, 0.88), rgba(23, 23, 22, 0.5)),
     url("{{ asset('assets/images/bg.jpeg') }}") 0 0 no-repeat fixed;
@@ -77,61 +105,68 @@ p.job-type-custom {
 </style>
 @endpush
 @section('content')
+    <section class="">
+        <div class="block no-padding">
+            <div class="container fluid">
+                <div class="tw-h-[40rem] bg-overlay"></div>
+                <div>
+                    <div class="container job-search-sec">
+                        <div class="row job-search">
+                            <div class="col-md-6 align-self-center padding-t1 mobile_mt ">
+                                <div class="">
+                                    <h3 class="text-white h1" >Mükemmel İş</h3>
+                                    <h3 class="text-white h2">Mükemmel Yetenek</h3>
+                                    <span class="tw-font-light l text-white h4">Aradığınız
+                                    güvenilir işi ve işçiyi
+                                    bulmanın en kolay yolu.</span>
 
-<section class="">
-    <div class="block no-padding">
-        <div class="container fluid">
-            <div class="tw-h-[40rem] bg-overlay"></div>
-            <div class="job-search-sec">
-                <div class="job-search text-center tw-text-white tw-font-bold tw-text-xl">
-                    <div class="">
-                        <h3>Mükemmel İş</h3>
-                        <h3>Mükemmel Yetenek</h3>
-                        <span class="tw-font-light l">Aradığınız
-                            güvenilir işi ve işçiyi
-                            bulmanın en kolay yolu.</span>
-                    </div>
-
-                    <form method="get" action="{{route('job.index')}}" class="">
-
-                        <div class="job-field tw-pb-4">
-                            <select data-placeholder="Şehir" name="city_id" class="chosen-city ">
-                                @forelse($cities as $city)
-                                <option @if($city->id == $selectedCity?->id) selected
-                                    @endif value="{{$city->id}}">{{$city->name}}</option>
-                                @empty
-                                @endforelse
-                            </select>
-                            <i class="la la-map-marker"></i>
-                        </div>
-                        <div class="">
-                            <div class="job-field  tw-pb-4">
-                                <select data-placeholder="Şehir" name="category_id[]" class="chosen-city">
-                                    @forelse($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
-                                    @empty
-                                    @endforelse
-                                </select>
-                                <i class=" la la-keyboard-o"></i>
+                                </div>
+                                <div class="d-flex justify-content-between padding-t">
+                                    <h3 class="text-white h7" >82.324 <span class="lead">Is Iiani</span></h3>
+                                    <h3 class="text-white px-6 h7">8.54323 <span class="lead">Is Arayan</span></h3>
+                                </div>
+                            </div>
+                            <div class="col-md"></div>
+                            <div class="col-md-4 mobile_mt2 mx-auto">
+                                <form method="get" action="{{route('job.index')}}"  class="">
+                                    <div class="job-field pb-2 m-0">
+                                        <select data-placeholder="Şehir" name="city_id" class="chosen-city ">
+                                            @forelse($cities as $city)
+                                                <option @if($city->id == $selectedCity?->id) selected
+                                                        @endif value="{{$city->id}}">{{$city->name}}</option>
+                                            @empty
+                                            @endforelse
+                                        </select>
+                                        <i class="la la-map-marker"></i>
+                                    </div>
+                                    <div class="">
+                                        <div class="job-field pb-2 m-0">
+                                            <select data-placeholder="Şehir" name="category_id[]" class="chosen-city">
+                                                @forelse($categories as $category)
+                                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                                @empty
+                                                @endforelse
+                                            </select>
+                                            <i class=" la la-keyboard-o"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button type="submit">
+                                            <div class="tw-flex tw-justify-center">
+                                                <i class="la la-search tw-mr-[0.5rem] tw-text-white"></i>
+                                                <p class=" tw-font-semibold tw-text-white">
+                                                    İlanları Görüntüle</p>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-
-                        <div>
-                            <button type="submit">
-                                <div class="tw-flex tw-justify-center">
-                                    <i class="la la-search tw-mr-[0.5rem] tw-text-white"></i>
-                                    <p class=" tw-font-semibold tw-text-white">
-                                        İlanları Görüntüle</p>
-                                </div>
-                            </button>
-
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 <section>
     <div class="block gray" style="padding-top: 6rem">
@@ -144,7 +179,6 @@ p.job-type-custom {
         </div>
         <script src="{{asset('js/app.js')}}"></script>
         <div class="container">
-            <!-- Heading -->
             <div class="tw-flex tw-justify-center tw-mt-8 tw-mb-8">
                 <div class="browse-all-cat ">
                     <a href="{{route('job.index')}}" title="" class="style2">Daha fazla iş ilanı
@@ -169,7 +203,6 @@ p.job-type-custom {
                         Hemen şimdi kayıt olun ve iş ilanları sahipleriyle iletişime geçin!
                     </h3>
                 </div>
-
                 <a class="tw-bg-red-600 tw-mt-12 p-3 tw-rounded-lg fs-22 btn btn-danger">
                     İş İlanlarını İnceleyin
                 </a>
@@ -181,14 +214,12 @@ p.job-type-custom {
             <div class="tw-space-y-1 tw-text-center  tw-row-span-1 tw-pt-8">
                 <div class="px-5">
                     <h1 style="font-size: 28px;font-weight:600" class="text-primary">İş Arayanlar</h1>
-
                     <h3 class="tw-mt-4" style="font-size: 20px;font-weight:500;">
                         Türkiye'nin her yerinden eleman arayan fırıncılara {{env('APP_NAME')}} ile ulaşın.
                         Sokak sokak iş aramakla zaman kaybetmeyin.
                         Hemen şimdi kayıt olun ve iş ilanları sahipleriyle iletişime geçin!
                     </h3>
                 </div>
-
                 <a class="tw-bg-blue-600 tw-mt-12 p-3 tw-rounded-lg fs-22 btn btn-danger">
                     İş İlanlarını İnceleyin
                 </a>
@@ -208,8 +239,6 @@ p.job-type-custom {
                     </div><!-- Heading -->
                     <div class="blog-sec">
                         <div class="row">
-
-
                             <div class="swiper mySwiper">
                                 <div class="swiper-wrapper">
                                     @forelse($blogs as $blog)
@@ -241,9 +270,7 @@ p.job-type-custom {
                                     @empty
                                     @endforelse
                                 </div>
-                                {{--                                    <div class="swiper-pagination" style="top: 2px;"></div>--}}
                             </div>
-
                         </div>
                     </div>
                 </div>

@@ -53,7 +53,7 @@
                     :class="{ 'active-job': job?.id === selectedJob?.id }"
                 >
                     <div
-                        class="lg:tw-pt-7 tw-pt-6 tw-pl-6 tw-flex tw-flex-row tw-space-x-6"
+                        class="lg:tw-pt-7 tw-pt-6 px-2 tw-flex tw-flex-row tw-space-x-6"
                     >
                         <img
                             :src="job?.media[0]"
@@ -151,19 +151,22 @@
                                     {{ selectedJob?.district?.name }},
                                     {{ selectedJob?.city?.name }}
                                 </h1>
-                                <p class="tw-underline tw-underline-offset-2">
-                                    Haritada Gör
-                                </p>
                             </div>
                         </div>
                     </div>
 
                     <div class="tw-grid tw-rows-5 tw-gap-y-8">
-                        <div>
-                            <h1 class="tw-font-bold">İş Tanımı</h1>
-                            <h1 class="tw-pt-4">
-                                {{ selectedJob?.description }}
-                            </h1>
+                        <div class="tw-grid tw-grid-cols-2">
+                            <div class="tw-flex tw-flex-col">
+                                <h1 class="tw-font-bold">İş Tanımı</h1>
+                                <h1 class="tw-pt-4">
+                                    {{ selectedJob?.description }}
+                                </h1>
+                            </div>
+                            <div class="tw-flex tw-flex-col">
+                                <h1 class="tw-font-bold">Uzmanlık</h1>
+                                <h1 class="tw-pt-2">{{selectedJob?.category?.name}}</h1>
+                            </div>
                         </div>
 
                         <div class="tw-grid tw-grid-cols-2">
@@ -184,7 +187,7 @@
                                 <h1 class="tw-pt-2">
                                     {{
                                         selectedJob?.fee
-                                            ? selectedJob?.fee + "TL"
+                                            ? selectedJob?.fee + " TL"
                                             : "Belirtilmemiş"
                                     }}
                                 </h1>
@@ -198,16 +201,19 @@
                                 </h1>
                             </div>
                         </div>
-                        <h1 class="tw-text-red-500">İlani Şikayet Et</h1>
-                        <div class="tw-flex tw-flex-col">
-                            <h1 class="tw-font-bold">İşveren Hakkında</h1>
-                            <h1 class="tw-pt-2">
-                                {{ selectedJob?.user?.name }}
-                            </h1>
-                            <h1 class="tw-pt-2 tw-w-60">
-                                Iş ilanı verilecek sitemiz için reklam
-                                kampanyalarını yönetecek eleman arıyorum
-                            </h1>
+                        <div class="tw-grid tw-grid-cols-2">
+                            <div class="tw-flex tw-flex-col">
+                                <h1 class="tw-font-bold">İşveren Hakkında</h1>
+                                <h1 class="tw-pt-2">
+                                    {{ selectedJob?.user?.name }}
+                                </h1>
+                                <h1 v-if="selectedJob?.company?.name" class="tw-pt-2">
+                                    {{selectedJob?.company?.name}}
+                                </h1>
+                            </div>
+                            <div class="tw-flex tw-flex-col">
+                                <button @click="getContact()" class="tw-bg-red-500 btn text-white p-2" style="font-weight: 600">İletişime Geç</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -221,8 +227,10 @@
             :visible.sync="drawer"
         >
             <div class="tw-py-3 tw-px-3 tw-grid tw-grid-rows-2 tw-gap-y-8">
-                <div class="tw-grid tw-grid-cols-6 tw-row-span-2">
-                    <div class="tw-grid tw-col-span-5 text-center mx-auto">
+                <div class="tw-flex tw-flex-col tw-row-span-2 w-full">
+                    <div
+                        class="tw-grid mb-3 tw-col-span-5 text-center mx-auto"
+                    >
                         <img
                             v-for="media in selectedJob?.media"
                             :src="media"
@@ -230,7 +238,7 @@
                         />
                     </div>
                     <div
-                        class="tw-flex tw-col-span-5 text-left mx-auto tw-flex-col tw-pt-3"
+                        class="tw-flex tw-col-span-5 text-left mx-auto tw-flex-col"
                     >
                         <h1 class="tw-font-bold tw-pr-4">
                             {{ selectedJob?.title }}
@@ -240,19 +248,21 @@
                                 {{ selectedJob?.district?.name }},
                                 {{ selectedJob?.city?.name }}
                             </h1>
-                            <p class="tw-underline tw-underline-offset-2">
-                                Haritada Gör
-                            </p>
                         </div>
                     </div>
                 </div>
 
                 <div class="tw-grid tw-rows-5 tw-gap-y-8">
-                    <div>
+                    <div class="tw-flex tw-flex-col">
                         <h1 class="tw-font-bold">İş Tanımı</h1>
                         <h1 class="tw-pt-4">
                             {{ selectedJob?.description }}
                         </h1>
+                    </div>
+
+                    <div class="tw-flex tw-flex-col">
+                        <h1 class="tw-font-bold">Uzmanlık</h1>
+                        <h1 class="tw-pt-2">{{selectedJob?.category?.name}}</h1>
                     </div>
 
                     <div class="tw-grid tw-grid-cols-2">
@@ -273,7 +283,7 @@
                             <h1 class="tw-pt-2">
                                 {{
                                     selectedJob?.fee
-                                        ? selectedJob?.fee + "TL"
+                                        ? selectedJob?.fee + " TL"
                                         : "Belirtilmemiş"
                                 }}
                             </h1>
@@ -281,18 +291,28 @@
                         <div class="tw-flex tw-flex-col">
                             <h1 class="tw-font-bold">Cinsiyet</h1>
                             <h1 class="tw-pt-2">
-                                {{ selectedJob?.gender?.name ?? "Farketmez" }}
+                                {{
+                                    selectedJob?.gender?.name ?? "Farketmez"
+                                }}
                             </h1>
                         </div>
                     </div>
-                    <h1 class="tw-text-red-500">İlani Şikayet Et</h1>
-                    <div class="tw-flex tw-flex-col">
-                        <h1 class="tw-font-bold">İşveren Hakkında</h1>
-                        <h1 class="tw-pt-2">{{ selectedJob?.user?.name }}</h1>
-                        <h1 class="tw-pt-2 tw-w-60">
-                            Iş ilanı verilecek sitemiz için reklam
-                            kampanyalarını yönetecek eleman arıyorum
-                        </h1>
+                    <div class="tw-grid tw-grid-cols-2">
+                        <div class="tw-flex tw-flex-col">
+                            <h1 class="tw-font-bold">İşveren Hakkında</h1>
+                            <h1 class="tw-pt-2">
+                                {{ selectedJob?.user?.name }}
+                            </h1>
+                            <h1 v-if="selectedJob?.company?.name" class="tw-pt-2">
+                                {{selectedJob?.company?.name}}
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="tw-flex tw-flex-col w-full">
+                        <button @click="getContact()" class="tw-bg-red-500 btn w-full text-white p-2"
+                                style="font-weight: 600;">
+                            İletişime Geç
+                        </button>
                     </div>
                 </div>
             </div>
@@ -370,6 +390,9 @@ export default {
                     this.selectedJob = this.jobs[0];
                 });
         },
+        getContact(){
+            alert('sds')
+        }
     },
 };
 </script>

@@ -22,7 +22,7 @@ class JobResource extends JsonResource
             'district' => $this->district,
             'package' => $this->package,
             'gender' => $this->gender,
-            'work_type' => $this->work_type,
+            'work_type' => $this->workType,
             'title' => $this->title,
             'description' => $this->description,
             'slug' => $this->slug,
