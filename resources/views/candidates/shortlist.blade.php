@@ -26,7 +26,7 @@
                     <div class="col-lg-9 column">
                         <div class="padding-left">
                             <div class="manage-jobs-sec">
-                                <div class="border-title"><h3>Shortlisted jobs</h3></div>
+                                <div class="border-title"><h3>Yayında olan ilanlarım</h3></div>
                              @forelse($jobs as $job)
                                     <div class="job-listing wtabs">
                                         <div class="job-title-sec">

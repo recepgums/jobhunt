@@ -4,7 +4,7 @@
 @endpush
 
 @section('content')
-<section class="overlape">
+<section class="overlape d-none d-md-block">
     <div class="block no-padding">
         <div data-velocity="-.1"
             style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;"
@@ -22,8 +22,7 @@
 </section>
 <section class="py-5" style="background-color: #f4f5fa">
     <div class="container">
-
-        <div id="app">
+        <div id="app" style="min-height: 450px">
             <classifiedsec></classifiedsec>
         </div>
     </div>

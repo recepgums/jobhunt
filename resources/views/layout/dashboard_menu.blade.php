@@ -1,4 +1,4 @@
-<aside class="col-lg-3 column border-right">
+<aside class="col-lg-3 d-none d-md-block column border-right">
     <div class="widget">
         <div class="tree_widget-sec">
             <ul>

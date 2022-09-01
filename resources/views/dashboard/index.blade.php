@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <section class="overlape">
+    <section class="overlape d-none d-md-block">
         <div class="block no-padding">
             <div data-velocity="-.1" style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
             <div class="container fluid">
@@ -25,64 +25,31 @@
                     <div class="col-lg-9 column">
                         <div class="padding-left">
                             <div class="manage-jobs-sec">
-                                <h3>Candidates Dashboard</h3>
                                 <div class="cat-sec">
                                     <div class="row no-gape">
-                                        <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="col-sm-4 col-6">
                                             <div class="p-category">
                                                 <a href="{{route('candidate.applied_jobs')}}" title="">
                                                     <i class="la la-briefcase"></i>
-                                                    <span>Applied Job</span>
-                                                    <p>14 Applications</p>
+                                                    <span>Başvurulan İş İlanları</span>
+                                                    <p>14 Başvuru</p>
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-12">
-                                            <div class="p-category view-resume-list">
-                                                <a href="#" title="">
-                                                    <i class="la la-eye"></i>
-                                                    <span>View Resume</span>
-                                                    <p>22 View Statistic</p>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-12">
-                                            <div class="p-category">
-                                                <a href="#" title="">
-                                                    <i class="la la-file-text "></i>
-                                                    <span>My Resume</span>
-                                                    <p>Create New Resume</p>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cat-sec">
-                                    <div class="row no-gape">
-                                        <div class="col-lg-4 col-md-4 col-sm-12">
-                                            <div class="p-category">
-                                                <a href="#" title="">
-                                                    <i class="la la-check"></i>
-                                                    <span>Appropriate For Me</span>
-                                                    <p>(05 Jobs)</p>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="col-sm-4 col-6">
                                             <div class="p-category follow-companies-popup">
-                                                <a href="#" title="">
+                                                <a href="{{route('candidate.change_password')}}" title="">
                                                     <i class="la la-user"></i>
-                                                    <span>Follow Companies</span>
-                                                    <p>56 Companies</p>
+                                                    <span>Şifre Değiştir</span>
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="col-sm-4 col-6">
                                             <div class="p-category">
                                                 <a href="#" title="">
                                                     <i class="la la-file"></i>
-                                                    <span>My Profile</span>
-                                                    <p>View Profile</p>
+                                                    <span>Profilim</span>
+                                                    <p>Profilini Görüntüle</p>
                                                 </a>
                                             </div>
                                         </div>

@@ -1,7 +1,12 @@
 <div class="responsive-header">
     <div class="responsive-menubar">
-        <div class="res-logo"><a href="{{route('homepage')}}" title=""><img style="height: 50px;width: 50px" src="{{asset('assets/images/logo.png')}}" alt=""/></a>
+        <div class="res-logo" >
+            <a href="{{route('homepage')}}">
+                <img style="height: 20px;width: 20px" src="{{asset('assets/images/logo.png')}}" alt=""/>
+            </a>
+
         </div>
+        <a style="color: white;font-weight: 600;" href="{{route('homepage')}}" class="mx-auto text-center"> {{env('APP_NAME')}}</a>
         <div class="menu-resaction">
             <div class="res-openmenu">
                 <img src="{{asset('assets/images/icon.png')}}" alt=""/> Menü
@@ -13,34 +18,31 @@
     </div>
     <div class="responsive-opensec">
         <div class="btn-extars">
-            <a href="{{route('job.create')}}" title="" class="post-job-btn"><i class="la la-plus"></i>Ücretsiz* ilan Ver</a>
             @if(!request()->is('register') && !request()->is('login'))
-            <ul class="account-btns">
-                <li class="signup-popup"><a title=""><i class="la la-key"></i> Kayıt Ol</a></li>
-                <li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Giriş Yap</a></li>
-            </ul>
+                <ul class="account-btns">
+                    <li >
+                        <a href="{{route('job.create')}}" title="" class="post-job-btn"><i class="la la-plus"></i>Ücretsiz ilan Ver</a>
+                    </li>
+                    <li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Giriş Yap</a></li>
+                    <li class="signup-popup"><a title=""><i class="la la-key"></i> Kayıt Ol</a></li>
+                </ul>
             @endif
-        </div><!-- Btn Extras -->
+        </div>
         <form class="res-search">
-            <input type="text" placeholder="Job title, keywords or company name"/>
+            <input type="text" placeholder="Uzmanlık alanı, anahtar kelime ya da ilan başlığı"/>
             <button type="submit"><i class="la la-search"></i></button>
         </form>
         <div class="responsivemenu">
             <ul>
-                <li class="menu-item-has-children">
+                <li>
                     <a href="{{route('homepage')}}" title="">Anasayfa</a>
                 </li>
-                <li><a href="{{route('job.index')}}" title="">İş İlanları</a></li>
-               {{-- <li class="menu-item-has-children">
-                    <a href="{{route('candidates.index')}}" title="">İş Arayanlar</a>
-                </li>--}}
-                <li class="menu-item-has-children">
+                <li>
+                    <a href="{{route('job.index')}}" title="">İş İlanları</a>
+                </li>
+                <li>
                     <a href="{{route('blog.index')}}" title="">Blog</a>
                 </li>
-                {{--
-                <li>
-                    <a href="{{route('employer.index')}}" title="">İşverenler</a>
-                </li>--}}
             </ul>
         </div>
     </div>

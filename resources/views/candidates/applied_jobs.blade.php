@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <section class="overlape">
+    <section class="overlape d-none d-md-block">
         <div class="block no-padding">
             <div data-velocity="-.1" style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
             <div class="container fluid">
@@ -24,7 +24,7 @@
                     <div class="col-lg-9 column">
                         <div class="padding-left">
                             <div class="manage-jobs-sec">
-                                <h3>Başvurulan İlanlar</h3>
+                                <h3 class="text-center">Başvurulan İlanlar</h3>
                                 <table>
                                     <tbody>
                                     @forelse($jobs as $job)
@@ -50,7 +50,8 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <p class="text-center mx-auto">Hiçbir ilana başvurmadınız.
+                                        <p class="text-center mx-auto" style="min-height: 400px">Hiçbir ilana başvurmadınız.
+                                            <br>
                                             <a href="{{route('job.index')}}" class="text-primary mx-auto">
                                                 İlanları gör
                                             </a>

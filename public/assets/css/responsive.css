@@ -472,6 +472,9 @@
     .error-sec > p {
         display: none;
     }
+    .responsive-menubar{
+        padding: 10px 0 ;
+    }
     .error-sec > span {
         font-size: 13px;
         margin-bottom: 14px;

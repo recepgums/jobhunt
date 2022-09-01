@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <section class="overlape">
+    <section class="overlape d-none d-md-block">
         <div class="block no-padding">
             <div data-velocity="-.1"
                  style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;"
@@ -24,7 +24,7 @@
             <div class="container">
                 <div class="row no-gape">
                     @include('layout.dashboard_menu')
-                    <div class="col-lg-9 column">
+                    <div class="col-lg-9">
 
                         @if(session()->has('message'))
                             <div class="alert alert-success">
@@ -36,10 +36,10 @@
                             @csrf
                             <div class="padding-left">
                                 <div class="profile-title">
-                                    <h3>Profilim</h3>
+                                    <h3 class="text-center">Profilim</h3>
                                     <div class="upload-img-bar">
                                         <span class="round">
-                                            <img src="{{strlen($user->getFirstMediaUrl('images')) > 0 ? $user->getFirstMediaUrl('images') : 'https://placehold.jp/1600x800'}}"
+                                            <img style="width: 150px;height: 150px" src="{{strlen($user->getFirstMediaUrl('images')) > 0 ? $user->getFirstMediaUrl('images') : 'https://placehold.jp/1600x800'}}"
                                                  alt=""/>
                                         </span>
                                         <div class="upload-info">
@@ -122,33 +122,12 @@
                                         </div>
 
                                         <div class="col-lg-12">
-                                            <span class="pf-title">İş Alanınız</span>
+                                            <span class="pf-title">İş Alanlarınız (Birden fazla seçebilirsiniz)</span>
                                             <div class="pf-field no-margin">
                                                 @error('category_id')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
-                                                <ul class="tags">
-                                                    @isset($user->categories)
-                                                        @forelse($user->categories as $category)
-                                                            <li class="addedTag">
-                                                                {{$category->category->name}}
-                                                                <span
-                                                                    onclick="$(this).parent().remove();"
-                                                                    class="tagRemove">
-                                                            x
-                                                        </span>
-                                                                <input type="hidden" name="category_id[]"
-                                                                       value="{{$category->id}}">
-                                                            </li>
-                                                        @empty
-                                                        @endforelse
-                                                    @endisset
-                                                    <li class="tagAdd taglist">
-
-                                                    </li>
-                                                </ul>
-
-                                                <select name="category_id[]" id="search-field"
+                                                <select multiple style="min-height: 150px" name="category_id[]" id="search-field"
                                                         data-placeholder="İş alanları";
                                                         class="chosen">
                                                     <option value=""></option>
@@ -219,8 +198,8 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-12">
-                                            <button type="submit">Güncelle</button>
+                                        <div class="col-12 mb-5">
+                                            <button type="submit" class="tw-bg-red-500 btn w-full text-white py-2 px-4 mx-auto">Güncelle</button>
                                         </div>
                                     </div>
                                 </div>
