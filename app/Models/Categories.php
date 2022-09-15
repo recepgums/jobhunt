@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Categories extends Model
+class Categories extends Model implements HasMedia
 {
-    use HasFactory;
+    use HasFactory, InteractsWithMedia;
 
     public $timestamps = false;
     protected $fillable = [
@@ -29,6 +32,15 @@ class Categories extends Model
         return $query->where('model', Job::class);
     }
 
+    public function setSlugAttribute($value)
+    {
+        if (self::whereSlug($slug = Str::slug($value))->exists()) {
+            $slug = $this->incrementSlug($slug);
+        }
+
+        $this->attributes['slug'] = $slug;
+    }
+
     public function scopeOnlyParent($query)
     {
         return $query->whereNull('parent_id');
@@ -36,7 +48,7 @@ class Categories extends Model
 
     public function parent()
     {
-        return $this->belongsTo(Categories::class,'parent_id');
+        return $this->belongsTo(Categories::class, 'parent_id');
     }
 
     public function children()
