@@ -89,7 +89,7 @@
     @endpush
 
 @section('content')
-    <section class="overlape">
+    <section class="overlape d-none d-md-block">
         <div class="block no-padding">
             <div data-velocity="-.1"
                  style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;"
