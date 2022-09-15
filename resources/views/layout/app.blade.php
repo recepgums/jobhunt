@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Jobhunt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -10,16 +10,16 @@
     <meta name="author" content="CreativeLayers">
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}"/>
 
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap-grid.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap-grid.css')}}"/>
     <link rel="stylesheet" href="{{asset('assets/css/icons.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/animate.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/chosen.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/colors/colors.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/chosen.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/colors/colors.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -28,39 +28,38 @@
 
 <body>
 
-    <div class="page-loading">
-        <img src="{{asset('assets/images/loader.gif')}}" alt="" />
-        <span>Yükleyiciyi Atla</span>
-    </div>
+<div class="page-loading">
+    <img src="{{asset('assets/images/loader.gif')}}" alt=""/>
+    <span>Yükleyiciyi Atla</span>
+</div>
 
-    <div class="theme-layout" id="scrollup">
+<div class="theme-layout" id="scrollup">
+    @include('layout.header')
 
-        @include('layout.header')
+    @yield('content')
 
-        @yield('content')
+    @include('layout.footer')
 
-        @include('layout.footer')
-
-    </div>
+</div>
 
 
-    @include('layout.sign_in')
-    @include('layout.sign_up')
-    @include('layout.bottombar')
-    <script src="{{asset('assets/js/jquery.min.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/js/modernizr.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/js/script.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/js/wow.min.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/js/slick.min.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/js/parallax.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/js/select-chosen.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/js/counter.js')}}" type="text/javascript"></script>
-    @stack('scripts')
+@include('layout.sign_in')
+@include('layout.sign_up')
+@include('layout.bottombar')
+<script src="{{asset('assets/js/jquery.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/modernizr.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/script.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/wow.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/slick.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/parallax.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/select-chosen.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/counter.js')}}" type="text/javascript"></script>
+@stack('scripts')
 
-    <!-- LOGIN POPUP -->
-    <script>
-    $('#loginForm').on('submit', function(e) {
+<!-- LOGIN POPUP -->
+<script>
+    $('#loginForm').on('submit', function (e) {
         e.preventDefault();
         $('#loginSubmitButton').attr('disabled', true);
 
@@ -75,16 +74,16 @@
                 email: email,
                 password: password,
             },
-            success: function(response) {
+            success: function (response) {
                 $('#responseMessage').css('color', 'green').text("Giriş Başarılı");
                 $('#loginSubmitButton').attr('disabled', false);
-                setTimeout(function() {
+                setTimeout(function () {
                     $('.signin-popup-box').fadeOut('fast');
                     $('html').removeClass('no-scroll');
                     window.location.reload();
                 }, 1500)
             },
-            error: function(response) {
+            error: function (response) {
                 console.log()
                 let errors = response?.responseJSON?.errors
 
@@ -104,7 +103,7 @@
         });
     });
 
-    $('#signupForm').on('submit', function(e) {
+    $('#signupForm').on('submit', function (e) {
         e.preventDefault();
         $('#signupSubmitButton').attr('disabled', true);
 
@@ -124,16 +123,16 @@
                 phone: phone,
                 type: userType,
             },
-            success: function(response) {
+            success: function (response) {
                 $('#responseMessage').css('color', 'green').text("Giriş Başarılı");
                 $('#loginSubmitButton').attr('disabled', false);
-                setTimeout(function() {
+                setTimeout(function () {
                     $('.signin-popup-box').fadeOut('fast');
                     $('html').removeClass('no-scroll');
                     window.location.reload();
                 }, 1500)
             },
-            error: function(response) {
+            error: function (response) {
                 console.log()
                 let errors = response?.responseJSON?.errors
 
@@ -153,10 +152,10 @@
         });
     });
 
-    setTimeout(function() {
+    setTimeout(function () {
         $('.tox-notifications-container').hide()
     }, 2000)
-    </script>
+</script>
 
 
 </body>
