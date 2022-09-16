@@ -46,7 +46,7 @@
 
                                     <a href="#" title="">Şifremi unuttum</a>
 
-                                    <button type="submit">Giriş Yap</button>
+                                    <button type="submit" style="color: white">Giriş Yap</button>
                                 </form>
 
                                 <div class="extra-login">
