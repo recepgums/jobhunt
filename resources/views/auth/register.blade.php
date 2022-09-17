@@ -30,15 +30,16 @@
                                 <form method="post" action="{{route('register.custom')}}" autocomplete="off">
                                     @csrf
                                     <div class="cfield">
-                                        <input name="name" type="text" placeholder="İsim Soyisim" />
+                                        <input name="name" type="text" placeholder="İsim Soyisim"/>
                                         <i class="la la-user"></i>
                                     </div>
                                     <div class="cfield">
-                                        <input name="email" type="text" placeholder="Email"  autocomplete="off"/>
+                                        <input name="email" type="text" placeholder="Email" autocomplete="off"/>
                                         <i class="la la-envelope-o"></i>
                                     </div>
                                     <div class="cfield">
-                                        <input name="password" type="password" placeholder="Şifre" required autocomplete="new-password"/>
+                                        <input name="password" type="password" placeholder="Şifre" required
+                                               autocomplete="new-password"/>
                                         <i class="la la-key"></i>
                                     </div>
                                     <div class="cfield">
@@ -46,16 +47,17 @@
                                         <i class="la la-phone"></i>
                                     </div>
                                     <div class="select-user">
-                                        <span>İş Arayan</span>
+                                        <span id="jobSeeker">İş Arayan</span>
                                         <span>İşveren</span>
                                     </div>
 
-                                    <button type="submit">Kayıt Ol</button>
+                                    <button type="submit" style="color: white">Kayıt Ol</button>
                                 </form>
                                 <div class="extra-login">
                                     <span>Ya da</span>
                                     <div class="login-social">
-                                        <a class="tw-login" href="{{route('socialite.redirect','google')}}" title=""><i class="fa fa-google"></i></a>
+                                        <a class="tw-login" href="{{route('socialite.redirect','google')}}" title=""><i
+                                                class="fa fa-google"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -71,4 +73,9 @@
 @push('scripts')
     <script src="{{asset('assets/js/isotop.js')}}" type="text/javascript"></script>
     <script src="{{asset('assets/js/jquery.scrollbar.min.js')}}" type="text/javascript"></script>
+    <script>
+        $(document).on('ready', function () {
+            document.getElementById("jobSeeker").click();
+        })
+    </script>
 @endpush

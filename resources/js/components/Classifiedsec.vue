@@ -49,7 +49,7 @@
                 <div
                     @click="selectedJob = job"
                     v-for="(job, index) in jobs"
-                    class="d-none d-md-block tw-bg-white tw-h-auto tw-rounded-lg"
+                    class="d-none d-md-block tw-bg-white tw-h-auto tw-rounded-lg bg-danger"
                     :class="{ 'active-job': job?.id === selectedJob?.id }"
                 >
                     <div
@@ -80,7 +80,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <i class="fa-regular fa-bookmark"></i>
                         </div>
                     </div>
                 </div>
@@ -110,7 +109,7 @@
                                     </h1>
                                 </div>
                                 <i
-                                    class="fa-regular fa-bookmark tw-col-span-1"
+                                    class=""
                                 ></i>
                             </div>
                             <!--                            <i class="fa-regular fa-bookmark tw-pt-3"></i>-->

@@ -46,7 +46,7 @@
                                         </div>
                                         <div class="col-sm-4 col-6">
                                             <div class="p-category">
-                                                <a href="#" title="">
+                                                <a href="{{route('candidate.profile')}}" title="">
                                                     <i class="la la-file"></i>
                                                     <span>Profilim</span>
                                                     <p>Profilini Görüntüle</p>

@@ -221,7 +221,7 @@
                             Hemen şimdi kayıt olun ve iş ilanları sahipleriyle iletişime geçin!
                         </h3>
                     </div>
-                    <a id="button"
+                    <a id="button"  href="{{route('job.index')}}"
                        class="tw-bg-red-600 tw-mt-12 p-3 tw-rounded-lg fs-22 btn btn-danger font-weight-bold " style="margin-top: 65px">
                         İş İlanlarını İnceleyin
                     </a>
@@ -239,7 +239,7 @@
                             Hemen şimdi kayıt olun ve iş ilanları sahipleriyle iletişime geçin!
                         </h3>
                     </div>
-                    <a id="button"
+                    <a id="button" href="{{route('job.index')}}"
                        class="tw-bg-blue-600 tw-mt-12 p-3 tw-rounded-lg fs-22 btn btn-danger font-weight-bold mt-5 ">
                         İş İlanlarını İnceleyin
                     </a>

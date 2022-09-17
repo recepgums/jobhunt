@@ -18,27 +18,23 @@
         </div>
     </div>
     <div class="responsive-opensec">
-        <div class="btn-extars">
 
-            @if(!request()->is('register') && !request()->is('login'))
-                <ul class="account-btns">
-                    <li>
-                        <a href="{{route('job.create')}}" title="" class="post-job-btn">
-                            <div class="row">
-                                <div class="col-2">
-                                    <i class="la la-plus"></i>
-                                </div>
-                                <div class="col-10 mt-1">Ücretsiz
-                                    ilan Ver
-                                </div>
-                            </div>
-                        </a>
+        <div class="btn-extars">
+            <ul class="account-btns">
+                @guest
+                    <li class="ml-5"><a title="" href="{{route('login')}}"><i class="la la-external-link-square"></i>
+                            Giriş Yap</a>
                     </li>
-                    <li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Giriş Yap</a></li>
-                    <li class="signup-popup"><a title=""><i class="la la-key"></i> Kayıt Ol</a></li>
-                </ul>
-            @endif
+                    <li class="ml-4"><a title="" href="{{route('register-user')}}"><i class="la la-key"></i> Kayıt
+                            Ol</a></li>
+                @endguest
+                <a href="{{route('job.create')}}" class="tw-bg-red-500 btn w-full text-white p-2 mt-4 mr-2 ml-5"
+                   style="font-weight: 600;">
+                    Ücretsiz İlan Ver
+                </a>
+            </ul>
         </div>
+
         <form class="res-search">
             <input type="text" placeholder="Uzmanlık alanı, anahtar kelime ya da ilan başlığı"/>
             <button type="submit"><i class="la la-search"></i></button>
@@ -51,9 +47,16 @@
                 <li>
                     <a href="{{route('job.index')}}" title="">İş İlanları</a>
                 </li>
-                <li>
-                    <a href="{{route('blog.index')}}" title="">Blog</a>
-                </li>
+                @auth
+                    <li>
+                        <a href="{{route('signout')}}" title="">Çıkış Yap</a>
+                    </li>
+                @endauth
+                @guest
+                    <li>
+                        <a href="{{route('blog.index')}}" title="">Blog</a>
+                    </li>
+                @endguest
             </ul>
         </div>
     </div>
@@ -74,8 +77,10 @@
                 <ul class="account-btns">
                     @if(!request()->is('register') && !request()->is('login'))
                         @guest
-                            <li class="signup-popup"><a title=""><i class="la la-key"></i> Kayıt Ol</a></li>
-                            <li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Giriş
+                            <li class=""><a title="" href="{{route('register-user')}}"><i class="la la-key"></i> Kayıt
+                                    Ol</a></li>
+                            <li class=""><a title="" href="{{route('login')}}"><i
+                                        class="la la-external-link-square"></i> Giriş
                                     Yap</a>
                             </li>
                         @endguest
@@ -85,7 +90,6 @@
                         @endauth
                     @endif
                 </ul>
-
             </div><!-- Btn Extras -->
             <nav>
                 <ul>
