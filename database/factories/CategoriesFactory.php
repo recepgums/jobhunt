@@ -23,12 +23,20 @@ class CategoriesFactory extends Factory
         $name = $this->faker->word;
 
         $models = [Job::class, Blog::class];
+        $selectedModel = $models[array_rand($models)];
         $rand = rand(1,4);
+        $parentId = null;
+
+        if ($selectedModel === Job::class){
+            if ($rand %3 === 0){
+                $parentId = optional(Categories::query()->forJob()->inRandomOrder()->first())->id;
+            }
+        }
         return [
             'name' => $name,
-            'parent_id' => $rand %3 ===0 ? optional(Categories::query()->inRandomOrder()->first())->id : null,
+            'parent_id' => $parentId,
             'slug' => Str::slug($name),
-            'model' => $models[array_rand($models)],
+            'model' =>  $selectedModel,
             'description' => $this->faker->paragraph(1),
             'default_cover_image' => 'https://image.shutterstock.com/image-photo/suleymaniye-mosque-during-sunset-istanbul-600w-1889028265.jpg',
         ];

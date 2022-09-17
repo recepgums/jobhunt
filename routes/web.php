@@ -65,7 +65,7 @@ Route::post('job/{job}/iyzico-form-retrieve', [App\Http\Controllers\JobControlle
 Route::get('redirect/{driver}', [Controllers\UserController::class, 'socialiteRedirect'])->name('socialite.redirect');
 Route::get('callback/{driver}', [Controllers\UserController::class, 'socialiteCallback'])->name('socialite.callback');
 
-Route::group(['prefix'=>'admin','middleware' => 'auth','as'=>'admin.'],function (){
+Route::group(['prefix'=>'admin','middleware' => 'role:admin','as'=>'admin.'],function (){
     Route::get('/',[Controllers\Admin\AdminController::class,'dashboard'])->name('index');
     Route::resource('faq',Controllers\Admin\FaqController::class);
     Route::get('reviews',[Controllers\Admin\AdminController::class,'reviews'])->name('reviews');

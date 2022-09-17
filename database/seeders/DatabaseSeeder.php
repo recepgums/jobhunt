@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoriesSeeder::class);
         Role::create(['name'=>'candidate']);
         Role::create(['name'=>'employee']);
+        Role::create(['name'=>'admin']);
         WorkType::create(['name' => 'Tam Zamanlı', 'type' => WorkType::TYPES['Full Time']]);
         WorkType::create(['name' => 'Yarı Zamanlı', 'type' => WorkType::TYPES['Part Time']]);
         WorkType::create(['name' => 'Karışık', 'type' => WorkType::TYPES['Hybrit']]);
@@ -70,7 +71,7 @@ class DatabaseSeeder extends Seeder
             'password' => 'asdasdasd',
             'phone' => fake()->phoneNumber,
             'remember_token' => Str::random(10),
-        ]);
+        ])->assignRole('admin');
 
         Categories::factory(30)->create();
 
