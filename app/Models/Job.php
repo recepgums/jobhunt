@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Sitemap\Contracts\Sitemapable;
+use Spatie\Sitemap\Tags\Url;
 
-class Job extends Model implements HasMedia
+class Job extends Model implements HasMedia,Sitemapable
 {
     use HasFactory, SoftDeletes, InteractsWithMedia;
 
@@ -56,6 +58,11 @@ class Job extends Model implements HasMedia
     public function scopeListable($query)
     {
         return $query->where('published_until_at', '>=', now())->where('status', self::STATUS['published']);
+    }
+
+    public function toSitemapTag(): Url | string | array
+    {
+        return route('job.show', $this);
     }
 
     public function setSlugAttribute($value)

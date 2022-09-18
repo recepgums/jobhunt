@@ -22,6 +22,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
+    @if(env('APP_ENV') !== "local")
+        <!-- Global site tag (gtag.js) - Google Ads: 607786685 -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=AW-607786685"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'AW-607786685');
+                gtag('event', 'conversion', {'send_to': 'AW-607786685/s6H5CP7j0N8DEL2t6KEC'});
+
+            </script>
+
+        @endif
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @stack('styles')
 </head>
