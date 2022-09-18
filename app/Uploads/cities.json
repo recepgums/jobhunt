@@ -1,0 +1,5886 @@
+[
+    {
+        "il": "ADANA",
+        "ilceler": [
+            {
+                "merkezId": 90101,
+                "aciklama": ""
+            },
+            {
+                "ad": "Adana Havalimanı",
+                "merkezId": 90116,
+                "aciklama": ""
+            },
+            {
+                "ad": "Aladağ",
+                "merkezId": 90105,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ceyhan",
+                "merkezId": 90106,
+                "aciklama": ""
+            },
+            {
+                "ad": "Feke",
+                "merkezId": 90108,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karaisalı",
+                "merkezId": 90110,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karataş",
+                "merkezId": 90111,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kozan",
+                "merkezId": 90112,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pozantı",
+                "merkezId": 90113,
+                "aciklama": ""
+            },
+            {
+                "ad": "Saimbeyli",
+                "merkezId": 90114,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sarıçam",
+                "merkezId": 90115,
+                "aciklama": ""
+            },
+            {
+                "ad": "Seyhan",
+                "merkezId": 90101,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tufanbeyli",
+                "merkezId": 90102,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yumurtalık",
+                "merkezId": 90103,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yüreğir",
+                "merkezId": 90104,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çukurova",
+                "merkezId": 90107,
+                "aciklama": ""
+            },
+            {
+                "ad": "İmamoğlu",
+                "merkezId": 90109,
+                "aciklama": ""
+            },
+            {
+                "ad": "İncirlik Havalimanı",
+                "merkezId": 90117,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "ADIYAMAN",
+        "ilceler": [
+            {
+                "merkezId": 90201,
+                "aciklama": ""
+            },
+            {
+                "ad": "Adıyaman Havalimanı",
+                "merkezId": 90210,
+                "aciklama": ""
+            },
+            {
+                "ad": "Besni",
+                "merkezId": 90206,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gerger",
+                "merkezId": 90208,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gölbaşı",
+                "merkezId": 90209,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kahta",
+                "merkezId": 90211,
+                "aciklama": ""
+            },
+            {
+                "ad": "Samsat",
+                "merkezId": 90202,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sincik",
+                "merkezId": 90203,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tut",
+                "merkezId": 90204,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çelikhan",
+                "merkezId": 90207,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "AFYONKARAHİSAR",
+        "ilceler": [
+            {
+                "merkezId": 90301,
+                "aciklama": ""
+            },
+            {
+                "ad": "Afyonkarahisar Havalimanı",
+                "merkezId": 90319,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bayat",
+                "merkezId": 90307,
+                "aciklama": ""
+            },
+            {
+                "ad": "Başmakçı",
+                "merkezId": 90306,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bolvadin",
+                "merkezId": 90308,
+                "aciklama": ""
+            },
+            {
+                "ad": "Dazkırı",
+                "merkezId": 90311,
+                "aciklama": ""
+            },
+            {
+                "ad": "Dinar",
+                "merkezId": 90312,
+                "aciklama": ""
+            },
+            {
+                "ad": "Emirdağ",
+                "merkezId": 90313,
+                "aciklama": ""
+            },
+            {
+                "ad": "Evciler",
+                "merkezId": 90314,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hocalar",
+                "merkezId": 90315,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kızılören",
+                "merkezId": 90318,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sandıklı",
+                "merkezId": 90302,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sinanpaşa",
+                "merkezId": 90303,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sultandağı",
+                "merkezId": 90304,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çay",
+                "merkezId": 90309,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çobanlar",
+                "merkezId": 90310,
+                "aciklama": ""
+            },
+            {
+                "ad": "İhsaniye",
+                "merkezId": 90316,
+                "aciklama": ""
+            },
+            {
+                "ad": "İscehisar",
+                "merkezId": 90317,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şuhut",
+                "merkezId": 90305,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "AĞRI",
+        "ilceler": [
+            {
+                "merkezId": 90401,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ahmed-i Hani Havalimanı",
+                "merkezId": 90409,
+                "aciklama": ""
+            },
+            {
+                "ad": "Diyadin",
+                "merkezId": 90405,
+                "aciklama": ""
+            },
+            {
+                "ad": "Doğubayazıt",
+                "merkezId": 90406,
+                "aciklama": ""
+            },
+            {
+                "ad": "Eleşkirt",
+                "merkezId": 90407,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hamur",
+                "merkezId": 90408,
+                "aciklama": ""
+            },
+            {
+                "ad": "Patnos",
+                "merkezId": 90402,
+                "aciklama": ""
+            },
+            {
+                "ad": "Taşlıçay",
+                "merkezId": 90403,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tutak",
+                "merkezId": 90404,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "AMASYA",
+        "ilceler": [
+            {
+                "merkezId": 90501,
+                "aciklama": ""
+            },
+            {
+                "ad": "Göynücek",
+                "merkezId": 90505,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gümüşhacıköy",
+                "merkezId": 90506,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hamamözü",
+                "merkezId": 90507,
+                "aciklama": ""
+            },
+            {
+                "ad": "Merzifon",
+                "merkezId": 90502,
+                "aciklama": ""
+            },
+            {
+                "ad": "Merzifon Havalimanı",
+                "merkezId": 90508,
+                "aciklama": ""
+            },
+            {
+                "ad": "Suluova",
+                "merkezId": 90503,
+                "aciklama": ""
+            },
+            {
+                "ad": "Taşova",
+                "merkezId": 90504,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "ANKARA",
+        "ilceler": [
+            {
+                "merkezId": 90601,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akyurt",
+                "merkezId": 90605,
+                "aciklama": ""
+            },
+            {
+                "ad": "Altındağ",
+                "merkezId": 90609,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ayaş",
+                "merkezId": 90610,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bala",
+                "merkezId": 90611,
+                "aciklama": ""
+            },
+            {
+                "ad": "Beypazarı",
+                "merkezId": 90612,
+                "aciklama": ""
+            },
+            {
+                "ad": "Elmadağ",
+                "merkezId": 90616,
+                "aciklama": ""
+            },
+            {
+                "ad": "Esenboğa Havalimanı",
+                "merkezId": 90626,
+                "aciklama": ""
+            },
+            {
+                "ad": "Etimesgut",
+                "merkezId": 90606,
+                "aciklama": ""
+            },
+            {
+                "ad": "Etimesgut Havalimanı",
+                "merkezId": 90628,
+                "aciklama": ""
+            },
+            {
+                "ad": "Evren",
+                "merkezId": 90607,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gölbaşı",
+                "merkezId": 90625,
+                "aciklama": ""
+            },
+            {
+                "ad": "Güdül",
+                "merkezId": 90617,
+                "aciklama": ""
+            },
+            {
+                "ad": "Güvercinlik Havalimanı",
+                "merkezId": 90629,
+                "aciklama": ""
+            },
+            {
+                "ad": "Haymana",
+                "merkezId": 90618,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kahramankazan",
+                "merkezId": 90604,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kalecik",
+                "merkezId": 90619,
+                "aciklama": ""
+            },
+            {
+                "ad": "Keçiören",
+                "merkezId": 90601,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kızılcahamam",
+                "merkezId": 90620,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mamak",
+                "merkezId": 90602,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mürted Havalimanı",
+                "merkezId": 90627,
+                "aciklama": ""
+            },
+            {
+                "ad": "Nallıhan",
+                "merkezId": 90621,
+                "aciklama": ""
+            },
+            {
+                "ad": "Polatlı",
+                "merkezId": 90622,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pursaklar",
+                "merkezId": 90608,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sincan",
+                "merkezId": 90603,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yenimahalle",
+                "merkezId": 90624,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çamlıdere",
+                "merkezId": 90613,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çankaya",
+                "merkezId": 90614,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çubuk",
+                "merkezId": 90615,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şereflikoçhisar",
+                "merkezId": 90623,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "ANTALYA",
+        "ilceler": [
+            {
+                "merkezId": 90701,
+                "aciklama": ""
+            },
+            {
+                "ad": "Antalya Havalimanı",
+                "merkezId": 90721,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akseki",
+                "merkezId": 90702,
+                "aciklama": ""
+            },
+            {
+                "ad": "Aksu",
+                "merkezId": 90716,
+                "aciklama": ""
+            },
+            {
+                "ad": "Alanya",
+                "merkezId": 90703,
+                "aciklama": ""
+            },
+            {
+                "ad": "Demre",
+                "merkezId": 90713,
+                "aciklama": ""
+            },
+            {
+                "ad": "Döşemealtı",
+                "merkezId": 90717,
+                "aciklama": ""
+            },
+            {
+                "ad": "Elmalı",
+                "merkezId": 90704,
+                "aciklama": ""
+            },
+            {
+                "ad": "Finike",
+                "merkezId": 90705,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gazipaşa",
+                "merkezId": 90706,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gazipaşa Havalimanı",
+                "merkezId": 90722,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gündoğmuş",
+                "merkezId": 90707,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kaş",
+                "merkezId": 90708,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kemer",
+                "merkezId": 90715,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kepez",
+                "merkezId": 90718,
+                "aciklama": ""
+            },
+            {
+                "ad": "Konyaaltı",
+                "merkezId": 90719,
+                "aciklama": ""
+            },
+            {
+                "ad": "Korkuteli",
+                "merkezId": 90709,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kumluca",
+                "merkezId": 90710,
+                "aciklama": ""
+            },
+            {
+                "ad": "Manavgat",
+                "merkezId": 90711,
+                "aciklama": ""
+            },
+            {
+                "ad": "Muratpaşa",
+                "merkezId": 90701,
+                "aciklama": ""
+            },
+            {
+                "ad": "Saklıkent Kayak Merkezi",
+                "merkezId": 90720,
+                "aciklama": ""
+            },
+            {
+                "ad": "Serik",
+                "merkezId": 90712,
+                "aciklama": ""
+            },
+            {
+                "ad": "İbradı",
+                "merkezId": 90714,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "ARTVİN",
+        "ilceler": [
+            {
+                "merkezId": 90801,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ardanuç",
+                "merkezId": 90807,
+                "aciklama": ""
+            },
+            {
+                "ad": "Arhavi",
+                "merkezId": 90808,
+                "aciklama": ""
+            },
+            {
+                "ad": "Borçka",
+                "merkezId": 90802,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hopa",
+                "merkezId": 90803,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kemalpaşa",
+                "merkezId": 90809,
+                "aciklama": "Bu merkez sondurum bilgilerini Hopa istasyonundan almaktadır."
+            },
+            {
+                "ad": "Murgul",
+                "merkezId": 90806,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yusufeli",
+                "merkezId": 90805,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şavşat",
+                "merkezId": 90804,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "AYDIN",
+        "ilceler": [
+            {
+                "merkezId": 90903,
+                "aciklama": ""
+            },
+            {
+                "ad": "Aydıncık",
+                "merkezId": 96602,
+                "aciklama": ""
+            },
+            {
+                "ad": "Aydıncık",
+                "merkezId": 93307,
+                "aciklama": ""
+            },
+            {
+                "ad": "Aydıntepe",
+                "merkezId": 96902,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bozdoğan",
+                "merkezId": 90902,
+                "aciklama": ""
+            },
+            {
+                "ad": "Buharkent",
+                "merkezId": 90914,
+                "aciklama": ""
+            },
+            {
+                "ad": "Didim",
+                "merkezId": 90918,
+                "aciklama": ""
+            },
+            {
+                "ad": "Efeler",
+                "merkezId": 90903,
+                "aciklama": ""
+            },
+            {
+                "ad": "Germencik",
+                "merkezId": 90905,
+                "aciklama": ""
+            },
+            {
+                "ad": "Güzelçamlı",
+                "merkezId": 90920,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karacasu",
+                "merkezId": 90906,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karpuzlu",
+                "merkezId": 90916,
+                "aciklama": ""
+            },
+            {
+                "ad": "Koçarlı",
+                "merkezId": 90907,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kuyucak",
+                "merkezId": 90909,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kuşadası",
+                "merkezId": 90908,
+                "aciklama": ""
+            },
+            {
+                "ad": "Köşk",
+                "merkezId": 90917,
+                "aciklama": ""
+            },
+            {
+                "ad": "Nazilli",
+                "merkezId": 90910,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sultanhisar",
+                "merkezId": 90912,
+                "aciklama": ""
+            },
+            {
+                "ad": "Söke",
+                "merkezId": 90911,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yenipazar",
+                "merkezId": 90913,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çine",
+                "merkezId": 90904,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çıldır Havalimanı",
+                "merkezId": 90919,
+                "aciklama": ""
+            },
+            {
+                "ad": "İncirliova",
+                "merkezId": 90915,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "BALIKESİR",
+        "ilceler": [
+            {
+                "merkezId": 91020,
+                "aciklama": ""
+            },
+            {
+                "ad": "Balıkesir Havalimanı",
+                "merkezId": 91022,
+                "aciklama": ""
+            },
+            {
+                "ad": "Altıeylül",
+                "merkezId": 91020,
+                "aciklama": ""
+            },
+            {
+                "ad": "Altınoluk",
+                "merkezId": 91025,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ayvalık",
+                "merkezId": 91021,
+                "aciklama": ""
+            },
+            {
+                "ad": "Balya",
+                "merkezId": 91002,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bandırma",
+                "merkezId": 91003,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bandırma Havalimanı",
+                "merkezId": 91023,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bigadiç",
+                "merkezId": 91004,
+                "aciklama": ""
+            },
+            {
+                "ad": "Burhaniye",
+                "merkezId": 91005,
+                "aciklama": ""
+            },
+            {
+                "ad": "Dursunbey",
+                "merkezId": 91006,
+                "aciklama": ""
+            },
+            {
+                "ad": "Edremit",
+                "merkezId": 91007,
+                "aciklama": ""
+            },
+            {
+                "ad": "Erdek",
+                "merkezId": 91008,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gömeç",
+                "merkezId": 91019,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gönen",
+                "merkezId": 91009,
+                "aciklama": ""
+            },
+            {
+                "ad": "Havran",
+                "merkezId": 91010,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karesi",
+                "merkezId": 91012,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kepsut",
+                "merkezId": 91013,
+                "aciklama": ""
+            },
+            {
+                "ad": "Koca Seyit Havalimanı",
+                "merkezId": 91024,
+                "aciklama": ""
+            },
+            {
+                "ad": "Manyas",
+                "merkezId": 91014,
+                "aciklama": ""
+            },
+            {
+                "ad": "Marmara",
+                "merkezId": 91018,
+                "aciklama": ""
+            },
+            {
+                "ad": "Savaştepe",
+                "merkezId": 91015,
+                "aciklama": ""
+            },
+            {
+                "ad": "Susurluk",
+                "merkezId": 91017,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sındırgı",
+                "merkezId": 91016,
+                "aciklama": ""
+            },
+            {
+                "ad": "İvrindi",
+                "merkezId": 91011,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "BİLECİK",
+        "ilceler": [
+            {
+                "merkezId": 91101,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bozüyük",
+                "merkezId": 91102,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gölpazarı",
+                "merkezId": 91103,
+                "aciklama": ""
+            },
+            {
+                "ad": "Osmaneli",
+                "merkezId": 91104,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pazaryeri",
+                "merkezId": 91105,
+                "aciklama": ""
+            },
+            {
+                "ad": "Söğüt",
+                "merkezId": 91106,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yenipazar",
+                "merkezId": 91107,
+                "aciklama": ""
+            },
+            {
+                "ad": "İnhisar",
+                "merkezId": 91108,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "BİNGÖL",
+        "ilceler": [
+            {
+                "merkezId": 91201,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bingöl Havalimanı",
+                "merkezId": 91209,
+                "aciklama": ""
+            },
+            {
+                "ad": "Adaklı",
+                "merkezId": 91206,
+                "aciklama": ""
+            },
+            {
+                "ad": "Genç",
+                "merkezId": 91202,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karlıova",
+                "merkezId": 91203,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kiğı",
+                "merkezId": 91204,
+                "aciklama": ""
+            },
+            {
+                "ad": "Solhan",
+                "merkezId": 91205,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yayladere",
+                "merkezId": 91207,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yedisu",
+                "merkezId": 91208,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "BİTLİS",
+        "ilceler": [
+            {
+                "merkezId": 91301,
+                "aciklama": ""
+            },
+            {
+                "ad": "Adilcevaz",
+                "merkezId": 91306,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ahlat",
+                "merkezId": 91307,
+                "aciklama": ""
+            },
+            {
+                "ad": "Güroymak",
+                "merkezId": 91305,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hizan",
+                "merkezId": 91302,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mutki",
+                "merkezId": 91303,
+                "aciklama": ""
+            },
+            {
+                "ad": "Nemrut Kayak Merkezi",
+                "merkezId": 91308,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tatvan",
+                "merkezId": 91304,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "BOLU",
+        "ilceler": [
+            {
+                "merkezId": 91401,
+                "aciklama": ""
+            },
+            {
+                "ad": "Dörtdivan",
+                "merkezId": 91408,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gerede",
+                "merkezId": 91402,
+                "aciklama": ""
+            },
+            {
+                "ad": "Göynük",
+                "merkezId": 91403,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kartalkaya Kayak Merkezi",
+                "merkezId": 91410,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kıbrıscık",
+                "merkezId": 91404,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mengen",
+                "merkezId": 91405,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mudurnu",
+                "merkezId": 91406,
+                "aciklama": ""
+            },
+            {
+                "ad": "Seben",
+                "merkezId": 91407,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yeniçağa",
+                "merkezId": 91409,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "BURDUR",
+        "ilceler": [
+            {
+                "merkezId": 91501,
+                "aciklama": ""
+            },
+            {
+                "ad": "Altınyayla",
+                "merkezId": 91507,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ağlasun",
+                "merkezId": 91510,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bucak",
+                "merkezId": 91511,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gölhisar",
+                "merkezId": 91502,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karamanlı",
+                "merkezId": 91505,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kemer",
+                "merkezId": 91506,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tefenni",
+                "merkezId": 91503,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yeşilova",
+                "merkezId": 91504,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yeşilova Salda Kayak Merkezi",
+                "merkezId": 91512,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çavdır",
+                "merkezId": 91508,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çeltikçi",
+                "merkezId": 91509,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "BURSA",
+        "ilceler": [
+            {
+                "merkezId": 91601,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bursa/Yenişehir",
+                "merkezId": 91614,
+                "aciklama": ""
+            },
+            {
+                "ad": "Büyükorhan",
+                "merkezId": 91615,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gemlik",
+                "merkezId": 91605,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gürsu",
+                "merkezId": 91603,
+                "aciklama": ""
+            },
+            {
+                "ad": "Harmancık",
+                "merkezId": 91616,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karacabey",
+                "merkezId": 91608,
+                "aciklama": ""
+            },
+            {
+                "ad": "Keles",
+                "merkezId": 91609,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kestel",
+                "merkezId": 91604,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mudanya",
+                "merkezId": 91610,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mustafakemalpaşa",
+                "merkezId": 91611,
+                "aciklama": ""
+            },
+            {
+                "ad": "Nilüfer",
+                "merkezId": 91617,
+                "aciklama": ""
+            },
+            {
+                "ad": "Orhaneli",
+                "merkezId": 91612,
+                "aciklama": ""
+            },
+            {
+                "ad": "Orhangazi",
+                "merkezId": 91613,
+                "aciklama": ""
+            },
+            {
+                "ad": "Osmangazi",
+                "merkezId": 91601,
+                "aciklama": ""
+            },
+            {
+                "ad": "Uludağ Kayak Merkezi",
+                "merkezId": 91618,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yenişehir Havalimanı",
+                "merkezId": 91619,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yıldırım",
+                "merkezId": 91602,
+                "aciklama": ""
+            },
+            {
+                "ad": "İnegöl",
+                "merkezId": 91606,
+                "aciklama": ""
+            },
+            {
+                "ad": "İznik",
+                "merkezId": 91607,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "ÇANAKKALE",
+        "ilceler": [
+            {
+                "merkezId": 91701,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çanakkale Havalimanı",
+                "merkezId": 91713,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ayvacık",
+                "merkezId": 91708,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bayramiç",
+                "merkezId": 91709,
+                "aciklama": ""
+            },
+            {
+                "ad": "Biga",
+                "merkezId": 91710,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bozcaada",
+                "merkezId": 91711,
+                "aciklama": ""
+            },
+            {
+                "ad": "Eceabat",
+                "merkezId": 91702,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ezine",
+                "merkezId": 91703,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gelibolu",
+                "merkezId": 91704,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gökçeada",
+                "merkezId": 91705,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gökçeada Havalimanı",
+                "merkezId": 91714,
+                "aciklama": ""
+            },
+            {
+                "ad": "Lapseki",
+                "merkezId": 91706,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yenice",
+                "merkezId": 91707,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çan",
+                "merkezId": 91712,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "ÇANKIRI",
+        "ilceler": [
+            {
+                "merkezId": 91801,
+                "aciklama": ""
+            },
+            {
+                "ad": "Atkaracalar",
+                "merkezId": 91809,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bayramören",
+                "merkezId": 91811,
+                "aciklama": ""
+            },
+            {
+                "ad": "Eldivan",
+                "merkezId": 91803,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ilgaz",
+                "merkezId": 91804,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ilgaz Kayak Merkezi",
+                "merkezId": 91814,
+                "aciklama": ""
+            },
+            {
+                "ad": "Korgun",
+                "merkezId": 91812,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kurşunlu",
+                "merkezId": 91805,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kızılırmak",
+                "merkezId": 91810,
+                "aciklama": ""
+            },
+            {
+                "ad": "Orta",
+                "merkezId": 91806,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yapraklı",
+                "merkezId": 91808,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yıldıztepe Kayak Merkezi",
+                "merkezId": 91813,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çerkeş",
+                "merkezId": 91802,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şabanözü",
+                "merkezId": 91807,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "ÇORUM",
+        "ilceler": [
+            {
+                "merkezId": 91901,
+                "aciklama": ""
+            },
+            {
+                "ad": "Alaca",
+                "merkezId": 91913,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bayat",
+                "merkezId": 91914,
+                "aciklama": ""
+            },
+            {
+                "ad": "Boğazkale",
+                "merkezId": 91908,
+                "aciklama": ""
+            },
+            {
+                "ad": "Dodurga",
+                "merkezId": 91910,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kargı",
+                "merkezId": 91903,
+                "aciklama": ""
+            },
+            {
+                "ad": "Laçin",
+                "merkezId": 91911,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mecitözü",
+                "merkezId": 91904,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ortaköy",
+                "merkezId": 91905,
+                "aciklama": ""
+            },
+            {
+                "ad": "Osmancık",
+                "merkezId": 91906,
+                "aciklama": ""
+            },
+            {
+                "ad": "Oğuzlar",
+                "merkezId": 91912,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sungurlu",
+                "merkezId": 91907,
+                "aciklama": ""
+            },
+            {
+                "ad": "Uğurludağ",
+                "merkezId": 91909,
+                "aciklama": ""
+            },
+            {
+                "ad": "İskilip",
+                "merkezId": 91902,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "DENİZLİ",
+        "ilceler": [
+            {
+                "merkezId": 92001,
+                "aciklama": ""
+            },
+            {
+                "ad": "Denizli Kayak Merkezi",
+                "merkezId": 92022,
+                "aciklama": ""
+            },
+            {
+                "ad": "Acıpayam",
+                "merkezId": 92015,
+                "aciklama": ""
+            },
+            {
+                "ad": "Babadağ",
+                "merkezId": 92008,
+                "aciklama": ""
+            },
+            {
+                "ad": "Baklan",
+                "merkezId": 92012,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bekilli",
+                "merkezId": 92009,
+                "aciklama": ""
+            },
+            {
+                "ad": "Beyağaç",
+                "merkezId": 92013,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bozkurt",
+                "merkezId": 92014,
+                "aciklama": ""
+            },
+            {
+                "ad": "Buldan",
+                "merkezId": 92016,
+                "aciklama": ""
+            },
+            {
+                "ad": "Güney",
+                "merkezId": 92004,
+                "aciklama": ""
+            },
+            {
+                "ad": "Honaz",
+                "merkezId": 92010,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kale",
+                "merkezId": 92005,
+                "aciklama": ""
+            },
+            {
+                "ad": "Merkezefendi",
+                "merkezId": 92002,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pamukkale",
+                "merkezId": 92001,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sarayköy",
+                "merkezId": 92006,
+                "aciklama": ""
+            },
+            {
+                "ad": "Serinhisar",
+                "merkezId": 92011,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tavas",
+                "merkezId": 92007,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çal",
+                "merkezId": 92017,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çameli",
+                "merkezId": 92018,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çardak",
+                "merkezId": 92019,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çardak Havalimanı",
+                "merkezId": 92021,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çivril",
+                "merkezId": 92020,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "DİYARBAKIR",
+        "ilceler": [
+            {
+                "merkezId": 92101,
+                "aciklama": ""
+            },
+            {
+                "ad": "Diyarbakır Havalimanı",
+                "merkezId": 92118,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bağlar",
+                "merkezId": 92101,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bismil",
+                "merkezId": 92117,
+                "aciklama": ""
+            },
+            {
+                "ad": "Dicle",
+                "merkezId": 92109,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ergani",
+                "merkezId": 92110,
+                "aciklama": ""
+            },
+            {
+                "ad": "Eğil",
+                "merkezId": 92116,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hani",
+                "merkezId": 92111,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hazro",
+                "merkezId": 92112,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kayapınar",
+                "merkezId": 92102,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kocaköy",
+                "merkezId": 92105,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kulp",
+                "merkezId": 92113,
+                "aciklama": ""
+            },
+            {
+                "ad": "Lice",
+                "merkezId": 92114,
+                "aciklama": ""
+            },
+            {
+                "ad": "Silvan",
+                "merkezId": 92115,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sur",
+                "merkezId": 92103,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yenişehir",
+                "merkezId": 92104,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çermik",
+                "merkezId": 92106,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çüngüş",
+                "merkezId": 92108,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çınar",
+                "merkezId": 92107,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "EDİRNE",
+        "ilceler": [
+            {
+                "merkezId": 92201,
+                "aciklama": ""
+            },
+            {
+                "ad": "Enez",
+                "merkezId": 92202,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hamzabeyli Sınır Kapısı",
+                "merkezId": 92210,
+                "aciklama": ""
+            },
+            {
+                "ad": "Havsa",
+                "merkezId": 92203,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kapıkule Sınır Kapısı",
+                "merkezId": 92211,
+                "aciklama": ""
+            },
+            {
+                "ad": "Keşan",
+                "merkezId": 92205,
+                "aciklama": ""
+            },
+            {
+                "ad": "Lalapaşa",
+                "merkezId": 92206,
+                "aciklama": ""
+            },
+            {
+                "ad": "Meriç",
+                "merkezId": 92207,
+                "aciklama": ""
+            },
+            {
+                "ad": "Süloğlu",
+                "merkezId": 92209,
+                "aciklama": ""
+            },
+            {
+                "ad": "Uzunköprü",
+                "merkezId": 92208,
+                "aciklama": ""
+            },
+            {
+                "ad": "İpsala",
+                "merkezId": 92204,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "ELAZIĞ",
+        "ilceler": [
+            {
+                "merkezId": 92301,
+                "aciklama": ""
+            },
+            {
+                "ad": "Elazığ Havalimanı",
+                "merkezId": 92313,
+                "aciklama": ""
+            },
+            {
+                "ad": "Alacakaya",
+                "merkezId": 92309,
+                "aciklama": ""
+            },
+            {
+                "ad": "Arıcak",
+                "merkezId": 92307,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ağın",
+                "merkezId": 92310,
+                "aciklama": ""
+            },
+            {
+                "ad": "Baskil",
+                "merkezId": 92311,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karakoçan",
+                "merkezId": 92302,
+                "aciklama": ""
+            },
+            {
+                "ad": "Keban",
+                "merkezId": 92303,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kovancılar",
+                "merkezId": 92308,
+                "aciklama": ""
+            },
+            {
+                "ad": "Maden",
+                "merkezId": 92304,
+                "aciklama": ""
+            },
+            {
+                "ad": "Palu",
+                "merkezId": 92305,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sivrice",
+                "merkezId": 92306,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sivrice Kayak Merkezi",
+                "merkezId": 92312,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "ERZİNCAN",
+        "ilceler": [
+            {
+                "merkezId": 92401,
+                "aciklama": ""
+            },
+            {
+                "ad": "Erzincan Havalimanı",
+                "merkezId": 92410,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ergan Kayak Merkezi",
+                "merkezId": 92411,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kemah",
+                "merkezId": 92403,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kemaliye",
+                "merkezId": 92404,
+                "aciklama": ""
+            },
+            {
+                "ad": "Otlukbeli",
+                "merkezId": 92408,
+                "aciklama": ""
+            },
+            {
+                "ad": "Refahiye",
+                "merkezId": 92405,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tercan",
+                "merkezId": 92406,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çayırlı",
+                "merkezId": 92409,
+                "aciklama": ""
+            },
+            {
+                "ad": "Üzümlü",
+                "merkezId": 92407,
+                "aciklama": ""
+            },
+            {
+                "ad": "İliç",
+                "merkezId": 92402,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "ERZURUM",
+        "ilceler": [
+            {
+                "merkezId": 92501,
+                "aciklama": ""
+            },
+            {
+                "ad": "Erzurum Havalimanı",
+                "merkezId": 92522,
+                "aciklama": ""
+            },
+            {
+                "ad": "Aziziye",
+                "merkezId": 92518,
+                "aciklama": ""
+            },
+            {
+                "ad": "Aşkale",
+                "merkezId": 92502,
+                "aciklama": ""
+            },
+            {
+                "ad": "Horasan",
+                "merkezId": 92505,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hınıs",
+                "merkezId": 92504,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karayazı",
+                "merkezId": 92507,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karaçoban",
+                "merkezId": 92515,
+                "aciklama": ""
+            },
+            {
+                "ad": "Köprüköy",
+                "merkezId": 92519,
+                "aciklama": ""
+            },
+            {
+                "ad": "Narman",
+                "merkezId": 92508,
+                "aciklama": ""
+            },
+            {
+                "ad": "Oltu",
+                "merkezId": 92509,
+                "aciklama": ""
+            },
+            {
+                "ad": "Olur",
+                "merkezId": 92510,
+                "aciklama": ""
+            },
+            {
+                "ad": "Palandöken",
+                "merkezId": 92520,
+                "aciklama": ""
+            },
+            {
+                "ad": "Palandöken Kayak Merkezi",
+                "merkezId": 92521,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pasinler",
+                "merkezId": 92511,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pazaryolu",
+                "merkezId": 92517,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tekman",
+                "merkezId": 92513,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tortum",
+                "merkezId": 92514,
+                "aciklama": ""
+            },
+            {
+                "ad": "Uzundere",
+                "merkezId": 92516,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yakutiye",
+                "merkezId": 92501,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çat",
+                "merkezId": 92503,
+                "aciklama": ""
+            },
+            {
+                "ad": "İspir",
+                "merkezId": 92506,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şenkaya",
+                "merkezId": 92512,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "ESKİŞEHİR",
+        "ilceler": [
+            {
+                "merkezId": 92601,
+                "aciklama": ""
+            },
+            {
+                "ad": "Eskişehir Havalimanı",
+                "merkezId": 92615,
+                "aciklama": ""
+            },
+            {
+                "ad": "Alpu",
+                "merkezId": 92609,
+                "aciklama": ""
+            },
+            {
+                "ad": "Beylikova",
+                "merkezId": 92610,
+                "aciklama": ""
+            },
+            {
+                "ad": "Günyüzü",
+                "merkezId": 92612,
+                "aciklama": ""
+            },
+            {
+                "ad": "Han",
+                "merkezId": 92613,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hasan Polatkan Havalimanı",
+                "merkezId": 92616,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mahmudiye",
+                "merkezId": 92604,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mihalgazi",
+                "merkezId": 92614,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mihalıççık",
+                "merkezId": 92605,
+                "aciklama": ""
+            },
+            {
+                "ad": "Odunpazarı",
+                "merkezId": 92601,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sarıcakaya",
+                "merkezId": 92606,
+                "aciklama": ""
+            },
+            {
+                "ad": "Seyitgazi",
+                "merkezId": 92607,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sivrihisar",
+                "merkezId": 92608,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sivrihisar Havalimanı",
+                "merkezId": 92617,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tepebaşı",
+                "merkezId": 92602,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çifteler",
+                "merkezId": 92603,
+                "aciklama": ""
+            },
+            {
+                "ad": "İnönü",
+                "merkezId": 92611,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "GAZİANTEP",
+        "ilceler": [
+            {
+                "merkezId": 92701,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gaziantep Havalimanı",
+                "merkezId": 92710,
+                "aciklama": ""
+            },
+            {
+                "ad": "Araban",
+                "merkezId": 92707,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karkamış",
+                "merkezId": 92705,
+                "aciklama": ""
+            },
+            {
+                "ad": "Nizip",
+                "merkezId": 92709,
+                "aciklama": ""
+            },
+            {
+                "ad": "Nurdağı",
+                "merkezId": 92706,
+                "aciklama": ""
+            },
+            {
+                "ad": "Oğuzeli",
+                "merkezId": 92701,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yavuzeli",
+                "merkezId": 92702,
+                "aciklama": ""
+            },
+            {
+                "ad": "İslahiye",
+                "merkezId": 92708,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şahinbey",
+                "merkezId": 92703,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şehitkamil",
+                "merkezId": 92704,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "GİRESUN",
+        "ilceler": [
+            {
+                "merkezId": 92801,
+                "aciklama": ""
+            },
+            {
+                "ad": "Alucra",
+                "merkezId": 92812,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bulancak",
+                "merkezId": 92813,
+                "aciklama": ""
+            },
+            {
+                "ad": "Dereli",
+                "merkezId": 92814,
+                "aciklama": ""
+            },
+            {
+                "ad": "Doğankent",
+                "merkezId": 92810,
+                "aciklama": ""
+            },
+            {
+                "ad": "Espiye",
+                "merkezId": 92815,
+                "aciklama": "Bu merkez sondurum verisini Giresun/Tirebolu'dan almaktadır."
+            },
+            {
+                "ad": "Eynesil",
+                "merkezId": 92816,
+                "aciklama": ""
+            },
+            {
+                "ad": "Görele",
+                "merkezId": 92802,
+                "aciklama": ""
+            },
+            {
+                "ad": "Güce",
+                "merkezId": 92811,
+                "aciklama": ""
+            },
+            {
+                "ad": "Keşap",
+                "merkezId": 92803,
+                "aciklama": ""
+            },
+            {
+                "ad": "Piraziz",
+                "merkezId": 92806,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tirebolu",
+                "merkezId": 92805,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yağlıdere",
+                "merkezId": 92807,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çamoluk",
+                "merkezId": 92808,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çanakçı",
+                "merkezId": 92809,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şebinkarahisar",
+                "merkezId": 92804,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "GÜMÜŞHANE",
+        "ilceler": [
+            {
+                "merkezId": 92901,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kelkit",
+                "merkezId": 92902,
+                "aciklama": ""
+            },
+            {
+                "ad": "Köse",
+                "merkezId": 92905,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kürtün",
+                "merkezId": 92906,
+                "aciklama": ""
+            },
+            {
+                "ad": "Torul",
+                "merkezId": 92904,
+                "aciklama": ""
+            },
+            {
+                "ad": "Torul Zigana",
+                "merkezId": 92907,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şiran",
+                "merkezId": 92903,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "HAKKARİ",
+        "ilceler": [
+            {
+                "merkezId": 93001,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yüksekova",
+                "merkezId": 93003,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yüksekova Selahaddin Eyyubi Havalimanı",
+                "merkezId": 93005,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çukurca",
+                "merkezId": 93004,
+                "aciklama": "Bu merkez sondurum verisini Hakkari/Şemdinli'den almaktadır."
+            },
+            {
+                "ad": "Şemdinli",
+                "merkezId": 93002,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "HATAY",
+        "ilceler": [
+            {
+                "merkezId": 93101,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hatay Havalimanı",
+                "merkezId": 93116,
+                "aciklama": ""
+            },
+            {
+                "ad": "Altınözü",
+                "merkezId": 93111,
+                "aciklama": ""
+            },
+            {
+                "ad": "Antakya",
+                "merkezId": 93101,
+                "aciklama": ""
+            },
+            {
+                "ad": "Arsuz",
+                "merkezId": 93112,
+                "aciklama": ""
+            },
+            {
+                "ad": "Belen",
+                "merkezId": 93109,
+                "aciklama": ""
+            },
+            {
+                "ad": "Defne",
+                "merkezId": 93113,
+                "aciklama": ""
+            },
+            {
+                "ad": "Dörtyol",
+                "merkezId": 93114,
+                "aciklama": ""
+            },
+            {
+                "ad": "Erzin",
+                "merkezId": 93108,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hassa",
+                "merkezId": 93115,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kumlu",
+                "merkezId": 93110,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kırıkhan",
+                "merkezId": 93103,
+                "aciklama": ""
+            },
+            {
+                "ad": "Payas",
+                "merkezId": 93104,
+                "aciklama": ""
+            },
+            {
+                "ad": "Reyhanlı",
+                "merkezId": 93105,
+                "aciklama": ""
+            },
+            {
+                "ad": "Samandağ",
+                "merkezId": 93106,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yayladağı",
+                "merkezId": 93107,
+                "aciklama": ""
+            },
+            {
+                "ad": "İskenderun",
+                "merkezId": 93102,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "ISPARTA",
+        "ilceler": [
+            {
+                "merkezId": 93201,
+                "aciklama": ""
+            },
+            {
+                "ad": "Aksu",
+                "merkezId": 93208,
+                "aciklama": ""
+            },
+            {
+                "ad": "Atabey",
+                "merkezId": 93211,
+                "aciklama": ""
+            },
+            {
+                "ad": "Davraz Kayak Merkezi",
+                "merkezId": 93214,
+                "aciklama": ""
+            },
+            {
+                "ad": "Eğirdir",
+                "merkezId": 93212,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gelendost",
+                "merkezId": 93213,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gönen",
+                "merkezId": 93209,
+                "aciklama": ""
+            },
+            {
+                "ad": "Keçiborlu",
+                "merkezId": 93202,
+                "aciklama": ""
+            },
+            {
+                "ad": "Senirkent",
+                "merkezId": 93203,
+                "aciklama": ""
+            },
+            {
+                "ad": "Süleyman Demirel Havalimanı",
+                "merkezId": 93215,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sütçüler",
+                "merkezId": 93204,
+                "aciklama": ""
+            },
+            {
+                "ad": "Uluborlu",
+                "merkezId": 93206,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yalvaç",
+                "merkezId": 93207,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yenişarbademli",
+                "merkezId": 93210,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şarkikaraağaç",
+                "merkezId": 93205,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "MERSİN",
+        "ilceler": [
+            {
+                "merkezId": 93301,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akdeniz",
+                "merkezId": 93301,
+                "aciklama": ""
+            },
+            {
+                "ad": "Anamur",
+                "merkezId": 93310,
+                "aciklama": ""
+            },
+            {
+                "ad": "Aydıncık",
+                "merkezId": 93307,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bozyazı",
+                "merkezId": 93308,
+                "aciklama": ""
+            },
+            {
+                "ad": "Erdemli",
+                "merkezId": 93302,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gülnar",
+                "merkezId": 93303,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mezitli",
+                "merkezId": 93311,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mut",
+                "merkezId": 93304,
+                "aciklama": ""
+            },
+            {
+                "ad": "Silifke",
+                "merkezId": 93305,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tarsus",
+                "merkezId": 93306,
+                "aciklama": ""
+            },
+            {
+                "ad": "Toroslar",
+                "merkezId": 93312,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yenişehir",
+                "merkezId": 93313,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çamlıyayla",
+                "merkezId": 93309,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "İSTANBUL",
+        "ilceler": [
+            {
+                "merkezId": 93401,
+                "aciklama": "Bu merkez sondurum verisini Atatürk Havalimanı'ndan almaktadır."
+            },
+            {
+                "ad": "İstanbul Havalimanı",
+                "merkezId": 93445,
+                "aciklama": ""
+            },
+            {
+                "ad": "Adalar",
+                "merkezId": 93439,
+                "aciklama": ""
+            },
+            {
+                "ad": "Arnavutköy",
+                "merkezId": 93431,
+                "aciklama": ""
+            },
+            {
+                "ad": "Atatürk Havalimanı",
+                "merkezId": 93440,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ataşehir",
+                "merkezId": 93432,
+                "aciklama": ""
+            },
+            {
+                "ad": "Avcılar",
+                "merkezId": 93423,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bahçelievler",
+                "merkezId": 93425,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bakırköy",
+                "merkezId": 93401,
+                "aciklama": "Bu merkez sondurum verisini Atatürk Havalimanı'ndan almaktadır."
+            },
+            {
+                "ad": "Bayrampaşa",
+                "merkezId": 93422,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bağcılar",
+                "merkezId": 93424,
+                "aciklama": ""
+            },
+            {
+                "ad": "Başakşehir",
+                "merkezId": 93433,
+                "aciklama": ""
+            },
+            {
+                "ad": "Beykoz",
+                "merkezId": 93403,
+                "aciklama": ""
+            },
+            {
+                "ad": "Beylikdüzü",
+                "merkezId": 93434,
+                "aciklama": ""
+            },
+            {
+                "ad": "Beyoğlu",
+                "merkezId": 93404,
+                "aciklama": ""
+            },
+            {
+                "ad": "Beşiktaş",
+                "merkezId": 93402,
+                "aciklama": ""
+            },
+            {
+                "ad": "Büyükçekmece",
+                "merkezId": 93417,
+                "aciklama": ""
+            },
+            {
+                "ad": "Esenler",
+                "merkezId": 93430,
+                "aciklama": ""
+            },
+            {
+                "ad": "Esenyurt",
+                "merkezId": 93436,
+                "aciklama": ""
+            },
+            {
+                "ad": "Eyüpsultan",
+                "merkezId": 93406,
+                "aciklama": ""
+            },
+            {
+                "ad": "Fatih",
+                "merkezId": 93407,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gaziosmanpaşa",
+                "merkezId": 93408,
+                "aciklama": ""
+            },
+            {
+                "ad": "Güngören",
+                "merkezId": 93426,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kadıköy",
+                "merkezId": 93409,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kartal",
+                "merkezId": 93410,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kağıthane",
+                "merkezId": 93418,
+                "aciklama": ""
+            },
+            {
+                "ad": "Küçükçekmece",
+                "merkezId": 93419,
+                "aciklama": ""
+            },
+            {
+                "ad": "Maltepe",
+                "merkezId": 93427,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pendik",
+                "merkezId": 93420,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sabiha Gökçen Havalimanı",
+                "merkezId": 93441,
+                "aciklama": ""
+            },
+            {
+                "ad": "Samandıra Havalimanı",
+                "merkezId": 93442,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sancaktepe",
+                "merkezId": 93437,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sarıyer",
+                "merkezId": 93411,
+                "aciklama": ""
+            },
+            {
+                "ad": "Silivri",
+                "merkezId": 93412,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sultanbeyli",
+                "merkezId": 93428,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sultangazi",
+                "merkezId": 93438,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tuzla",
+                "merkezId": 93429,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yavuz Sultan Selim Köprüsü",
+                "merkezId": 93443,
+                "aciklama": ""
+            },
+            {
+                "ad": "Zeytinburnu",
+                "merkezId": 93416,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çatalca",
+                "merkezId": 93405,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çekmeköy",
+                "merkezId": 93435,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ümraniye",
+                "merkezId": 93421,
+                "aciklama": ""
+            },
+            {
+                "ad": "Üsküdar",
+                "merkezId": 93415,
+                "aciklama": ""
+            },
+            {
+                "ad": "İtü Maslak Yerleşkesi",
+                "merkezId": 93444,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şile",
+                "merkezId": 93413,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şişli",
+                "merkezId": 93414,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "İZMİR",
+        "ilceler": [
+            {
+                "merkezId": 93501,
+                "aciklama": ""
+            },
+            {
+                "ad": "Adnan Menderes Havalimanı",
+                "merkezId": 93531,
+                "aciklama": ""
+            },
+            {
+                "ad": "Aliağa",
+                "merkezId": 93510,
+                "aciklama": ""
+            },
+            {
+                "ad": "Balçova",
+                "merkezId": 93503,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bayraklı",
+                "merkezId": 93508,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bayındır",
+                "merkezId": 93511,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bergama",
+                "merkezId": 93512,
+                "aciklama": ""
+            },
+            {
+                "ad": "Beydağ",
+                "merkezId": 93529,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bornova",
+                "merkezId": 93513,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bozdağ Kayak Merkezi",
+                "merkezId": 93533,
+                "aciklama": ""
+            },
+            {
+                "ad": "Buca",
+                "merkezId": 93530,
+                "aciklama": ""
+            },
+            {
+                "ad": "Dikili",
+                "merkezId": 93515,
+                "aciklama": ""
+            },
+            {
+                "ad": "Foça",
+                "merkezId": 93516,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gaziemir",
+                "merkezId": 93505,
+                "aciklama": ""
+            },
+            {
+                "ad": "Güzelbahçe",
+                "merkezId": 93507,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kaklıç Havalimanı",
+                "merkezId": 93534,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karabağlar",
+                "merkezId": 93509,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karaburun",
+                "merkezId": 93517,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karşıyaka",
+                "merkezId": 93518,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kemalpaşa",
+                "merkezId": 93519,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kiraz",
+                "merkezId": 93521,
+                "aciklama": ""
+            },
+            {
+                "ad": "Konak",
+                "merkezId": 93501,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kınık",
+                "merkezId": 93520,
+                "aciklama": ""
+            },
+            {
+                "ad": "Menderes",
+                "merkezId": 93502,
+                "aciklama": ""
+            },
+            {
+                "ad": "Menemen",
+                "merkezId": 93522,
+                "aciklama": ""
+            },
+            {
+                "ad": "Narlıdere",
+                "merkezId": 93506,
+                "aciklama": ""
+            },
+            {
+                "ad": "Seferihisar",
+                "merkezId": 93524,
+                "aciklama": ""
+            },
+            {
+                "ad": "Selçuk",
+                "merkezId": 93525,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tire",
+                "merkezId": 93526,
+                "aciklama": ""
+            },
+            {
+                "ad": "Torbalı",
+                "merkezId": 93527,
+                "aciklama": ""
+            },
+            {
+                "ad": "Urla",
+                "merkezId": 93528,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çeşme",
+                "merkezId": 93514,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çiğli",
+                "merkezId": 93504,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çiğli Havalimanı",
+                "merkezId": 93532,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ödemiş",
+                "merkezId": 93523,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "KARS",
+        "ilceler": [
+            {
+                "merkezId": 93601,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karşıyaka",
+                "merkezId": 93518,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akyaka",
+                "merkezId": 93605,
+                "aciklama": ""
+            },
+            {
+                "ad": "Arpaçay",
+                "merkezId": 93606,
+                "aciklama": ""
+            },
+            {
+                "ad": "Digor",
+                "merkezId": 93607,
+                "aciklama": ""
+            },
+            {
+                "ad": "Harakani Havalimanı",
+                "merkezId": 93610,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kağızman",
+                "merkezId": 93608,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sarıkamış",
+                "merkezId": 93602,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sarıkamış Kayak Merkezi",
+                "merkezId": 93609,
+                "aciklama": ""
+            },
+            {
+                "ad": "Selim",
+                "merkezId": 93603,
+                "aciklama": ""
+            },
+            {
+                "ad": "Susuz",
+                "merkezId": 93604,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "KASTAMONU",
+        "ilceler": [
+            {
+                "merkezId": 93701,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kastamonu Havalimanı",
+                "merkezId": 93721,
+                "aciklama": ""
+            },
+            {
+                "ad": "Abana",
+                "merkezId": 93712,
+                "aciklama": ""
+            },
+            {
+                "ad": "Araç",
+                "merkezId": 93713,
+                "aciklama": ""
+            },
+            {
+                "ad": "Azdavay",
+                "merkezId": 93714,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ağlı",
+                "merkezId": 93708,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bozkurt",
+                "merkezId": 93715,
+                "aciklama": ""
+            },
+            {
+                "ad": "Cide",
+                "merkezId": 93716,
+                "aciklama": ""
+            },
+            {
+                "ad": "Daday",
+                "merkezId": 93718,
+                "aciklama": ""
+            },
+            {
+                "ad": "Devrekani",
+                "merkezId": 93719,
+                "aciklama": ""
+            },
+            {
+                "ad": "Doğanyurt",
+                "merkezId": 93709,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hanönü",
+                "merkezId": 93710,
+                "aciklama": ""
+            },
+            {
+                "ad": "Küre",
+                "merkezId": 93702,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pınarbaşı",
+                "merkezId": 93706,
+                "aciklama": ""
+            },
+            {
+                "ad": "Seydiler",
+                "merkezId": 93711,
+                "aciklama": ""
+            },
+            {
+                "ad": "Taşköprü",
+                "merkezId": 93703,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tosya",
+                "merkezId": 93704,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çatalzeytin",
+                "merkezId": 93717,
+                "aciklama": ""
+            },
+            {
+                "ad": "İhsangazi",
+                "merkezId": 93705,
+                "aciklama": ""
+            },
+            {
+                "ad": "İnebolu",
+                "merkezId": 93720,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şenpazar",
+                "merkezId": 93707,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "KAYSERİ",
+        "ilceler": [
+            {
+                "merkezId": 93801,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kayseri Havalimanı",
+                "merkezId": 93818,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akkışla",
+                "merkezId": 93815,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bünyan",
+                "merkezId": 93805,
+                "aciklama": ""
+            },
+            {
+                "ad": "Develi",
+                "merkezId": 93806,
+                "aciklama": ""
+            },
+            {
+                "ad": "Erciyes Kayak Merkezi",
+                "merkezId": 93817,
+                "aciklama": ""
+            },
+            {
+                "ad": "Felahiye",
+                "merkezId": 93807,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hacılar",
+                "merkezId": 93803,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kocasinan",
+                "merkezId": 93801,
+                "aciklama": ""
+            },
+            {
+                "ad": "Melikgazi",
+                "merkezId": 93802,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pınarbaşı",
+                "merkezId": 93809,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sarıoğlan",
+                "merkezId": 93810,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sarız",
+                "merkezId": 93811,
+                "aciklama": ""
+            },
+            {
+                "ad": "Talas",
+                "merkezId": 93816,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tomarza",
+                "merkezId": 93812,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yahyalı",
+                "merkezId": 93813,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yeşilhisar",
+                "merkezId": 93814,
+                "aciklama": ""
+            },
+            {
+                "ad": "Özvatan",
+                "merkezId": 93804,
+                "aciklama": ""
+            },
+            {
+                "ad": "İncesu",
+                "merkezId": 93808,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "KIRKLARELİ",
+        "ilceler": [
+            {
+                "merkezId": 93901,
+                "aciklama": ""
+            },
+            {
+                "ad": "Babaeski",
+                "merkezId": 93907,
+                "aciklama": ""
+            },
+            {
+                "ad": "Demirköy",
+                "merkezId": 93908,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kofçaz",
+                "merkezId": 93902,
+                "aciklama": ""
+            },
+            {
+                "ad": "Lüleburgaz",
+                "merkezId": 93903,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pehlivanköy",
+                "merkezId": 93904,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pınarhisar",
+                "merkezId": 93905,
+                "aciklama": ""
+            },
+            {
+                "ad": "Vize",
+                "merkezId": 93906,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "KIRŞEHİR",
+        "ilceler": [
+            {
+                "merkezId": 94001,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akpınar",
+                "merkezId": 94003,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akçakent",
+                "merkezId": 94004,
+                "aciklama": ""
+            },
+            {
+                "ad": "Boztepe",
+                "merkezId": 94005,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kaman",
+                "merkezId": 94007,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mucur",
+                "merkezId": 94002,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çiçekdağı",
+                "merkezId": 94006,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "KOCAELİ",
+        "ilceler": [
+            {
+                "merkezId": 94101,
+                "aciklama": ""
+            },
+            {
+                "ad": "Başiskele",
+                "merkezId": 94109,
+                "aciklama": ""
+            },
+            {
+                "ad": "Cengiz Topel Havalimanı",
+                "merkezId": 94114,
+                "aciklama": ""
+            },
+            {
+                "ad": "Darıca",
+                "merkezId": 94111,
+                "aciklama": ""
+            },
+            {
+                "ad": "Derince",
+                "merkezId": 94108,
+                "aciklama": ""
+            },
+            {
+                "ad": "Dilovası",
+                "merkezId": 94112,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gebze",
+                "merkezId": 94103,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gölcük",
+                "merkezId": 94104,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kandıra",
+                "merkezId": 94105,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karamürsel",
+                "merkezId": 94106,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kartepe",
+                "merkezId": 94102,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kartepe Kayak Merkezi",
+                "merkezId": 94113,
+                "aciklama": ""
+            },
+            {
+                "ad": "Körfez",
+                "merkezId": 94107,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çayırova",
+                "merkezId": 94110,
+                "aciklama": ""
+            },
+            {
+                "ad": "İzmit",
+                "merkezId": 94101,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "KONYA",
+        "ilceler": [
+            {
+                "merkezId": 94201,
+                "aciklama": ""
+            },
+            {
+                "ad": "Konya Havalimanı",
+                "merkezId": 94232,
+                "aciklama": ""
+            },
+            {
+                "ad": "Konyaaltı",
+                "merkezId": 90719,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ahırlı",
+                "merkezId": 94204,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akören",
+                "merkezId": 94227,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akşehir",
+                "merkezId": 94212,
+                "aciklama": ""
+            },
+            {
+                "ad": "Altınekin",
+                "merkezId": 94228,
+                "aciklama": ""
+            },
+            {
+                "ad": "Beyşehir",
+                "merkezId": 94213,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bozkır",
+                "merkezId": 94214,
+                "aciklama": ""
+            },
+            {
+                "ad": "Cihanbeyli",
+                "merkezId": 94215,
+                "aciklama": ""
+            },
+            {
+                "ad": "Derbent",
+                "merkezId": 94206,
+                "aciklama": ""
+            },
+            {
+                "ad": "Derebucak",
+                "merkezId": 94229,
+                "aciklama": ""
+            },
+            {
+                "ad": "Doğanhisar",
+                "merkezId": 94217,
+                "aciklama": ""
+            },
+            {
+                "ad": "Emirgazi",
+                "merkezId": 94207,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ereğli",
+                "merkezId": 94218,
+                "aciklama": ""
+            },
+            {
+                "ad": "Güneysınır",
+                "merkezId": 94208,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hadim",
+                "merkezId": 94219,
+                "aciklama": ""
+            },
+            {
+                "ad": "Halkapınar",
+                "merkezId": 94209,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hüyük",
+                "merkezId": 94230,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ilgın",
+                "merkezId": 94220,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kadınhanı",
+                "merkezId": 94221,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karapınar",
+                "merkezId": 94222,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karatay",
+                "merkezId": 94231,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kulu",
+                "merkezId": 94223,
+                "aciklama": ""
+            },
+            {
+                "ad": "Meram",
+                "merkezId": 94201,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sarayönü",
+                "merkezId": 94224,
+                "aciklama": ""
+            },
+            {
+                "ad": "Selçuklu",
+                "merkezId": 94202,
+                "aciklama": ""
+            },
+            {
+                "ad": "Seydişehir",
+                "merkezId": 94225,
+                "aciklama": ""
+            },
+            {
+                "ad": "Taşkent",
+                "merkezId": 94203,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tuzlukçu",
+                "merkezId": 94210,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yalıhüyük",
+                "merkezId": 94211,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yunak",
+                "merkezId": 94226,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çeltik",
+                "merkezId": 94205,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çumra",
+                "merkezId": 94216,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "KÜTAHYA",
+        "ilceler": [
+            {
+                "merkezId": 94301,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kütahya Havalimanı",
+                "merkezId": 94315,
+                "aciklama": ""
+            },
+            {
+                "ad": "Altıntaş",
+                "merkezId": 94310,
+                "aciklama": ""
+            },
+            {
+                "ad": "Aslanapa",
+                "merkezId": 94304,
+                "aciklama": ""
+            },
+            {
+                "ad": "Domaniç",
+                "merkezId": 94311,
+                "aciklama": ""
+            },
+            {
+                "ad": "Dumlupınar",
+                "merkezId": 94305,
+                "aciklama": ""
+            },
+            {
+                "ad": "Emet",
+                "merkezId": 94312,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gediz",
+                "merkezId": 94313,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hisarcık",
+                "merkezId": 94306,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pazarlar",
+                "merkezId": 94309,
+                "aciklama": ""
+            },
+            {
+                "ad": "Simav",
+                "merkezId": 94302,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tavşanlı",
+                "merkezId": 94303,
+                "aciklama": ""
+            },
+            {
+                "ad": "Zafer Havalimanı",
+                "merkezId": 94314,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çavdarhisar",
+                "merkezId": 94308,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şaphane",
+                "merkezId": 94307,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "MALATYA",
+        "ilceler": [
+            {
+                "merkezId": 94401,
+                "aciklama": ""
+            },
+            {
+                "ad": "Malatya Havalimanı",
+                "merkezId": 94415,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akçadağ",
+                "merkezId": 94409,
+                "aciklama": ""
+            },
+            {
+                "ad": "Arapgir",
+                "merkezId": 94410,
+                "aciklama": ""
+            },
+            {
+                "ad": "Arguvan",
+                "merkezId": 94411,
+                "aciklama": ""
+            },
+            {
+                "ad": "Battalgazi",
+                "merkezId": 94404,
+                "aciklama": ""
+            },
+            {
+                "ad": "Darende",
+                "merkezId": 94412,
+                "aciklama": ""
+            },
+            {
+                "ad": "Doğanyol",
+                "merkezId": 94405,
+                "aciklama": ""
+            },
+            {
+                "ad": "Doğanşehir",
+                "merkezId": 94413,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hekimhan",
+                "merkezId": 94414,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kale",
+                "merkezId": 94406,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kuluncak",
+                "merkezId": 94407,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pütürge",
+                "merkezId": 94402,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tulga Havalimanı",
+                "merkezId": 94416,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yazıhan",
+                "merkezId": 94408,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yeşilyurt",
+                "merkezId": 94403,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "MANİSA",
+        "ilceler": [
+            {
+                "merkezId": 94508,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ahmetli",
+                "merkezId": 94510,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akhisar",
+                "merkezId": 94513,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akhisar Havalimanı",
+                "merkezId": 94520,
+                "aciklama": ""
+            },
+            {
+                "ad": "Alaşehir",
+                "merkezId": 94514,
+                "aciklama": ""
+            },
+            {
+                "ad": "Demirci",
+                "merkezId": 94515,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gölmarmara",
+                "merkezId": 94511,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gördes",
+                "merkezId": 94516,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kula",
+                "merkezId": 94518,
+                "aciklama": ""
+            },
+            {
+                "ad": "Köprübaşı",
+                "merkezId": 94512,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kırkağaç",
+                "merkezId": 94517,
+                "aciklama": ""
+            },
+            {
+                "ad": "Salihli",
+                "merkezId": 94502,
+                "aciklama": ""
+            },
+            {
+                "ad": "Saruhanlı",
+                "merkezId": 94504,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sarıgöl",
+                "merkezId": 94503,
+                "aciklama": ""
+            },
+            {
+                "ad": "Selendi",
+                "merkezId": 94505,
+                "aciklama": ""
+            },
+            {
+                "ad": "Soma",
+                "merkezId": 94506,
+                "aciklama": ""
+            },
+            {
+                "ad": "Spil Dağı Milli Parkı",
+                "merkezId": 94519,
+                "aciklama": ""
+            },
+            {
+                "ad": "Turgutlu",
+                "merkezId": 94509,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yunusemre",
+                "merkezId": 94508,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şehzadeler",
+                "merkezId": 94507,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "KAHRAMANMARAŞ",
+        "ilceler": [
+            {
+                "merkezId": 94609,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kahramanmaraş Havalimanı",
+                "merkezId": 94613,
+                "aciklama": ""
+            },
+            {
+                "ad": "Afşin",
+                "merkezId": 94607,
+                "aciklama": ""
+            },
+            {
+                "ad": "Andırın",
+                "merkezId": 94608,
+                "aciklama": ""
+            },
+            {
+                "ad": "Dulkadiroğlu",
+                "merkezId": 94609,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ekinözü",
+                "merkezId": 94605,
+                "aciklama": ""
+            },
+            {
+                "ad": "Elbistan",
+                "merkezId": 94611,
+                "aciklama": ""
+            },
+            {
+                "ad": "Göksun",
+                "merkezId": 94612,
+                "aciklama": ""
+            },
+            {
+                "ad": "Nurhak",
+                "merkezId": 94606,
+                "aciklama": ""
+            },
+            {
+                "ad": "Onikişubat",
+                "merkezId": 94610,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pazarcık",
+                "merkezId": 94602,
+                "aciklama": ""
+            },
+            {
+                "ad": "Türkoğlu",
+                "merkezId": 94603,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çağlayancerit",
+                "merkezId": 94604,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "MARDİN",
+        "ilceler": [
+            {
+                "merkezId": 94711,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mardin Havalimanı",
+                "merkezId": 94712,
+                "aciklama": ""
+            },
+            {
+                "ad": "Artuklu",
+                "merkezId": 94711,
+                "aciklama": ""
+            },
+            {
+                "ad": "Dargeçit",
+                "merkezId": 94707,
+                "aciklama": ""
+            },
+            {
+                "ad": "Derik",
+                "merkezId": 94709,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kızıltepe",
+                "merkezId": 94710,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mazıdağı",
+                "merkezId": 94702,
+                "aciklama": ""
+            },
+            {
+                "ad": "Midyat",
+                "merkezId": 94703,
+                "aciklama": ""
+            },
+            {
+                "ad": "Nusaybin",
+                "merkezId": 94704,
+                "aciklama": ""
+            },
+            {
+                "ad": "Savur",
+                "merkezId": 94706,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yeşilli",
+                "merkezId": 94708,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ömerli",
+                "merkezId": 94705,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "MUĞLA",
+        "ilceler": [
+            {
+                "merkezId": 94801,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bodrum",
+                "merkezId": 94809,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bodrum Imsık Havalimanı",
+                "merkezId": 94816,
+                "aciklama": ""
+            },
+            {
+                "ad": "Dalaman",
+                "merkezId": 94805,
+                "aciklama": ""
+            },
+            {
+                "ad": "Dalaman Havalimanı",
+                "merkezId": 94814,
+                "aciklama": ""
+            },
+            {
+                "ad": "Datça",
+                "merkezId": 94810,
+                "aciklama": ""
+            },
+            {
+                "ad": "Fethiye",
+                "merkezId": 94811,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kavaklıdere",
+                "merkezId": 94808,
+                "aciklama": ""
+            },
+            {
+                "ad": "Köyceğiz",
+                "merkezId": 94812,
+                "aciklama": ""
+            },
+            {
+                "ad": "Marmaris",
+                "merkezId": 94813,
+                "aciklama": ""
+            },
+            {
+                "ad": "Menteşe",
+                "merkezId": 94801,
+                "aciklama": ""
+            },
+            {
+                "ad": "Milas",
+                "merkezId": 94802,
+                "aciklama": ""
+            },
+            {
+                "ad": "Milas Bodrum Havalimanı",
+                "merkezId": 94815,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ortaca",
+                "merkezId": 94807,
+                "aciklama": ""
+            },
+            {
+                "ad": "Seydikemer",
+                "merkezId": 94806,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ula",
+                "merkezId": 94803,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yatağan",
+                "merkezId": 94804,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "MUŞ",
+        "ilceler": [
+            {
+                "merkezId": 94901,
+                "aciklama": ""
+            },
+            {
+                "ad": "Muş Havalimanı",
+                "merkezId": 94907,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bulanık",
+                "merkezId": 94905,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hasköy",
+                "merkezId": 94903,
+                "aciklama": ""
+            },
+            {
+                "ad": "Korkut",
+                "merkezId": 94904,
+                "aciklama": ""
+            },
+            {
+                "ad": "Malazgirt",
+                "merkezId": 94906,
+                "aciklama": ""
+            },
+            {
+                "ad": "Varto",
+                "merkezId": 94902,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "NEVŞEHİR",
+        "ilceler": [
+            {
+                "merkezId": 95001,
+                "aciklama": ""
+            },
+            {
+                "ad": "Acıgöl",
+                "merkezId": 95003,
+                "aciklama": ""
+            },
+            {
+                "ad": "Avanos",
+                "merkezId": 95004,
+                "aciklama": ""
+            },
+            {
+                "ad": "Derinkuyu",
+                "merkezId": 95005,
+                "aciklama": ""
+            },
+            {
+                "ad": "Göreme Kapadokya",
+                "merkezId": 95009,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gülşehir",
+                "merkezId": 95006,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hacıbektaş",
+                "merkezId": 95007,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kapadokya Havalimanı",
+                "merkezId": 95010,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kozaklı",
+                "merkezId": 95008,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ürgüp",
+                "merkezId": 95002,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "NİĞDE",
+        "ilceler": [
+            {
+                "merkezId": 95101,
+                "aciklama": ""
+            },
+            {
+                "ad": "Altunhisar",
+                "merkezId": 95103,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bor",
+                "merkezId": 95105,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ulukışla",
+                "merkezId": 95102,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çamardı",
+                "merkezId": 95106,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çiftlik",
+                "merkezId": 95104,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "ORDU",
+        "ilceler": [
+            {
+                "merkezId": 95201,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ordu Giresun Havalimanı",
+                "merkezId": 95221,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akkuş",
+                "merkezId": 95219,
+                "aciklama": ""
+            },
+            {
+                "ad": "Altınordu",
+                "merkezId": 95201,
+                "aciklama": ""
+            },
+            {
+                "ad": "Aybastı",
+                "merkezId": 95202,
+                "aciklama": ""
+            },
+            {
+                "ad": "Fatsa",
+                "merkezId": 95203,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gölköy",
+                "merkezId": 95204,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gülyalı",
+                "merkezId": 95211,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gürgentepe",
+                "merkezId": 95212,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kabadüz",
+                "merkezId": 95217,
+                "aciklama": "Bu merkez sondurum verisini Ordu/Ulubey'den almaktadır."
+            },
+            {
+                "ad": "Kabataş",
+                "merkezId": 95218,
+                "aciklama": ""
+            },
+            {
+                "ad": "Korgan",
+                "merkezId": 95205,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kumru",
+                "merkezId": 95206,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mesudiye",
+                "merkezId": 95207,
+                "aciklama": ""
+            },
+            {
+                "ad": "Perşembe",
+                "merkezId": 95208,
+                "aciklama": "Bu merkez sondurum verisini Ordu/Perşembe (Yasonburnu Feneri)'den almaktadır."
+            },
+            {
+                "ad": "Ulubey",
+                "merkezId": 95209,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çamaş",
+                "merkezId": 95213,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çambaşı Kayak Merkezi",
+                "merkezId": 95220,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çatalpınar",
+                "merkezId": 95214,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çaybaşı",
+                "merkezId": 95215,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ünye",
+                "merkezId": 95210,
+                "aciklama": ""
+            },
+            {
+                "ad": "İkizce",
+                "merkezId": 95216,
+                "aciklama": "Bu merkez sondurum verisini Ordu/İkizce (Şenbolluk)'den almaktadır."
+            }
+        ]
+    },
+    {
+        "il": "RİZE",
+        "ilceler": [
+            {
+                "merkezId": 95301,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ardeşen",
+                "merkezId": 95306,
+                "aciklama": ""
+            },
+            {
+                "ad": "Derepazarı",
+                "merkezId": 95303,
+                "aciklama": ""
+            },
+            {
+                "ad": "Fındıklı",
+                "merkezId": 95309,
+                "aciklama": ""
+            },
+            {
+                "ad": "Güneysu",
+                "merkezId": 95302,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hemşin",
+                "merkezId": 95304,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kalkandere",
+                "merkezId": 95311,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pazar",
+                "merkezId": 95312,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çamlıhemşin",
+                "merkezId": 95307,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çamlıhemşin Ayder",
+                "merkezId": 95313,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çayeli",
+                "merkezId": 95308,
+                "aciklama": ""
+            },
+            {
+                "ad": "İkizdere",
+                "merkezId": 95310,
+                "aciklama": ""
+            },
+            {
+                "ad": "İyidere",
+                "merkezId": 95305,
+                "aciklama": "Bu merkez sondurum verilerini OF/Fidanlık istasyonundan almaktadır."
+            }
+        ]
+    },
+    {
+        "il": "SAKARYA",
+        "ilceler": [
+            {
+                "merkezId": 95401,
+                "aciklama": ""
+            },
+            {
+                "ad": "Adapazarı",
+                "merkezId": 95401,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akyazı",
+                "merkezId": 95405,
+                "aciklama": ""
+            },
+            {
+                "ad": "Arifiye",
+                "merkezId": 95402,
+                "aciklama": ""
+            },
+            {
+                "ad": "Erenler",
+                "merkezId": 95403,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ferizli",
+                "merkezId": 95414,
+                "aciklama": ""
+            },
+            {
+                "ad": "Geyve",
+                "merkezId": 95406,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hendek",
+                "merkezId": 95407,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karapürçek",
+                "merkezId": 95415,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karasu",
+                "merkezId": 95408,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kaynarca",
+                "merkezId": 95409,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kocaali",
+                "merkezId": 95411,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pamukova",
+                "merkezId": 95412,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sapanca",
+                "merkezId": 95410,
+                "aciklama": ""
+            },
+            {
+                "ad": "Serdivan",
+                "merkezId": 95404,
+                "aciklama": ""
+            },
+            {
+                "ad": "Söğütlü",
+                "merkezId": 95416,
+                "aciklama": ""
+            },
+            {
+                "ad": "Taraklı",
+                "merkezId": 95413,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "SAMSUN",
+        "ilceler": [
+            {
+                "merkezId": 95501,
+                "aciklama": ""
+            },
+            {
+                "ad": "Alaçam",
+                "merkezId": 95504,
+                "aciklama": ""
+            },
+            {
+                "ad": "Asarcık",
+                "merkezId": 95512,
+                "aciklama": ""
+            },
+            {
+                "ad": "Atakum",
+                "merkezId": 95501,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ayvacık",
+                "merkezId": 95516,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bafra",
+                "merkezId": 95505,
+                "aciklama": ""
+            },
+            {
+                "ad": "Canik",
+                "merkezId": 95502,
+                "aciklama": ""
+            },
+            {
+                "ad": "Havza",
+                "merkezId": 95507,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kavak",
+                "merkezId": 95508,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ladik",
+                "merkezId": 95509,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ladik - Akdağ Kayak Merkezi",
+                "merkezId": 95518,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ondokuzmayıs",
+                "merkezId": 95513,
+                "aciklama": ""
+            },
+            {
+                "ad": "Salıpazarı",
+                "merkezId": 95514,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tekkeköy",
+                "merkezId": 95515,
+                "aciklama": ""
+            },
+            {
+                "ad": "Terme",
+                "merkezId": 95510,
+                "aciklama": ""
+            },
+            {
+                "ad": "Vezirköprü",
+                "merkezId": 95511,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yakakent",
+                "merkezId": 95517,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çarşamba",
+                "merkezId": 95506,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çarşamba Havalimanı",
+                "merkezId": 95519,
+                "aciklama": ""
+            },
+            {
+                "ad": "İlkadım",
+                "merkezId": 95503,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "SİİRT",
+        "ilceler": [
+            {
+                "merkezId": 95601,
+                "aciklama": ""
+            },
+            {
+                "ad": "Siirt Havalimanı",
+                "merkezId": 95608,
+                "aciklama": ""
+            },
+            {
+                "ad": "Baykan",
+                "merkezId": 95604,
+                "aciklama": ""
+            },
+            {
+                "ad": "Eruh",
+                "merkezId": 95605,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kurtalan",
+                "merkezId": 95606,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pervari",
+                "merkezId": 95607,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tillo",
+                "merkezId": 95603,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şirvan",
+                "merkezId": 95602,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "SİNOP",
+        "ilceler": [
+            {
+                "merkezId": 95701,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sinop Havalimanı",
+                "merkezId": 95710,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ayancık",
+                "merkezId": 95705,
+                "aciklama": ""
+            },
+            {
+                "ad": "Boyabat",
+                "merkezId": 95706,
+                "aciklama": ""
+            },
+            {
+                "ad": "Dikmen",
+                "merkezId": 95703,
+                "aciklama": ""
+            },
+            {
+                "ad": "Durağan",
+                "merkezId": 95707,
+                "aciklama": ""
+            },
+            {
+                "ad": "Erfelek",
+                "merkezId": 95708,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gerze",
+                "merkezId": 95709,
+                "aciklama": ""
+            },
+            {
+                "ad": "Saraydüzü",
+                "merkezId": 95704,
+                "aciklama": ""
+            },
+            {
+                "ad": "Türkeli",
+                "merkezId": 95702,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "SİVAS",
+        "ilceler": [
+            {
+                "merkezId": 95801,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sivaslı",
+                "merkezId": 96405,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akıncılar",
+                "merkezId": 95806,
+                "aciklama": ""
+            },
+            {
+                "ad": "Altınyayla",
+                "merkezId": 95807,
+                "aciklama": ""
+            },
+            {
+                "ad": "Divriği",
+                "merkezId": 95811,
+                "aciklama": ""
+            },
+            {
+                "ad": "Doğanşar",
+                "merkezId": 95808,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gemerek",
+                "merkezId": 95812,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gölova",
+                "merkezId": 95809,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gürün",
+                "merkezId": 95813,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hafik",
+                "merkezId": 95814,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kangal",
+                "merkezId": 95816,
+                "aciklama": ""
+            },
+            {
+                "ad": "Koyulhisar",
+                "merkezId": 95817,
+                "aciklama": ""
+            },
+            {
+                "ad": "Nuri Demirağ Havalimanı",
+                "merkezId": 95819,
+                "aciklama": ""
+            },
+            {
+                "ad": "Suşehri",
+                "merkezId": 95802,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ulaş",
+                "merkezId": 95810,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yıldızdağı Kayak Merkezi",
+                "merkezId": 95818,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yıldızeli",
+                "merkezId": 95804,
+                "aciklama": ""
+            },
+            {
+                "ad": "Zara",
+                "merkezId": 95805,
+                "aciklama": ""
+            },
+            {
+                "ad": "İmranlı",
+                "merkezId": 95815,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şarkışla",
+                "merkezId": 95803,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "TEKİRDAĞ",
+        "ilceler": [
+            {
+                "merkezId": 95901,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ergene",
+                "merkezId": 95907,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hayrabolu",
+                "merkezId": 95908,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kapaklı",
+                "merkezId": 95902,
+                "aciklama": ""
+            },
+            {
+                "ad": "Malkara",
+                "merkezId": 95909,
+                "aciklama": ""
+            },
+            {
+                "ad": "Marmaraereğlisi",
+                "merkezId": 95904,
+                "aciklama": ""
+            },
+            {
+                "ad": "Muratlı",
+                "merkezId": 95910,
+                "aciklama": ""
+            },
+            {
+                "ad": "Saray",
+                "merkezId": 95911,
+                "aciklama": ""
+            },
+            {
+                "ad": "Süleymanpaşa",
+                "merkezId": 95901,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çerkezköy",
+                "merkezId": 95905,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çorlu",
+                "merkezId": 95906,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çorlu Havalimanı",
+                "merkezId": 95912,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şarköy",
+                "merkezId": 95903,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "TOKAT",
+        "ilceler": [
+            {
+                "merkezId": 96001,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tokat Havalimanı",
+                "merkezId": 96013,
+                "aciklama": ""
+            },
+            {
+                "ad": "Almus",
+                "merkezId": 96008,
+                "aciklama": ""
+            },
+            {
+                "ad": "Artova",
+                "merkezId": 96009,
+                "aciklama": ""
+            },
+            {
+                "ad": "Başçiftlik",
+                "merkezId": 96006,
+                "aciklama": ""
+            },
+            {
+                "ad": "Erbaa",
+                "merkezId": 96010,
+                "aciklama": ""
+            },
+            {
+                "ad": "Niksar",
+                "merkezId": 96011,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pazar",
+                "merkezId": 96004,
+                "aciklama": ""
+            },
+            {
+                "ad": "Reşadiye",
+                "merkezId": 96012,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sulusaray",
+                "merkezId": 96007,
+                "aciklama": ""
+            },
+            {
+                "ad": "Turhal",
+                "merkezId": 96002,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yeşilyurt",
+                "merkezId": 96005,
+                "aciklama": ""
+            },
+            {
+                "ad": "Zile",
+                "merkezId": 96003,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "TRABZON",
+        "ilceler": [
+            {
+                "merkezId": 96101,
+                "aciklama": ""
+            },
+            {
+                "ad": "Trabzon Havalimanı",
+                "merkezId": 96119,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akçaabat",
+                "merkezId": 96113,
+                "aciklama": ""
+            },
+            {
+                "ad": "Araklı",
+                "merkezId": 96114,
+                "aciklama": ""
+            },
+            {
+                "ad": "Arsin",
+                "merkezId": 96115,
+                "aciklama": ""
+            },
+            {
+                "ad": "Beşikdüzü",
+                "merkezId": 96106,
+                "aciklama": ""
+            },
+            {
+                "ad": "Dernekpazarı",
+                "merkezId": 96109,
+                "aciklama": ""
+            },
+            {
+                "ad": "Düzköy",
+                "merkezId": 96110,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hayrat",
+                "merkezId": 96111,
+                "aciklama": ""
+            },
+            {
+                "ad": "Köprübaşı",
+                "merkezId": 96112,
+                "aciklama": ""
+            },
+            {
+                "ad": "Maçka",
+                "merkezId": 96117,
+                "aciklama": ""
+            },
+            {
+                "ad": "Maçka Altındere",
+                "merkezId": 96121,
+                "aciklama": ""
+            },
+            {
+                "ad": "Of",
+                "merkezId": 96118,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ortahisar",
+                "merkezId": 96101,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sürmene",
+                "merkezId": 96102,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tonya",
+                "merkezId": 96103,
+                "aciklama": ""
+            },
+            {
+                "ad": "Uzungöl",
+                "merkezId": 96120,
+                "aciklama": ""
+            },
+            {
+                "ad": "Vakfıkebir",
+                "merkezId": 96104,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yomra",
+                "merkezId": 96105,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çarşıbaşı",
+                "merkezId": 96108,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çaykara",
+                "merkezId": 96116,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şalpazarı",
+                "merkezId": 96107,
+                "aciklama": "Bu merkez sondurum verisini Trabzon/Eynesil (Ören Beldesi)'den almaktadır."
+            }
+        ]
+    },
+    {
+        "il": "TUNCELİ",
+        "ilceler": [
+            {
+                "merkezId": 96201,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hozat",
+                "merkezId": 96203,
+                "aciklama": ""
+            },
+            {
+                "ad": "Mazgirt",
+                "merkezId": 96204,
+                "aciklama": ""
+            },
+            {
+                "ad": "Nazımiye",
+                "merkezId": 96205,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ovacık",
+                "merkezId": 96206,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pertek",
+                "merkezId": 96207,
+                "aciklama": ""
+            },
+            {
+                "ad": "Pülümür",
+                "merkezId": 96208,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çemişgezek",
+                "merkezId": 96202,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "ŞANLIURFA",
+        "ilceler": [
+            {
+                "merkezId": 96301,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akçakale",
+                "merkezId": 96310,
+                "aciklama": ""
+            },
+            {
+                "ad": "Birecik",
+                "merkezId": 96311,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bozova",
+                "merkezId": 96312,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ceylanpınar",
+                "merkezId": 96313,
+                "aciklama": ""
+            },
+            {
+                "ad": "Eyyübiye",
+                "merkezId": 96301,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gap Havalimanı",
+                "merkezId": 96314,
+                "aciklama": ""
+            },
+            {
+                "ad": "Halfeti",
+                "merkezId": 96302,
+                "aciklama": ""
+            },
+            {
+                "ad": "Haliliye",
+                "merkezId": 96303,
+                "aciklama": ""
+            },
+            {
+                "ad": "Harran",
+                "merkezId": 96309,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hilvan",
+                "merkezId": 96304,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karaköprü",
+                "merkezId": 96305,
+                "aciklama": ""
+            },
+            {
+                "ad": "Siverek",
+                "merkezId": 96306,
+                "aciklama": ""
+            },
+            {
+                "ad": "Suruç",
+                "merkezId": 96307,
+                "aciklama": ""
+            },
+            {
+                "ad": "Viranşehir",
+                "merkezId": 96308,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "UŞAK",
+        "ilceler": [
+            {
+                "merkezId": 96401,
+                "aciklama": ""
+            },
+            {
+                "ad": "Uşak Havalimanı",
+                "merkezId": 96407,
+                "aciklama": ""
+            },
+            {
+                "ad": "Banaz",
+                "merkezId": 96402,
+                "aciklama": ""
+            },
+            {
+                "ad": "Eşme",
+                "merkezId": 96403,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karahallı",
+                "merkezId": 96404,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sivaslı",
+                "merkezId": 96405,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ulubey",
+                "merkezId": 96406,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "VAN",
+        "ilceler": [
+            {
+                "merkezId": 96501,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bahçesaray",
+                "merkezId": 96502,
+                "aciklama": ""
+            },
+            {
+                "ad": "Başkale",
+                "merkezId": 96506,
+                "aciklama": ""
+            },
+            {
+                "ad": "Edremit",
+                "merkezId": 96501,
+                "aciklama": ""
+            },
+            {
+                "ad": "Erciş",
+                "merkezId": 96508,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ferit Melen Havalimanı",
+                "merkezId": 96514,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gevaş",
+                "merkezId": 96509,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gürpınar",
+                "merkezId": 96510,
+                "aciklama": ""
+            },
+            {
+                "ad": "Muradiye",
+                "merkezId": 96512,
+                "aciklama": ""
+            },
+            {
+                "ad": "Saray",
+                "merkezId": 96505,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tuşba Yüzüncü Yıl Üniversitesi",
+                "merkezId": 96504,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çaldıran",
+                "merkezId": 96503,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çatak",
+                "merkezId": 96507,
+                "aciklama": ""
+            },
+            {
+                "ad": "Özalp",
+                "merkezId": 96513,
+                "aciklama": ""
+            },
+            {
+                "ad": "İpekyolu",
+                "merkezId": 96511,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "YOZGAT",
+        "ilceler": [
+            {
+                "merkezId": 96601,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akdağmadeni",
+                "merkezId": 96607,
+                "aciklama": ""
+            },
+            {
+                "ad": "Aydıncık",
+                "merkezId": 96602,
+                "aciklama": ""
+            },
+            {
+                "ad": "Boğazlıyan",
+                "merkezId": 96608,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kadışehri",
+                "merkezId": 96604,
+                "aciklama": ""
+            },
+            {
+                "ad": "Saraykent",
+                "merkezId": 96605,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sarıkaya",
+                "merkezId": 96611,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sorgun",
+                "merkezId": 96612,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yenifakılı",
+                "merkezId": 96606,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yerköy",
+                "merkezId": 96614,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çandır",
+                "merkezId": 96603,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çayıralan",
+                "merkezId": 96609,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çekerek",
+                "merkezId": 96610,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şefaatli",
+                "merkezId": 96613,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "ZONGULDAK",
+        "ilceler": [
+            {
+                "merkezId": 96701,
+                "aciklama": ""
+            },
+            {
+                "ad": "Alaplı",
+                "merkezId": 96702,
+                "aciklama": ""
+            },
+            {
+                "ad": "Devrek",
+                "merkezId": 96705,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ereğli",
+                "merkezId": 96706,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gökçebey",
+                "merkezId": 96703,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kilimli",
+                "merkezId": 96707,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kozlu",
+                "merkezId": 96708,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çaycuma",
+                "merkezId": 96704,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çaycuma Havalimanı",
+                "merkezId": 96709,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "AKSARAY",
+        "ilceler": [
+            {
+                "merkezId": 96801,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ağaçören",
+                "merkezId": 96804,
+                "aciklama": ""
+            },
+            {
+                "ad": "Eskil",
+                "merkezId": 96805,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gülağaç",
+                "merkezId": 96806,
+                "aciklama": ""
+            },
+            {
+                "ad": "Güzelyurt",
+                "merkezId": 96807,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ortaköy",
+                "merkezId": 96802,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sarıyahşi",
+                "merkezId": 96803,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sultanhanı",
+                "merkezId": 96808,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "BAYBURT",
+        "ilceler": [
+            {
+                "merkezId": 96901,
+                "aciklama": ""
+            },
+            {
+                "ad": "Aydıntepe",
+                "merkezId": 96902,
+                "aciklama": ""
+            },
+            {
+                "ad": "Demirözü",
+                "merkezId": 96903,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "KARAMAN",
+        "ilceler": [
+            {
+                "merkezId": 97001,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karamanlı",
+                "merkezId": 91505,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ayrancı",
+                "merkezId": 97002,
+                "aciklama": ""
+            },
+            {
+                "ad": "Başyayla",
+                "merkezId": 97004,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ermenek",
+                "merkezId": 97006,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kazımkarabekir",
+                "merkezId": 97003,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sarıveliler",
+                "merkezId": 97005,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "KIRIKKALE",
+        "ilceler": [
+            {
+                "merkezId": 97101,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bahşili",
+                "merkezId": 97103,
+                "aciklama": ""
+            },
+            {
+                "ad": "Balışeyh",
+                "merkezId": 97104,
+                "aciklama": ""
+            },
+            {
+                "ad": "Delice",
+                "merkezId": 97108,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karakeçili",
+                "merkezId": 97106,
+                "aciklama": ""
+            },
+            {
+                "ad": "Keskin",
+                "merkezId": 97109,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sulakyurt",
+                "merkezId": 97102,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yahşihan",
+                "merkezId": 97107,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çelebi",
+                "merkezId": 97105,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "BATMAN",
+        "ilceler": [
+            {
+                "merkezId": 97201,
+                "aciklama": ""
+            },
+            {
+                "ad": "Batman Havalimanı",
+                "merkezId": 97207,
+                "aciklama": ""
+            },
+            {
+                "ad": "Beşiri",
+                "merkezId": 97202,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gercüş",
+                "merkezId": 97203,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hasankeyf",
+                "merkezId": 97206,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kozluk",
+                "merkezId": 97204,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sason",
+                "merkezId": 97205,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "ŞIRNAK",
+        "ilceler": [
+            {
+                "merkezId": 97301,
+                "aciklama": ""
+            },
+            {
+                "ad": "Beytüşşebap",
+                "merkezId": 97304,
+                "aciklama": ""
+            },
+            {
+                "ad": "Cizre",
+                "merkezId": 97305,
+                "aciklama": ""
+            },
+            {
+                "ad": "Güçlükonak",
+                "merkezId": 97303,
+                "aciklama": ""
+            },
+            {
+                "ad": "Silopi",
+                "merkezId": 97307,
+                "aciklama": ""
+            },
+            {
+                "ad": "Uludere",
+                "merkezId": 97302,
+                "aciklama": ""
+            },
+            {
+                "ad": "İdil",
+                "merkezId": 97306,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şerafettin Elçi Havalimanı",
+                "merkezId": 97308,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "BARTIN",
+        "ilceler": [
+            {
+                "merkezId": 97401,
+                "aciklama": ""
+            },
+            {
+                "ad": "Amasra",
+                "merkezId": 97404,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kurucaşile",
+                "merkezId": 97402,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ulus",
+                "merkezId": 97403,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "ARDAHAN",
+        "ilceler": [
+            {
+                "merkezId": 97501,
+                "aciklama": ""
+            },
+            {
+                "ad": "Damal",
+                "merkezId": 97506,
+                "aciklama": ""
+            },
+            {
+                "ad": "Göle",
+                "merkezId": 97503,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hanak",
+                "merkezId": 97504,
+                "aciklama": ""
+            },
+            {
+                "ad": "Posof",
+                "merkezId": 97505,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çıldır",
+                "merkezId": 97502,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "IĞDIR",
+        "ilceler": [
+            {
+                "merkezId": 97601,
+                "aciklama": ""
+            },
+            {
+                "ad": "Aralık",
+                "merkezId": 97604,
+                "aciklama": ""
+            },
+            {
+                "ad": "Karakoyunlu",
+                "merkezId": 97603,
+                "aciklama": ""
+            },
+            {
+                "ad": "Tuzluca",
+                "merkezId": 97602,
+                "aciklama": ""
+            },
+            {
+                "ad": "Şehit Bülent Aydın Havalimanı",
+                "merkezId": 97605,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "YALOVA",
+        "ilceler": [
+            {
+                "merkezId": 97701,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yalova Havalimanı",
+                "merkezId": 97707,
+                "aciklama": ""
+            },
+            {
+                "ad": "Altınova",
+                "merkezId": 97702,
+                "aciklama": ""
+            },
+            {
+                "ad": "Armutlu",
+                "merkezId": 97703,
+                "aciklama": ""
+            },
+            {
+                "ad": "Termal",
+                "merkezId": 97706,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çiftlikköy",
+                "merkezId": 97705,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çınarcık",
+                "merkezId": 97704,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "KARABüK",
+        "ilceler": [
+            {
+                "merkezId": 97801,
+                "aciklama": ""
+            },
+            {
+                "ad": "Eflani",
+                "merkezId": 97805,
+                "aciklama": ""
+            },
+            {
+                "ad": "Eskipazar",
+                "merkezId": 97806,
+                "aciklama": ""
+            },
+            {
+                "ad": "Ovacık",
+                "merkezId": 97802,
+                "aciklama": ""
+            },
+            {
+                "ad": "Safranbolu",
+                "merkezId": 97803,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yenice",
+                "merkezId": 97804,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "KİLİS",
+        "ilceler": [
+            {
+                "merkezId": 97901,
+                "aciklama": ""
+            },
+            {
+                "ad": "Elbeyli",
+                "merkezId": 97902,
+                "aciklama": ""
+            },
+            {
+                "ad": "Musabeyli",
+                "merkezId": 97903,
+                "aciklama": ""
+            },
+            {
+                "ad": "Polateli",
+                "merkezId": 97904,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "OSMANİYE",
+        "ilceler": [
+            {
+                "merkezId": 98001,
+                "aciklama": ""
+            },
+            {
+                "ad": "Bahçe",
+                "merkezId": 98006,
+                "aciklama": ""
+            },
+            {
+                "ad": "Düziçi",
+                "merkezId": 98002,
+                "aciklama": ""
+            },
+            {
+                "ad": "Hasanbeyli",
+                "merkezId": 98003,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kadirli",
+                "merkezId": 98007,
+                "aciklama": ""
+            },
+            {
+                "ad": "Sumbas",
+                "merkezId": 98004,
+                "aciklama": ""
+            },
+            {
+                "ad": "Toprakkale",
+                "merkezId": 98005,
+                "aciklama": ""
+            }
+        ]
+    },
+    {
+        "il": "DÜZCE",
+        "ilceler": [
+            {
+                "merkezId": 98101,
+                "aciklama": ""
+            },
+            {
+                "ad": "Akçakoca",
+                "merkezId": 98108,
+                "aciklama": ""
+            },
+            {
+                "ad": "Cumayeri",
+                "merkezId": 98103,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gölyaka",
+                "merkezId": 98104,
+                "aciklama": ""
+            },
+            {
+                "ad": "Gümüşova",
+                "merkezId": 98106,
+                "aciklama": ""
+            },
+            {
+                "ad": "Kaynaşlı",
+                "merkezId": 98107,
+                "aciklama": ""
+            },
+            {
+                "ad": "Yığılca",
+                "merkezId": 98102,
+                "aciklama": ""
+            },
+            {
+                "ad": "Çilimli",
+                "merkezId": 98105,
+                "aciklama": ""
+            }
+        ]
+    }
+]

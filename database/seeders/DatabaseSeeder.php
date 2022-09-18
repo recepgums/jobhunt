@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
 
 
 
-        $data = json_decode(file_get_contents('https://gist.githubusercontent.com/SadMap/13b2fd1a5a8e6ff47442c72cbed86dc3/raw/896f8c76abbfb5bddf6368d5b59e775a71f5fd11/mgm-iller.json'));
+        $data = json_decode(file_get_contents(app_path('Uploads/cities.json')));
 
         foreach ($data as $key => $city) {
             $cityRecord = City::create([
@@ -87,7 +87,7 @@ class DatabaseSeeder extends Seeder
         Blog::factory(10)->create()->each(function ($blog){
             $blog->addMediaFromUrl('https://img.imageus.dev/https://depo.isbul.net/v2/home/bilisim-is-ilanlari.jpg?width=400&height=267&mode=contain&background=ffffff')->toMediaCollection('images');
         });
-        Job::factory(300)->create()->each(function ($job){
+        Job::factory(900)->create()->each(function ($job){
             $job->addMediaFromUrl('https://image.shutterstock.com/image-photo/suleymaniye-mosque-during-sunset-istanbul-600w-1889028265.jpg')->toMediaCollection('images');
         });
 

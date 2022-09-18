@@ -42,9 +42,9 @@
                 </div>
             </div>
         </div>
-        <div class="tw-flex tw-space-x-10">
+        <div class="row mx-5">
             <div
-                class="tw-flex tw-flex-col tw-space-y-4 tw-h-full tw-col-span-3"
+                class="col-6"
             >
                 <div
                     @click="selectedJob = job"
@@ -126,7 +126,7 @@
                 </div>
             </div>
             <div
-                class="tw-bg-white tw-h-[calc(100%+2rem)] tw-hidden lg:tw-block tw-rounded-lg t"
+                class="tw-bg-white tw-h-[calc(100%+2rem)]"
             >
                 <div class="tw-py-4 px-4 tw-grid tw-grid-rows-2 tw-gap-y-8">
                     <div class="tw-flex tw-flex-col tw-row-span-2 w-full">
