@@ -5,12 +5,14 @@
 @section('content')
     <section class="overlape d-none d-md-block">
         <div class="block no-padding">
-            <div data-velocity="-.1" style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div data-velocity="-.1"
+                 style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;"
+                 class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
             <div class="container fluid">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="inner-header">
-{{--                            <h3>Welcome Ali TUFAN</h3>--}}
+                            {{--                            <h3>Welcome Ali TUFAN</h3>--}}
                         </div>
                     </div>
                 </div>
@@ -27,18 +29,19 @@
                         <div class="padding-left">
                             <div class="manage-jobs-sec">
                                 <div class="border-title"><h3>Yayında olan ilanlarım</h3></div>
-                             @forelse($jobs as $job)
+                                @forelse($jobs as $job)
                                     <div class="job-listing wtabs">
                                         <div class="job-title-sec">
                                             <div class="c-logo">
-                                                <img src="{{$job->cover_image}}" alt="{{$job->title}}" />
+                                                <img src="{{$job->cover_image}}" alt="{{$job->title}}"/>
                                             </div>
                                             <h3><a href="#" title="">{{$job->title}}</a></h3>
                                             <span>{{$job->category->name}}</span>
                                             <div class="job-lctn">{{$job->created_at->diffForHumans()}}</div>
                                         </div>
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <button type="button" class="btn btn-primary dropdown-toggle bg-primary"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 Secenekler
                                             </button>
                                             <div class="dropdown-menu">
@@ -53,13 +56,14 @@
                                 @empty
                                     <p class="text-center mx-auto">
                                         İlanınız bulunmamakta.
-                                        <a style="text-align: center" href="{{route('job.create')}}" title="" class="post-job-btn active mx-auto">
+                                        <a style="text-align: center" href="{{route('job.create')}}" title=""
+                                           class="post-job-btn active mx-auto">
                                             <i class="la la-plus"></i>
                                             İlan Ver
                                         </a>
                                     </p>
                                 @endforelse
-                            {{ $jobs->links('vendor.pagination.custom') }}
+                                {{ $jobs->links('vendor.pagination.custom') }}
                             </div>
                         </div>
                     </div>

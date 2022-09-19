@@ -376,7 +376,7 @@ export default {
         },
         getJobList(page = 1) {
             axios
-                .get(apiUrl + `job`, {
+                .get(apiUrl + `job-v1`, {
                     params: {
                         page: page,
                         city_id: this.selectedCity?.value,

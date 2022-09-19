@@ -34,9 +34,9 @@ Route::group(['prefix' => 'job/{job}', 'middleware' => 'auth', 'as' => 'job.'], 
     Route::post('get_contact_info', [Controllers\JobController::class, 'getContactInfo'])->name('get_contact_info');
 });
 
-Route::get('user/{user:username}',[Controllers\UserController::class,'show'])->name('user.show');
+Route::get('user/{user:username}', [Controllers\UserController::class, 'show'])->name('user.show');
 
-Route::get('user/verify',[Controllers\UserVerifyController::class,'verify'])->name('verify');
+Route::get('user/verify', [Controllers\UserVerifyController::class, 'verify'])->name('verify');
 
 Route::resource('job', Controllers\JobController::class);
 //Route::resource('employer', Controllers\EmployerController::class);
@@ -65,12 +65,12 @@ Route::post('job/{job}/iyzico-form-retrieve', [App\Http\Controllers\JobControlle
 Route::get('redirect/{driver}', [Controllers\UserController::class, 'socialiteRedirect'])->name('socialite.redirect');
 Route::get('callback/{driver}', [Controllers\UserController::class, 'socialiteCallback'])->name('socialite.callback');
 
-Route::group(['prefix'=>'admin','middleware' => 'auth','as'=>'admin.'],function (){
-    Route::get('/',[Controllers\Admin\AdminController::class,'dashboard'])->name('index');
-    Route::resource('faq',Controllers\Admin\FaqController::class);
-    Route::get('reviews',[Controllers\Admin\AdminController::class,'reviews'])->name('reviews');
-    Route::resource('categories',\App\Http\Controllers\Admin\CategoriesController::class);
+Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function () {
+    Route::get('/', [Controllers\Admin\AdminController::class, 'dashboard'])->name('index');
+    Route::resource('faq', Controllers\Admin\FaqController::class);
+    Route::get('reviews', [Controllers\Admin\AdminController::class, 'reviews'])->name('reviews');
+    Route::resource('categories', \App\Http\Controllers\Admin\CategoriesController::class);
 });
-Route::get('test',function (){
-    dd(auth()->user());
+Route::get('test', function () {
+    dd(now()->toTimeString());
 });

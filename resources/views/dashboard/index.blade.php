@@ -37,7 +37,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-4 col-6">
-                                            <div class="p-category follow-companies-popup">
+                                            <div class="p-category">
                                                 <a href="{{route('candidate.change_password')}}" title="">
                                                     <i class="la la-user"></i>
                                                     <span>Şifre Değiştir</span>
