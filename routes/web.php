@@ -20,8 +20,8 @@ Route::post('change_password_post', [Controllers\CustomAuthController::class, 'c
 Route::group(['middleware' => 'guest', 'prefix' => 'ajax'], function () {
     Route::post('login', [Controllers\CustomAuthController::class, 'customLogin'])->name('login.ajax');
     Route::post('signup', [Controllers\CustomAuthController::class, 'register'])->name('signup.ajax');
-    Route::post('logout', [Controllers\CustomAuthController::class, 'signOut'])->name('logout.ajax');
 });
+Route::post('ajax/logout', [Controllers\CustomAuthController::class, 'signOut'])->name('logout.ajax');
 
 Route::get('city/{city}/districts', [Controllers\GeneralController::class, 'getDistrictsByCity'])->name('city.districts');
 
