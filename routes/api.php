@@ -25,4 +25,4 @@ Route::get('job-create-data',[Controllers\PublicDataController::class,'jobCreate
 Route::get('homepageDatas',[Controllers\PublicDataController::class,'homepageDatas']);
 
 Route::get('city/{city}/district',[Controllers\PublicDataController::class,'district']);
-Route::get('job',[Controllers\JobController::class,'index']);
+Route::get('job-v1',[Controllers\JobController::class,'indexAjax']);

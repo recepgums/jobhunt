@@ -28,8 +28,8 @@ class JobController extends Controller
     public function __construct()
     {
         if ($position = Location::get()) {
-            if (strlen($position->zipCode) == 4){
-                $position->zipCode = "0".$position->zipCode;
+            if (strlen($position->zipCode) == 4) {
+                $position->zipCode = "0" . $position->zipCode;
             }
             $this->city = City::find((int)substr($position->zipCode, 0, 2));
         }
@@ -61,10 +61,6 @@ class JobController extends Controller
             $districts,
             $selectedDistricts,
         ] = $jobHelper->getJobCreateData($request->has('city_id') ? City::findOrFail($request->get('city_id')) : $this->city);
-
-        if ($request->ajax()){
-            return JobResource::collection($jobs);
-        }
 
         return view('jobs.index', [
             'jobs' => $jobs,
@@ -126,12 +122,12 @@ class JobController extends Controller
         ]));
 
         if ($request->hasFile('files')) {
-            foreach ($request->file('files') as $file){
+            foreach ($request->file('files') as $file) {
                 $job->addMedia($file)->toMediaCollection('images');
             }
         }
 
-        if (count($job->getMedia('images')) < 1){
+        if (count($job->getMedia('images')) < 1) {
             $job->addMediaFromUrl($job->category->default_cover_image)->toMediaCollection('images');
         }
 
@@ -197,7 +193,7 @@ class JobController extends Controller
 
         $packages = $jobHelper->getPackageData();
 
-        if (!auth()->user()->jobs()->count() > 1){
+        if (!auth()->user()->jobs()->count() > 1) {
             $packages = $jobHelper->getFreePackageData();
         }
 
@@ -219,7 +215,7 @@ class JobController extends Controller
             'package_id' => $package->id,
         ]);
 
-        return response()->json(['message'=>'success']);
+        return response()->json(['message' => 'success']);
     }
 
     public function payment(Job $job)
@@ -242,7 +238,7 @@ class JobController extends Controller
         }
 
         $payment = (new omgIyzicoPayment(auth()->user(), $product))
-            ->setCallback(route('omg-iyzico-form',$job->slug))
+            ->setCallback(route('omg-iyzico-form', $job->slug))
             ->createIyzicoPaymentForm();
 
         $form = $payment->getCheckoutFormContent();
@@ -290,6 +286,29 @@ class JobController extends Controller
         }
 
         $user = $job->user;
-        return  response()->json(['phone'=>$job->phone,'email'=>$user->email,'name'=>$user->name]);
+        return response()->json(['phone' => $job->phone, 'email' => $user->email, 'name' => $user->name]);
+    }
+
+    public function indexAjax(Request $request, JobFilterService $jobFilterService, JobHelper $jobHelper)
+    {
+        if (!$request->has('city_id')) {
+            return redirect()->route('job.index', ['city_id' => $this->city->id]);
+        }
+
+        $jobs = $jobFilterService->filter($request);
+
+        $jobs = $jobs->listable()->orderByDesc('created_at')->paginate(8);
+
+        [
+            $workTypes,
+            $categories,
+            $genders,
+            $jobPackages,
+            $cities,
+            $districts,
+            $selectedDistricts,
+        ] = $jobHelper->getJobCreateData($request->has('city_id') ? City::findOrFail($request->get('city_id')) : $this->city);
+
+        return JobResource::collection($jobs);
     }
 }
