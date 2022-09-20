@@ -44,7 +44,7 @@
         </div>
         <div class="row mx-5">
             <div
-                class="col-6"
+                class="tw-flex tw-flex-col tw-space-y-4 tw-h-full tw-col-span-3"
             >
                 <div
                     @click="selectedJob = job"

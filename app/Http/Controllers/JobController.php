@@ -292,7 +292,7 @@ class JobController extends Controller
     public function indexAjax(Request $request, JobFilterService $jobFilterService, JobHelper $jobHelper)
     {
         if (!$request->has('city_id')) {
-            return redirect()->route('job.index', ['city_id' => $this->city->id]);
+            return redirect()->route('job.ajax', ['city_id' => $this->city->id]);
         }
 
         $jobs = $jobFilterService->filter($request);
