@@ -33,7 +33,6 @@ class CandidateController extends Controller
         $user->update(array_merge($request->validated(), [
             'phone' => string_to_ten_digits_phone_number($request->get('phone')),
         ]));
-        $user->is_searchable_for_job = $request->is_searchable;
         $user->update();
 
         if ($request->category_id != "") {
@@ -44,7 +43,7 @@ class CandidateController extends Controller
                 ]);
             }
         }
-        
+
         if ($request->hasFile('profile_image_file')) {
             $user->clearMediaCollection('images');
             $user->addMedia($request->file('profile_image_file'))->toMediaCollection('images');
@@ -67,7 +66,10 @@ class CandidateController extends Controller
     {
         $jobs = Job::where('user_id', auth()->id())->paginate(10);
 
-        return view('candidates.shortlist', compact('jobs'));
+        $endPubJobs = Job::where('user_id', auth()->id())->where('published_until_at' ,'<', now()->toDateTimeString())->paginate(10);
+
+
+        return view('candidates.shortlist', compact('jobs','endPubJobs'));
     }
 
     public function applied_jobs()

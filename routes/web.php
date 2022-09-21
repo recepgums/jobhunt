@@ -5,6 +5,7 @@ use App\Http\Controllers;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('homepage');
 Route::view('contact', 'pages.contact')->name('contact');
+Route::post('contactPost', [App\Http\Controllers\MailSend::class,'mailSend'])->name('contact.post');
 Route::view('how-it-works', 'pages.how_it_works')->name('how_it_works');
 Route::view('terms', 'pages.term_conditions')->name('terms');
 
@@ -72,5 +73,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
     Route::resource('categories', \App\Http\Controllers\Admin\CategoriesController::class);
 });
 Route::get('test', function () {
-    dd(now()->toTimeString());
+    dd(now()->toDateTimeString());
 });
