@@ -12,11 +12,11 @@ Vue.use(ElementUI, { locale });
 Vue.use(VueFormWizard);
 Vue.component(
     "job-create",
-    require("./components/ExampleComponent.vue").default
+    require("./components/JobCreate.vue").default
 );
 Vue.component(
     "classifiedsec",
-    require("./components/Classifiedsec.vue").default
+    require("./components/JobList.vue").default
 );
 Vue.component("v-select", vSelect);
 
