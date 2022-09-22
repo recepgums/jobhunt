@@ -8,11 +8,7 @@ use App\Models\Categories;
 use App\Models\CategoryUser;
 use App\Models\City;
 use App\Models\Job;
-use App\Models\User;
 use App\Services\StorageService;
-use Illuminate\Console\View\Components\Task;
-use Illuminate\Http\Request;
-use phpDocumentor\Reflection\Types\Null_;
 
 class CandidateController extends Controller
 {
@@ -22,6 +18,7 @@ class CandidateController extends Controller
             'cities' => City::select('id', 'name')->get(),
             'user' => auth()->user(),
             'categories' => Categories::forJob()->select('id', 'name')->get(),
+            'category' => CategoryUser::with('category')->where('user_id', auth()->user()->id)->get(),
         ];
 
         return view('candidates.profile', $data);
