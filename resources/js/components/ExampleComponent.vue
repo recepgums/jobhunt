@@ -147,7 +147,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <span class="pf-title">Telefo - {{ formInline.phone }}n</span>
+                                    <span class="pf-title">Telefon</span>
                                     <div class="pf-field">
                                         <VuePhoneNumberInput
                                             default-country-code="TR"

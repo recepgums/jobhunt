@@ -1,6 +1,5 @@
 @extends('layout.app')
 
-
 @section('content')
     <section class="overlape d-none d-md-block">
         <div class="block no-padding">
@@ -85,7 +84,7 @@
                                                 @error('phone')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
-                                                <input type="tel" placeholder="5XXXXXXXXX"
+                                                <input type="tel" id="phone" placeholder="5XXXXXXXXX"
                                                        value="{{$user->phone}}" name="phone"/>
                                             </div>
                                         </div>
@@ -120,7 +119,6 @@
                                                 </select>
                                             </div>
                                         </div>
-
                                         <div class="col-lg-12">
                                             <span class="pf-title">İş Alanlarınız (Birden fazla seçebilirsiniz)</span>
                                             <div class="pf-field no-margin">
@@ -132,7 +130,11 @@
                                                         class="chosen">
                                                     <option value=""></option>
                                                     @forelse($categories as $category)
-                                                        <option value="{{$category->id}}">
+                                                        <option value="{{$category->id}}"
+                                                        @if(in_array($category->id,$user->categories->pluck('category_id')->toArray()))
+                                                            selected
+                                                        @endif
+                                                        >
                                                             {{$category->name}}
                                                         </option>
                                                     @empty
@@ -214,7 +216,7 @@
 
 @push('scripts')
     <script src="{{asset('assets/js/jquery.scrollbar.min.js')}}" type="text/javascript"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js" integrity="sha512-+gShyB8GWoOiXNwOlBaYXdLTiZt10Iy6xjACGadpqMs20aJOoh+PJt3bwUVA6Cefe7yF7vblX6QwyXZiVwTWGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{asset('assets/js/circle-progress.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('assets/js/tag.js')}}" type="text/javascript"></script>
     <script src="{{asset('assets/js/maps3.js')}}" type="text/javascript"></script>

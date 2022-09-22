@@ -30,15 +30,14 @@ class CandidateController extends Controller
         $user->update(array_merge($request->validated(), [
             'phone' => string_to_ten_digits_phone_number($request->get('phone')),
         ]));
-        $user->update();
 
-        if ($request->category_id != "") {
-            foreach ($request->category_id as $category) {
-                CategoryUser::create([
-                    'category_id' => $category,
-                    'user_id' => auth()->user()->id,
-                ]);
-            }
+        $user->categories()->delete();
+
+        foreach ($request->category_id as $category) {
+            CategoryUser::create([
+                'category_id' => $category,
+                'user_id' => auth()->id(),
+            ]);
         }
 
         if ($request->hasFile('profile_image_file')) {
