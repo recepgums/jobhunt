@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class CategoryUser extends Model
+class CategoryUser extends Pivot
 {
     use HasFactory;
 
@@ -15,6 +16,7 @@ class CategoryUser extends Model
         'category_id',
         'user_id',
     ];
+protected $table = 'categories_user';
 
     public function user()
     {
