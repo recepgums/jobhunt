@@ -85,7 +85,6 @@
                                                 </a>
                                             </p>
                                         @endforelse
-                                        {{ $jobs->links('vendor.pagination.custom') }}</div>
                                     <div class="tab-pane fade ml-3" id="profile" role="tabpanel"
                                          aria-labelledby="profile-tab">@forelse($endPubJobs as $endPubJob)
                                                 <div class="job-listing wtabs">
@@ -120,7 +119,6 @@
                                           Bu  Sayfada  süresi geçmiş  ilanınız bulunmamakta.
                                             </p>
                                         @endforelse
-                                        {{ $endPubJobs->links('vendor.pagination.custom') }}
                                     </div>
                                     <div class="tab-pane fade ml-3" id="contact" role="tabpanel"
                                          aria-labelledby="contact-tab">Ödemesi bekleyen ilanlarım

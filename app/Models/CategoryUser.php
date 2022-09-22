@@ -16,7 +16,6 @@ class CategoryUser extends Pivot
         'category_id',
         'user_id',
     ];
-protected $table = 'categories_user';
 
     public function user()
     {

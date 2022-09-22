@@ -44,8 +44,12 @@
                                                         Kaldir</a>
                                                 </div>
                                                 <div>
-                                                    <a class="button -sm py-15 -purple-3 text-purple-1 fw-500"
-                                                       href="{{route('admin.categories.destroy',$category)}}">Sil</a>
+                                                    <form method="post" action="{{route('admin.categories.destroy',$category)}}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="button -sm py-15 -purple-3 text-purple-1 fw-500"
+                                                           >Sil</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>

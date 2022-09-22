@@ -28,7 +28,7 @@
                                         @method('put')
                                         <div class="col-12">
                                             <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">Name</label>
-                                            <input name="question" type="text" placeholder="Question"
+                                            <input name="name" type="text" placeholder="Name"
                                                    value="{{$category->name}}">
                                         </div>
 

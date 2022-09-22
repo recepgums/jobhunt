@@ -242,7 +242,6 @@ class JobController extends Controller
             ->createIyzicoPaymentForm();
 
         $form = $payment->getCheckoutFormContent();
-
         return view('jobs.payment', compact('form', 'job'));
     }
 

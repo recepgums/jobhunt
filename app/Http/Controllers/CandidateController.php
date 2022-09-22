@@ -8,6 +8,7 @@ use App\Models\Categories;
 use App\Models\CategoryUser;
 use App\Models\City;
 use App\Models\Job;
+use App\Models\User;
 use App\Services\StorageService;
 
 class CandidateController extends Controller
@@ -55,15 +56,9 @@ class CandidateController extends Controller
 
     public function shortlist()
     {
-        return view('candidates.shortlist');
-    }
+        $jobs = Job::listable()->where('user_id', auth()->id())->get();
 
-    public function myJobs()
-    {
-        $jobs = Job::where('user_id', auth()->id())->paginate(10);
-
-        $endPubJobs = Job::where('user_id', auth()->id())->where('published_until_at' ,'<', now()->toDateTimeString())->paginate(10);
-
+        $endPubJobs = Job::where('user_id', auth()->id())->where('published_until_at' ,'<', now()->toDateTimeString())->get();
 
         return view('candidates.shortlist', compact('jobs','endPubJobs'));
     }
