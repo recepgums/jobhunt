@@ -149,7 +149,7 @@
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
 
-                                                <select name="is_searchable" data-placeholder="Allow In Search"
+                                                <select name="is_searchable_for_job" data-placeholder="Allow In Search"
                                                         class="chosen">
                                                     <option @if($user->is_searchable_for_job == 1) selected
                                                             @endif value="1">Evet

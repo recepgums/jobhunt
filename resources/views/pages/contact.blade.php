@@ -32,30 +32,31 @@
                     <div class="col-lg-6 column">
                         <div class="contact-form">
                             <h3>Keep In Touch</h3>
-                            <form>
+                            <form method="POST" action="{{route('contact.post')}}">
+                                @csrf
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <span class="pf-title">Full Name</span>
                                         <div class="pf-field">
-                                            <input type="text" placeholder="ALi TUFAN" />
+                                            <input type="text" name="fullName" placeholder="ALi TUFAN"/>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <span class="pf-title">Email</span>
                                         <div class="pf-field">
-                                            <input type="text" placeholder="ALi TUFAN" />
+                                            <input type="text" name="surname" placeholder="ALi TUFAN"/>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <span class="pf-title">Subject</span>
                                         <div class="pf-field">
-                                            <input type="text" placeholder="ALi TUFAN" />
+                                            <input name="subject" type="text" placeholder="ALi TUFAN"/>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <span class="pf-title">Message</span>
                                         <div class="pf-field">
-                                            <textarea></textarea>
+                                            <textarea name="message"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
@@ -69,12 +70,12 @@
                         <div class="contact-textinfo">
                             <h3>JobHunt Office</h3>
                             <ul>
-                                <li><i class="la la-map-marker"></i><span>Jobify Inc. 555 Madison Avenue, Suite F-2 Manhattan, New York 10282 </span></li>
+                                <li><i class="la la-map-marker"></i><span>Jobify Inc. 555 Madison Avenue, Suite F-2 Manhattan, New York 10282 </span>
+                                </li>
                                 <li><i class="la la-phone"></i><span>Call Us : 0934 343 343</span></li>
                                 <li><i class="la la-fax"></i><span>Fax : 0934 343 343</span></li>
                                 <li><i class="la la-envelope-o"></i><span>Email : info@jobhunt.com</span></li>
                             </ul>
-                            <a class="fill" href="#" title="">See on Map</a><a href="#" title="">Directions</a>
                         </div>
                     </div>
                 </div>
