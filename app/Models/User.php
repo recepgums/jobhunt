@@ -60,7 +60,7 @@ class User extends Authenticatable implements HasMedia
 
     public function categories()
     {
-        return $this->belongsToMany(Categories::class);
+        return $this->hasMany(CategoryUser::class);
     }
 
     public function setRoleByTypeId($data)

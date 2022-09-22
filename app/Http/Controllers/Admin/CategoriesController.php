@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryStoreRequest;
+use App\Http\Requests\CategoryUpdateRequest;
 use App\Models\Blog;
 use App\Models\Categories;
 use App\Models\Job;
@@ -56,24 +57,26 @@ class CategoriesController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(CategoryUpdateRequest $request, Categories $category)
     {
-        $imageName = time() . '.' . $request->image->extension();
+        if ($request->hasFile('image')) {
+            $category->clearMediaCollection('image');
+            $category->addMedia($request->file('image'))->toMediaCollection('category');
+        }
 
-        $path = $request->image->move('img', $imageName);
+        $category->update([
+            'name' => $request->name,
+            'parent_id' => $request->parent_id,
+            'description' => $request->description,
+            'default_cover_image' => $category->getFirstMediaUrl('category'),
+        ]);
 
-        $category = Categories::where('id', $id);
-        $category->fill($request->toArray());
-        $category->default_cover_image = $path;
-        $category->model = "App\Models\Blog";
-        $category->slug = $request->name;
-        $category->save();
-
-        return redirect()->route('admin.categories.store');
+        return redirect()->back();
     }
 
-    public function destroy($id)
+    public function destroy(Categories $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('admin.categories.store');
     }
 }

@@ -49,7 +49,6 @@ Route::group(['prefix' => 'candidate', 'as' => 'candidate.', 'middleware' => 'au
 
     Route::get('my-resume', [Controllers\CandidateController::class, 'my_resume'])->name('my_resume');
     Route::get('shortlist', [Controllers\CandidateController::class, 'shortlist'])->name('shortlist');
-    Route::get('my-jobs', [Controllers\CandidateController::class, 'myJobs'])->name('my_jobs');
     Route::get('applied_jobs', [Controllers\CandidateController::class, 'applied_jobs'])->name('applied_jobs');
     Route::get('job_alert', [Controllers\CandidateController::class, 'job_alert'])->name('job_alert');
     Route::get('cv_cover_letter', [Controllers\CandidateController::class, 'cv_cover_letter'])->name('cv_cover_letter');

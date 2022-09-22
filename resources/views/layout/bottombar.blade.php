@@ -8,7 +8,7 @@
             <i class="la la-file tw-text-[30px] tw-font-medium"></i>
             <h1 class="tw-font-semibold">İlanlar</h1>
         </a>
-        <a href="{{route('candidate.my_jobs')}}"
+        <a href="{{route('candidate.shortlist')}}"
             class="tw-w-full tw-block tw-py-1 tw-px-3 tw-text-center hover:tw-bg-red-400 hover:tw-text-red-600 transition duration-300">
             <i class="la la-bell tw-text-[30px] tw-font-medium"></i>
             <h1 class="tw-font-semibold">Bildirimler</h1>
@@ -19,7 +19,7 @@
             <i class="la la-plus-circle tw-text-[30px] tw-font-medium"></i>
             <h1 class="tw-font-semibold">İlan Ver</h1>
         </a>
-        <a href="{{route('candidate.my_jobs')}}"
+        <a href="{{route('candidate.shortlist')}}"
            class="tw-w-full tw-block tw-py-1 tw-px-3 tw-text-center hover:tw-bg-red-400 hover:tw-text-red-600 transition duration-300">
             <i class="la la-file tw-text-[30px] tw-font-medium"></i>
             <h1 class="tw-font-semibold">İlanlarım</h1>
