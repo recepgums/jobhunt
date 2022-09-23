@@ -1,5 +1,6 @@
 <template>
-    <div class="tw-py-3 tw-px-3 tw-grid tw-grid-rows-2 tw-gap-y-8">
+    <div class="bg-white">
+        <div class="tw-py-3 tw-px-3 tw-grid tw-grid-rows-2 tw-gap-y-8">
         <div class="tw-flex tw-flex-col tw-row-span-2 w-full">
             <div
                 class="tw-grid mb-3 tw-col-span-5 text-center mx-auto"
@@ -88,6 +89,7 @@
                 </button>
             </div>
         </div>
+    </div>
     </div>
 </template>
 
