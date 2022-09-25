@@ -1,5 +1,6 @@
 <template>
-    <div class="col-10 mx-auto">
+    <div class="col-xs-12 col-md-10  mx-auto" style="max-width: 1200px">
+        <h1 v-if="currentLocation">{{currentLocation}}</h1>
         <div class="row">
             <div class="col-12 d-none d-md-block mx-auto bg-white py-3 mb-3">
                 <!--Filter-->
@@ -42,10 +43,29 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 d-block d-md-none mx-auto bg-white py-3 mb-3">
+                <!--Filter-->
+                <div class="row">
+                    <div class="col-6">
+                        <v-select
+                            placeholder="Pozisyon"
+                            @change="getJobList"
+                            :options="categories"
+                            v-model="selectedCategory"
+                            :multiple="false"
+                        ></v-select>
+                    </div>
+                   <div class="col-6">
+                       <el-button @click="filterDrawer=true" type="primary" plain>
+                           Filtrele
+                       </el-button>
+                   </div>
+                </div>
+            </div>
+            <div class="col-12 px-0">
                 <div class="row mx-auto">
                     <!--Desktop Job List Item col-6-->
-                    <div class="col-sm d-none d-md-block">
+                    <div class="col-sm d-none d-md-block px-0 job-list-container" >
                         <div
                             @click="selectedJob = job"
                             v-for="(job, index) in jobs"
@@ -56,32 +76,86 @@
                         </div>
                     </div>
                     <!--Mobile Job List Item col-6-->
-                    <div class="col-12 d-block d-md-none">
+                    <div class="col-12 d-block d-md-none px-0 job-list-container">
                         <div
                             @click="jobClicked(job)"
                             v-for="(job, index) in jobs"
-                            class="bg-white rounded-lg"
+                            class="bg-white rounded-lg my-1"
                             :class="{ 'active-job': job?.id === selectedJob?.id }"
                         >
                             <JobSingle :job="job"/>
                         </div>
                     </div>
                     <!--JobDetail-->
-                    <div class="col-sm">
-                        <JobDetail/>
+                    <div class="col-sm d-none d-md-block">
+                        <JobDetail :job="selectedJob"/>
                     </div>
                 </div>
             </div>
 
 
             <el-drawer
-                title="I'm inner Drawer"
+                :title="selectedJob?.title"
                 :direction="'ltr'"
                 size="80%"
                 :append-to-body="true"
                 :visible.sync="drawer"
             >
-                <JobDetail :job="job"/>
+                <JobDetail :job="selectedJob"/>
+            </el-drawer>
+
+            <el-drawer
+                title="Filtrele"
+                :direction="'rtl'"
+                size="80%"
+                :append-to-body="true"
+                :visible.sync="filterDrawer"
+            >
+                <div class="container-fluid p-0">
+                    <div class="col my-5">
+                        <v-select
+                            placeholder="İl"
+                            @change="getJobList"
+                            :options="cities"
+                            v-model="selectedCity"
+                            :multiple="false"
+                        ></v-select>
+                    </div>
+                    <div class="col my-5">
+                        <v-select
+                            placeholder="İlçe"
+                            @input="getJobList"
+                            :options="districts"
+                            v-model="selectedDistricts"
+                            :multiple="false"
+                        ></v-select>
+                    </div>
+                    <div class="col my-5">
+                        <v-select
+                            placeholder="Uzmanlığı"
+                            @input="getJobList"
+                            :options="categories"
+                            v-model="selectedCategory"
+                            :multiple="false"
+                        ></v-select>
+                    </div>
+                    <div class="col my-5">
+                        <v-select
+                            placeholder="İlan tarihi"
+                            @input="getJobList"
+                            :options="orderTypes"
+                            v-model="selectedOrderType"
+                            :multiple="false"
+                        ></v-select>
+                    </div>
+
+                    <div class="col-12 ">
+                        <button @click="filterDrawer=false" class="tw-bg-red-500 btn w-full text-white p-2"
+                                style="font-weight: 600;width:100%">
+                            Sonuçları Göster
+                        </button>
+                    </div>
+                </div>
             </el-drawer>
         </div>
     </div>
@@ -113,6 +187,7 @@ export default {
             orderTypes: [],
 
             drawer: false,
+            filterDrawer: false,
         };
     },
     mounted() {
@@ -177,5 +252,31 @@ export default {
     box-shadow: 0 0 10px #719ece;
     width: auto;
     height: auto;
+}
+.job-list-container{
+    height: 100vh;
+    padding-left: 2px; padding-right: 2px; margin-left: 2px; margin-right: 2px;
+    overflow: scroll;
+}
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #7d767f #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #7d767f;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
 }
 </style>

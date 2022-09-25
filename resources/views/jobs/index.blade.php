@@ -23,7 +23,10 @@
 <section class="py-5" style="background-color: #f4f5fa">
     <div class="container">
         <div id="app" style="min-height: 450px">
-            <classifiedsec></classifiedsec>
+            <job-list
+                style="max-width: 1368px"
+                currentLocation="{{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları"
+            />
         </div>
     </div>
 </section>

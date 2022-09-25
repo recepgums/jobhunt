@@ -66,10 +66,16 @@
         .swiper-slide {
             width: 80%;
         }
+        .homepage-slider{
+            padding-top: 6rem
+        }
 
         @media only screen and (max-width: 768px) {
             .padding-t {
                 padding-top: 25px;
+            }
+            .homepage-slider{
+                padding-top: 0
             }
 
             .px-6 {
@@ -185,13 +191,12 @@
     </section>
 
     <section>
-        <div class="block gray" style="padding-top: 6rem">
+        <div class="block gray homepage-slider">
             <div id="app">
-                <div class="container">
-                    <classifiedsec
-                        currentLocation="{{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları">
-                    </classifiedsec>
-                </div>
+                <job-list
+                    currentLocation="{{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları"
+                >
+                </job-list>
             </div>
             <script src="{{asset('js/app.js')}}"></script>
             <div class="container">

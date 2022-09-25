@@ -6,7 +6,7 @@
                 class="tw-grid mb-3 tw-col-span-5 text-center mx-auto"
             >
                 <img
-                    v-for="media in selectedJob?.media"
+                    v-for="media in job?.media"
                     :src="media"
                     class="tw-rounded-xl tw-w-200 tw-h-200 tw-col-span-1"
                 />
@@ -15,12 +15,12 @@
                 class="tw-flex tw-col-span-5 text-left mx-auto tw-flex-col"
             >
                 <h1 class="tw-font-bold tw-pr-4">
-                    {{ selectedJob?.title }}
+                    {{ job?.title }}
                 </h1>
                 <div>
                     <h1 class="tw-pt-3">
-                        {{ selectedJob?.district?.name }},
-                        {{ selectedJob?.city?.name }}
+                        {{ job?.district?.name }},
+                        {{ job?.city?.name }}
                     </h1>
                 </div>
             </div>
@@ -36,14 +36,14 @@
 
             <div class="tw-flex tw-flex-col">
                 <h1 class="tw-font-bold">Uzmanlık</h1>
-                <h1 class="tw-pt-2">{{selectedJob?.category?.name}}</h1>
+                <h1 class="tw-pt-2">{{job?.category?.name}}</h1>
             </div>
 
             <div class="tw-grid tw-grid-cols-2">
                 <div class="tw-flex tw-flex-col">
                     <h1 class="tw-font-bold">Çalışma Türü</h1>
                     <h1 class="tw-pt-2">
-                        {{ selectedJob?.work_type?.name }}
+                        {{ job?.work_type?.name }}
                     </h1>
                 </div>
                 <div class="tw-flex tw-flex-col">
@@ -83,10 +83,12 @@
                 </div>
             </div>
             <div class="tw-flex tw-flex-col w-full">
-                <button class="tw-bg-red-500 btn w-full text-white p-2"
-                        style="font-weight: 600;">
-                    İletişime Geç
-                </button>
+                <el-affix position="bottom" :offset="20">
+                    <button class="tw-bg-red-500 btn w-full text-white p-2"
+                            style="font-weight: 600;">
+                        İletişime Geç
+                    </button>
+                </el-affix>
             </div>
         </div>
     </div>

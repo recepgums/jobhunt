@@ -15,7 +15,7 @@ Vue.component(
     require("./components/JobCreate.vue").default
 );
 Vue.component(
-    "classifiedsec",
+    "job-list",
     require("./components/JobList.vue").default
 );
 Vue.component("v-select", vSelect);
