@@ -9,14 +9,14 @@
                     <div class="col-lg-12">
                         <div class="inner2">
                             <div class="inner-title2">
-                                <h3>How It Works</h3>
-                                <span>Get a digital tour of how Jobhunt works for you.</span>
+                                <h3>Nasıl Çalışır</h3>
+                                <span>Jobhunt'ın sizin için nasıl çalıştığına dair dijital bir tur atın.</span>
                             </div>
                             <div class="page-breacrumbs">
                                 <ul class="breadcrumbs">
-                                    <li><a href="#" title="">Home</a></li>
-                                    <li><a href="#" title="">Pages</a></li>
-                                    <li><a href="#" title="">How it Works</a></li>
+                                    <li><a href="#" title="">Ana Sayfa</a></li>
+                                    <li><a href="#" title="">Sayfalar</a></li>
+                                    <li><a href="#" title="">Nasıl Çalışır</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -37,8 +37,8 @@
                                 <div class="how-work-box">
                                     <span>1</span>
                                     <i class="la la-user"></i>
-                                    <h3>Register an account</h3>
-                                    <p>inJob is the leading and longest-running online recruitment in Turkey. We understand that job-seekers come to us not only for a job, but for an pportunity to realize their professional.</p>
+                                    <h3>Bir hesap kaydettirme</h3>
+                                    <p>ın Job, Türkiye'nin önde gelen ve en uzun soluklu online işe alım şirketidir. İş arayanların bize sadece bir iş için değil, profesyonellerini gerçekleştirme fırsatı için geldiklerini anlıyoruz.</p>
                                 </div>
                             </div>
                         </div>
@@ -48,8 +48,8 @@
                                 <div class="how-work-box">
                                     <span>2</span>
                                     <i class="la la-file-text"></i>
-                                    <h3>Specify & Search Your Job</h3>
-                                    <p>You’ll receive applications via email. You can also manage jobs and candidates from your Indeed dashboard. Review applications, Schedule interviews and view recommended candidates all from one place.</p>
+                                    <h3>İşinizi Belirtin ve Arayın</h3>
+                                    <p>Başvuruları e-posta yoluyla alacaksınız. İşleri ve adayları Indeed panonuzdan da yönetebilirsiniz. Başvuruları gözden geçirin, görüşmeleri planlayın ve önerilen adayları tek bir yerden görüntüleyin.</p>
                                 </div>
                             </div>
                         </div>
@@ -59,8 +59,8 @@
                                 <div class="how-work-box">
                                     <span>3</span>
                                     <i class="la la-pencil"></i>
-                                    <h3>Apply For Job</h3>
-                                    <p>inJob is the leading and longest-running online recruitment in Turkey. We understand that job-seekers come to us not only for a job, but for an pportunity to realize their professional.</p>
+                                    <h3>İş Başvurusu Yap</h3>
+                                    <p>ın Job, Türkiye'nin önde gelen ve en uzun soluklu online işe alım şirketidir. İş arayanların bize sadece bir iş için değil, aynı zamanda profesyonellerini gerçekleştirme fırsatı için geldiklerini anlıyoruz.</p>
                                 </div>
                             </div>
                         </div>

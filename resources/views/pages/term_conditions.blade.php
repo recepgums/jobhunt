@@ -9,14 +9,14 @@
                     <div class="col-lg-12">
                         <div class="inner2">
                             <div class="inner-title2">
-                                <h3>Terms and Conditions</h3>
-                                <span>Keep up to date with the latest news</span>
+                                <h3>Şartlar ve Politikalar</h3>
+                                <span>En son haberleri takip edin</span>
                             </div>
                             <div class="page-breacrumbs">
                                 <ul class="breadcrumbs">
-                                    <li><a href="#" title="">Home</a></li>
-                                    <li><a href="#" title="">Pages</a></li>
-                                    <li><a href="#" title="">Faq</a></li>
+                                    <li><a href="#" title="">Ana Sayfa</a></li>
+                                    <li><a href="#" title="">Sayfalar</a></li>
+                                    <li><a href="#" title="">Şartlar ve Politikalar</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -33,20 +33,20 @@
                     <div class="col-lg-12">
                         <div class="terms-conditions">
                             <div class="terms">
-                                <h2>1. Terms</h2>
-                                <p>By accessing this web site, you are agreeing to be bound by these web site Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this web site are protected by applicable copyright and trade mark law.</p>
+                                <h2>1. Şartlar</h2>
+                                <p>Bu web sitesine erişerek, bu web sitesi Kullanım Şart ve Koşullarına, yürürlükteki tüm yasa ve yönetmeliklere bağlı kalmayı kabul etmiş olursunuz ve geçerli yerel yasalara uymaktan sorumlu olduğunuzu kabul etmiş olursunuz. Bu şartlardan herhangi birini kabul etmiyorsanız, bu siteyi kullanmanız veya bu siteye erişmeniz yasaktır. Bu web sitesinde yer alan materyaller geçerli telif hakkı ve ticari marka kanunu ile korunmaktadır.</p>
                             </div>
                             <div class="terms">
-                                <h2>2. Limitations</h2>
-                                <p>Whilst we try to ensure that the standard of the Website remains high and to maintain the continuity of it, the internet is not an inherently stable medium, and errors, omissions, interruptions of service and delays may occur at any time. We do not accept any liability arising from any such errors, omissions, interruptions or delays or any ongoing obligation or responsibility to operate the Website (or any particular part of it) or to provide the service offered on the Website. We may vary the specification of this site from time to time without notice.</p>
+                                <h2>2. Şartlar</h2>
+                                <p>Web Sitesinin standardının yüksek kalmasını sağlamaya ve sürekliliğini sağlamaya çalışırken, internet doğası gereği istikrarlı bir ortam değildir ve hatalar, eksiklikler, hizmet kesintileri ve gecikmeler her an gerçekleşebilir. Bu tür hatalardan, eksikliklerden, kesintilerden veya gecikmelerden veya Web Sitesini (veya herhangi bir bölümünü) işletmek veya Web Sitesinde sunulan hizmeti sunmak için devam eden herhangi bir yükümlülük veya sorumluluktan kaynaklanan herhangi bir sorumluluk kabul etmiyoruz. Bu sitenin özelliklerini zaman zaman önceden haber vermeksizin değiştirebiliriz.</p>
                             </div>
                             <div class="terms">
-                                <h2>3. Revisions and Errata</h2>
-                                <p>You may only use the Website for lawful purposes when seeking employment or help with your career, when purchasing training courses or when recruiting staff. You must not under any circumstances seek to undermine the security of the Website or any information submitted to or available through it. In particular, but without limitation, you must not seek to access, alter or delete any information to which you do not have authorised access, seek to overload the system via spamming or flooding, take any action or use any device, routine or software to crash, delay, damage or otherwise interfere with the operation of the Website or attempt to decipher, disassemble or modify any of the software, coding or information comprised in the Website.</p>
+                                <h2>3. Şartlar</h2>
+                                <p>Web Sitesini yalnızca iş ararken veya kariyerinizde yardım ararken, eğitim kursları satın alırken veya personel alırken yasal amaçlarla kullanabilirsiniz. Hiçbir koşulda Web Sitesinin güvenliğini veya Web Sitesine gönderilen veya Web Sitesi aracılığıyla sunulan herhangi bir bilgiyi baltalamaya çalışmamalısınız. Özellikle, ancak bunlarla sınırlı olmamak üzere, erişim izniniz olmayan herhangi bir bilgiye erişmeye, değiştirmeye veya silmeye çalışmamalı, sistemi spam veya sel yoluyla aşırı yüklemeye çalışmamalı, herhangi bir işlem yapmamalı veya çökmek, geciktirmek, zarar vermek veya sisteme başka bir şekilde müdahale etmek için herhangi bir cihaz, rutin veya yazılım kullanmamalısınız. web Sitesinin işletilmesi veya Web Sitesinde yer alan yazılım, kodlama veya bilgilerin herhangi birini deşifre etme, parçalarına ayırma veya değiştirme girişimi.</p>
                             </div>
                             <div class="terms">
-                                <h2>4. Site Terms of Use Modifications</h2>
-                                <p>Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy penguin insect additionally wow absolutely crud meretriciously hastily dalmatian a glowered inset one echidna cassowary some parrot and much as goodness some froze the sullen much connected bat wonderfully on instantaneously. Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy penguin insect additionally. </p>
+                                <h2>4. Şartlar</h2>
+                                <p>Bir rütbenin, ıgnobly'nin dışına çıktıktan sonra mavi kuşu gördüğü iddia edilenden çok daha fazla, küstahça şiddetli bir şekilde karşı konulmaz telaşlı penguen böceği ek olarak, kesinlikle kaba bir şekilde aceleyle dalmaçyalı bir parıltılı inset bir echidna cassowary bazı papağan ve iyilik kadar bazıları, somurtkan çok bağlı yarasayı anında harika bir şekilde dondurdu. Bir rütbenin, ıgnobly'nin iddiaya göre daha fazla öfkeyle karşı konulmaz bir şekilde telaşlı penguen böceği eklediğinde, mavi kuşu dışarıdan sonra gördüğü çok fazla şey vardı. </p>
                             </div>
                         </div>
                     </div>

@@ -12,6 +12,7 @@ Route::view('terms', 'pages.term_conditions')->name('terms');
 Route::get('dashboard', [Controllers\CustomAuthController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('login', [Controllers\CustomAuthController::class, 'index'])->name('login');
 Route::get('register', [Controllers\CustomAuthController::class, 'register'])->name('register-user');
+Route::get('forgot-password', [Controllers\CustomAuthController::class, 'forgotPassword'])->name('forgot-password');
 Route::get('signout', [Controllers\CustomAuthController::class, 'signOut'])->name('signout');
 
 Route::post('custom-login', [Controllers\CustomAuthController::class, 'customLogin'])->name('login.custom');

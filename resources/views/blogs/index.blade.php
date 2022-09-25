@@ -36,7 +36,7 @@
                                                 </a>
                                                 <div class="blog-metas">
                                                     <a href="#" title="">{{$blog->created_at->format('M d, Y')}}</a>
-                                                    <a href="#" title="">0 Comments</a>
+                                                    <a href="#" title="">0 Yorum</a>
                                                 </div>
                                             </div>
                                             <div class="blog-details">
@@ -48,7 +48,7 @@
                                                 <p>
                                                     {{$blog->summary}}
                                                 </p>
-                                                <a href="{{route('blog.show',$blog->slug)}}" title="">Read More
+                                                <a href="{{route('blog.show',$blog->slug)}}" title="">Daha fazla oku
                                                     <i class="la la-long-arrow-right"></i>
                                                 </a>
                                             </div>

@@ -38,11 +38,11 @@
         <div class="tw-flex tw-justify-between py-4 text-white">
             <h1>İş mi Arıyorsun?</h1>
             <div class="tw-flex tw-space-x-3">
-                <a class="signin-popup">
+                <a href="{{route('login')}}">
                     Giriş Yap
                 </a>
                 <div class="tw-w-0.5 tw-h-4 tw-pt-1 tw-bg-black"></div>
-                <a class="signup-popup">
+                <a href="{{route('register-user')}}">
                     Kayıt Ol
                 </a>
             </div>
