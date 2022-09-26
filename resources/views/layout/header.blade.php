@@ -41,9 +41,8 @@
             </ul>
         </div>
 
-        <form class="res-search" method="post">
-            @csrf
-            <input type="text"  placeholder="Uzmanlık alanı, anahtar kelime ya da ilan başlığı"/>
+        <form class="res-search" method="get" action="{{route('job.index')}}">
+            <input type="text" name="job"  placeholder="Uzmanlık alanıa, anahtar kelime ya da ilan başlığı"/>
             <button type="submit" ><i class="la la-search"></i></button>
         </form>
         <div class="responsivemenu">

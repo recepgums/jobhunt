@@ -29,7 +29,7 @@
                                 @if($errors->any())
                                     {!! implode('', $errors->all('<div class="col-12 text-left text-danger">:message</div>')) !!}
                                 @endif
-                                <form action="#" method="POST">
+                                <form action="{{route('forgotPassword.post')}}" method="POST">
                                     @csrf
                                     <div class="cfield">
                                         <input autocomplete="nope" name="email" type="email" placeholder="Email Adresiniz" required/>
@@ -38,7 +38,7 @@
                                     <button type="submit" style="color: white">Mail Gönder</button>
                                 </form>
                             </div>
-                        </div><!-- LOGIN POPUP -->
+                        </div>
                     </div>
                 </div>
             </div>
