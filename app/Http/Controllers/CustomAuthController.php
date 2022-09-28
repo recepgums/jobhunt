@@ -24,7 +24,9 @@ class CustomAuthController extends Controller
 
     public function customLogin(LoginAttemptRequest $request)
     {
-        if (Auth::attempt($request->validated())) {
+        $remember = $request->input('remember');
+
+        if (Auth::attempt($request->validated(),$remember)) {
             return redirect()->intended('dashboard');
         }
 
@@ -85,6 +87,11 @@ class CustomAuthController extends Controller
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');
+    }
+
+    public function forgotPassword()
+    {
+       return view('auth.forgotPassword');
     }
 
     public function signOut()

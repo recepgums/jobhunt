@@ -16,7 +16,7 @@
             <p class="remember-label">
                 <input type="checkbox" name="cb" id="cb1"><label for="cb1">Beni hatırla</label>
             </p>
-            <a href="#" title="">Şifreni mi unuttun?</a>
+            <a href="{{route('forgot-password')}}" title="">Şifreni mi unuttun?</a>
             <button id="loginSubmitButton" type="submit">Giriş Yap</button>
 
         </form>

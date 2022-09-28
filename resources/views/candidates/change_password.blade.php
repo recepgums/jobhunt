@@ -5,14 +5,7 @@
     <section class="overlape">
         <div class="block no-padding">
             <div data-velocity="-.1" style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
-            <div class="container fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="inner-header">
-                            <h3>Welcome ALI TUFAN</h3>
-                        </div>
-                    </div>
-                </div>
+            <div class="inner-header mb-20">
             </div>
         </div>
     </section>
@@ -42,19 +35,19 @@
                                         @csrf
                                         <div class="row">
                                             <div class="col-lg-6">
-                                                <span class="pf-title">Old Password</span>
+                                                <span class="pf-title">Önceki Şifre</span>
                                                 <div class="pf-field">
                                                     <input name="old_password" type="password" />
                                                 </div>
-                                                <span class="pf-title">New Password</span>
+                                                <span class="pf-title">Yeni Şifre</span>
                                                 <div class="pf-field">
                                                     <input name="new_password" type="password" />
                                                 </div>
-                                                <span class="pf-title">Confirm Password</span>
+                                                <span class="pf-title">Yeni Şifre Tekrar</span>
                                                 <div class="pf-field">
                                                     <input name="new_password_confirmation" type="password" />
                                                 </div>
-                                                <button type="submit">Update</button>
+                                                <button type="submit">Güncelle</button>
                                             </div>
                                             <div class="col-lg-6">
                                                 <i class="la la-key big-icon"></i>

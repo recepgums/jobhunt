@@ -8,14 +8,14 @@
                     <div class="col-lg-12">
                         <div class="inner2">
                             <div class="inner-title2">
-                                <h3>Contact</h3>
-                                <span>Keep up to date with the latest news</span>
+                                <h3>İletişim</h3>
+                                <span>En son haberleri takip edin</span>
                             </div>
                             <div class="page-breacrumbs">
                                 <ul class="breadcrumbs">
-                                    <li><a href="#" title="">Home</a></li>
-                                    <li><a href="#" title="">Pages</a></li>
-                                    <li><a href="#" title="">Contact</a></li>
+                                    <li><a href="#" title="">Ana Sayfa</a></li>
+                                    <li><a href="#" title="">Sayfalar</a></li>
+                                    <li><a href="#" title="">İletişim</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -31,12 +31,12 @@
                 <div class="row">
                     <div class="col-lg-6 column">
                         <div class="contact-form">
-                            <h3>Keep In Touch</h3>
+                            <h3>İletişiminizi sürdürün</h3>
                             <form method="POST" action="{{route('contact.post')}}">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <span class="pf-title">Full Name</span>
+                                        <span class="pf-title">İsim</span>
                                         <div class="pf-field">
                                             <input type="text" name="fullName" placeholder="ALi TUFAN"/>
                                         </div>
@@ -48,19 +48,19 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
-                                        <span class="pf-title">Subject</span>
+                                        <span class="pf-title">Konu</span>
                                         <div class="pf-field">
                                             <input name="subject" type="text" placeholder="ALi TUFAN"/>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
-                                        <span class="pf-title">Message</span>
+                                        <span class="pf-title">Mesaj</span>
                                         <div class="pf-field">
                                             <textarea name="message"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
-                                        <button type="submit">Send</button>
+                                        <button type="submit">Gönder</button>
                                     </div>
                                 </div>
                             </form>
@@ -72,8 +72,8 @@
                             <ul>
                                 <li><i class="la la-map-marker"></i><span>Jobify Inc. 555 Madison Avenue, Suite F-2 Manhattan, New York 10282 </span>
                                 </li>
-                                <li><i class="la la-phone"></i><span>Call Us : 0934 343 343</span></li>
-                                <li><i class="la la-fax"></i><span>Fax : 0934 343 343</span></li>
+                                <li><i class="la la-phone"></i><span>Telefon Numarası : 0934 343 343</span></li>
+                                <li><i class="la la-fax"></i><span>Fax Numarası: 0934 343 343</span></li>
                                 <li><i class="la la-envelope-o"></i><span>Email : info@jobhunt.com</span></li>
                             </ul>
                         </div>

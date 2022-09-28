@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>{{ $details['text'] }}</title>
+    <title>{{ $details['subject'] }}</title>
 </head>
 <body>
 

@@ -2,12 +2,18 @@
     <div class="responsive-menubar">
         <div class="res-logo">
             <a href="{{route('homepage')}}">
-                <img style="height: 20px;width: 20px" src="{{asset('assets/images/logo.png')}}" alt=""/>
+                @auth
+                    <img style="width: 50px" src="{{asset('assets/images/logo.png')}}" alt=""/>
+                    <h1 style="font-size: 10px; font-weight: bold; color:white;">
+                        Hoşgeldiniz {{auth()->user()->name}}</h1>
+                @endauth
+                @guest
+                    <img style="width: 100px" src="{{asset('assets/images/logo.png')}}" width="100"
+                         height="71" alt=""/>
+                @endguest
             </a>
 
         </div>
-        <a style="color: white;font-weight: 600;" href="{{route('homepage')}}"
-           class="mx-auto text-center"> {{env('APP_NAME')}}</a>
         <div class="menu-resaction">
             <div class="res-openmenu">
                 <img src="{{asset('assets/images/icon.png')}}" alt=""/> Menü
@@ -25,19 +31,19 @@
                     <li class="ml-5"><a title="" href="{{route('login')}}"><i class="la la-external-link-square"></i>
                             Giriş Yap</a>
                     </li>
-                    <li class="ml-4"><a title="" href="{{route('register-user')}}"><i class="la la-key"></i> Kayıt
+                    <li class="ml-5"><a title="" href="{{route('register-user')}}"><i class="la la-key"></i> Kayıt
                             Ol</a></li>
                 @endguest
-                <a href="{{route('job.create')}}" class="tw-bg-red-500 btn w-full text-white p-2 mt-4 mr-2 ml-5"
+                <a href="{{route('job.create')}}" class="tw-bg-red-500 btn w-full text-white p-2 mt-4 ml-5 w-75"
                    style="font-weight: 600;">
                     Ücretsiz İlan Ver
                 </a>
             </ul>
         </div>
 
-        <form class="res-search">
-            <input type="text" placeholder="Uzmanlık alanı, anahtar kelime ya da ilan başlığı"/>
-            <button type="submit"><i class="la la-search"></i></button>
+        <form class="res-search" method="get" action="{{route('job.index')}}">
+            <input type="text" name="job"  placeholder="Uzmanlık alanıa, anahtar kelime ya da ilan başlığı"/>
+            <button type="submit" ><i class="la la-search"></i></button>
         </form>
         <div class="responsivemenu">
             <ul>
@@ -67,7 +73,25 @@
         <div class="container fluid">
             <div class="logo">
                 <a href="{{route('homepage')}}" title="">
-                    <img style="width: 100px" src="{{asset('assets/images/logo.png')}}" alt=""/>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                @auth
+                                    <img style="width: 100px" src="{{asset('assets/images/logo.png')}}" width="100"
+                                         height="71" alt=""/>
+                            </div>
+                            <div class="col-lg-9">
+
+                                <h1 style="font-size: 25px; font-weight: bold; color:white;">
+                                    Hoşgeldiniz {{auth()->user()->name}}</h1>
+                                @endauth
+                            </div>
+                            @guest
+                                <img style="width: 100px" src="{{asset('assets/images/logo.png')}}" width="100"
+                                     height="71" alt=""/>
+                            @endguest
+                        </div>
+                    </div>
                 </a>
             </div><!-- Logo -->
             <div class="btn-extars">

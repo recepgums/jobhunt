@@ -6,12 +6,14 @@ use App\Http\Controllers;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('homepage');
 Route::view('contact', 'pages.contact')->name('contact');
 Route::post('contactPost', [App\Http\Controllers\MailSend::class,'mailSend'])->name('contact.post');
+Route::post('forgotPasswordPost', [App\Http\Controllers\MailSend::class,'forgotPassword'])->name('forgotPassword.post');
 Route::view('how-it-works', 'pages.how_it_works')->name('how_it_works');
 Route::view('terms', 'pages.term_conditions')->name('terms');
 
 Route::get('dashboard', [Controllers\CustomAuthController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('login', [Controllers\CustomAuthController::class, 'index'])->name('login');
 Route::get('register', [Controllers\CustomAuthController::class, 'register'])->name('register-user');
+Route::get('forgot-password', [Controllers\CustomAuthController::class, 'forgotPassword'])->name('forgot-password');
 Route::get('signout', [Controllers\CustomAuthController::class, 'signOut'])->name('signout');
 
 Route::post('custom-login', [Controllers\CustomAuthController::class, 'customLogin'])->name('login.custom');
@@ -31,7 +33,7 @@ Route::group(['prefix' => 'job/{job}', 'middleware' => 'auth', 'as' => 'job.'], 
     Route::get('pricing', [Controllers\JobController::class, 'pricing'])->name('pricing');
     Route::get('package/{package}', [Controllers\JobController::class, 'packageSelectPost'])->name('price.post');
     Route::get('package/{package}/api', [Controllers\JobController::class, 'packageSelectPostApi']);
-
+    Route::post('JobFilterService',[Controllers\JobController::class, 'index'])->name('JobFilterService');
     Route::post('get_contact_info', [Controllers\JobController::class, 'getContactInfo'])->name('get_contact_info');
 });
 
