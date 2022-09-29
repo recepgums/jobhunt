@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid p-0">
         <div class="row no-gape">
-            <div class="col-lg-10 column mx-auto">
+            <div class="col-sm-11 col-lg-10 column mx-auto">
                 <div class="padding-left">
                     <form-wizard color="#8b91dd" subtitle="" title="İş ilanı ver"
                                  backButtonText="Geri"
@@ -10,7 +10,6 @@
                                  stepSize="sm"
                                  ref="wizard"
                                  @on-complete="toPaymentPage"
-                                 class="'mb-5'"
                     >
                         <wizard-step
                             slot-scope="props"
@@ -90,68 +89,59 @@
                         </tab-content>
                         <tab-content :before-change="onSubmit" title="Paket Seçimi ve Ödeme" icon="la la-cc-mastercard">
                             <div class="row">
-                                <div class="col-lg-12 ">
-                                    <div class="row">
-                                        <div class="col-lg-5 col">
-
-                                        </div>
-                                        <div class="col-lg-5 col">
-                                            <span class="pf-title ml-5">Ücret</span>
-                                            <el-input-number :disabled="fee_disabled" v-model="formInline.fee"
-                                                             :min="5500"
-                                                             :step="500"></el-input-number>
+                                <div class="col-sm-12 col-md-6">
+                                    <span class="pf-title">Şehir</span>
+                                    <div class="pf-field">
+                                        <v-select :options="cities" v-model="formInline.city"></v-select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="pf-field">
+                                        <span class="pf-title">İlçe</span>
+                                        <div class="pf-field" id="districtSelect">
+                                            <v-select :options="districts"
+                                                      v-model="formInline.district"></v-select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 ">
-                                    <div class="row">
-                                        <div class="col-lg-2 col">
-
-                                        </div>
-                                        <div class="col-lg-5 col">
-                                            <el-button @click="fee_disabled=!fee_disabled">Ücret belirtmek istemiyorum
-                                            </el-button>
-                                        </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <span class="pf-title">Telefon numaranız</span>
+                                    <div class="pf-field">
+                                        <VuePhoneNumberInput
+                                            default-country-code="TR"
+                                            v-model="formInline.phone"/>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-sm-12 col-md-6">
                                     <div class="row">
-                                        <div class="col-6">
-                                            <span class="pf-title">Şehir</span>
+                                        <div class="col-sm-6">
+                                            <span class="pf-title">Aylık ücret</span>
                                             <div class="pf-field">
-                                                <v-select :options="cities" v-model="formInline.city"></v-select>
+                                                <el-input-number class="mx-auto"  style="width: 100%" :disabled="fee_disabled" v-model="formInline.fee"
+                                                                 :min="5500"
+                                                                 :step="500" />
                                             </div>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-sm-6">
+                                            <span class="pf-title mt-2"></span>
                                             <div class="pf-field">
-                                                <span class="pf-title">İlçe</span>
-                                                <div class="pf-field" id="districtSelect">
-                                                    <v-select :options="districts"
-                                                              v-model="formInline.district"></v-select>
-                                                </div>
+                                                <el-button @click="fee_disabled=!fee_disabled">Ücret belirtmek istemiyorum
+                                                </el-button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-sm-12 col-md-6">
                                     <span class="pf-title">Cinsiyet</span>
                                     <div class="pf-field">
                                         <v-select :options="genders" v-model="formInline.gender"></v-select>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <span class="pf-title">Çalışma Türü</span>
+                                <div class="col-sm-12 col-md-6">
+                                    <span class="pf-title">Çalışma türü</span>
                                     <div class="pf-field">
                                         <v-select :options="work_types"
                                                   v-model="formInline.work_type"></v-select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <span class="pf-title">Telefon</span>
-                                    <div class="pf-field">
-                                        <VuePhoneNumberInput
-                                            default-country-code="TR"
-                                            v-model="formInline.phone"/>
                                     </div>
                                 </div>
                             </div>
@@ -223,7 +213,7 @@ export default {
             actualFiles: [],
             fee_disabled: false,
             categories: [],
-            actionUrl: appUrl + '/job',
+            actionUrl: appUrl + '/ilan',
             cities: [],
             work_types: [],
             genders: [],
@@ -237,6 +227,11 @@ export default {
     methods: {
         onSubmit() {
             if (this.isJobCreated) {
+                this.$notify({
+                    title: 'Lütfen bekleyiniz',
+                    type: 'warning',
+                    message: 'İlanınız oluşturuluyor'
+                });
                 return true
             }
             let {uploadFiles} = this.$refs.upload
@@ -258,12 +253,13 @@ export default {
 
 
             axios.post(
-                '/job',
+                '/ilan',
                 form,
                 {
                     headers: {
                         'X-CSRF-TOKEN': this.csrf,
-                        'content-type': 'multipart/form-data'
+                        'content-type': 'multipart/form-data',
+                        'Accept' : 'application/json'
                     },
                     onUploadProgress: this.handleProgress
                 })
@@ -294,16 +290,15 @@ export default {
             }
 
             axios.get(
-                '/job/' + this.slug + '/package/' + this.formInline.package_id + '/api',
+                '/ilan/' + this.slug + '/paket/' + this.formInline.package_id + '/api',
                 {
                     headers: {
                         'X-CSRF-TOKEN': this.csrf,
-                        'content-type': 'multipart/form-data'
                     },
                 })
                 .then(resp => {
                     setTimeout(() => {
-                        window.location.href = window.location.origin + '/job/' + this.slug + '/payment';
+                        window.location.href = window.location.origin + '/ilan/' + this.slug + '/odeme';
 
                     }, 500)
 
@@ -413,5 +408,12 @@ export default {
     color: red;
     right: 2px;
     z-index: 100;
+}
+.v-select{
+    padding: 8px;
+}
+.pf-title{
+    margin-top: 5px;
+    font-size: 16px;
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
-    <div class="row py-2" role="button">
-        <div class="col-3 px-0">
-            <img :src="job?.media[0]" class="rounded-xl tw-h-20 tw-w-20 image-single"/>
+    <div class="row py-2"   style="width: 100%" role="button">
+        <div class="col-4 px-0">
+            <img :src="job?.media[0]" class="rounded-xl image-single"/>
         </div>
-        <div class="col-9 px-0">
+        <div class="col-8 px-0 py-2">
             <h1 class="tw-font-bold">
                 {{ job?.title }}
             </h1>
@@ -13,7 +13,6 @@
 
             <div class="row align-items-end justify-content-between location-date" >
                 <div class="col-7">
-
                     {{ job?.district?.name }},
                     {{ job?.city?.name }}
                 </div>
@@ -42,7 +41,9 @@ export default {
     font-size:16px
 }
 .image-single{
-
+    width: 60vw;
+    margin: auto;
+    padding: 10px;
 }
 @media only screen and (max-width: 768px) {
     .location-date{

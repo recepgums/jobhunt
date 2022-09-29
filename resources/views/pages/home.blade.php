@@ -1,6 +1,6 @@
 @extends('layout.app')
 @push('styles')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+{{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>--}}
     <style>
         .swiper {
             width: 100%;
@@ -193,14 +193,11 @@
     <section>
         <div class="block gray homepage-slider">
             <div id="app">
-                <job-list
-                    currentLocation="{{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları"
-                >
-                </job-list>
+                <job-list :auth="'{{\Illuminate\Support\Facades\Auth::check()}}'"/>
             </div>
             <script src="{{asset('js/app.js')}}"></script>
             <div class="container">
-                <div class="tw-flex tw-justify-center tw-mt-8 tw-mb-8">
+                <div class="mx-auto text-center">
                     <div class="browse-all-cat ">
                         <a href="{{route('job.index')}}" title="" class="style2">Daha fazla iş ilanı
                             görüntüleyin</a>

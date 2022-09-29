@@ -114,7 +114,7 @@
                                 <ul class="tags-jobs">
                                     <li>
                                         <i class="la la-map-marker"></i> @if(optional($job->district)->name) {{$job->district->name}}
-                                        , @endif {{$job->city->name}}</li>
+                                        , {{$job->city->name}} @endif</li>
                                     @if($job->fee)
                                         <li>
                                             <i class="la la-money"></i> Aylık Maaş : <span>{{$job->fee}} ₺</span>

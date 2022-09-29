@@ -108,7 +108,6 @@ class JobController extends Controller
             $user->name = 'İsimsiz Kullanıcı';
             $user->token = Str::slug(Str::random(32));
             $user->save();
-
             $user->assignRole('employee'); // default role is "employee" when user creates a job
 
             auth()->loginUsingId($user->id);

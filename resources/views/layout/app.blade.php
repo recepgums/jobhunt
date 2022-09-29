@@ -41,12 +41,6 @@
 </head>
 
 <body>
-
-<div class="page-loading">
-    <img src="{{asset('assets/images/loader.gif')}}" alt=""/>
-    <span>Yükleyiciyi Atla</span>
-</div>
-
 <div class="theme-layout" id="scrollup">
     @include('layout.header')
 

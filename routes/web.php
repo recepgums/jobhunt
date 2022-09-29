@@ -7,13 +7,13 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::view('contact', 'pages.contact')->name('contact');
 Route::post('contactPost', [App\Http\Controllers\MailSend::class,'mailSend'])->name('contact.post');
 Route::post('forgotPasswordPost', [App\Http\Controllers\MailSend::class,'forgotPassword'])->name('forgotPassword.post');
-Route::view('how-it-works', 'pages.how_it_works')->name('how_it_works');
-Route::view('terms', 'pages.term_conditions')->name('terms');
+Route::view('nasil-calisiyor', 'pages.how_it_works')->name('how_it_works');
+Route::view('anlasma', 'pages.term_conditions')->name('terms');
 
-Route::get('dashboard', [Controllers\CustomAuthController::class, 'dashboard'])->name('dashboard')->middleware('auth');
-Route::get('login', [Controllers\CustomAuthController::class, 'index'])->name('login');
-Route::get('register', [Controllers\CustomAuthController::class, 'register'])->name('register-user');
-Route::get('forgot-password', [Controllers\CustomAuthController::class, 'forgotPassword'])->name('forgot-password');
+Route::get('panel', [Controllers\CustomAuthController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+Route::get('giris', [Controllers\CustomAuthController::class, 'index'])->name('login');
+Route::get('kayit', [Controllers\CustomAuthController::class, 'register'])->name('register-user');
+Route::get('sifremi-unuttum', [Controllers\CustomAuthController::class, 'forgotPassword'])->name('forgot-password');
 Route::get('signout', [Controllers\CustomAuthController::class, 'signOut'])->name('signout');
 
 Route::post('custom-login', [Controllers\CustomAuthController::class, 'customLogin'])->name('login.custom');
@@ -28,12 +28,11 @@ Route::post('ajax/logout', [Controllers\CustomAuthController::class, 'signOut'])
 
 Route::get('city/{city}/districts', [Controllers\GeneralController::class, 'getDistrictsByCity'])->name('city.districts');
 
-Route::group(['prefix' => 'job/{job}', 'middleware' => 'auth', 'as' => 'job.'], function () {
-    Route::get('payment', [Controllers\JobController::class, 'payment'])->name('payment');
-    Route::get('pricing', [Controllers\JobController::class, 'pricing'])->name('pricing');
-    Route::get('package/{package}', [Controllers\JobController::class, 'packageSelectPost'])->name('price.post');
-    Route::get('package/{package}/api', [Controllers\JobController::class, 'packageSelectPostApi']);
-    Route::post('JobFilterService',[Controllers\JobController::class, 'index'])->name('JobFilterService');
+Route::group(['prefix' => 'ilan/{job}', 'middleware' => 'auth', 'as' => 'job.'], function () {
+    Route::get('odeme', [Controllers\JobController::class, 'payment'])->name('payment');
+    Route::get('fiyatlama', [Controllers\JobController::class, 'pricing'])->name('pricing');
+    Route::get('paket/{package}', [Controllers\JobController::class, 'packageSelectPost'])->name('price.post');
+    Route::get('paket/{package}/api', [Controllers\JobController::class, 'packageSelectPostApi']);
     Route::post('get_contact_info', [Controllers\JobController::class, 'getContactInfo'])->name('get_contact_info');
 });
 
@@ -41,18 +40,18 @@ Route::get('user/{user:username}', [Controllers\UserController::class, 'show'])-
 
 Route::get('user/verify', [Controllers\UserVerifyController::class, 'verify'])->name('verify');
 
-Route::resource('job', Controllers\JobController::class);
+Route::resource('ilan', Controllers\JobController::class,['names' => 'job','parameters' => ['ilan'=>'job']]);
 //Route::resource('employer', Controllers\EmployerController::class);
 Route::resource('blog', Controllers\BlogController::class);
 
 Route::group(['prefix' => 'candidate', 'as' => 'candidate.', 'middleware' => 'auth'], function () {
-    Route::get('profile', [Controllers\CandidateController::class, 'profile'])->name('profile');
+    Route::get('profil', [Controllers\CandidateController::class, 'profile'])->name('profile');
     Route::post('profile', [Controllers\CandidateController::class, 'profileUpdate'])->name('update');
 
     Route::get('my-resume', [Controllers\CandidateController::class, 'my_resume'])->name('my_resume');
-    Route::get('shortlist', [Controllers\CandidateController::class, 'shortlist'])->name('shortlist');
-    Route::get('applied_jobs', [Controllers\CandidateController::class, 'applied_jobs'])->name('applied_jobs');
-    Route::get('job_alert', [Controllers\CandidateController::class, 'job_alert'])->name('job_alert');
+    Route::get('ilanlarim', [Controllers\CandidateController::class, 'shortlist'])->name('shortlist');
+    Route::get('basvurulan-ilanlar', [Controllers\CandidateController::class, 'applied_jobs'])->name('applied_jobs');
+    Route::get('is-alarmi', [Controllers\CandidateController::class, 'job_alert'])->name('job_alert');
     Route::get('cv_cover_letter', [Controllers\CandidateController::class, 'cv_cover_letter'])->name('cv_cover_letter');
     Route::get('change_password', [Controllers\CandidateController::class, 'change_password'])->name('change_password');
 });
@@ -61,7 +60,7 @@ Route::get('/candidate', function () {
     return view('candidates.index');
 })->name('candidates.index');
 
-Route::post('job/{job}/iyzico-form-retrieve', [App\Http\Controllers\JobController::class, 'receiveIyzicoPaymentForm'])->name('omg-iyzico-form');
+Route::post('ilan/{job}/iyzico-form-retrieve', [App\Http\Controllers\JobController::class, 'receiveIyzicoPaymentForm'])->name('omg-iyzico-form');
 //Route::post('job/{job}/iyzico-form-retrieve', [App\Http\Controllers\JobController::class, 'receiveIyzicoPaymentForm'])->name('omg-iyzico-form');
 
 Route::get('redirect/{driver}', [Controllers\UserController::class, 'socialiteRedirect'])->name('socialite.redirect');

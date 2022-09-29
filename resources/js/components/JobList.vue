@@ -1,8 +1,8 @@
 <template>
     <div class="col-xs-12 col-md-10  mx-auto" style="max-width: 1200px">
-        <h1 v-if="currentLocation">{{currentLocation}}</h1>
         <div class="row">
             <div class="col-12 d-none d-md-block mx-auto bg-white py-3 mb-3">
+                <h1 class="font-weight-bold px-5 fs-22">{{selectedCity?.label}}'deki {{selectedCategory?.label}} iş ilanları</h1>
                 <!--Filter-->
                 <div class="row">
                     <div class="col-3">
@@ -101,7 +101,14 @@
                 :append-to-body="true"
                 :visible.sync="drawer"
             >
-                <JobDetail :job="selectedJob"/>
+                <JobDetail class="job-drawer-container" :job="selectedJob"/>
+                <div class="tw-flex tw-flex-col w-full">
+                    <button class="tw-bg-red-500 btn w-full text-white p-2 mx-auto"
+                            style="font-weight: 600; width:95%;position: absolute;bottom: 20px">
+                        <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                        Ara
+                    </button>
+                </div>
             </el-drawer>
 
             <el-drawer
@@ -111,7 +118,7 @@
                 :append-to-body="true"
                 :visible.sync="filterDrawer"
             >
-                <div class="container-fluid p-0">
+                <div style="height: 20rem" class="container-fluid p-0">
                     <div class="col my-5">
                         <v-select
                             placeholder="İl"
@@ -168,7 +175,7 @@ import JobSingle from "./JobSingle";
 import JobDetail from "./JobDetail";
 
 export default {
-    props: ["currentLocation"],
+    props:['test'],
     data() {
         return {
             jobs: [],
@@ -254,8 +261,13 @@ export default {
     height: auto;
 }
 .job-list-container{
-    height: 100vh;
+    height: 56rem;
     padding-left: 2px; padding-right: 2px; margin-left: 2px; margin-right: 2px;
+    overflow-y: scroll;
+    /*overflow-x: hidden;*/
+}
+.job-drawer-container{
+   height: 90vh;
     overflow: scroll;
 }
 /* ===== Scrollbar CSS ===== */
