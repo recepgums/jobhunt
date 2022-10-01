@@ -14,7 +14,9 @@ class PublicDataController extends Controller
 {
     public function city()
     {
-        return City::all();
+        return Cache::rememberForever('cities',function (){
+            return City::all();
+        });
     }
 
     public function district(City $city)
@@ -36,16 +38,20 @@ class PublicDataController extends Controller
     {
         $selectedCity = $this->getSelectedCity();
 
-        return response()->json([
-            'cities' => Cache::rememberForever('cities', fn() => City::all()),
-            'categories' => Cache::rememberForever('job-categories', fn() => Categories::forJob()->onlyParent()->get()),
-            'work_types' => Cache::rememberForever('work-types', fn() => WorkType::all()),
-            'selected_city' => $selectedCity,
-            'districts' => $selectedCity?->districts,
-            'genders' => Cache::rememberForever('genders', fn() => Gender::all()),
-            'packages' => Cache::rememberForever('packages', fn() => Package::all()),
-            'phone' => auth()->check() ? auth()->user()->phone : null
-        ]);
+        $data = Cache::rememberForever('jobCreateData',function ()use($selectedCity){
+           return [
+               'cities' => Cache::rememberForever('cities', fn() => City::all()),
+               'categories' => Cache::rememberForever('job-categories', fn() => Categories::forJob()->onlyParent()->get()),
+               'work_types' => Cache::rememberForever('work-types', fn() => WorkType::all()),
+               'selected_city' => $selectedCity,
+               'districts' => $selectedCity?->districts,
+               'genders' => Cache::rememberForever('genders', fn() => Gender::all()),
+               'packages' => Cache::rememberForever('packages', fn() => Package::all()),
+               'phone' => auth()->check() ? auth()->user()->phone : null
+           ];
+        });
+
+        return response()->json($data);
     }
 
     /**
@@ -68,13 +74,17 @@ class PublicDataController extends Controller
     {
         $selectedCity = $this->getSelectedCity();
 
-        return response()->json([
-            'cities' => Cache::rememberForever('cities', fn() => City::all()),
-            'categories' => Cache::rememberForever('job-categories', fn() => Categories::forJob()->onlyParent()->get()),
-            'work_types' => Cache::rememberForever('work-types', fn() => WorkType::all()),
-            'selected_city' => $selectedCity,
-            'districts' => $selectedCity?->districts,
-            'genders' => Cache::rememberForever('genders', fn() => Gender::all()),
-        ]);
+        $data = Cache::rememberForever('homepageDatas',function ()use($selectedCity){
+            return [
+                'cities' => Cache::rememberForever('cities', fn() => City::all()),
+                'categories' => Cache::rememberForever('job-categories', fn() => Categories::forJob()->onlyParent()->get()),
+                'work_types' => Cache::rememberForever('work-types', fn() => WorkType::all()),
+                'selected_city' => $selectedCity,
+                'districts' => $selectedCity?->districts,
+                'genders' => Cache::rememberForever('genders', fn() => Gender::all()),
+            ];
+        });
+
+        return response()->json($data);
     }
 }
