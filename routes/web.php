@@ -70,7 +70,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
     Route::get('/', [Controllers\Admin\AdminController::class, 'dashboard'])->name('index');
     Route::resource('faq', Controllers\Admin\FaqController::class);
     Route::get('reviews', [Controllers\Admin\AdminController::class, 'reviews'])->name('reviews');
-    Route::resource('categories', \App\Http\Controllers\Admin\CategoriesController::class);
+    Route::resource('categories', Controllers\Admin\CategoriesController::class);
 });
 Route::get('test', function () {
     dd(now()->toDateTimeString());

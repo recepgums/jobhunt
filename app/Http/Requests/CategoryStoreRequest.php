@@ -8,7 +8,6 @@ class CategoryStoreRequest extends FormRequest
 {
     public function authorize()
     {
-        return true;
         return auth()->check() && auth()->user()->hasRole('admin');
     }
 
@@ -18,7 +17,7 @@ class CategoryStoreRequest extends FormRequest
             'name' => 'required',
             'parent_id' => 'nullable',
             'description' => 'required',
-            'image' => 'required|image',
+            'image' => 'nullable|image',
         ];
     }
 

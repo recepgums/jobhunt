@@ -43,15 +43,14 @@ class PublicDataController extends Controller
                'cities' => Cache::rememberForever('cities', fn() => City::all()),
                'categories' => Cache::rememberForever('job-categories', fn() => Categories::forJob()->onlyParent()->get()),
                'work_types' => Cache::rememberForever('work-types', fn() => WorkType::all()),
-               'selected_city' => $selectedCity,
-               'districts' => $selectedCity?->districts,
                'genders' => Cache::rememberForever('genders', fn() => Gender::all()),
                'packages' => Cache::rememberForever('packages', fn() => Package::all()),
-               'phone' => auth()->check() ? auth()->user()->phone : null
            ];
         });
 
-        return response()->json($data);
+        return response()->json(array_merge($data,[
+            'selected_city' => $selectedCity,
+        ]));
     }
 
     /**

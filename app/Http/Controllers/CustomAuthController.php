@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class CustomAuthController extends Controller
 {
@@ -24,17 +25,13 @@ class CustomAuthController extends Controller
 
     public function customLogin(LoginAttemptRequest $request)
     {
-        $remember = $request->input('remember');
+//        $remember = $request->input('remember');
 
-        if (Auth::attempt($request->validated(),$remember)) {
+        if (Auth::attempt($request->validated())) {
             return redirect()->intended('dashboard');
         }
 
-        if ($request->ajax()){
-            dd('sds');
-        }
-
-        return redirect("login")->with(['error' => 'Giriş bilgileri yanlış']);
+        return redirect()->route("register-user")->with(['error' => 'Giriş bilgileri yanlış']);
     }
 
     public function register()
@@ -45,7 +42,7 @@ class CustomAuthController extends Controller
     public function customRegistration(UserRegisterRequest $request)
     {
         try {
-         $newUser = $this->create($request->validated());
+             $newUser = $this->create($request->validated());
         }catch (\Exception $exception){
             return  \redirect()->back()->withErrors(['errors' => $exception->getMessage()]);
         }
@@ -56,6 +53,7 @@ class CustomAuthController extends Controller
             'user_id' => $newUser->id,
             'phone_verify_code' => $phoneVerifyCode,
             'email_verify_code' => $emailVerifyCode,
+            'token' => Str::random(20),
         ]);
 
         if ($newUser->phone)
@@ -63,7 +61,7 @@ class CustomAuthController extends Controller
         if ($newUser->email)
             SendMailJob::dispatch($newUser->email, new VerifyEmailAddressMail($phoneVerifyCode));
 
-        return redirect("dashboard")->withSuccess('Giriş yaptınız');
+        return redirect()->route('dashboard')->withSuccess('Giriş yaptınız');
     }
 
     public function create(array $data)
@@ -71,6 +69,7 @@ class CustomAuthController extends Controller
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => $data['password'],
         ]);
         $user->setRoleByTypeId($data);
@@ -86,7 +85,7 @@ class CustomAuthController extends Controller
             return view('dashboard.index', ['user' => \auth()->user()]);
         }
 
-        return redirect("login")->withSuccess('You are not allowed to access');
+        return redirect()->route('register-user')->withSuccess('You are not allowed to access');
     }
 
     public function forgotPassword()
@@ -99,7 +98,7 @@ class CustomAuthController extends Controller
         Session::flush();
         Auth::logout();
 
-        return Redirect('login');
+        return redirect()->route('homepage');
     }
 
     public function changePasswordPost(Request $request)

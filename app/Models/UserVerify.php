@@ -26,6 +26,11 @@ class UserVerify extends Model
 
     public function setTokenAttribute($value)
     {
-        $this->attributes['token'] = Str::random(20);
+        $rand = Str::random(20);
+        if (self::whereToken($rand)->exists()) {
+            $rand = $rand.Str::random(2);
+        }
+
+        $this->attributes['token'] = $rand;
     }
 }

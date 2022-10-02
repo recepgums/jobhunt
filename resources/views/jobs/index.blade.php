@@ -12,11 +12,10 @@
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}"/>
 
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap-grid.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <link rel="stylesheet" href="{{asset('assets/css/icons.css')}}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}"/>
 </head>
 

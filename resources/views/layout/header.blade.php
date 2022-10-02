@@ -4,8 +4,6 @@
             <a href="{{route('homepage')}}">
                 @auth
                     <img style="width: 50px" src="{{asset('assets/images/logo.png')}}" alt=""/>
-                    <h1 style="font-size: 10px; font-weight: bold; color:white;">
-                        Hoşgeldiniz {{auth()->user()->name}}</h1>
                 @endauth
                 @guest
                     <img style="width: 100px" src="{{asset('assets/images/logo.png')}}" width="100"
@@ -74,22 +72,9 @@
             <div class="logo">
                 <a href="{{route('homepage')}}" title="">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                @auth
-                                    <img style="width: 100px" src="{{asset('assets/images/logo.png')}}" width="100"
-                                         height="71" alt=""/>
-                            </div>
-                            <div class="col-lg-9">
-
-                                <h1 style="font-size: 25px; font-weight: bold; color:white;">
-                                    Hoşgeldiniz {{auth()->user()->name}}</h1>
-                                @endauth
-                            </div>
-                            @guest
-                                <img style="width: 100px" src="{{asset('assets/images/logo.png')}}" width="100"
-                                     height="71" alt=""/>
-                            @endguest
+                        <div class="col">
+                            <img style="width: 100px" src="{{asset('assets/images/logo.png')}}" width="100"
+                                 height="71" alt=""/>
                         </div>
                     </div>
                 </a>

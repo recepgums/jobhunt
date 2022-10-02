@@ -251,62 +251,10 @@
     </section>
 
     <section>
-        <div class="block gray">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="heading">
-                            <h2>İş hayatınız için hızlı ipuçları</h2>
-                            <span>Daha önce pek çok kişiyi işe almış deneyimli iş sahipleri tarafından yazılmıştır</span>
-                        </div><!-- Heading -->
-                        <div class="blog-sec">
-                            <div class="row">
-                                <div class="swiper mySwiper">
-                                    <div class="swiper-wrapper">
-                                        @forelse($blogs as $blog)
-                                            <div class="swiper-slide col-lg-4">
-                                                <div class="my-blog">
-                                                    <div class="blog-thumb">
-                                                        <a href="{{route('blog.show',$blog->slug)}}" title="">
-                                                            <img
-                                                                src="{{$blog->cover_image ?? 'https://place-hold.it/360x200'}}"
-                                                                alt="{{$blog->title}}"/></a>
-                                                        <div class="blog-date">
-                                                            <a>{{$blog->created_at->format('Y')}}
-                                                                <i>{{$blog->created_at->format('M d')}}</i></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="blog-details">
-                                                        <h3>
-                                                            <a href="{{route('blog.show',$blog->slug)}}" title="">
-                                                                {{$blog->title}}
-                                                            </a>
-                                                        </h3>
-                                                        <p>{{\Illuminate\Support\Str::limit($blog->summary,40)}}</p>
-                                                        <a href="{{route('blog.show',$blog->slug)}}" title="">
-                                                            Devamını Oku
-                                                            <i class="la la-long-arrow-right"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @empty
-                                        @endforelse
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
         <div class="block">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 column">
+                    <div class="col-lg-12 mx-auto column">
                         <div class="heading left">
                             <h2>Sıkça Sorulan Sorular</h2>
                         </div><!-- Heading -->
@@ -315,20 +263,6 @@
                                 <h2>{{$faq->question}}</h2>
                                 <div class="content">
                                     <p>{{$faq->answer}}</p>
-                                </div>
-                            @empty
-                            @endforelse
-                        </div>
-                    </div>
-                    <div class="col-lg-4 column">
-                        <div class="reviews-sec" id="reviews">
-                            @forelse($reviews as $review)
-                                <div class="col-lg-6">
-                                    <div class="reviews style2">
-                                        <img src="{{$review->cover_image}}" alt="{{$review->review}}"/>
-                                        <h3>{{$review->name}}<span>{{$review->role}}</span></h3>
-                                        <p>{{$review->review}}</p>
-                                    </div>
                                 </div>
                             @empty
                             @endforelse
@@ -346,16 +280,13 @@
                     <div class="col-lg-12">
                         <div class="subscription-sec">
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-8 mx-auto text-center">
                                     <h3>Sorunla mı karşılaşıyorsunuz?</h3>
                                     <p>Sorununuz hakkında profesyonel çalışanlarımızın sizinle iletişime geçmesini
                                         sağlayın.</p>
-                                </div>
-                                <div class="col-lg-6">
-                                    <form>
-                                        <input type="text" placeholder="Geçerli bir email adresinizi yazın"/>
-                                        <button type="submit"><i class="la la-paper-plane"></i></button>
-                                    </form>
+
+                                    <a href="mailto:{{env('CONTACT_EMAIL_ADDRESS')}}" >{{env('CONTACT_EMAIL_ADDRESS')}}</a>
+                                    adresi üzerinden bizimle iletişime geçin!
                                 </div>
                             </div>
                         </div>

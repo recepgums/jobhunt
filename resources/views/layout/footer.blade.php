@@ -14,6 +14,9 @@
                             <span>Eyüp/İstanbul 34050</span>
 {{--                            <span>{{env('CONTACT_PHONE_NUMBER')}}</span>--}}
                             <span>{{env('CONTACT_EMAIL_ADDRESS')}}</span>
+
+                            <img class="mx-auto" src="{{asset('assets/images/iyzico/logo_band_colored.svg')}}" alt="">
+
                         </div>
                     </div>
                 </div>

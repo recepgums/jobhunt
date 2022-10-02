@@ -120,40 +120,52 @@
             >
                 <div style="height: 20rem" class="container-fluid p-0">
                     <div class="col my-5">
-                        <v-select
-                            placeholder="İl"
-                            @change="getJobList"
-                            :options="cities"
-                            v-model="selectedCity"
-                            :multiple="false"
-                        ></v-select>
+                        <el-select v-model="selectedCity" placeholder="İl"
+                                   @change="getJobList"
+                        >
+                            <el-option
+                                v-for="item in cities"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                            </el-option>
+                        </el-select>
                     </div>
                     <div class="col my-5">
-                        <v-select
-                            placeholder="İlçe"
-                            @input="getJobList"
-                            :options="districts"
-                            v-model="selectedDistricts"
-                            :multiple="false"
-                        ></v-select>
+                        <el-select v-model="selectedDistricts" placeholder="İlçe"
+                                   @change="getJobList"
+                        >
+                            <el-option
+                                v-for="item in districts"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                            </el-option>
+                        </el-select>
                     </div>
                     <div class="col my-5">
-                        <v-select
-                            placeholder="Uzmanlığı"
-                            @input="getJobList"
-                            :options="categories"
-                            v-model="selectedCategory"
-                            :multiple="false"
-                        ></v-select>
+                        <el-select v-model="selectedCategory" placeholder="Uzmanlığı"
+                                   @change="getJobList"
+                        >
+                            <el-option
+                                v-for="item in categories"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                            </el-option>
+                        </el-select>
                     </div>
                     <div class="col my-5">
-                        <v-select
-                            placeholder="İlan tarihi"
-                            @input="getJobList"
-                            :options="orderTypes"
-                            v-model="selectedOrderType"
-                            :multiple="false"
-                        ></v-select>
+                        <el-select v-model="selectedWorkType" placeholder="Calisma Sekli"
+                                   @change="getJobList"
+                        >
+                            <el-option
+                                v-for="item in workTypes"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                            </el-option>
+                        </el-select>
                     </div>
 
                     <div class="col-12 ">
@@ -185,6 +197,7 @@ export default {
             selectedCategory: null,
             selectedSallary: null,
             selectedOrderType: null,
+            selectedWorkType: null,
 
             cities: [],
             districts: [],

@@ -45,11 +45,11 @@ class CategoriesController extends Controller
         return redirect()->route('admin.categories.store');
     }
 
-    public function edit($id)
+    public function edit(Categories $category)
     {
         $mainCategories = Categories::whereNull('parent_id')->where('model', 'App\Models\Job')->get();
 
-        $category = Categories::with('parent')->where('id', $id)->first();
+        $category = $category->load('parent');
 
         return view('admin.categories.edit', [
             'category' => $category,
@@ -60,7 +60,7 @@ class CategoriesController extends Controller
     public function update(CategoryUpdateRequest $request, Categories $category)
     {
         if ($request->hasFile('image')) {
-            $category->clearMediaCollection('image');
+            $category->clearMediaCollection('category');
             $category->addMedia($request->file('image'))->toMediaCollection('category');
         }
 

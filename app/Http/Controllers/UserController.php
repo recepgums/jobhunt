@@ -41,7 +41,7 @@ class UserController extends Controller
                     return  redirect()->route('dashboard');
                 }
 
-                return redirect()->route('login')->with(['error' => 'Giriş yapılamadı']);
+                return redirect()->route('register-user')->with(['error' => 'Giriş yapılamadı']);
             }
 
         } catch (Exception $exception) {

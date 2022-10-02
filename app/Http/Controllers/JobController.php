@@ -77,6 +77,8 @@ class JobController extends Controller
 
     public function create(JobHelper $jobHelper)
     {
+        if (!auth()->check())
+            return redirect()->route('register-user');
         $selectedCity = $this->city;
 
         [
@@ -132,7 +134,7 @@ class JobController extends Controller
 
         return response()->json([
             'message' => 'İş ilanı kaydedildi. Ödeme bekleniyor',
-            'slug' => $job->slug,
+            'job' => $job,
             'url' => route('job.pricing', $job)
         ]);
     }

@@ -19,17 +19,6 @@
                                             <div class="icon icon-drag mr-10"></div>
                                             <span class="text-16 lh-14 fw-500 text-dark-1">{{$category->name}}</span>
                                         </div>
-
-                                        <div class="d-flex x-gap-10 items-center">
-                                            <a href="#" class="icon icon-edit mr-5"></a>
-                                            <a href="#" class="icon icon-bin"></a>
-                                            <div class="accordion__icon mr-0">
-                                                <div
-                                                    class="d-flex items-center justify-center icon icon-chevron-down"></div>
-                                                <div
-                                                    class="d-flex items-center justify-center icon icon-chevron-up"></div>
-                                            </div>
-                                        </div>
                                     </div>
 
                                     <div class="accordion__content">
@@ -38,10 +27,6 @@
                                                 <div>
                                                     <a class="button -sm py-15 -purple-3 text-purple-1 fw-500"
                                                        href="{{route('admin.categories.edit',$category->id)}}">Duzenle</a>
-                                                </div>
-                                                <div>
-                                                    <a href="#" class="button -sm py-15 -purple-3 text-purple-1 fw-500">Yayindan
-                                                        Kaldir</a>
                                                 </div>
                                                 <div>
                                                     <form method="post" action="{{route('admin.categories.destroy',$category)}}">

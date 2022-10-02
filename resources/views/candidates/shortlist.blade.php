@@ -50,7 +50,8 @@
                                 </ul>
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active ml-3" id="home" role="tabpanel"
-                                         aria-labelledby="home-tab">                                @forelse($jobs as $job)
+                                         aria-labelledby="home-tab">
+                                        @forelse($jobs as $job)
                                             <div class="job-listing wtabs">
                                                 <div class="job-title-sec">
                                                     <div class="c-logo">
@@ -76,14 +77,14 @@
                                                 </div>
                                             </div>
                                         @empty
-                                            <p class="text-center mx-auto">
-                                                İlanınız bulunmamakta.
-                                                <a style="text-align: center" href="{{route('job.create')}}" title=""
-                                                   class="post-job-btn active mx-auto">
-                                                    <i class="la la-plus"></i>
-                                                    İlan Ver
-                                                </a>
-                                            </p>
+                                       <div class="mx-auto text-center">
+                                           <p class="text-center mx-auto">
+                                               İlanınız bulunmamakta.
+                                               <a style="text-align: center;color: dodgerblue" href="{{route('job.create')}}">
+                                                   İlan Ver
+                                               </a>
+                                           </p>
+                                       </div>
                                         @endforelse
                                     <div class="tab-pane fade ml-3" id="profile" role="tabpanel"
                                          aria-labelledby="profile-tab">@forelse($endPubJobs as $endPubJob)

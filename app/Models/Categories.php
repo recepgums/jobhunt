@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -54,5 +55,13 @@ class Categories extends Model implements HasMedia
     public function children()
     {
         return $this->hasMany(Categories::class, 'parent_id', 'id');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::saving(function ($model) {
+            Cache::flush('categories');
+        });
     }
 }

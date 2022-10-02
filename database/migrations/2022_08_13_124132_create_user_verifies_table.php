@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email_verify_code')->nullable();
             $table->string('phone_verified_at')->nullable();
             $table->string('email_verified_at')->nullable();
-            $table->string('token')->unique();
+            $table->string('token');
             $table->timestamps();
         });
     }

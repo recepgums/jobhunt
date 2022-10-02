@@ -10,6 +10,7 @@
     </style>
 @endpush
 @section('content')
+
     <div class="dashboard__main">
         <div class="dashboard__content bg-light-4">
             <div class="row y-gap-30 pt-30">
@@ -23,6 +24,7 @@
 
                                 <div class="py-30 px-30">
                                     <form class="contact-form row y-gap-30"
+                                          enctype="multipart/form-data"
                                           action="{{route('admin.categories.update',$category->id)}}" method="post">
                                         @csrf
                                         @method('put')
@@ -52,10 +54,9 @@
                                                       id="exampleFormControlTextarea1"
                                                       rows="3">{{$category->description}}</textarea>
                                         </div>
-
                                         <div class="col-12">
                                             <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">İmage</label><br/>
-                                            <img src="{{url($category->default_cover_image) ?? null}}"
+                                            <img src="{{$category->default_cover_image ?? null}}"
                                                  style="height: 300px; width: 300px;">
                                             <input type="file" name="image" id="image" class="form-control-file"
                                                    id="exampleFormControlFile1">

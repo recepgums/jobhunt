@@ -19,7 +19,7 @@ class CategoryUserFactory extends Factory
     public function definition()
     {
         return [
-            'categories_id' => Categories::query()->inRandomOrder()->first()->id,
+            'category_id' => Categories::query()->inRandomOrder()->first()->id,
             'user_id' => User::query()->inRandomOrder()->first()->id,
         ];
     }

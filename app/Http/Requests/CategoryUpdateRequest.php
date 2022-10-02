@@ -16,6 +16,7 @@ class CategoryUpdateRequest extends FormRequest
         return [
             'name' => 'required',
             'parent_id' => 'nullable',
+            'image' => 'nullable|image',
             'description' => 'required',
         ];
     }
