@@ -30,7 +30,7 @@
                         <div slot="prev" class="col-lg-12 py-2">
                             <el-button size="medium" style="margin-top: 12px;font-size: 18px;" type="danger">Geri</el-button>
                         </div>
-<!--                        <tab-content title="Kategori secimi" icon="la la-info">
+                        <tab-content title="Kategori secimi" icon="la la-info">
                             <div class="row">
                                 <div @click="categoryClicked(category)" v-for="category in categories"
                                      class="col-lg-4 col-md-4 col-sm-6 col-6">
@@ -63,7 +63,7 @@
                                     :on-progress="handleProgress"
                                     :auto-upload="false"
                                     multiple
-                                    class="row px-3"
+                                    class="row"
                                     accept="image/*,video/*"
                                 >
                                     <i class="el-icon-plus"></i>
@@ -149,7 +149,9 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="pf-field pf-title" style="padding:13px 0">
-                                                <el-button @click="fee_disabled=!fee_disabled">Ücret belirtmek istemiyorum
+                                                <el-button
+                                                    style="padding: 12px 5px"
+                                                    @click="fee_disabled=!fee_disabled">Ücret belirtmek istemiyorum
                                                 </el-button>
                                             </div>
                                         </div>
@@ -182,18 +184,20 @@
                                     </div>
                                 </div>
                             </div>
-                        </tab-content>-->
+                        </tab-content>
                         <tab-content title="Paket Seçimi ve Ödeme2" icon="la la-cc-mastercard">
                             <div class="plans-sec">
                                 <div class="row">
+                                    <h1>Başvuru sayısını arttırın!</h1>
+
                                     <div @click="formInline.package_id = c.id" class="col-lg-4" v-for="c in packages">
                                         <el-card  :body-style="{ padding: '0px' }">
                                             <img src="/assets/images/src/img.png" class="image">
                                             <div style="padding: 14px;">
                                                 <span>Yummy hamburger</span>
                                                 <div class="bottom clearfix">
-
-                                                    <el-button type="text" class="button" type="primary">Operating</el-button>
+                                                    <time class="time">{{c.name}}</time>
+                                                    <el-button type="text" class="button">Operating</el-button>
                                                 </div>
                                             </div>
                                         </el-card>

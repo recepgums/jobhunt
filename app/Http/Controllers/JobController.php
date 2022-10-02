@@ -281,6 +281,7 @@ class JobController extends Controller
                 'user_id' => auth()->id(),
                 'job_id' => $job->id,
             ]);
+
         } catch (\Exception $exception) {
             return redirect()->back()->with(['error' => $exception->getMessage()]);
         }

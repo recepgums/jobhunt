@@ -25,13 +25,13 @@ class CustomAuthController extends Controller
 
     public function customLogin(LoginAttemptRequest $request)
     {
-//        $remember = $request->input('remember');
+        $remember = $request->input('remember');
 
-        if (Auth::attempt($request->validated())) {
-            return redirect()->intended('dashboard');
+        if (Auth::attempt($request->validated(),$remember)) {
+            return redirect()->route('panel');
         }
 
-        return redirect()->route("register-user")->with(['error' => 'Giriş bilgileri yanlış']);
+        return redirect()->back()->with(['error' => 'Giriş bilgileri yanlış']);
     }
 
     public function register()

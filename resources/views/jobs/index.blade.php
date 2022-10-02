@@ -44,6 +44,7 @@
         <div class="container-fluid p-1">
             <div id="app" style="min-height: 450px">
                 <job-list style="max-width: 1368px"
+                          :isLoggedIn="'{{auth()->check()}}'"
                     currentLocation="{{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları"
                 ></job-list>
             </div>

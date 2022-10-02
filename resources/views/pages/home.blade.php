@@ -193,7 +193,7 @@
     <section>
         <div class="block gray homepage-slider">
             <div id="app">
-                <job-list :auth="'{{\Illuminate\Support\Facades\Auth::check()}}'"/>
+                <job-list :isLoggedIn="'{{auth()->check()}}'"></job-list>
             </div>
             <script src="{{asset('js/app.js')}}"></script>
             <div class="container">

@@ -88,7 +88,7 @@
                     </div>
                     <!--JobDetail-->
                     <div class="col-sm d-none d-md-block">
-                        <JobDetail :job="selectedJob"/>
+                        <JobDetail :job="selectedJob" :isloggedin="isloggedin"/>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
                 :append-to-body="true"
                 :visible.sync="drawer"
             >
-                <JobDetail class="job-drawer-container" :job="selectedJob"/>
+                <JobDetail class="job-drawer-container" :job="selectedJob" :isloggedin="isLoggedIn"/>
                 <div class="tw-flex tw-flex-col w-full">
                     <button class="tw-bg-red-500 btn w-full text-white p-2 mx-auto"
                             style="font-weight: 600; width:95%;position: absolute;bottom: 20px">
@@ -187,7 +187,7 @@ import JobSingle from "./JobSingle";
 import JobDetail from "./JobDetail";
 
 export default {
-    props:['test'],
+    props:['isloggedin'],
     data() {
         return {
             jobs: [],
