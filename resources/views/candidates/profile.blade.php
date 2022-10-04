@@ -214,13 +214,7 @@
 @endsection
 
 @push('scripts')
-    <script src="{{asset('assets/js/jquery.scrollbar.min.js')}}" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js" integrity="sha512-+gShyB8GWoOiXNwOlBaYXdLTiZt10Iy6xjACGadpqMs20aJOoh+PJt3bwUVA6Cefe7yF7vblX6QwyXZiVwTWGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="{{asset('assets/js/circle-progress.min.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/js/tag.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/js/maps3.js')}}" type="text/javascript"></script>
-    <script
-        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCYc537bQom7ajFpWE5sQaVyz1SQa9_tuY&sensor=true&libraries=places"></script>
     <script>
         function thisFileUpload(e) {
             e.preventDefault()

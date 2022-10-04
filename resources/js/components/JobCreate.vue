@@ -188,8 +188,6 @@
                         <tab-content title="Paket Seçimi ve Ödeme2" icon="la la-cc-mastercard">
                             <div class="plans-sec">
                                 <div class="row">
-                                    <h1>Başvuru sayısını arttırın!</h1>
-
                                     <div @click="formInline.package_id = c.id" class="col-lg-4" v-for="c in packages">
                                         <el-card  :body-style="{ padding: '0px' }">
                                             <img src="/assets/images/src/img.png" class="image">
@@ -241,7 +239,7 @@ export default {
                 district: null,
                 fee: null,
                 gender: null,
-                package_id: null,
+                package_id: 1,
                 phone: null,
                 sleep_after_at: null
             },

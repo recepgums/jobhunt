@@ -80,7 +80,7 @@
                     </div>
                     <div class="col-sm" v-if="!showContactInformation">
                         <el-button @click="getContactClicked" size="medium"  type="danger">
-                            İletişim bilgilerini gör
+                            İletişime geç
                         </el-button>
                     </div>
                     <div class="col-sm btn text-white" v-if="showContactInformation">
