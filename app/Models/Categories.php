@@ -56,12 +56,4 @@ class Categories extends Model implements HasMedia
     {
         return $this->hasMany(Categories::class, 'parent_id', 'id');
     }
-
-    protected static function boot()
-    {
-        parent::boot();
-        static::saving(function ($model) {
-            Cache::flush('categories');
-        });
-    }
 }

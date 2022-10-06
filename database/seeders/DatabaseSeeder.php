@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
             ]);
 
             foreach ($city->ilceler as $ilce) {
-                if (optional($ilce)->ad) {
+                if (optional($ilce)->ad && !str_contains(optional($ilce)->ad,'Havalimanı') ) {
                     District::create([
                         'city_id' => $cityRecord->id,
                         'name' => $ilce->ad

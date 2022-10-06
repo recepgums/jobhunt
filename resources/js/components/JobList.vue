@@ -2,8 +2,8 @@
     <div class="col-xs-12 col-md-10  mx-auto" style="max-width: 1200px">
         <div class="row">
             <div class="col-12 d-none d-md-block mx-auto bg-white py-3 mb-3">
-                <h1 class="font-weight-bold px-5 fs-22">{{selectedCity?.label}}'deki {{selectedCategory?.label}} iş ilanları</h1>
-                <!--Filter-->
+                <h1 class="font-weight-bold px-5 fs-22">
+                    {{selectedCity?.label}}'deki {{selectedCategory?.label}} iş ilanları</h1>
                 <div class="row">
                     <div class="col-3">
                         <v-select

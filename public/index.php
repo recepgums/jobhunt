@@ -2,6 +2,7 @@
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
+use NitroPack\NitroPack;
 
 define('LARAVEL_START', microtime(true));
 
@@ -15,7 +16,12 @@ define('LARAVEL_START', microtime(true));
 | instead of starting the framework, which could cause an exception.
 |
 */
+/*$layout = 'name';
 
+if ($nitro->hasCache($layout)) {
+    $nitro->pageCache->readfile();
+    exit;
+}*/
 if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
     require $maintenance;
 }
@@ -32,6 +38,7 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 */
 
 require __DIR__.'/../vendor/autoload.php';
+$nitro = new NitroPack('vADHWBpaKrZjWRJPSaDStciadFSLutwK', '3MQQlLhHGzzqJy2FKjaObdwubkQnP9OuSazMds0PdQv1L1yas4lih45Dkoepu0No');
 
 /*
 |--------------------------------------------------------------------------

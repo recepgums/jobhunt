@@ -2,11 +2,6 @@
 @push('styles')
 {{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>--}}
     <style>
-        .swiper {
-            width: 100%;
-            height: 100%;
-        }
-
         p.job-type-custom {
             color: #26AE61;
             font-size: 13px;
@@ -35,41 +30,6 @@
         .visibility {
             visibility: hidden;
         }
-
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-
-            /* Center slide text vertically */
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            -webkit-justify-content: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            -webkit-align-items: center;
-            align-items: center;
-            margin-right: 20px;
-        }
-
-        .swiper-slide img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .swiper-slide {
-            width: 80%;
-        }
-        .homepage-slider{
-            padding-top: 6rem
-        }
-
         @media only screen and (max-width: 768px) {
             .padding-t {
                 padding-top: 25px;
@@ -110,11 +70,9 @@
                 -webkit-box-orient: vertical;
             }
         }
-
         .bg-overlay {
-
             background: linear-gradient(to bottom, rgba(184, 24, 40, 0.88), rgba(23, 23, 22, 0.5)),
-            url("{{ asset('assets/images/bg.jpeg') }}") 0 0 no-repeat fixed;
+            url("{{ asset('assets/images/bg.webp') }}") 0 0 no-repeat fixed;
             background-size: cover;
         }
 
@@ -191,7 +149,7 @@
     </section>
 
     <section>
-        <div class="block gray homepage-slider">
+        <div class="gray homepage-slider">
             <div id="app">
                 <job-list :isLoggedIn="'{{auth()->check()}}'"></job-list>
             </div>
@@ -297,56 +255,3 @@
     </section>
 
 @endsection
-@push('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            lazy: true,
-            pagination: {
-                el: ".swiper-pagination",
-                dynamicBullets: true,
-            },
-            autoplay: {
-                delay: 3000
-            },
-            loop: true,
-            breakpoints: {
-                545: {
-                    slidesPerView: 2,
-                    autoplay: {
-                        delay: 3000
-                    },
-                },
-                768: {
-                    slidesPerView: 2,
-                    autoplay: {
-                        delay: 3000
-                    },
-                },
-                992: {
-                    slidesPerView: 3,
-                    autoplay: {
-                        delay: 3000
-                    },
-                    spaceBetween: 20,
-                },
-                1200: {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
-                    autoplay: {
-                        delay: 3000
-                    },
-                },
-                1400: {
-                    slidesPerView: 4,
-                    spaceBetween: 30,
-                    autoplay: {
-                        delay: 3000
-                    },
-                }
-            },
-        });
-    </script>
-@endpush

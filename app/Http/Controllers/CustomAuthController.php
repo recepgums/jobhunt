@@ -28,7 +28,7 @@ class CustomAuthController extends Controller
         $remember = $request->input('remember');
 
         if (Auth::attempt($request->validated(),$remember)) {
-            return redirect()->route('panel');
+            return redirect()->route('dashboard');
         }
 
         return redirect()->back()->with(['error' => 'Giriş bilgileri yanlış']);

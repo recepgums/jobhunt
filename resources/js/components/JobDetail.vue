@@ -5,15 +5,14 @@
                 <div
                     class="tw-grid mb-3 tw-col-span-5 text-center mx-auto"
                 >
-                    <img
-                        v-for="media in job?.media"
-                        :src="media"
+                    <el-image
+                        :src="job?.media[0]"
                         class="tw-rounded-xl tw-w-200 tw-h-200 tw-col-span-1"
-                    />
+                        :fit="'fill'"
+                        :preview-src-list="job?.media"
+                    ></el-image>
                 </div>
-                <div
-                    class="tw-flex tw-col-span-5 text-left mx-auto tw-flex-col"
-                >
+                <div>
                     <h1 class="tw-font-bold tw-pr-4">
                         {{ job?.title }}
                     </h1>

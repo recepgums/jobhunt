@@ -24,7 +24,7 @@ class JobFactory extends Factory
      */
     public function definition()
     {
-        $title = $this->faker->paragraph(2);
+        $title = $this->faker->paragraph(1);
         $city = City::query()->inRandomOrder()->first();
         return [
             'user_id' => User::query()->inRandomOrder()->first()->id,
@@ -33,7 +33,7 @@ class JobFactory extends Factory
             'category_id' => Categories::query()->forJob()->inRandomOrder()->first()->id,
             'title' => $title,
             'phone' => string_to_ten_digits_phone_number($this->faker->phoneNumber),
-            'description' => $this->faker->text(30),
+            'description' => $this->faker->paragraph(3),
             'slug' => Str::slug($title),
             'work_type_id' => WorkType::query()->inRandomOrder()->first()->id,
             'fee' => rand(10,1500),
