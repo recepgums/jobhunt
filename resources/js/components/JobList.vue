@@ -2,58 +2,91 @@
     <div class="col-xs-12 col-md-10  mx-auto" style="max-width: 1200px">
         <div class="row">
             <div class="col-12 d-none d-md-block mx-auto bg-white py-3 mb-3">
-                <h1 class="font-weight-bold px-5 fs-22">
-                    {{selectedCity?.label}}'deki {{selectedCategory?.label}} iş ilanları</h1>
+                <h1 class="font-weight-bold fs-22 my-3">
+                    {{cities.find(q=>q.value===selectedCity).label}} {{categories.find(q=>q.value===selectedCategory)?.label}} iş ilanları</h1>
                 <div class="row">
                     <div class="col-3">
-                        <v-select
+                        <el-select
+                            filterable
+                            v-model="selectedCity"
                             placeholder="İl"
                             @change="getJobList"
-                            :options="cities"
-                            v-model="selectedCity"
-                            :multiple="false"
-                        ></v-select>
+                        >
+                            <el-option
+                                v-for="item in cities"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                            </el-option>
+                        </el-select>
                     </div>
                     <div class="col-3">
-                        <v-select
-                            placeholder="İlçe"
-                            @input="getJobList"
-                            :options="districts"
+                        <el-select
+                            filterable
                             v-model="selectedDistricts"
-                            :multiple="false"
-                        ></v-select>
+                            placeholder="İlçe"
+                            @change="getJobList"
+                        >
+                            <el-option
+                                v-for="item in districts"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                            </el-option>
+                        </el-select>
                     </div>
                     <div class="col-3">
-                        <v-select
-                            placeholder="Uzmanlığı"
-                            @input="getJobList"
-                            :options="categories"
+                        <el-select
+                            filterable
                             v-model="selectedCategory"
-                            :multiple="false"
-                        ></v-select>
+                            placeholder="Uzmanlığı"
+                            @change="getJobList"
+                        >
+                            <el-option
+                                v-for="item in categories"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                            </el-option>
+                        </el-select>
                     </div>
                     <div class="col-3">
-                        <v-select
-                            placeholder="İlan tarihi"
-                            @input="getJobList"
-                            :options="orderTypes"
-                            v-model="selectedOrderType"
-                            :multiple="false"
-                        ></v-select>
+                        <el-select
+                            filterable
+                            v-model="selectedWorkType"
+                            placeholder="Çalışma şekli"
+                            @change="getJobList"
+                        >
+                            <el-option
+                                v-for="item in workTypes"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                            </el-option>
+                        </el-select>
                     </div>
                 </div>
             </div>
             <div class="col-12 d-block d-md-none mx-auto bg-white py-3 mb-3">
+                <h1 class="font-weight-bold fs-22 my-3">
+                    {{cities.find(q=>q.value===selectedCity).label}} {{categories.find(q=>q.value===selectedCategory)?.label}} iş ilanları</h1>
+
                 <!--Filter-->
                 <div class="row">
                     <div class="col-6">
-                        <v-select
+                        <el-select
+                            filterable
+                            v-model="selectedCategory"
                             placeholder="Pozisyon"
                             @change="getJobList"
-                            :options="categories"
-                            v-model="selectedCategory"
-                            :multiple="false"
-                        ></v-select>
+                        >
+                            <el-option
+                                v-for="item in categories"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                            </el-option>
+                        </el-select>
                     </div>
                    <div class="col-6">
                        <el-button @click="filterDrawer=true" type="primary" plain>
@@ -72,7 +105,8 @@
                             class="bg-white rounded-lg mt-2"
                             :class="{ 'active-job': job?.id === selectedJob?.id }"
                         >
-                            <JobSingle :job="job"/>
+                            <JobSingle :job="job"
+                            />
                         </div>
                     </div>
                     <!--Mobile Job List Item col-6-->
@@ -101,14 +135,7 @@
                 :append-to-body="true"
                 :visible.sync="drawer"
             >
-                <JobDetail class="job-drawer-container" :job="selectedJob" :isloggedin="isLoggedIn"/>
-                <div class="tw-flex tw-flex-col w-full">
-                    <button class="tw-bg-red-500 btn w-full text-white p-2 mx-auto"
-                            style="font-weight: 600; width:95%;position: absolute;bottom: 20px">
-                        <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
-                        Ara
-                    </button>
-                </div>
+                <JobDetail class="job-drawer-container" :job="selectedJob" :isloggedin="isloggedin" />
             </el-drawer>
 
             <el-drawer
@@ -187,10 +214,10 @@ import JobSingle from "./JobSingle";
 import JobDetail from "./JobDetail";
 
 export default {
-    props:['isloggedin'],
+    props: ['isloggedin'],
     data() {
         return {
-            jobs: [],
+            jobs: null,
             selectedJob: null,
             selectedCity: null,
             selectedDistricts: null,
@@ -204,7 +231,6 @@ export default {
             workTypes: [],
             categories: [],
             salaries: [],
-            orderTypes: [],
 
             drawer: false,
             filterDrawer: false,
@@ -224,7 +250,8 @@ export default {
                 this.cities = resp.data.cities.map((q) => {
                     return { label: q.name, value: q.id };
                 });
-                this.districts = resp.data.districts.map((q) => {
+                this.selectedCity = resp.data.selected_city.id
+                this.districts = resp.data.selected_city.districts.map((q) => {
                     return { label: q.name, value: q.id };
                 });
                 this.workTypes = resp.data.work_types.map((q) => {
@@ -233,10 +260,6 @@ export default {
                 this.categories = resp.data.categories.map((q) => {
                     return { label: q.name, value: q.id };
                 });
-                this.selectedCity = {
-                    label: resp.data.selected_city.name,
-                    value: resp.data.selected_city.id,
-                };
             });
         },
         jobClicked(job) {
@@ -247,21 +270,32 @@ export default {
             axios
                 .get(apiUrl + `job-v1`, {
                     params: {
-                        page: page,
-                        city_id: this.selectedCity?.value,
-                        district_id: this.selectedDistricts?.value,
+                        page: 1,
+                        city_id: this.selectedCity,
+                        district_id: this.selectedDistricts,
+                        category_id: this.selectedCategory,
+                        work_type_id: this.selectedWorkType
                     },
                 })
                 .then((resp) => {
-                    let data = resp.data.data;
-                    this.jobs = data;
+                    this.jobs=[];
+                    this.jobs = resp.data.data;
                     this.selectedJob = this.jobs[0];
                 });
         },
-        getContact(){
-            alert('sds')
-        }
     },
+    watch:{
+        selectedCity(){
+            this.districts = []
+            this.selectedDistricts = null
+            axios.get(apiUrl + `city/${this.selectedCity}/district`)
+                .then(resp => {
+                    this.districts = resp.data.map((q) => {
+                        return { label: q.name, value: q.id };
+                    })
+                })
+        }
+    }
 };
 </script>
 

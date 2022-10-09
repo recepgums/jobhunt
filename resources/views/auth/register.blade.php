@@ -27,6 +27,10 @@
                         <div class="account-popup-area signup-popup-box static">
                             <div class="account-popup">
                                 <h3>Kayıt Ol</h3>
+                                <span>
+                                    Zaten bir hesabın mı var?
+                                    <a style="color: blue" href="{{route('login')}}">Giriş yap</a>
+                                </span>
                                 <form method="post" action="{{route('register.custom')}}" autocomplete="off">
                                     @csrf
                                     <div class="cfield">
@@ -47,8 +51,9 @@
                                         <i class="la la-phone"></i>
                                     </div>
                                     <div class="select-user">
-                                        <span id="jobSeeker">İş Arayan</span>
-                                        <span>İşveren</span>
+                                        <span id="jobSeeker" onclick="document.getElementById('role').value=1">İş Arayan</span>
+                                        <span onclick="document.getElementById('role').value=2">İşveren</span>
+                                        <input type="hidden" id="role" name="type" value="1">
                                     </div>
 
                                     <button type="submit" style="color: white">Kayıt Ol</button>

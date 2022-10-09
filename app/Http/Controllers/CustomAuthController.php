@@ -119,4 +119,27 @@ class CustomAuthController extends Controller
 
         return redirect()->back()->with("success", "Password successfully changed!");
     }
+
+    public function changePasswordByTokenIndex($token)
+    {
+        User::where('token',$token)->firstOrFail();
+
+        return view('auth.newPassword');
+    }
+
+    public function changePasswordByTokenPost(Request $request)
+    {
+        $user = User::where('token',$request->get('token'))->firstOrFail();
+
+        if (strlen($request->get('password')) < 7)
+            return \redirect()->back()->withErrors(['msg' =>'Şifre 7 karakterden fazla olmalıdır.' ]);
+
+        if ($request->get('password') !== $request->get('password_confirmation'))
+            return \redirect()->back()->withErrors(['msg' =>'Şifreler aynı değil' ]);
+
+        $user->password = Hash::make($request->get('password'));
+        $user->save();
+
+        return \redirect()->route('login');
+    }
 }

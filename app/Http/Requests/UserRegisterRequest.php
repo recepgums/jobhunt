@@ -28,6 +28,7 @@ class UserRegisterRequest extends FormRequest
         return [
             'name' => 'required',
             'phone' => 'required',
+            'type' => ['required',Rule::in(User::TYPES)],
             'email' => 'required|email|unique:users',
             'password' => 'required|min:7',
         ];

@@ -4,27 +4,36 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('homepage');
+Route::get('/sitemap', [App\Http\Controllers\HomeController::class, 'sitemap'])->name('sitemap');
 Route::view('contact', 'pages.contact')->name('contact');
 Route::post('contactPost', [App\Http\Controllers\MailSend::class,'mailSend'])->name('contact.post');
-Route::post('forgotPasswordPost', [App\Http\Controllers\MailSend::class,'forgotPassword'])->name('forgotPassword.post');
 Route::view('nasil-calisiyor', 'pages.how_it_works')->name('how_it_works');
 Route::view('anlasma', 'pages.term_conditions')->name('terms');
 
 Route::get('panel', [Controllers\CustomAuthController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('giris', [Controllers\CustomAuthController::class, 'index'])->name('login');
 Route::get('kayit', [Controllers\CustomAuthController::class, 'register'])->name('register-user');
-Route::get('sifremi-unuttum', [Controllers\CustomAuthController::class, 'forgotPassword'])->name('forgot-password');
 Route::get('signout', [Controllers\CustomAuthController::class, 'signOut'])->name('signout');
+
+
+Route::get('sifremi-unuttum', [Controllers\CustomAuthController::class, 'forgotPassword'])->name('forgot-password');
+Route::post('forgotPasswordPost', [App\Http\Controllers\MailSend::class,'forgotPassword'])->name('forgotPassword.post');
+Route::get('yeni-sifre-olustur/{token}', [Controllers\CustomAuthController::class, 'changePasswordByTokenIndex'])->name('password-change-token-check');
+Route::post('yeni-sifre-olustur', [Controllers\CustomAuthController::class, 'changePasswordByTokenPost'])->name('password-change-post');
+
 
 Route::post('custom-login', [Controllers\CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::post('custom-registration', [Controllers\CustomAuthController::class, 'customRegistration'])->name('register.custom');
-Route::post('change_password_post', [Controllers\CustomAuthController::class, 'changePasswordPost'])->name('change_password_post');
 
 Route::group(['middleware' => 'guest', 'prefix' => 'ajax'], function () {
     Route::post('login', [Controllers\CustomAuthController::class, 'customLogin'])->name('login.ajax');
     Route::post('signup', [Controllers\CustomAuthController::class, 'register'])->name('signup.ajax');
 });
-Route::post('ajax/logout', [Controllers\CustomAuthController::class, 'signOut'])->name('logout.ajax');
+Route::group(['middleware' => 'auth'],function (){
+    Route::post('change_password_post', [Controllers\CustomAuthController::class, 'changePasswordPost'])->name('change_password_post');
+    Route::post('ajax/logout', [Controllers\CustomAuthController::class, 'signOut'])->name('logout.ajax');
+});
+
 
 Route::get('city/{city}/districts', [Controllers\GeneralController::class, 'getDistrictsByCity'])->name('city.districts');
 

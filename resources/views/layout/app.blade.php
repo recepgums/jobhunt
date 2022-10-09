@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Jobhunt</title>
+    <title>@yield('title',env('APP_NAME'))</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -21,7 +21,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-
     @if(env('APP_ENV') !== "local")
         <!-- Global site tag (gtag.js) - Google Ads: 607786685 -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=AW-607786685"></script>

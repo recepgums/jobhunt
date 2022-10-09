@@ -411,19 +411,6 @@ i {
 :-ms-input-placeholder {
     opacity: 1;
 }
-input[type="text"],
-input[type="password"],
-input[type="email"],
-textarea {
-    background: #e4e4e4 none repeat scroll 0 0;
-    border: medium none;
-    float: left;
-    font-size: 12px;
-    font-weight: 400;
-    margin-bottom: 20px;
-    padding: 19px 28px;
-    width: 100%;
-}
 textarea {
     max-width: 100%;
     min-height: 200px;
@@ -9936,7 +9923,7 @@ footer.ft .scrollup {
 .responsive-menubar {
     float: left;
     width: 100%;
-    padding: 20px 0;
+    padding: 15px 0;
 }
 .res-logo {
     float: left;

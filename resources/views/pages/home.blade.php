@@ -1,4 +1,7 @@
 @extends('layout.app')
+@section('title')
+    {{env('APP_NAME')}}
+@endsection
 @push('styles')
 {{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>--}}
     <style>

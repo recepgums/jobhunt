@@ -23,7 +23,6 @@ class CategoriesController extends Controller
 
     public function create()
     {
-
         $mainCategories = Categories::forJob()->whereNull('parent_id')->get();
 
         return view('admin.categories.create', [

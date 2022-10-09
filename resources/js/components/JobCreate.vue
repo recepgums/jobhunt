@@ -2,6 +2,12 @@
     <div class="container-fluid p-0">
         <div class="row no-gape">
             <div class="col-sm-11 col-lg-8 column mx-auto" style="max-width:1250px">
+                <el-page-header  @back="goBack" >
+                    <template slot="title">
+                        Anasayfa
+                    </template>
+                </el-page-header>
+
                 <div class="padding-left">
                     <el-card class="box-card mt-4" shadow="always">
                         <form-wizard color="#8b91dd" subtitle="" title=""
@@ -63,7 +69,7 @@
                                     :on-progress="handleProgress"
                                     :auto-upload="false"
                                     multiple
-                                    class="row"
+                                    class="row mx-auto px-0"
                                     accept="image/*,video/*"
                                 >
                                     <i class="el-icon-plus"></i>
@@ -76,7 +82,11 @@
                             <div class="col-lg-12 py-2 px-0">
                                 <span class="pf-title">İlan Başlığı </span>
                                 <div class="pf-field">
-                                    <el-input placeholder="Başlık" v-model="formInline.title" minlength="10" size="medium" clearable
+                                    <el-input placeholder="Başlık" v-model="formInline.title" minlength="10"
+                                              size="medium"
+                                              clearable
+                                              maxlength="90"
+                                              show-word-limit
                                     />
                                 </div>
                             </div>
@@ -87,8 +97,11 @@
                                     <el-input
                                         type="textarea"
                                         :autosize=" { minRows: 6, maxRows: 10 }"
-                                        placeholder="Sizinle çalışırken ne iş yapacağı, kaç saat çalışacağı gibi bilgileri yazınız...Aylık ya da haftalık ücret, yol yemek parası, sigorta gibi çalışana sağlayacağınız şartları yazınız..."
-                                        v-model="formInline.description">
+                                        placeholder="İşin ne olduğu, kaç saat çalışacağı, maaşların haftalık mı aylık mı ödeneceği, yol yemek parası, sigorta gibi bilgileri yazınız..."
+                                        v-model="formInline.description"
+                                        maxlength="300"
+                                        show-word-limit
+                                    >
                                     </el-input>
                                 </div>
                             </div>
@@ -391,7 +404,9 @@ export default {
                 this.formInline.package_id = this.packages.filter(q => q.is_highlighted == true)[0].id
             })
         },
-
+        goBack(){
+            window.location.href = "/"
+        },
         categoryClicked(category) {
             axios.get(apiUrl + 'category/' + category.id + '/sub-category')
                 .then(resp => resp.data)
@@ -434,7 +449,6 @@ export default {
     font-weight: 600;
     font-size: 18px;
     color: #000000;
-
 }
 
 .img-wrap {
@@ -484,5 +498,8 @@ bottom {
 
 .clearfix:after {
     clear: both
+}
+.el-upload--picture-card{
+    width:140px
 }
 </style>

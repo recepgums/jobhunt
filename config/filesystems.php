@@ -61,6 +61,12 @@ return [
             'driver' => 'local',
             'root'   => public_path('media'),
             'url'    => env('APP_URL').'/media',
+            'permissions' => [
+                'dir' => [
+                    'public' => 0777,
+                    'private' => 0755,
+                ],
+            ],
         ],
 
     ],

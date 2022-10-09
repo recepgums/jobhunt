@@ -1,5 +1,7 @@
 @extends('layout.app')
-
+@section('title')
+    {{$job->title}}
+@endsection
 @push('styles')
     <link rel="stylesheet" href="{{asset('assets/css/bo-slider.min.css')}}" />
     <link
@@ -61,20 +63,16 @@
         <div class="block no-padding">
             <div data-velocity="-.1"
                  style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;"
-                 class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+                 class="parallax scrolly-invisible no-parallax">
+            </div>
             <div class="container fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="inner-header d-none d-md-block">
-                            <h3>{{$job->user?->company_name}}</h3>
-                        </div>
-
-                        <div class="inner-header d-block d-md-none" >
-                            <h3 style="width: 100%;float: initial" class="mx-auto">{{$job->user?->company_name}}</h3>
-                        </div>
+                        <div class="inner-header"></div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -82,7 +80,7 @@
         <div class="block">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 column">
+                    <div class="col-lg-8 column bg-white p-3">
                         <div class="job-single-sec">
                                 <div class="swiper mySwiper">
                                     <div class="swiper-wrapper">
@@ -162,12 +160,33 @@
                                             <h3>Çalışma Türü</h3><span>{{$job->workType->name}}</span></li>
                                     @endif
                                     <li><i class="la la-location-arrow"></i>
-                                        <h3>Konum</h3><span>@if(optional($job->district)->name) {{$job->district->name}}
-                                            , @endif {{$job->city->name}}</span></li>
-                                    <li><i class="la la-hand-paper-o"></i>
-                                        <h3>Sözleşme</h3><span>@if($job->has_contract) Var @else Yok @endif</span></li>
-                                    <li><i class="la la-eye"></i>
-                                        <h3>Görüntüleyen Kişi Sayısı</h3><span>{{$job->view_counter}}</span></li>
+                                        <h3>Konum</h3>
+                                        <span>@if(optional($job->district)->name) {{$job->district->name}}
+                                            , @endif {{$job->city->name}}</span>
+                                    </li>
+                                    <li>
+                                        <i class="la la-hand-paper-o"></i>
+                                        <h3>Sözleşme</h3>
+                                        <span>
+                                            @if($job->has_contract) Var @else Yok @endif
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <i class="la la-eye"></i>
+                                        <h3>Görüntüleyen Kişi Sayısı</h3>
+                                        <span>
+                                            {{$job->view_counter}}
+                                        </span>
+                                    </li>
+                                    @isset($job->user?->company_name)
+                                        <li>
+                                            <i class="la la-building"></i>
+                                            <h3>Şirket adı</h3>
+                                            <span>
+                                                 {{$job->user?->company_name}}
+                                            </span>
+                                        </li>
+                                    @endisset
 
                                 </ul>
                             </div>

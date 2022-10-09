@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -10,16 +11,19 @@ class SendForgotPasswordMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $details;
+    public $user;
 
-    public function __construct($details)
+    public function __construct(User $user)
     {
-        $this->details = $details;
+        $this->user = $user;
     }
 
     public function build()
     {
-        return $this->subject('Mail from isbull.com')
-            ->view('email.forgotPassword');
+        $url =route('password-change-token-check', $this->user->token);
+        $user = $this->user;
+
+        return $this->subject('İşbull şifre yenileme')
+            ->view('email.forgotPassword',compact('url','user'));
     }
 }

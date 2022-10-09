@@ -3,7 +3,11 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Jobhunt</title>
+    <title>
+        @section('title')
+            İş ilanları
+        @endsection
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -23,7 +27,6 @@
 <div class="theme-layout" id="scrollup">
     @include('layout.header')
 
-
     <section class="overlape d-none d-md-block">
         <div class="block no-padding">
             <div data-velocity="-.1"
@@ -40,6 +43,7 @@
             </div>
         </div>
     </section>
+
     <section class="py-2" style="background-color: #f4f5fa">
         <div class="container-fluid p-1">
             <div id="app" style="min-height: 450px">

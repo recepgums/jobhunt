@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Console\Commands\GenerateSitemap;
 use App\Models\Blog;
 use App\Models\Categories;
 use App\Models\City;
 use App\Models\Faq;
 use App\Models\Job;
 use App\Models\Review;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Stevebauman\Location\Facades\Location;
@@ -69,5 +71,12 @@ class HomeController extends Controller
             'categories' => $categories,
             'highlightedLocationJobs' => $highlightedLocationJobs,
         ]);
+    }
+
+    public function sitemap()
+    {
+        Artisan::call(GenerateSitemap::class);
+
+        return redirect('sitemap.xml');
     }
 }

@@ -12,7 +12,7 @@
     <title>Şifre sıfırlama</title>
 </head>
 <body>
-<div class="contanier">
+<div class="container text-center">
     <div class="row" style="background-color: #0b1b46">
         <div class="col-lg-6">
 
@@ -24,26 +24,26 @@
     </div>
     <div class="row">
         <div class="col-lg-12 text-center">
-            <p class="font-weight-bold">Merhabalar sayın {{ $details['email'] }} şifrenizi sıfırlayın</p>
+            <h3 class="font-weight-bold mx-auto">Şifrenizi yenileyin</h3>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12 text-center">
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum."</p>
+            <p class="text-gray mx-auto">
+                Aşağıdaki linke tıklayarak yeni şifrenizi belirleyiniz
+            </p>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-12 text-center">
-            <a href="#">Şifrenizi Sıfırlayın</a>
+        <div class="col-lg-12 text-center mx-auto">
+            <a class="btn btn-primary" href="{{$url}}">Şifrenizi Sıfırlayın</a>
         </div>
     </div>
     <div class="row" style="background-color: #0b1b46;  height:50px;">
-        <div class="col-lg-12 text-center">
-            <p style="color: white; text-align: center; margin: 10px;">firinci.isbull.com</p>
+        <div class="col-lg-12 text-center justify-content-center">
+            <p style="color: white; text-align: center; margin: 10px;">
+                {{env('APP_NAME')}}
+            </p>
         </div>
     </div>
 </div>

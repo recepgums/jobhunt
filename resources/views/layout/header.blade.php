@@ -2,13 +2,7 @@
     <div class="responsive-menubar">
         <div class="res-logo">
             <a href="{{route('homepage')}}">
-                @auth
-                    <img style="width: 50px" src="{{asset('assets/images/logo.png')}}" alt=""/>
-                @endauth
-                @guest
-                    <img style="width: 100px" src="{{asset('assets/images/logo.png')}}" width="100"
-                         height="71" alt=""/>
-                @endguest
+                    <img style="width: 50px" src="{{asset('assets/images/logo.png')}}" alt="{{env('APP_NAME')}}"/>
             </a>
 
         </div>
@@ -73,7 +67,7 @@
                 <a href="{{route('homepage')}}" title="">
                     <div class="container">
                         <div class="col">
-                            <img style="width: 100px" src="{{asset('assets/images/logo.png')}}" width="100"
+                            <img style="width: 75px" src="{{asset('assets/images/logo.png')}}" width="100"
                                  height="71" alt=""/>
                         </div>
                     </div>

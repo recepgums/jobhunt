@@ -1,7 +1,13 @@
 @extends('layout.app')
 
 @section('content')
-
+    <section class="overlape">
+        <div class="block no-padding">
+            <div data-velocity="-.1" style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="inner-header mb-20">
+            </div>
+        </div>
+    </section>
     <section>
         <div class="block no-padding  gray">
             <div class="container">
@@ -14,9 +20,8 @@
                             </div>
                             <div class="page-breacrumbs">
                                 <ul class="breadcrumbs">
-                                    <li><a href="#" title="">Ana Sayfa</a></li>
-                                    <li><a href="#" title="">Sayfalar</a></li>
-                                    <li><a href="#" title="">Nasıl Çalışır</a></li>
+                                    <li><a href="{{route('homepage')}}" title="">Ana Sayfa</a></li>
+                                    <li><a href="{{route('how_it_works')}}" title="">Nasıl Çalışır</a></li>
                                 </ul>
                             </div>
                         </div>

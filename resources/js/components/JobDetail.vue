@@ -70,30 +70,16 @@
                         </h1>
                     </div>
                 </div>
-
-                <div class="row text-center mx-auto">
-                    <div class="col-sm">
-                        <el-button @click="seeDetailsClicked" size="medium" type="primary">
+                <div class="row">
+                    <div class="col-6">
+                        <el-button style="width:100%" @click="seeDetailsClicked" type="primary">
                             Detayları gör
                         </el-button>
                     </div>
-                    <div class="col-sm" v-if="!showContactInformation">
-                        <el-button @click="getContactClicked" size="medium"  type="danger">
-                            İletişime geç
+                    <div class="col-6">
+                        <el-button style="width:100%" @click="getContactClicked" type="danger">
+                            Ara
                         </el-button>
-                    </div>
-                    <div class="col-sm btn text-white" v-if="showContactInformation">
-
-                        <a class="btn-success btn" :href="'to:'+phoneNumber">
-                            <i class="la la-phone"></i>
-                            Ara ({{phoneNumber}})
-                        </a>
-
-
-                        <a class="btn-warning btn" :href="'mailto:'+emailAddress">
-                            <i class="la la-envelope-o"></i>
-                            {{ emailAddress }}
-                        </a>
                     </div>
                 </div>
             </div>
@@ -109,7 +95,6 @@ export default {
     data() {
         return {
             showContactInformation:false,
-            phoneNumber:'#'
         };
     },
     methods:{
@@ -118,11 +103,10 @@ export default {
                 axios.post( `/ilan/${this.job.slug}/get_contact_info`)
                     .then(resp => {
                         this.showContactInformation = true
-                        this.phoneNumber =  + resp.data.phone
-                        this.emailAddress = 'mailto:' + resp.data.email
+                        window.location.href = 'tel://0' + resp.data.phone;
                     })
             }else{
-                window.location.href = '/kayit'
+                window.location.href = '/giris'
             }
         },
         seeDetailsClicked(){

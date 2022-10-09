@@ -293,14 +293,11 @@ class JobController extends Controller
     public function indexAjax(Request $request, JobFilterService $jobFilterService, JobHelper $jobHelper)
     {
         if (!$request->has('city_id')) {
-            $request->request->add(['city_id'=>$this->city->id]);
+            $request->request->add(['city_id' => $this->city->id]);
         }
 
-        $jobs = Cache::remember('job_list_'.$this->city->id,60*12,function ()use($jobFilterService,$request){
-            $jobs = $jobFilterService->filter($request);
-
-            return $jobs->listable()->orderByDesc('created_at')->paginate(8);
-        });
+        $jobs = $jobFilterService->filter($request);
+        $jobs = $jobs->listable()->orderByDesc('created_at')->paginate(8);
 
         return JobResource::collection($jobs);
     }
