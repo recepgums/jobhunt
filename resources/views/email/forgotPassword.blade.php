@@ -1,54 +1,93 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <title>Şifre sıfırlama</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="x-apple-disable-message-reformatting">
+    <title></title>
+    <!--[if mso]>
+    <noscript>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]-->
+    <style>
+        table, td, div, h1, p {
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
-<body>
-<div class="container text-center">
-    <div class="row" style="background-color: #0b1b46">
-        <div class="col-lg-6">
+<body style="margin:0;padding:0; position: relative">
+<table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;background:#ffffff;">
+    <tr>
+        <td align="center" style="padding:0;">
+            <table role="presentation"
+                   style="width:602px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
+                <tr>
+                    <td align="center" style="padding:40px 0 30px 0;background:#1d293e;">
+                        <img src="{{asset('assets/images/logo.png')}}" alt="" width="100"
+                             style="height:auto;display:block; margin-right: 480px"/>
+                        <p style="margin-left: 500px; margin-top: -40px;  color: #fb236a; font-family: Quicksand,serif; font-size: 30px; margin-right: 15px">
+                            isbull.com</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:36px 30px 42px 30px; text-align: center">
+                        <table role="presentation"
+                               style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
+                            <tr>
+                                <td style="padding:0 0 36px 0;color:#153643;">
+                                    <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Lütfen
+                                        Şifrenizi Sıfırlayın</h1>
+                                    <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">
+                                        Aşağıdaki linke tıklayarak yeni şifrenizi belirleyiniz</p>
+                                    <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">
 
-        </div>
-        <div class="col-lg-6">
-            <img style="width: 100px; margin-left: auto; margin-right: auto;"
-                 src="{{asset('assets/images/logo.png')}}" alt=""/>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            <h3 class="font-weight-bold mx-auto">Şifrenizi yenileyin</h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            <p class="text-gray mx-auto">
-                Aşağıdaki linke tıklayarak yeni şifrenizi belirleyiniz
-            </p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12 text-center mx-auto">
-            <a class="btn btn-primary" href="{{$url}}">Şifrenizi Sıfırlayın</a>
-        </div>
-    </div>
-    <div class="row" style="background-color: #0b1b46;  height:50px;">
-        <div class="col-lg-12 text-center justify-content-center">
-            <p style="color: white; text-align: center; margin: 10px;">
-                {{env('APP_NAME')}}
-            </p>
-        </div>
-    </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+                                            <button style="
+                                             background-color: #dc3545;
+                                             border-radius: 20px;
+                                             color:#ffffff;
+                                             width: 188px;
+                                             height: 50px;
+                                              ">
+                                                <a
+                                                    href="{{$url}}"
+                                                    style="color: #ffffff; text-decoration:none;">
+                                                Şifrenizi Sıfırlayın </a>
+                                            </button>
+
+
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:30px;background:#1d293e;">
+                        <table role="presentation"
+                               style="width:100%;border-collapse:collapse;border:0;border-spacing:0;font-size:9px;font-family:Arial,sans-serif;margin-left: 200px">
+                            <tr>
+                                <td style="padding:0;width:50%;" align="left">
+                                    <p style="margin:0;font-size:14px;line-height:16px;font-family:Arial,sans-serif;color:#ffffff;">
+                                        &reg; {{env('APP_NAME')}}<br/>
+                                    </p>
+                                </td>
+                                <td style="padding:0;width:50%;" align="right">
+                                    <table role="presentation"
+                                           style="border-collapse:collapse;border:0;border-spacing:0;">
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 </body>
 </html>

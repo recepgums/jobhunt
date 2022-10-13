@@ -55,7 +55,27 @@
                                         <span onclick="document.getElementById('role').value=2">İşveren</span>
                                         <input type="hidden" id="role" name="type" value="1">
                                     </div>
-
+                                    <div class="row">
+                                        <div class="col-lg-12 mt-3">
+                                            <p class="remember-label" style="font-size: 11.22px">
+                                                <input type="checkbox"  name="remember" id="cb3"><label for="cb3">
+                                                   <span class="font-weight-bold">Hizmet Sözleşmesini</span> Onaylıyorum</label>
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <p class="remember-label" style="font-size: 11.22px">
+                                                <input type="checkbox"  name="remember" id="cb2"><label for="cb2">
+                                                    İletişim bilgilerime e-ileti gönderilmesine izin veriyorum.</label>
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <p class="remember-label" style="font-size: 10.70px">
+                                                <input type="checkbox"  name="remember" id="cb1">
+                                                <label for="cb1">
+                                                    Verilerimin <span class="font-weight-bold">Açık Rıza Metni'nde</span> belirtilen şekilde işlenmesine onay veriyorum..</label>
+                                            </p>
+                                        </div>
+                                    </div>
                                     <button type="submit" style="color: white">Kayıt Ol</button>
                                 </form>
                                 <div class="extra-login">

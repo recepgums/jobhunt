@@ -3,7 +3,9 @@
 @section('content')
     <section class="overlape">
         <div class="block no-padding">
-            <div data-velocity="-.1" style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div data-velocity="-.1"
+                 style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;"
+                 class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
             <div class="inner-header mb-20">
             </div>
         </div>
@@ -30,42 +32,53 @@
             </div>
         </div>
     </section>
-
     <section>
         <div class="block ">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="how-works">
-                            <div class="how-workimg"><img src="http://placehold.it/654x417" alt="" /></div>
+                            <div class="how-workimg"><img
+                                    src="https://creativelayers.net/themes/jobhunt-html/images/resource/hw1.jpg" alt="">
+                            </div>
                             <div class="how-work-detail">
                                 <div class="how-work-box">
                                     <span>1</span>
                                     <i class="la la-user"></i>
                                     <h3>Bir hesap kaydettirme</h3>
-                                    <p>ın Job, Türkiye'nin önde gelen ve en uzun soluklu online işe alım şirketidir. İş arayanların bize sadece bir iş için değil, profesyonellerini gerçekleştirme fırsatı için geldiklerini anlıyoruz.</p>
+                                    <p>ın Job, Türkiye'nin önde gelen ve en uzun soluklu online işe alım şirketidir. İş
+                                        arayanların bize sadece bir iş için değil, profesyonellerini gerçekleştirme
+                                        fırsatı için geldiklerini anlıyoruz.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="how-works flip">
-                            <div class="how-workimg"><img src="http://placehold.it/654x417" alt="" /></div>
+                            <div class="how-workimg"><img
+                                    src="https://creativelayers.net/themes/jobhunt-html/images/resource/hw2.jpg" alt="">
+                            </div>
                             <div class="how-work-detail">
                                 <div class="how-work-box">
                                     <span>2</span>
                                     <i class="la la-file-text"></i>
                                     <h3>İşinizi Belirtin ve Arayın</h3>
-                                    <p>Başvuruları e-posta yoluyla alacaksınız. İşleri ve adayları Indeed panonuzdan da yönetebilirsiniz. Başvuruları gözden geçirin, görüşmeleri planlayın ve önerilen adayları tek bir yerden görüntüleyin.</p>
+                                    <p>Başvuruları e-posta yoluyla alacaksınız. İşleri ve adayları Indeed panonuzdan da
+                                        yönetebilirsiniz. Başvuruları gözden geçirin, görüşmeleri planlayın ve önerilen
+                                        adayları tek bir yerden görüntüleyin.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="how-works">
-                            <div class="how-workimg"><img src="http://placehold.it/654x417" alt="" /></div>
+                            <div class="how-workimg"><img
+                                    src="https://creativelayers.net/themes/jobhunt-html/images/resource/hw3.jpg" alt="">
+                            </div>
                             <div class="how-work-detail">
                                 <div class="how-work-box">
                                     <span>3</span>
                                     <i class="la la-pencil"></i>
                                     <h3>İş Başvurusu Yap</h3>
-                                    <p>ın Job, Türkiye'nin önde gelen ve en uzun soluklu online işe alım şirketidir. İş arayanların bize sadece bir iş için değil, aynı zamanda profesyonellerini gerçekleştirme fırsatı için geldiklerini anlıyoruz.</p>
+                                    <p>ın Job, Türkiye'nin önde gelen ve en uzun soluklu online işe alım şirketidir. İş
+                                        arayanların bize sadece bir iş için değil, aynı zamanda profesyonellerini
+                                        gerçekleştirme fırsatı için geldiklerini anlıyoruz.</p>
                                 </div>
                             </div>
                         </div>
