@@ -37,6 +37,7 @@
         @endif
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @stack('styles')
+    @yield('style')
 </head>
 
 <body>
