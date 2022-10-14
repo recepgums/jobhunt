@@ -25,6 +25,7 @@
             <div class="container">
                 <div class="row no-gape">
                     @include('layout.dashboard_menu')
+                    @if(false)
                     <div class="col-lg-9 column">
                         <div class="padding-left">
                             <div class="manage-jobs-sec">
@@ -130,6 +131,12 @@
                         </div>
                     </div>
                 </div>
+                    @endif
+
+                    <div id="app">
+                        <my-ads :isLoggedIn="'{{auth()->check()}}'"></my-ads>
+                    </div>
+                    <script src="{{asset('js/app.js')}}"></script>
             </div>
         </div>
     </section>

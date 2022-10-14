@@ -414,7 +414,6 @@ i {
 :-ms-input-placeholder {
     opacity: 1;
 }
-input[type="text"],
 input[type="password"],
 input[type="email"],
 textarea {

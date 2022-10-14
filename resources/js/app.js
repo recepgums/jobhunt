@@ -18,6 +18,11 @@ Vue.component(
     require("./components/JobList.vue").default
 );
 
+Vue.component(
+    "my-ads",
+    require("./components/MyAds.vue").default
+);
+
 const app = new Vue({
     el: "#app",
 });
