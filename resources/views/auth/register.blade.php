@@ -435,7 +435,7 @@
         <div class="modal-dialog" >
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closemobile">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -648,39 +648,39 @@
                         <table class="table">
                             <tbody>
                             <tr>
-                                <td width="168"><p><strong>Şirketinizle Olan İlişkim</strong></p></td>
-                                <td width="483" colspan="2"></td>
+                                <td ><p><strong>Şirketinizle Olan İlişkim</strong></p></td>
+                                <td ></td>
                             </tr>
                             <tr>
-                                <td width="344" colspan="2"><p>☐ Aday</p></td>
-                                <td width="307"><p>☐ İşveren Müşteri Temsilcisi/Çalışanı</p>
+                                <td ><p>☐ Aday</p></td>
+                                <td ><p>☐ İşveren Müşteri Temsilcisi/Çalışanı</p>
                                     <p><em>Firma ve pozisyon:…………………………… ………</em></p></td>
                             </tr>
                             <tr>
-                                <td width="344" colspan="2"><p>☐ Gerçek Kişi İşveren Müşteri</p></td>
-                                <td width="307"><p>☐ Tedarikçi Firma Temsilcisi/Çalışanı</p>
+                                <td ><p>☐ Gerçek Kişi İşveren Müşteri</p></td>
+                                <td ><p>☐ Tedarikçi Firma Temsilcisi/Çalışanı</p>
                                     <p><em>Firma ve pozisyon:…………………………… ………</em></p></td>
                             </tr>
                             <tr>
-                                <td width="344" colspan="2"><p>☐ Çalışan</p>
+                                <td ><p>☐ Çalışan</p>
                                     <p>İlgili Birim:………………….………………………………………</p></td>
-                                <td width="307"><p>☐ Eski Çalışan</p>
+                                <td><p>☐ Eski Çalışan</p>
                                     <p><em>Çalıştığım Yıllar : ………………………………………….</em></p></td>
                             </tr>
                             <tr>
-                                <td width="344" colspan="2"><p>☐ Çalışan Adayı</p>
+                                <td><p>☐ Çalışan Adayı</p>
                                     <p><em>Tarih : …………………………………………………………………..</em></p></td>
-                                <td width="307"><p>☐ Üçüncü Kişi Firma Çalışanı</p>
+                                <td ><p>☐ Üçüncü Kişi Firma Çalışanı</p>
                                     <p><em>Firma ve pozisyon:…………………………… ………</em></p></td>
                             </tr>
                             <tr>
-                                <td width="344" colspan="2"><p>☐ Diğer: ……………………………………………………..</p></td>
-                                <td width="307"></td>
+                                <td><p>☐ Diğer: ……………………………………………………..</p></td>
+                                <td ></td>
                             </tr>
                             <tr>
-                                <td width="210"></td>
-                                <td width="191"></td>
-                                <td width="340"></td>
+                                <td ></td>
+                                <td ></td>
+                                <td></td>
                             </tr>
                             </tbody>
                         </table>
@@ -708,11 +708,150 @@
                         <p>İmza :</p></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger bg-danger font-weight-bold">Onaylıyorum</button>
+                    <button type="button" class="btn btn-danger bg-danger font-weight-bold" id="confirmationmobile">Onaylıyorum</button>
                 </div>
             </div>
         </div>
     </div>
+    <div class="modal fade" id="serviceAgreement1Mobile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" id="close1mobile" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="jsx-97634155"><p><strong>KİŞİSEL VERİLERİN İŞLENMESİ HAKKINDA ADAY AÇIK RIZA
+                                METNİ</strong></p>
+                        <p>Burada vereceğiniz hesabınızda belirteceğiniz rıza, kişisel verilerinizin işlenmesi ve&nbsp;
+                            hizmetin ifa edilebilmesi amacıyla yalnızca ilgili verilerinizin yurt dışında yerleşik
+                            anlaşmalı servis sağlayıcılarımıza aktarılmasına ilişkindir.</p>
+                        <p>Hangi kişisel verilerinizi ne amaçlarla işlediğimize dair detaylı bilgilere &nbsp;<a
+                                href="https://isinolsun.com/aday-uyelik-aydinlatma-metni" target="_blank">Aday
+                                Aydınlatma Metni’nden</a> ulaşabilirsiniz.</p>
+                        <p><strong>HANGİ KİŞİSEL VERİLERİNİZİ İŞLİYORUZ?</strong></p>
+                        <p>“İşin olsun” bir Kariyer.net markasıdır ve iş arayan üyelerimizle çalışan arayan üyelerimizi
+                            aynı platformda birleştirerek istihdam yaratmayı amaçlayan bir platformudur. Bu amaçları
+                            gerçekleştirebilmek ve bazı araştırmalar ve pazarlama faaliyetleri yaparak tüm üyelerimize
+                            daha iyi hizmet verebilmek için zaman zaman kişisel verilerinizi işleyebilmekteyiz.</p>
+                        <p><strong><u>Tarafımızca, bizimle paylaşmanız veya gerekli olması halinde, işlemeye konu
+                                    olabilecek kişisel verileriniz aşağıdaki gibidir:</u></strong></p>
+                        <ul>
+                            <li>Görsel ve işitsel veri; Gerçek kişiye ait fotoğraf, ses kayıtları</li>
+                            <li>Web sitesi/Uygulama Kullanım Verileri; Mesajlaşma seçeneğinin mevcut olması halinde
+                                İşveren Müşteri ile Aday arasındaki yazışmalarda belirtebileceğiniz özel nitelikli
+                                kişisel verileriniz
+                            </li>
+                            <li>Profilinizde manuel doldurulan alanlarda belirttiğiniz özel nitelikli kişisel
+                                verileriniz
+                            </li>
+                            <li>İşveren Müşteriler’in adaylardan talep edebileceği ek bilgiler (bu ek bilgiler,
+                                engelilik durumu, dernek, vakıf, sendika, siyasi parti üyeliklerine ait bilgiler, dini
+                                veya felsefi görüşünüze, etnik kökeninize ve ırkınıza ait veya o konuda kanaat
+                                oluşturabilecek bilgiler olabilir),
+                            </li>
+                            <li>Sağlık verisi; Engellilik durumu, engel yüzdesi, engel kategorisi</li>
+                            <li>Destek hattında otomatik ses kayıt sistemine kaydedilen, sizin belirttiğiniz özel
+                                nitelikli kişisel veriler
+                            </li>
+                        </ul>
+                        <p><strong>KİŞİSEL VERİLERİNİZİ HANGİ AMAÇLARLA İŞLİYORUZ?</strong></p>
+                        <p>“<u>Kişisel verilerimin Açık Rıza Metni'nde belirtilen şekilde işlenmesine onay veriyorum</u>”
+                            onay kutucuğunu işaretleyerek hem ilgili sekmedeki özel nitelikli verilerinizi hem de bu
+                            Açık Rıza Metni’nde belirtilmeyen ancak bizimle paylaşmayı kendiniz tercih ettiğinizkişisel
+                            verilerinizi aşağıdaki amaçlarla işlememiz için tarafımıza açık rıza vermektesiniz:</p>
+                        <ul>
+                            <li>İstihdam yaratmak ve işe alım sürecinize destek vermek</li>
+                            <li>Size iş bulmak, işveren müşterilerimize de doğru adaya ulaşabilmeleri amacıyla
+                                paylaştığınız kişisel verilerinizden yararlanarak işveren müşteri ilanları ile
+                                eşleştirme yapmak
+                            </li>
+                            <li>Başvuru yaptığınız işverenlere, üyelik/profil bilgilerini aktarmak</li>
+                            <li>Sizden gelen çağrıları karşılamak ve destek ihtiyaçlarınıza cevap vermek</li>
+                            <li>Verdiğimiz hizmetlere ilişkin bir şikâyet olduğu takdirde söz konusu şikâyeti
+                                sonuçlandırmak
+                            </li>
+                            <li>Uygulama üzerinden ileti göndermek</li>
+                            <li>Size verdiğimiz hizmetin kalitesini arttırmak ve kalite kontrolünü sağlamak</li>
+                            <li>Başvuru yapmanıza yardımcı olmak adına toplu e-posta ve SMS göndermek</li>
+                            <li>Güncel ve Ar-Ge aşamasındaki uygulamalarımızın geliştirmek ve yönetimi sürecinde ürünü
+                                pazarlamak
+                            </li>
+                            <li>Şirket içerisinde kullanılan yazılımları iç ve dış kaynak kullanarak geliştirmek</li>
+                            <li>Yalnız gerekli olduğunda, yurt içindeki ve yurt dışındaki işveren müşterilerimize destek
+                                vermek
+                            </li>
+                            <li>Hukuka ve usule uygun savcılık talepleri ve mahkeme kararları gibi hukuki talepler
+                                aracılığıyla tarafımızdan kişisel verilerinizin paylaşılması istendiğinde ve mevzuatta
+                                düzenlenmiş yasal bildirimler gereği kişisel verilerinizi paylaşma yükümlülüğümüz
+                                bulunmaktadır.
+                            </li>
+                            <li>Ayrıca kişisel verileriniz bizim de taraf olduğumuz bir uyuşmazlığa konu olduğu takdirde
+                                savunma hakkımızı kullanabilmemiz için gerekli olan avukat, bilirkişi, mahkeme gibi
+                                mecralarla ve kişilerle kişisel verilerinizi paylaşmamız gerekebilir. Bu hukuki
+                                yükümlülüklerimizi yerine getirmek ve savunma hakkımızı kullanabilmek amacıyla kişisel
+                                verilerinizi işleyebiliriz.
+                            </li>
+                            <li>Şirket’e başvurmanız halinde Şirket ile aranızda kurulacak aday çalışan adayı-işveren
+                                adayı hukuki ilişkisi çerçevesinde iş sözleşmesinin kurulması için gerekli olması
+                                nedeniyle&nbsp;iş başvurunuzu değerlendirmek için aşağıdaki amaçlarla verilerinizi
+                                işleyebiliyoruz:
+                            </li>
+                            <ul>
+                                <li>Yeni eleman istihdam edilmesi, adayları inceleme ve istihdam edilecek yeni adayın
+                                    tespit edilmesi,
+                                </li>
+                                <li>Pozisyonla ne kadar örtüştüğünüzün doğrulanması ve ileriye dönük teyit için profil
+                                    bilgilerinizin kaydedilmesi
+                                </li>
+                            </ul>
+                        </ul>
+                        <p><strong>KİŞİSEL VERİLERİNİZİ NERELERE AKTARIYORUZ?</strong></p>
+                        <p>Size verdiğimiz hizmeti en iyi şekilde yerine getirebilmek için sürekli gelişmeye ve
+                            ilerlemeye gayret ediyoruz. Bunun için kişisel verilerinizi aşağıdaki şekilde yurt içindeki
+                            ve yurt dışındaki üçüncü kişilere aktarabilmekteyiz:</p>
+                        <ul>
+                            <li>Kampanyalarımızdan ve promosyonlarımızdan haberdar olmayı tercih etmeniz halinde size
+                                toplu e-posta SMS ve uygulama iletisi gönderebilmek amacıyla iletişim bilgilerinizi
+                                içeren kişisel verilerinizi yurt içinde ve/veya yurt dışında veri sorumlusu/veri işleyen
+                                ilişkili içerisinde anlaşmalı olduğumuz ilgili hizmeti veren tedarikçilere aktarıyoruz.
+                            </li>
+                            <li>Çerez Politikası&nbsp;çerçevesinde toplanan kişisel verileriniz, size ve diğer üye ve
+                                müşterilerimize daha iyi hizmet verebilmek için topladığımız site ve uygulama
+                                içerisindeki kullanıcı hareketi verileri (nereye tıklandı, ne kadar kalındı vs. gibi),
+                                bu gibi analizler yaparak iş geliştirme sağlayan yurt dışında yerleşik şirketlere
+                                aktarabiliyoruz.
+                            </li>
+                            <li>Hizmetin ifası için destek aldığımız ve veri sorumlusu/veri işleyen ilişkisi içerisinde
+                                bulunduğumuz yurt içinde ve/veya yurt dışında yerleşik servis sağlayıcılarımıza yalnızca
+                                ilgili Kişisel verilerinizi birlikte çalıştığımız ve veri sorumlusu/veri işleyen
+                                ilişkisi içerisinde bulunduğumuz firmalara aktarıyoruz.
+                            </li>
+                            <li>Size istihdam hizmetimizi sağlayabilmek adına hesabınızda yer alan <strong>özel
+                                    nitelikli kişisel verileriniz de dahil olmak üzere profilinizde yer alan kişisel
+                                    verilerinizi&nbsp;</strong> başvurduğunuz yurt içi ve/veya yurt dışı merkezli olan
+                                üye işveren(ler)e aktarııyoruz.
+                            </li>
+                            <li>Herhangi bir ihtilafta savunma hakkımızı kullanabilmek amacıyla&nbsp;<strong>özel
+                                    nitelikli kişisel verileriniz de dahil olmak üzere bütün kişisel
+                                    verilerinizi</strong>avukatlarımıza veya hukuki danışmanlarımıza aktarıyoruz.
+                            </li>
+                            <li>Herhangi bir tarihte başvurduğunuz ilan ile ilan sahibi işveren müşteriye aktarılan
+                                normal ve/veya özel nitelikli kişisel verilerinin silinmesini, yok edilmesini ve/veya
+                                anonim hale getirilmesini isterseniz bu talebinizi doğrudan ilan sahibi firmaya veya
+                                Şirket’ e iletmeniz gerekir.
+                            </li>
+                        </ul>
+                        <p>&nbsp;</p></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger bg-danger font-weight-bold" id="confirmation1mobile">Onaylıyorum</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <section class="overlape">
         <div class="block no-padding">
@@ -789,22 +928,23 @@
                                     </div>
                                     <div class="row d-lg-none">
                                         <div class="col-lg-12 mt-3">
-                                            <p class="remember-label" style="font-size: 11.22px">
-                                                <input type="checkbox"  name="remember" id="cb3"><label for="cb3">
-                                                    <span class="font-weight-bold" data-toggle="modal" data-target="#serviceAgreementMobile">Hizmet Sözleşmesini</span> Onaylıyorum</label>
+                                            <p class="remember-label" style="font-size: 11.22px" id="cb3clearmobile">
+                                                <input type="checkbox"  name="remember" id="cb3mobile"><label for="cb3mobile">
+                                                    <span class="font-weight-bold" id="serviceModalOnclickMobile" data-toggle="modal" data-target="#serviceAgreementMobile">Hizmet Sözleşmesini</span> Onaylıyorum</label>
                                             </p>
                                         </div>
                                         <div class="col-lg-12">
                                             <p class="remember-label" style="font-size: 11.22px">
-                                                <input type="checkbox"  name="remember" id="cb2"><label for="cb2">
+                                                <input type="checkbox" name="remember" id="cb2mobile">
+                                                <label for="cb2mobile">
                                                     İletişim bilgilerime e-ileti gönderilmesine izin veriyorum.</label>
                                             </p>
                                         </div>
                                         <div class="col-lg-12">
-                                            <p class="remember-label" style="font-size: 10.70px">
-                                                <input type="checkbox"  name="remember" id="cb1">
-                                                <label for="cb1">
-                                                    Verilerimin <span class="font-weight-bold">Açık Rıza Metninde</span> belirtilen şekilde işlenmesine onay veriyorum..</label>
+                                            <p class="remember-label" style="font-size: 10.70px" id="cb1clearmobile">
+                                                <input type="checkbox"  name="remember" id="cb1mobile">
+                                                <label for="cb1mobile">
+                                                    Verilerimin <span class="font-weight-bold" id="serviceModalOnclick1mobile" data-toggle="modal" data-target="#serviceAgreement1Mobile">Açık Rıza Metninde</span> belirtilen şekilde işlenmesine onay veriyorum..</label>
                                             </p>
                                         </div>
                                     </div>
@@ -840,10 +980,21 @@
             $('#cb3clear').empty();
             $('#cb3clear').append('<input type="checkbox"  name="remember" id="cb3" checked><label for="cb3"><span class="font-weight-bold" id="serviceModalOnclick" data-toggle="modal" data-target="#serviceAgreement">Hizmet Sözleşmesini</span> Onaylıyorum</label>')
         });
+
+        $('#confirmationmobile').on('click',function (){
+            $('#closemobile').click()
+            $('#cb3clearmobile').empty();
+            $('#cb3clearmobile').append('<input type="checkbox"  name="remember" id="cb3mobile" checked><label for="cb3mobile"><span class="font-weight-bold" id="serviceModalOnclickMobile" data-toggle="modal" data-target="#serviceAgreementMobile">Hizmet Sözleşmesini</span> Onaylıyorum</label>')
+        });
         $('#confirmation1').on('click',function (){
             $('#close1').click()
             $('#cb1clear').empty();
             $('#cb1clear').append('<input type="checkbox"  name="remember" id="cb1" checked><label for="cb1">Verilerimin <span class="font-weight-bold" id="serviceModalOnclick1" data-toggle="modal" data-target="#serviceAgreement1">Açık Rıza Metninde</span> belirtilen şekilde işlenmesine onay veriyorum..</label>')
+        });
+        $('#confirmation1mobile').on('click',function (){
+            $('#close1mobile').click()
+            $('#cb1clearmobile').empty();
+            $('#cb1clearmobile').append('<input type="checkbox"  name="remember" id="cb1mobile" checked><label for="cb1mobile">Verilerimin <span class="font-weight-bold" id="serviceModalOnclick1mobile" data-toggle="modal" data-target="#serviceAgreement1Mobile">Açık Rıza Metninde</span> belirtilen şekilde işlenmesine onay veriyorum..</label>')
         });
         $('#cb3').on('click',function (){
             if (!$(this).is(':checked')) {
@@ -855,12 +1006,32 @@
                 $(this).attr('checked', false);
             }
         });
+
+        $('#cb3mobile').on('click',function (){
+            if (!$(this).is(':checked')) {
+                alert('asd')
+                $(this).attr('checked', true);
+            }
+            else{
+                $('#serviceModalOnclickMobile').click()
+                $(this).attr('checked', false);
+            }
+        });
         $('#cb1').on('click',function (){
             if (!$(this).is(':checked')) {
                 $(this).attr('checked', true);
             }
             else{
                 $('#serviceModalOnclick1').click()
+                $(this).attr('checked', false);
+            }
+        });
+        $('#cb1mobile').on('click',function (){
+            if (!$(this).is(':checked')) {
+                $(this).attr('checked', true);
+            }
+            else{
+                $('#serviceModalOnclick1mobile').click()
                 $(this).attr('checked', false);
             }
         });
