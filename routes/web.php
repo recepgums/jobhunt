@@ -11,9 +11,9 @@ Route::view('nasil-calisiyor', 'pages.how_it_works')->name('how_it_works');
 Route::view('anlasma', 'pages.term_conditions')->name('terms');
 
 Route::get('panel', [Controllers\CustomAuthController::class, 'dashboard'])->name('dashboard')->middleware('auth');
-Route::get('giris', [Controllers\CustomAuthController::class, 'index'])->name('login');
-Route::get('kayit', [Controllers\CustomAuthController::class, 'register'])->name('register-user');
-Route::get('signout', [Controllers\CustomAuthController::class, 'signOut'])->name('signout');
+Route::get('giris', [Controllers\CustomAuthController::class, 'index'])->name('login')->middleware('guest');
+Route::get('kayit', [Controllers\CustomAuthController::class, 'register'])->name('register-user')->middleware('guest');
+Route::get('signout', [Controllers\CustomAuthController::class, 'signOut'])->name('signout')->middleware('auth');
 
 
 Route::get('sifremi-unuttum', [Controllers\CustomAuthController::class, 'forgotPassword'])->name('forgot-password');
