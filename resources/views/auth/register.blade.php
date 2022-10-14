@@ -7,6 +7,10 @@
             font-weight: 400;
             font-family: Montserrat,Helvetica,Arial,sans-serif;
         }
+        .modal-body{
+            max-height: 80vh;
+            overflow-y: scroll;
+        }
     </style>
 @endsection
 @section('content')
@@ -998,7 +1002,6 @@
         });
         $('#cb3').on('click',function (){
             if (!$(this).is(':checked')) {
-                alert('asd')
                 $(this).attr('checked', true);
             }
             else{
@@ -1009,7 +1012,6 @@
 
         $('#cb3mobile').on('click',function (){
             if (!$(this).is(':checked')) {
-                alert('asd')
                 $(this).attr('checked', true);
             }
             else{
