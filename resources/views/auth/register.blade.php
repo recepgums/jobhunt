@@ -877,6 +877,35 @@
         <div class="block remove-bottom">
             <div class="container">
                 <div class="row">
+                    <div class="col-lg-3">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text-center" id="messageDanger">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text-center" id="messageDanger1">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text-center" id="messageDanger2">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
                     <div class="col-lg-12">
                         <div class="account-popup-area signup-popup-box static">
                             <div class="account-popup">
@@ -912,19 +941,19 @@
                                     <div class="row d-none d-lg-block">
                                         <div class="col-lg-12 mt-3">
                                             <p class="remember-label" style="font-size: 11.22px" id="cb3clear">
-                                                <input type="checkbox"  name="remember" id="cb3"><label for="cb3">
+                                                <input type="checkbox"   id="cb3" required><label for="cb3">
                                                    <span class="font-weight-bold" id="serviceModalOnclick" data-toggle="modal" data-target="#serviceAgreement">Hizmet Sözleşmesini</span> Onaylıyorum</label>
                                             </p>
                                         </div>
                                         <div class="col-lg-12">
                                             <p class="remember-label" style="font-size: 11.22px">
-                                                <input type="checkbox"  name="remember" id="cb2"><label for="cb2">
+                                                <input type="checkbox"   id="cb2" required><label for="cb2">
                                                     İletişim bilgilerime e-ileti gönderilmesine izin veriyorum.</label>
                                             </p>
                                         </div>
                                         <div class="col-lg-12">
                                             <p class="remember-label" style="font-size: 10.70px" id="cb1clear">
-                                                <input type="checkbox"  name="remember" id="cb1">
+                                                <input type="checkbox"   id="cb1" required>
                                                 <label for="cb1">
                                                     Verilerimin <span class="font-weight-bold" id="serviceModalOnclick1" data-toggle="modal" data-target="#serviceAgreement1">Açık Rıza Metninde</span> belirtilen şekilde işlenmesine onay veriyorum..</label>
                                             </p>
@@ -933,27 +962,28 @@
                                     <div class="row d-lg-none">
                                         <div class="col-lg-12 mt-3">
                                             <p class="remember-label" style="font-size: 11.22px" id="cb3clearmobile">
-                                                <input type="checkbox"  name="remember" id="cb3mobile"><label for="cb3mobile">
+                                                <input type="checkbox"   id="cb3mobile" required><label for="cb3mobile">
                                                     <span class="font-weight-bold" id="serviceModalOnclickMobile" data-toggle="modal" data-target="#serviceAgreementMobile">Hizmet Sözleşmesini</span> Onaylıyorum</label>
                                             </p>
                                         </div>
                                         <div class="col-lg-12">
                                             <p class="remember-label" style="font-size: 11.22px">
-                                                <input type="checkbox" name="remember" id="cb2mobile">
+                                                <input type="checkbox"  id="cb2mobile" required>
                                                 <label for="cb2mobile">
                                                     İletişim bilgilerime e-ileti gönderilmesine izin veriyorum.</label>
                                             </p>
                                         </div>
                                         <div class="col-lg-12">
                                             <p class="remember-label" style="font-size: 10.70px" id="cb1clearmobile">
-                                                <input type="checkbox"  name="remember" id="cb1mobile">
+                                                <input type="checkbox"   id="cb1mobile" required>
                                                 <label for="cb1mobile">
                                                     Verilerimin <span class="font-weight-bold" id="serviceModalOnclick1mobile" data-toggle="modal" data-target="#serviceAgreement1Mobile">Açık Rıza Metninde</span> belirtilen şekilde işlenmesine onay veriyorum..</label>
                                             </p>
                                         </div>
                                     </div>
 
-                                    <button type="submit" style="color: white">Kayıt Ol</button>
+                                    <button type="submit" class="d-none d-lg-block" style="color: white" id="onClickRegister">Kayıt Ol</button>
+                                    <button type="submit" class="d-lg-none" style="color: white" id="onClickRegistermobile">Kayıt Ol</button>
                                 </form>
                                 <div class="extra-login">
                                     <span>Ya da</span>
@@ -982,23 +1012,23 @@
         $('#confirmation').on('click',function (){
             $('#close').click()
             $('#cb3clear').empty();
-            $('#cb3clear').append('<input type="checkbox"  name="remember" id="cb3" checked><label for="cb3"><span class="font-weight-bold" id="serviceModalOnclick" data-toggle="modal" data-target="#serviceAgreement">Hizmet Sözleşmesini</span> Onaylıyorum</label>')
+            $('#cb3clear').append('<input type="checkbox"   id="cb3" checked required><label for="cb3"><span class="font-weight-bold" id="serviceModalOnclick" data-toggle="modal" data-target="#serviceAgreement">Hizmet Sözleşmesini</span> Onaylıyorum</label>')
         });
 
         $('#confirmationmobile').on('click',function (){
             $('#closemobile').click()
             $('#cb3clearmobile').empty();
-            $('#cb3clearmobile').append('<input type="checkbox"  name="remember" id="cb3mobile" checked><label for="cb3mobile"><span class="font-weight-bold" id="serviceModalOnclickMobile" data-toggle="modal" data-target="#serviceAgreementMobile">Hizmet Sözleşmesini</span> Onaylıyorum</label>')
+            $('#cb3clearmobile').append('<input type="checkbox"   id="cb3mobile" checked required><label for="cb3mobile"><span class="font-weight-bold" id="serviceModalOnclickMobile" data-toggle="modal" data-target="#serviceAgreementMobile">Hizmet Sözleşmesini</span> Onaylıyorum</label>')
         });
         $('#confirmation1').on('click',function (){
             $('#close1').click()
             $('#cb1clear').empty();
-            $('#cb1clear').append('<input type="checkbox"  name="remember" id="cb1" checked><label for="cb1">Verilerimin <span class="font-weight-bold" id="serviceModalOnclick1" data-toggle="modal" data-target="#serviceAgreement1">Açık Rıza Metninde</span> belirtilen şekilde işlenmesine onay veriyorum..</label>')
+            $('#cb1clear').append('<input type="checkbox"   id="cb1" checked required><label for="cb1">Verilerimin <span class="font-weight-bold" id="serviceModalOnclick1" data-toggle="modal" data-target="#serviceAgreement1">Açık Rıza Metninde</span> belirtilen şekilde işlenmesine onay veriyorum..</label>')
         });
         $('#confirmation1mobile').on('click',function (){
             $('#close1mobile').click()
             $('#cb1clearmobile').empty();
-            $('#cb1clearmobile').append('<input type="checkbox"  name="remember" id="cb1mobile" checked><label for="cb1mobile">Verilerimin <span class="font-weight-bold" id="serviceModalOnclick1mobile" data-toggle="modal" data-target="#serviceAgreement1Mobile">Açık Rıza Metninde</span> belirtilen şekilde işlenmesine onay veriyorum..</label>')
+            $('#cb1clearmobile').append('<input type="checkbox"   id="cb1mobile" checked required><label for="cb1mobile">Verilerimin <span class="font-weight-bold" id="serviceModalOnclick1mobile" data-toggle="modal" data-target="#serviceAgreement1Mobile">Açık Rıza Metninde</span> belirtilen şekilde işlenmesine onay veriyorum..</label>')
         });
         $('#cb3').on('click',function (){
             if (!$(this).is(':checked')) {
@@ -1028,14 +1058,60 @@
                 $(this).attr('checked', false);
             }
         });
-        $('#cb1mobile').on('click',function (){
+        $('#cb1mobile').on('click', function () {
             if (!$(this).is(':checked')) {
                 $(this).attr('checked', true);
-            }
-            else{
+            } else {
                 $('#serviceModalOnclick1mobile').click()
                 $(this).attr('checked', false);
             }
         });
+        $('#onClickRegister').on('click', function () {
+            $('#cb3mobile').attr('required', false);
+            $('#cb2mobile').attr('required', false);
+            $('#cb1mobile').attr('required', false);
+
+            if (!$('#cb3').is(':checked')) {
+                $('#messageDanger').empty()
+                $('#messageDanger').append('<div class="alert alert-danger" role="alert">Lütfen Hizmet Sözleşmesini Onaylayın</div>')
+            } else {
+                $('#messageDanger').empty()
+            }
+            if (!$('#cb1').is(':checked')) {
+                $('#messageDanger1').empty()
+                $('#messageDanger1').append('<div class="alert alert-danger" role="alert">Lütfen Açık Rıza Metini Onaylayın</div>')
+            } else {
+                $('#messageDanger1').empty()
+            }
+            if (!$('#cb2').is(':checked')) {
+                $('#messageDanger2').empty()
+                $('#messageDanger2').append('<div class="alert alert-danger" role="alert">Lütfen iletişim bilgilerine e-ileti ile gönderilmesine izin verin</div>')
+            } else {
+                $('#messageDanger2').empty()
+            }
+        })
+        $('#onClickRegistermobile').on('click', function () {
+            $('#cb3').attr('required', false);
+            $('#cb2').attr('required', false);
+            $('#cb1').attr('required', false);
+            if (!$('#cb3mobile').is(':checked')) {
+                $('#messageDanger').empty()
+                $('#messageDanger').append('<div class="alert alert-danger" role="alert">Lütfen Hizmet Sözleşmesini Onaylayın</div>')
+            } else {
+                $('#messageDanger').empty()
+            }
+            if (!$('#cb1mobile').is(':checked')) {
+                $('#messageDanger1').empty()
+                $('#messageDanger1').append('<div class="alert alert-danger" role="alert">Lütfen Açık Rıza Metini Onaylayın</div>')
+            } else {
+                $('#messageDanger1').empty()
+            }
+            if (!$('#cb2mobile').is(':checked')) {
+                $('#messageDanger2').empty()
+                $('#messageDanger2').append('<div class="alert alert-danger" role="alert">Lütfen iletişim bilgilerine e-ileti ile gönderilmesine izin verin</div>')
+            } else {
+                $('#messageDanger2').empty()
+            }
+        })
     </script>
 @endpush
