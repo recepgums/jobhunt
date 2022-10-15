@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\City;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Auth;
@@ -57,7 +58,9 @@ class UserController extends Controller
             return view('employers.show',compact('user','jobs'));
         }
 
-        return view('candidates.show',compact('user'));
+        $cities = City::select('id', 'name')->get();
+
+        return view('candidates.show',compact('user','cities'));
     }
 
 }
