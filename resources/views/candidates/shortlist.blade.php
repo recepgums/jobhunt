@@ -134,7 +134,16 @@
                     @endif
 
                     <div id="app">
-                        <my-ads :isLoggedIn="'{{auth()->check()}}'"></my-ads>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <my-example/>
+                                </div>
+                                <div class="col-lg-6">
+                                    <my-ads :isLoggedIn="'{{auth()->check()}}'"></my-ads>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <script src="{{asset('js/app.js')}}"></script>
             </div>

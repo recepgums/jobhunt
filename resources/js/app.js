@@ -23,6 +23,10 @@ Vue.component(
     require("./components/MyAds.vue").default
 );
 
+Vue.component(
+    "my-example",
+    require("./components/MyExample").default
+);
 const app = new Vue({
     el: "#app",
 });

@@ -14,11 +14,9 @@ export default {
         };
     },
     mounted(){
-        alert('sayfa acildiginda calsirim')
     },
     beforeMount() {
         //script tagi icinde bir seyler cagiracaksan (method ya da degisken) oncesinde this demelisin
-        this.firstMethod()
     },
     methods:{
         //yazacagin custom fonksiyonlar burada tanimlanmali
