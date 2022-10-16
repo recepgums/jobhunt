@@ -57,7 +57,8 @@ class Job extends Model implements HasMedia,Sitemapable
 
     public function scopeListable($query)
     {
-        return $query->where('published_until_at', '>=', now())->where('status', self::STATUS['published']);
+        return $query->where('published_until_at', '>=', now())
+            ->where('status', self::STATUS['published']);
     }
 
     public function toSitemapTag(): Url | string | array

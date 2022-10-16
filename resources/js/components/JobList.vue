@@ -130,7 +130,7 @@
 
             <el-drawer
                 :title="selectedJob?.title"
-                :direction="'ltr'"
+                :direction="'btt'"
                 size="80%"
                 :append-to-body="true"
                 :visible.sync="drawer"
@@ -237,8 +237,8 @@ export default {
         };
     },
     mounted() {
-        this.getGeneralData();
         this.getJobList();
+        this.getGeneralData();
     },
     components:{
         JobSingle,
@@ -246,20 +246,29 @@ export default {
     },
     methods: {
         getGeneralData() {
-            axios.get(apiUrl + "homepageDatas").then((resp) => {
-                this.cities = resp.data.cities.map((q) => {
-                    return { label: q.name, value: q.id };
+            let homePageDataLocalStorage = JSON.parse(localStorage.getItem('homepageDatas'));
+            if (homePageDataLocalStorage){
+                this.fillHomePageData(homePageDataLocalStorage)
+            }else{
+                axios.get(apiUrl + "homepageDatas").then((resp) => {
+                    this.fillHomePageData(resp.data)
+                    localStorage.setItem('homepageDatas',JSON.stringify(resp.data))
                 });
-                this.selectedCity = resp.data.selected_city.id
-                this.districts = resp.data.selected_city.districts.map((q) => {
-                    return { label: q.name, value: q.id };
-                });
-                this.workTypes = resp.data.work_types.map((q) => {
-                    return { label: q.name, value: q.id };
-                });
-                this.categories = resp.data.categories.map((q) => {
-                    return { label: q.name, value: q.id };
-                });
+            }
+        },
+        fillHomePageData(data){
+            this.cities = data.cities.map((q) => {
+                return { label: q.name, value: q.id };
+            });
+            this.selectedCity = data.selected_city.id
+            this.districts = data.selected_city.districts.map((q) => {
+                return { label: q.name, value: q.id };
+            });
+            this.workTypes = data.work_types.map((q) => {
+                return { label: q.name, value: q.id };
+            });
+            this.categories = data.categories.map((q) => {
+                return { label: q.name, value: q.id };
             });
         },
         jobClicked(job) {
@@ -267,21 +276,28 @@ export default {
             this.drawer = true;
         },
         getJobList(page = 1) {
-            axios
-                .get(apiUrl + `job-v1`, {
-                    params: {
-                        page: 1,
-                        city_id: this.selectedCity,
-                        district_id: this.selectedDistricts,
-                        category_id: this.selectedCategory,
-                        work_type_id: this.selectedWorkType
-                    },
-                })
-                .then((resp) => {
-                    this.jobs=[];
-                    this.jobs = resp.data.data;
-                    this.selectedJob = this.jobs[0];
-                });
+           let jobListLocalStorage = JSON.parse(localStorage.getItem('jobs'));
+           if (jobListLocalStorage){
+               this.fillJobList(jobListLocalStorage)
+           }
+            axios.get(apiUrl + `job-v1`, {
+                params: {
+                    page: 1,
+                    city_id: this.selectedCity,
+                    district_id: this.selectedDistricts,
+                    category_id: this.selectedCategory,
+                    work_type_id: this.selectedWorkType
+                },
+            }).then((resp) => {
+                this.fillJobList(resp.data)
+
+                localStorage.setItem('jobs',JSON.stringify(resp.data));
+            });
+        },
+        fillJobList(data){
+            this.jobs=[];
+            this.jobs = data.data;
+            this.selectedJob = this.jobs[0];
         },
     },
     watch:{

@@ -3,7 +3,9 @@
     {{env('APP_NAME')}}
 @endsection
 @push('styles')
-{{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>--}}
+    <script src="{{asset('js/app.js')}}" type="module" async></script>
+
+    {{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>--}}
     <style>
         p.job-type-custom {
             color: #26AE61;
@@ -156,11 +158,10 @@
             <div id="app">
                 <job-list :isLoggedIn="'{{auth()->check()}}'"></job-list>
             </div>
-            <script src="{{asset('js/app.js')}}"></script>
             <div class="container">
                 <div class="mx-auto text-center">
                     <div class="browse-all-cat ">
-                        <a href="{{route('job.index')}}" title="" class="style2">Daha fazla iş ilanı
+                        <a href="{{route('job.index')}}" title="" style="background-color: #fb236a;color: white" class="style2">Daha fazla iş ilanı
                             görüntüleyin</a>
                     </div>
                 </div>
@@ -195,17 +196,27 @@
                 <img class="tw-pt-6 tw-row-span-1" width="250" height="250" src="{{asset('assets/images/baker.png')}}">
                 <div class="tw-space-y-1 tw-text-center  tw-row-span-1 tw-pt-8">
                     <div class="px-5">
-                        <h1 style="font-size: 28px;font-weight:600" class="text-primary">İş Arayanlar</h1>
+                        <h1 style="font-size: 28px;font-weight:600" class="text-primary">Eleman Arayanlar</h1>
                         <h3 class="tw-mt-4 text-dark w-80 ml-3" style="font-size: 16px;font-weight:bold;">
                             Türkiye'nin her yerinden eleman arayan fırıncılara {{env('APP_NAME')}} ile ulaşın.
                             Sokak sokak iş aramakla zaman kaybetmeyin.
                             Hemen şimdi kayıt olun ve iş ilanları sahipleriyle iletişime geçin!
                         </h3>
                     </div>
-                    <a id="button" href="{{route('job.index')}}"
-                       class="tw-bg-blue-600 tw-mt-12 p-3 tw-rounded-lg fs-22 btn btn-danger font-weight-bold mt-5 ">
-                        İş İlanlarını İnceleyin
-                    </a>
+                    @guest
+                        <a id="button" href="{{route('job.create')}}"
+                           class="tw-bg-blue-600 tw-mt-12 p-3 tw-rounded-lg fs-22 btn font-weight-bold "
+                           style="margin-top: 65px">
+                            İş İlanı vermek için kayıt olun
+                        </a>
+                    @endguest
+                    @auth
+                        <a id="button" href="{{route('job.create')}}"
+                           class="tw-bg-blue-600 tw-mt-12 p-3 tw-rounded-lg fs-22 btn font-weight-bold "
+                           style="margin-top: 65px">
+                            İş İlanı verin
+                        </a>
+                    @endauth
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white">
+    <div class="bg-white" style="border-radius:20px">
         <div class="tw-py-3 tw-px-3 tw-grid tw-grid-rows-2 tw-gap-y-8">
             <div class="tw-flex tw-flex-col tw-row-span-2 w-full">
                 <div
@@ -100,17 +100,17 @@ export default {
     methods:{
         getContactClicked(){
             if (this.isloggedin){
-                axios.post( `/ilan/${this.job.slug}/get_contact_info`)
+                axios.post( `/firinci/ilan/${this.job.slug}/get_contact_info`)
                     .then(resp => {
                         this.showContactInformation = true
                         window.location.href = 'tel://0' + resp.data.phone;
                     })
             }else{
-                window.location.href = '/giris'
+                window.location.href = '/firinci/giris'
             }
         },
         seeDetailsClicked(){
-            window.location.href = '/ilan/' + this.job.slug
+            window.location.href = '/firinci/ilan/' + this.job.slug
         }
     }
 };
