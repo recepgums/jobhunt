@@ -87,7 +87,9 @@
                                         @forelse($job->getMedia('images') as $media)
                                             @if(str_contains($media->mime_type,"image"))
                                                 <div class="swiper-slide">
-                                                    <img src="{{$media->getUrl()}}" alt="">
+                                                    <img src="{{$media->getUrl()}}"
+                                                         style="max-height: 500px"
+                                                         alt="">
                                                 </div>
                                             @else
                                                 <div class="swiper-slide">

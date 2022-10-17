@@ -1,84 +1,79 @@
 <template>
-    <div class="bg-white" style="border-radius:20px">
-        <div class="tw-py-3 tw-px-3 tw-grid tw-grid-rows-2 tw-gap-y-8">
-            <div class="tw-flex tw-flex-col tw-row-span-2 w-full">
-                <div
-                    class="tw-grid mb-3 tw-col-span-5 text-center mx-auto"
-                >
-                    <el-image
-                        :src="job?.media[0]"
-                        class="tw-rounded-xl tw-w-200 tw-h-200 tw-col-span-1"
-                        :fit="'fill'"
-                        :preview-src-list="job?.media"
-                    ></el-image>
+    <div class="bg-white" style="border-radius:20px;overflow-x: hidden;height:100%">
+        <div class="bant">
+            <div></div>
+        </div>
+        <span class="el-image-viewer__btn el-image-viewer__close d-none" @click="closeDrawer">
+            <i class="el-icon-close"></i>
+        </span>
+        <div class="tw-flex tw-flex-col tw-row-span-2 w-full">
+            <div
+                class="tw-grid mb-3 tw-col-span-5 text-center mx-auto"
+            >
+                <el-image
+                    :src="job?.media[0]"
+                    class="tw-rounded-xl tw-w-200 tw-h-200 tw-col-span-1"
+                    :fit="'fill'"
+                    :preview-src-list="job?.media"
+                ></el-image>
+            </div>
+            <div class="d-flex justify-content-around">
+                <div class="job-property">
+                    <i class="la la-clock-o"></i>
+                    {{ job?.work_type?.name }}
                 </div>
-                <div>
-                    <h1 class="tw-font-bold tw-pr-4">
-                        {{ job?.title }}
-                    </h1>
-                    <div>
-                        <h1 class="tw-pt-3">
-                            {{ job?.district?.name }},
-                            {{ job?.city?.name }}
-                        </h1>
-                    </div>
+                <div class="job-property">
+                    <i class="la la-mars-double"></i>
+                    {{
+                        job?.gender?.name ?? "Farketmez"
+                    }}
+                </div>
+                <div class="job-property">
+                    <i class="la la-money"></i>
+                    {{
+                        job?.fee
+                            ? job?.fee + " TL"
+                            : "Belirtilmemiş"
+                    }}
+                </div>
+                <div class="job-property">
+                    <i class="el-icon-user"></i>
+                    {{ job?.category?.name ?? '' }}
                 </div>
             </div>
+        </div>
 
-            <div class="tw-grid tw-rows-5 tw-gap-y-8">
-                <div class="tw-flex tw-flex-col">
-                    <h1 class="tw-font-bold">İş Tanımı</h1>
-                    <h1 class="tw-pt-4">
-                        {{ job?.description }}
-                    </h1>
-                </div>
-
-                <div class="tw-flex tw-flex-col">
-                    <h1 class="tw-font-bold">Uzmanlık</h1>
-                    <h1 class="tw-pt-2">{{ job?.category?.name }}</h1>
-                </div>
-
-                <div class="tw-grid tw-grid-cols-2">
-                    <div class="tw-flex tw-flex-col">
-                        <h1 class="tw-font-bold">Çalışma Türü</h1>
-                        <h1 class="tw-pt-2">
-                            {{ job?.work_type?.name }}
-                        </h1>
-                    </div>
-                    <div class="tw-flex tw-flex-col">
-                        <h1 class="tw-font-bold">Başvuru Sayısı</h1>
-                        <h1 class="tw-pt-2">10</h1>
-                    </div>
-                </div>
-                <div class="tw-grid tw-grid-cols-2">
-                    <div class="tw-flex tw-flex-col">
-                        <h1 class="tw-font-bold">Maaş Bilgisi</h1>
-                        <h1 class="tw-pt-2">
-                            {{
-                                job?.fee
-                                    ? job?.fee + " TL"
-                                    : "Belirtilmemiş"
-                            }}
-                        </h1>
-                    </div>
-                    <div class="tw-flex tw-flex-col">
-                        <h1 class="tw-font-bold">Cinsiyet</h1>
-                        <h1 class="tw-pt-2">
-                            {{
-                                job?.gender?.name ?? "Farketmez"
-                            }}
-                        </h1>
-                    </div>
-                </div>
+        <div class="p-3 mt-2">
+            <div >
+                <h1 class="tw-pt-3" style="font-size: 12px">
+                    <i class="la la-map-marker"></i>
+                    {{ job?.district?.name }},
+                    {{ job?.city?.name }}
+                </h1>
+                <h1 style=" font-size: 28px;font-weight: bolder; text-transform: capitalize;">
+                    {{ job?.title }}
+                </h1>
+            </div>
+            <div class="mt-3">
+                <p style="font-weight:bold">İş Tanımı</p>
+                <hr>
+                <h2 class="mt-4">
+                    {{ job?.description }}
+                </h2>
+            </div>
+            <div class="mt-2" style="position:absolute;bottom:10px;width: 90%">
                 <div class="row">
                     <div class="col-6">
                         <el-button style="width:100%" @click="seeDetailsClicked" type="primary">
                             Detayları gör
+                            <i class="el-icon-right"></i>
                         </el-button>
                     </div>
                     <div class="col-6">
                         <el-button style="width:100%" @click="getContactClicked" type="danger">
                             Ara
+                            <i class="el-icon-phone"></i>
+
                         </el-button>
                     </div>
                 </div>
@@ -111,13 +106,57 @@ export default {
         },
         seeDetailsClicked(){
             window.location.href = '/firinci/ilan/' + this.job.slug
+        },
+        closeDrawer (){
+            this.$emit('drawerToggle')
         }
     }
 };
 </script>
 <style>
-.job-drawer-container{
-    height: 35rem;
-    overflow: scroll;
+@media only screen and (max-width: 600px) {
+    .el-drawer.btt {
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+    }
+
+    .el-drawer__body{
+        overflow: hidden!important;
+    }
+    .bant{
+        display: none;
+        margin: 0 5px;
+        background-color: black;
+        opacity: 0.6;
+        height: 7px;
+        text-align:center
+    }
+    .bant div{
+        background-color: white;
+        width: 30%;
+        height: 7px;
+        margin-right:auto;
+        margin-left:auto;
+        border-radius:10px
+    }
+    .close-drawer{
+        color: white;
+        font-size: 40px;
+        background-color: red;
+        border-radius: 50px;
+        width: 20px;
+        position:relative;
+        right:10px;
+        z-index:2
+    }
+    .el-image-viewer__close{
+        top: 0;
+        right: 5px;
+        display: block;
+    }
+}
+.job-property{
+text-align:left;
+    color:rgb(95, 101, 158)
 }
 </style>

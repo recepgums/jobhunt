@@ -135,7 +135,7 @@
                 :append-to-body="true"
                 :visible.sync="drawer"
             >
-                <JobDetail class="job-drawer-container" :job="selectedJob" :isloggedin="isloggedin" />
+                <JobDetail  @drawerToggle="drawer=false"  style="overflow-y: hidden" class="job-drawer-container" :job="selectedJob" :isloggedin="isloggedin" />
             </el-drawer>
 
             <el-drawer
@@ -316,6 +316,7 @@ export default {
 </script>
 
 <style scoped>
+
 .active-job {
     outline: none !important;
     border-color: #719ece;
@@ -324,7 +325,7 @@ export default {
     height: auto;
 }
 .job-list-container{
-    height: 56rem;
+    height: 50rem;
     padding-left: 2px; padding-right: 2px; margin-left: 2px; margin-right: 2px;
     overflow-y: scroll;
     /*overflow-x: hidden;*/
@@ -354,4 +355,5 @@ export default {
     border-radius: 10px;
     border: 3px solid #ffffff;
 }
+
 </style>
