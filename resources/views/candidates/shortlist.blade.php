@@ -133,8 +133,8 @@
                 </div>
                     @endif
 
-                    <div id="app">
-                        <my-ads :isLoggedIn="'{{auth()->check()}}'"></my-ads>
+                    <div id="app" class="col-lg-9">
+                        <my-example data="{{($jobs)}}"/>
                     </div>
                     <script src="{{asset('js/app.js')}}"></script>
             </div>
