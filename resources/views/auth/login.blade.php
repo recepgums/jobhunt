@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <section class="overlape">
+    <section class="overlape d-none d-md-block">
         <div class="block no-padding">
             <div data-velocity="-.1"
                  style="background: url(https://place-hold.it/1600x800) repeat scroll 50% 422.28px transparent;"
@@ -56,9 +56,9 @@
                                     <span>Ya da</span>
                                     <br>
                                     <a class="tw-login" href="{{route('socialite.redirect','google')}}" title="">
-                                        <div class='g-sign-in-button'>
+                                        <div class="g-sign-in-button">
                                             <div class=content-wrapper>
-                                                <div class='logo-wrapper'>
+                                                <div class="logo-wrapper">
                                                     <img src='https://developers.google.com/identity/images/g-logo.png'>
                                                 </div>
                                                 <span class='text-container'>

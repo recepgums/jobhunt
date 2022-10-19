@@ -12,7 +12,12 @@
               <span class="text-muted">
                 {{ job?.category?.name }}
             </span>
-            <h1 class="tw-font-bold">
+            <h1 class="tw-font-bold" style="
+                white-space: nowrap;
+                    overflow: hidden !important;
+                    text-overflow: ellipsis;
+                    height:2em;
+                    ">
                 {{ job?.title }}
             </h1>
 

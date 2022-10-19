@@ -8,6 +8,6 @@ class VerifyCsrfToken extends Middleware
 {
 
     protected $except = [
-        '/ilan/*/iyzico-form-retrieve','ilan'
+        '*/ilan/*/iyzico-form-retrieve','ilan'
     ];
 }

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,16 +14,12 @@ use \App\Http\Controllers;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('city', [Controllers\PublicDataController::class, 'city']);
+Route::get('category/{category}/sub-category', [Controllers\PublicDataController::class, 'subCategory']);
+Route::get('job-categories', [Controllers\PublicDataController::class, 'jobCategories']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::get('city',[Controllers\PublicDataController::class,'city']);
-Route::get('category/{category}/sub-category',[Controllers\PublicDataController::class,'subCategory']);
-Route::get('job-categories',[Controllers\PublicDataController::class,'jobCategories']);
+Route::get('job-create-data', [Controllers\PublicDataController::class, 'jobCreateData']);
+Route::get('homepageDatas', [Controllers\PublicDataController::class, 'homepageDatas']);
 
-Route::get('job-create-data',[Controllers\PublicDataController::class,'jobCreateData']);
-Route::get('homepageDatas',[Controllers\PublicDataController::class,'homepageDatas']);
-
-Route::get('city/{city}/district',[Controllers\PublicDataController::class,'district']);
-Route::get('job-v1',[Controllers\JobController::class,'indexAjax'])->name('job.ajax');
+Route::get('city/{city}/district', [Controllers\PublicDataController::class, 'district']);
+Route::get('job-v1', [Controllers\JobController::class, 'indexAjax'])->name('job.ajax');

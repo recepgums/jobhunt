@@ -59,7 +59,7 @@
 @endpush
 @section('content')
 
-    <section class="overlape">
+    <section class="overlape d-none d-md-block">
         <div class="block no-padding">
             <div data-velocity="-.1"
                  style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;"
@@ -87,7 +87,9 @@
                                         @forelse($job->getMedia('images') as $media)
                                             @if(str_contains($media->mime_type,"image"))
                                                 <div class="swiper-slide">
-                                                    <img src="{{$media->getUrl()}}" alt="">
+                                                    <img src="{{$media->getUrl()}}"
+                                                         style="max-height: 500px"
+                                                         alt="">
                                                 </div>
                                             @else
                                                 <div class="swiper-slide">

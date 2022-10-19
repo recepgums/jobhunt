@@ -1139,9 +1139,8 @@ label::after {
     -o-border-radius: 5px;
     border-radius: 5px;
 
-    padding: 9px 29px;
+    padding: 9px 50px;
     margin: 0 5px;
-    margin-top: 0px;
     margin-top: 5px;
     cursor: pointer;
 }
@@ -1659,7 +1658,8 @@ label::after {
     float: left;
     width: 100%;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 .browse-all-cat a {
     float: none;

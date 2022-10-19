@@ -1,15 +1,29 @@
 <template>
     <div class="container-fluid p-0">
-        <div class="row no-gape">
-            <div class="col-sm-11 col-lg-8 column mx-auto" style="max-width:1250px">
-                <el-page-header  @back="goBack" >
-                    <template slot="title">
-                        Anasayfa
-                    </template>
-                </el-page-header>
+        <div style="width: 100%;background-color: #0b1b46" class="py-3" @back="goBack" >
+            <div class="d-flex justify-content-around">
+                <div class="text-left">
 
+                </div>
+                <div>
+                    <a href="#" @click="goBack" style="color:#F56C6C;font-size:22px;font-weight:bolder">
+                        <small>
+                            isbull.com
+                        </small>
+                        /firinci
+                    </a>
+                </div>
+                <div>
+                    c
+                </div>
+            </div>
+        </div>
+        <div class="row no-gape" v-loading="fullscreenLoading"  element-loading-text="Yukleniyor...">
+            <div class="col-sm-11 col-lg-8 column mx-auto" style="max-width:1250px">
                 <div class="padding-left">
                     <el-card class="box-card mt-4" shadow="always">
+                        <h2 class="text-muted text-center" style="font-size:22px">ilan ver</h2>
+
                         <form-wizard color="#8b91dd" subtitle="" title=""
                                  backButtonText="Geri"
                                  nextButtonText="İleri"
@@ -22,11 +36,6 @@
                             slot-scope="props"
                             slot="step">
                         </wizard-step>
-                        <div slot="title">
-                            <div class=" text-white p-2" style="background-color: #F56C6C">
-                                İlan Ver
-                            </div>
-                        </div>
                         <div slot="finish" class="col-lg-12 py-2">
                             <el-button size="medium" style="margin-top: 12px;font-size: 18px;" type="danger">Yayınla!</el-button>
                         </div>
@@ -36,13 +45,13 @@
                         <div slot="prev" class="col-lg-12 py-2">
                             <el-button size="medium" style="margin-top: 12px;font-size: 18px;" type="danger">Geri</el-button>
                         </div>
-                        <tab-content title="Kategori secimi" icon="la la-info">
+                        <tab-content title="Kategori secimi" icon="la la-info" :before-change="categoryValidation">
                             <div class="row">
                                 <div @click="categoryClicked(category)" v-for="category in categories"
                                      class="col-lg-4 col-md-4 col-sm-6 col-6">
                                     <a href="#" title="" class="text-center card my-2">
                                         <img style="
-                                         object-fit: cover;"
+                                         object-fit: cover;height: 200px"
                                              :src="category.default_cover_image"
                                              :alt="category.name"
                                              class="mx-auto"
@@ -54,7 +63,7 @@
                                 </div>
                             </div>
                         </tab-content>
-                        <tab-content title="İş Detayı" icon="la la-info">
+                        <tab-content title="İş Detayı" icon="la la-info" :before-change="titleDescriptionValidation">
                             <div class="col-lg-12 px-0">
                                 <span class="pf-title mb-4">Resim ve videolar yükleyiniz</span>
                                 <el-upload
@@ -200,7 +209,9 @@
                         </tab-content>
                         <tab-content title="Paket Seçimi ve Ödeme2" icon="la la-cc-mastercard">
                             <div class="plans-sec">
-                                <div class="row">
+                                <div v-if="job">
+                                    <JobSingle :job="job"></JobSingle>
+                                    {{this.formInline}}
                                     <div @click="formInline.package_id = c.id" class="col-lg-4" v-for="c in packages">
                                         <el-card  :body-style="{ padding: '0px' }">
                                             <img src="/assets/images/src/img.png" class="image">
@@ -242,6 +253,7 @@ export default {
     data() {
         return {
             dialogImageUrl: '',
+            fullscreenLoading: false,
             dialogVisible: false,
             formInline: {
                 title: null,
@@ -299,8 +311,9 @@ export default {
             form.append('phone', this.formInline.phone)
             form.append('sleep_after_at', this.formInline.sleep_after_at)
 
+            this.fullscreenLoading = true
             axios.post(
-                '/ilan',
+                '/firinci/ilan',
                 form,
                 {
                     headers: {
@@ -314,9 +327,11 @@ export default {
                     this.job = resp.data.job
                     this.isJobCreated = true;
                     this.$refs.wizard.nextTab();
+                    this.fullscreenLoading = false
                 })
                 .catch(err => {
                     //todo
+                    this.fullscreenLoading = false
                     this.$notify({
                         title: 'Eksik alanları doldurunuz.',
                         type: 'error',
@@ -335,9 +350,9 @@ export default {
 
                 return false
             }
-
+            this.fullscreenLoading = true
             axios.get(
-                '/ilan/' + this.job.slug + '/paket/' + this.formInline.package_id + '/api',
+                '/firinci/ilan/' + this.job.slug + '/paket/' + this.formInline.package_id + '/api',
                 {
                     headers: {
                         'X-CSRF-TOKEN': this.csrf,
@@ -345,13 +360,13 @@ export default {
                 })
                 .then(resp => {
                     setTimeout(() => {
-                        window.location.href = window.location.origin + '/ilan/' + this.job.slug + '/odeme';
-
+                        window.location.href = window.location.origin + '/firinci/ilan/' + this.job.slug + '/odeme';
                     }, 500)
 
                 })
                 .catch(err => {
                     //todo
+                    this.fullscreenLoading = false
                     this.$notify({
                         title: 'Eksik alanları doldurunuz.',
                         type: 'error',
@@ -380,6 +395,7 @@ export default {
                 })
         },
         getDatas() {
+            this.fullscreenLoading = true
             axios.get(apiUrl + 'job-create-data').then(resp => {
                 this.categories = resp.data.categories
                 this.cities = resp.data.cities.map(q => {
@@ -401,8 +417,10 @@ export default {
 
                 this.packages = resp.data.packages
                 this.formInline.phone = this.telefon
-                this.formInline.package_id = this.packages.filter(q => q.is_highlighted == true)[0].id
+                this.formInline.package_id = this.packages.filter(q => q.is_highlighted == true)[0]?.id
+                this.fullscreenLoading = false
             })
+
         },
         goBack(){
             window.location.href = "/"
@@ -419,7 +437,37 @@ export default {
                         this.$refs.wizard.nextTab()
                     }
                 })
-        }
+        },
+        categoryValidation(){
+            if (this.formInline.category_id){
+                return true
+            }
+            this.$notify({
+                title: 'Kategori seçiniz',
+                type: 'error',
+                message: 'İlan vermek istediğiniz kategoriye tıklayarak seçiniz'
+            });
+        },
+        titleDescriptionValidation(){
+            if (!this.formInline.title){
+                this.$notify({
+                    title: 'İlan Başlığını giriniz',
+                    type: 'error',
+                });
+                return false
+            }
+            if (!this.formInline.description){
+                this.$notify({
+                    title: 'İş tanımı giriniz',
+                    type: 'error',
+                    message: 'İş tanımı kısmında, iş arayanların merak edebileceği bilgileri belirtiniz',
+                });
+                return false
+            }
+
+            return true
+        },
+
     }
 }
 </script>
@@ -501,5 +549,11 @@ bottom {
 }
 .el-upload--picture-card{
     width:140px
+}
+.el-loading-spinner .circular{
+    margin-left:48%
+}
+body{
+    overflow-x: hidden;
 }
 </style>

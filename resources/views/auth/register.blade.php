@@ -857,7 +857,7 @@
     </div>
 
 
-    <section class="overlape">
+    <section class="overlape d-none d-md-block">
         <div class="block no-padding">
             <div data-velocity="-.1"
                  style="background: url(https://place-hold.it/1600x800) repeat scroll 50% 422.28px transparent;"
@@ -933,7 +933,7 @@
                                         <input name="phone" type="tel" placeholder="Telefon (53XXXXXXXX)" required/>
                                         <i class="la la-phone"></i>
                                     </div>
-                                    <div class="select-user">
+                                    <div class="select-user mb-3 justify-content-around d-flex">
                                         <span id="jobSeeker" onclick="document.getElementById('role').value=1">İş Arayan</span>
                                         <span onclick="document.getElementById('role').value=2">İşveren</span>
                                         <input type="hidden" id="role" name="type" value="1">
@@ -976,7 +976,7 @@
                                         <div class="col-lg-12">
                                             <p class="remember-label" style="font-size: 10.70px" id="cb1clearmobile">
                                                 <input type="checkbox"   id="cb1mobile" required>
-                                                <label for="cb1mobile">
+                                                <label for="cb1mobile" style="text-align: left;">
                                                     Verilerimin <span class="font-weight-bold" id="serviceModalOnclick1mobile" data-toggle="modal" data-target="#serviceAgreement1Mobile">Açık Rıza Metninde</span> belirtilen şekilde işlenmesine onay veriyorum..</label>
                                             </p>
                                         </div>
@@ -987,10 +987,21 @@
                                 </form>
                                 <div class="extra-login">
                                     <span>Ya da</span>
-                                    <div class="login-social">
-                                        <a class="tw-login" href="{{route('socialite.redirect','google')}}" title=""><i
-                                                class="fa fa-google"></i></a>
-                                    </div>
+                                    <br>
+                                    <a class="tw-login" href="{{route('socialite.redirect','google')}}" title="">
+                                        <div class="g-sign-in-button">
+                                            <div class=content-wrapper>
+                                                <div class="logo-wrapper">
+                                                    <img src='https://developers.google.com/identity/images/g-logo.png'>
+                                                </div>
+                                                <span class='text-container'>
+                                                  <span>
+                                                      Google ile kayıt ol
+                                                  </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </div><!-- SIGNUP POPUP -->
@@ -1115,3 +1126,65 @@
         })
     </script>
 @endpush
+
+<style>
+    *, *:before, *:after {
+        box-sizing: border-box;
+    }
+
+    .g-sign-in-button {
+        margin: 10px;
+        display: inline-block;
+        width: 240px;
+        height: 50px;
+        background-color: #4285f4;
+        color: #fff;
+        border-radius: 1px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+        transition: background-color .218s, border-color .218s, box-shadow .218s;
+    }
+
+    .g-sign-in-button:hover {
+        cursor: pointer;
+        -webkit-box-shadow: 0 0 3px 3px rgba(66, 133, 244, 0.3);
+        box-shadow: 0 0 3px 3px rgba(66, 133, 244, 0.3);
+    }
+
+    .g-sign-in-button:active {
+        background-color: #3367D6;
+        transition: background-color 0.2s;
+    }
+
+    .g-sign-in-button .content-wrapper {
+        height: 100%;
+        width: 100%;
+        border: 1px solid transparent;
+    }
+
+    .g-sign-in-button img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .g-sign-in-button .logo-wrapper {
+        padding: 15px;
+        background: #fff;
+        width: 48px;
+        height: 100%;
+        border-radius: 1px;
+        display: inline-block;
+    }
+
+    .g-sign-in-button .text-container {
+        font-family: Roboto,arial,sans-serif;
+        font-weight: 500;
+        letter-spacing: .21px;
+        font-size: 16px;
+        line-height: 48px;
+        vertical-align: top;
+        border: none;
+        display: inline-block;
+        text-align: center;
+        width: 180px;
+    }
+</style>
