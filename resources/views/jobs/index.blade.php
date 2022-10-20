@@ -12,6 +12,13 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="CreativeLayers">
+    <style>
+        @media screen and (min-width: 800px) {
+            .job-list {
+                margin-top: 50px;
+            }
+        }
+    </style>
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}"/>
@@ -26,27 +33,11 @@
 <body>
 <div class="theme-layout" id="scrollup">
     @include('layout.header')
-
-    <section class="overlape d-none d-md-block">
-        <div class="block no-padding">
-            <div data-velocity="-.1"
-                 style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;"
-                 class="parallax scrolly-invisible no-parallax"></div>
-            <div class="container fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="inner-header">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="py-2" style="background-color: #f4f5fa">
         <div class="container-fluid p-1">
             <div id="app" style="min-height: 450px">
-                <job-list style="max-width: 1368px"
+                <job-list style="max-width: 1368px;"
+                          class="job-list"
                           :isLoggedIn="'{{auth()->check()}}'"
                     currentLocation="{{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları"
                 ></job-list>
