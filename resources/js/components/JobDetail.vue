@@ -7,9 +7,7 @@
             <i class="el-icon-close"></i>
         </span>
         <div class="tw-flex tw-flex-col tw-row-span-2 w-full">
-            <div
-                class="tw-grid mb-3 tw-col-span-5 text-center mx-auto"
-            >
+            <div class="tw-grid tw-col-span-5 text-center mx-auto">
                 <el-image
                     :src="job?.media[0]"
                     class="tw-rounded-xl tw-w-200 tw-h-200 tw-col-span-1"
@@ -43,34 +41,32 @@
             </div>
         </div>
 
-        <div class="p-3 mt-2">
+        <div class="p-3">
             <div >
-                <h1 class="tw-pt-3" style="font-size: 12px">
+                <h1 class="tw-pt-3" style="font-size: 12px;color:blue">
                     <i class="la la-map-marker"></i>
                     {{ job?.district?.name }},
                     {{ job?.city?.name }}
                 </h1>
-                <h1 style=" font-size: 28px;font-weight: bolder; text-transform: capitalize;">
+                <h1 style=" font-size: 20px;font-weight: bolder; text-transform: capitalize;">
                     {{ job?.title }}
                 </h1>
             </div>
-            <div class="mt-3">
-                <p style="font-weight:bold">İş Tanımı</p>
-                <hr>
+            <div >
                 <h2 class="mt-4">
                     {{ job?.description }}
                 </h2>
             </div>
-            <div class="mt-2" style="position:absolute;bottom:10px;width: 90%">
+            <div class="mt-2" style="position:absolute;bottom:20px;width: 90%">
                 <div class="row">
                     <div class="col-6">
-                        <el-button style="width:100%" @click="seeDetailsClicked" type="primary">
+                        <el-button style="width:100%;padding:15px;font-size:16px" @click="seeDetailsClicked" type="primary">
                             Detayları gör
                             <i class="el-icon-right"></i>
                         </el-button>
                     </div>
                     <div class="col-6">
-                        <el-button style="width:100%" @click="getContactClicked" type="danger">
+                        <el-button style="width:100%;font-size:20px" @click="getContactClicked" type="danger">
                             Ara
                             <i class="el-icon-phone"></i>
 
@@ -114,49 +110,54 @@ export default {
 };
 </script>
 <style>
+.job-property {
+    text-align: left;
+    color: rgb(95, 101, 158)
+}
+
 @media only screen and (max-width: 600px) {
     .el-drawer.btt {
         border-top-left-radius: 25px;
         border-top-right-radius: 25px;
     }
 
-    .el-drawer__body{
-        overflow: hidden!important;
+    .el-drawer__body {
+        overflow: hidden !important;
     }
-    .bant{
+
+    .bant {
         display: none;
         margin: 0 5px;
         background-color: black;
         opacity: 0.6;
         height: 7px;
-        text-align:center
+        text-align: center
     }
-    .bant div{
+
+    .bant div {
         background-color: white;
         width: 30%;
         height: 7px;
-        margin-right:auto;
-        margin-left:auto;
-        border-radius:10px
+        margin-right: auto;
+        margin-left: auto;
+        border-radius: 10px
     }
-    .close-drawer{
+
+    .close-drawer {
         color: white;
         font-size: 40px;
         background-color: red;
         border-radius: 50px;
         width: 20px;
-        position:relative;
-        right:10px;
-        z-index:2
+        position: relative;
+        right: 10px;
+        z-index: 2
     }
-    .el-image-viewer__close{
-        top: 0;
-        right: 5px;
-        display: block;
+
+    .el-image-viewer__close {
+        top: 2px;
+        right: 2px;
+        display: flex !important;
     }
-}
-.job-property{
-text-align:left;
-    color:rgb(95, 101, 158)
 }
 </style>

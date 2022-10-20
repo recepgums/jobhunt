@@ -2,7 +2,10 @@
     <div class="responsive-menubar">
         <div class="res-logo">
             <a href="{{route('homepage')}}">
-                    <img style="width: 50px" src="{{asset('assets/images/logo.png')}}" alt="{{env('APP_NAME')}}"/>
+{{--                    <img style="width: 50px" src="{{asset('assets/images/logo.png')}}" alt="{{env('APP_NAME')}}"/>--}}
+                <span style="font-size: 20px;font-weight: bolder;color:white;">
+                    {{env('APP_NAME')}}
+                </span>
             </a>
 
         </div>
@@ -56,15 +59,27 @@
     </div>
 </div>
 
-<header class="stick-top @if(isset($isHomepage) && $isHomepage) style2 @endif">
-    <div class="menu-sec">
+<header class="stick-top @if(isset($isHomepage) && $isHomepage) style2 @endif" style="  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  background-color: rgba(184, 24, 40, 0.88);
+  opacity: 0.9;
+  ">
+    <div class="menu-sec" style="margin: 0">
         <div class="container fluid">
             <div class="logo">
                 <a href="{{route('homepage')}}" title="">
                     <div class="container">
                         <div class="col">
-                            <img style="width: 75px" src="{{asset('assets/images/logo.png')}}" width="100"
-                                 height="71" alt=""/>
+                            <!--                            <img style="width: 75px" src="{{asset('assets/images/logo.png')}}" width="100"
+                                 height="71" alt=""/>-->
+                            <span style="font-size: 30px;font-weight: bolder;color:white;">
+                    {{env('BASE_NAME')}}
+                                <small>
+                                    /{{env('APP_SUB')}}
+                                </small>
+                </span>
                         </div>
                     </div>
                 </a>

@@ -11,7 +11,6 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="inner-header">
-                            <h3>Blog</h3>
                         </div>
                     </div>
                 </div>

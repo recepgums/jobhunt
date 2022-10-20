@@ -36,7 +36,6 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="inner-header">
-                            <h3>İş İlanları</h3>
                         </div>
                     </div>
                 </div>

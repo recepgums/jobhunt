@@ -8,7 +8,7 @@
                 :preview-src-list="job?.media"
             ></el-image>
         </div>
-        <div class="col-8 px-0 py-2">
+        <div class="col-8 px-0">
               <span class="text-muted">
                 {{ job?.category?.name }}
             </span>
@@ -21,14 +21,18 @@
                 {{ job?.title }}
             </h1>
 
-
-            <div class="row align-items-end justify-content-between location-date" >
-                <div class="col-7">
-                    {{ job?.district?.name }},
-                    {{ job?.city?.name }}
+            <div class="d-flex justify-content-between align-items-end">
+                <div style="color: #fb236a">
+                    <i class="la la-map-marker"></i>
+                    {{ job?.district?.name }}
+                    <small style="color:black;font-size:10px">
+                        /{{job?.city?.name}}
+                    </small>
                 </div>
-                <div class="col-5 pr-2">
-                    {{ job?.created_at }}
+                <div>
+                    <small>
+                        {{ job?.created_at }}
+                    </small>
                 </div>
             </div>
         </div>

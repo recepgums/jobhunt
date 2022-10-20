@@ -279,6 +279,7 @@ export default {
             this.drawer = true;
         },
         getJobList(page = 1) {
+            this.loading = true;
            let jobListLocalStorage = JSON.parse(localStorage.getItem('jobs'));
            if (jobListLocalStorage){
                this.fillJobList(jobListLocalStorage)
@@ -295,6 +296,7 @@ export default {
                 this.fillJobList(resp.data)
 
                 localStorage.setItem('jobs',JSON.stringify(resp.data));
+                this.loading = false;
             });
         },
         fillJobList(data){
