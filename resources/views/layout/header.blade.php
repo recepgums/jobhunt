@@ -1,4 +1,5 @@
 <div class="responsive-header">
+    <!--TODO-->
     <div class="responsive-menubar">
         <div class="res-logo">
             <a href="{{route('homepage')}}">
@@ -59,11 +60,11 @@
     </div>
 </div>
 
-<header class="stick-top @if(isset($isHomepage) && $isHomepage) style2 @endif" style="  position: fixed;
+<header class="stick-top p-1 @if(isset($isHomepage) && $isHomepage) style2 @endif" style="  position: fixed;
   left: 0;
   top: 0;
   width: 100vw;
-  background-color: rgba(184, 24, 40, 0.88);
+  background-color: @if(isset($isHomepage) && $isHomepage) rgba(184, 24, 40, 0.88) @else rgb(54 61 115) @endif;
   opacity: 0.9;
   ">
     <div class="menu-sec" style="margin: 0">
