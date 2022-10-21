@@ -55,7 +55,6 @@
 
 <style>
     nav a{
-        border-top:1px solid rgb(95,101,158);
         font-size: 80%;
     }
 </style>

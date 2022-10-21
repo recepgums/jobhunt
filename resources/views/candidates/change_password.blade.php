@@ -5,12 +5,10 @@
     <section class="overlape">
         <div class="block no-padding">
             <div data-velocity="-.1" style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
-            <div class="inner-header mb-20">
-            </div>
         </div>
     </section>
 
-    <section>
+    <section class="mt-5">
         <div class="block no-padding">
             <div class="container">
                 <div class="row no-gape">
