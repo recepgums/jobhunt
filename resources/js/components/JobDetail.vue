@@ -43,13 +43,13 @@
 
         <div class="p-3">
             <div >
-                <h1 class="tw-pt-3" style="font-size: 12px;color:blue">
+                <h1 style="font-size: 18px;font-weight: bolder; text-transform: capitalize;">
+                    {{ job?.title }}
+                </h1>
+                <h1 style="font-size: 12px;color:rgb(251, 35, 106);font-weight: bold;">
                     <i class="la la-map-marker"></i>
                     {{ job?.district?.name }},
                     {{ job?.city?.name }}
-                </h1>
-                <h1 style=" font-size: 20px;font-weight: bolder; text-transform: capitalize;">
-                    {{ job?.title }}
                 </h1>
             </div>
             <div >
@@ -80,6 +80,7 @@
 
 <script>
 const apiUrl = process.env.MIX_API_URL;
+const appSub = process.env.MIX_SUB;
 const appUrl = process.env.APP_URL;
 export default {
     props:['job','isloggedin'],
@@ -91,17 +92,17 @@ export default {
     methods:{
         getContactClicked(){
             if (this.isloggedin){
-                axios.post( `/firinci/ilan/${this.job.slug}/get_contact_info`)
+                axios.post( `/${appSub}/ilan/${this.job.slug}/get_contact_info`)
                     .then(resp => {
                         this.showContactInformation = true
                         window.location.href = 'tel://0' + resp.data.phone;
                     })
             }else{
-                window.location.href = '/firinci/giris'
+                window.location.href = '/'+appSub+'/giris'
             }
         },
         seeDetailsClicked(){
-            window.location.href = '/firinci/ilan/' + this.job.slug
+            window.location.href = '/'+appSub+'/ilan/' + this.job.slug
         },
         closeDrawer (){
             this.$emit('drawerToggle')

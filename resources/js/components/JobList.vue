@@ -1,5 +1,5 @@
 <template>
-    <el-skeleton :loading="loading" animated>
+    <el-skeleton :loading="filterloading" animated>
         <template slot="template">
             <!--Filtreleme-->
             <div class="col-xs-12 col-md-10  mx-auto" style="max-width: 1200px">
@@ -273,22 +273,17 @@
 
                         <!--Filter-->
                         <div class="row">
-                            <div class="col-6">
-                                <el-select
-                                    filterable
-                                    v-model="selectedCategory"
-                                    placeholder="Pozisyon"
-                                    @change="getJobList"
+                            <div class="col-12">
+                                <el-badge :value="12" class="item" max="9"
+                                          v-for="category in categories"
+                                          :key="category.value"
+                                          @click="selectedCategory=category.value"
+                                          :type="category.type"
                                 >
-                                    <el-option
-                                        v-for="item in categories"
-                                        :key="item.value"
-                                        :label="item.label"
-                                        :value="item.value">
-                                    </el-option>
-                                </el-select>
+                                    <el-button size="small" type="primary">{{category.label}}</el-button>
+                                </el-badge>
                             </div>
-                            <div class="col-6">
+                            <div class="col-6 text-right">
                                 <el-button @click="filterDrawer=true" type="primary" plain>
                                     Filtrele
                                 </el-button>
@@ -421,6 +416,7 @@ export default {
     data() {
         return {
             loading: true,
+            filterloading: true,
             jobs: null,
             selectedJob: null,
             selectedCity: null,
@@ -472,7 +468,7 @@ export default {
                 return {label: q.name, value: q.id};
             });
             this.categories = data.categories.map((q) => {
-                return {label: q.name, value: q.id};
+                return {label: q.name, value: q.id,};
             });
         },
         jobClicked(job) {
@@ -497,6 +493,7 @@ export default {
                 this.fillJobList(resp.data)
 
                 localStorage.setItem('jobs', JSON.stringify(resp.data));
+                this.filterloading = false;
                 this.loading = false;
             });
         },
@@ -516,6 +513,9 @@ export default {
                         return {label: q.name, value: q.id};
                     })
                 })
+        },
+        selectedCategory() {
+           this.getJobList()
         }
     }
 };

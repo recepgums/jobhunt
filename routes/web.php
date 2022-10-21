@@ -81,6 +81,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
     Route::get('reviews', [Controllers\Admin\AdminController::class, 'reviews'])->name('reviews');
     Route::resource('categories', Controllers\Admin\CategoriesController::class);
 });
+Route::get('clear', function () {
+    \Illuminate\Support\Facades\Artisan::command("'cache:clear'");
+});
+
 Route::get('test', function () {
     dd(now()->toDateTimeString());
 });
+

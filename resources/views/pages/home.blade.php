@@ -77,7 +77,7 @@
         }
         .bg-overlay {
             background: linear-gradient(to bottom, rgba(184, 24, 40, 0.88), rgba(23, 23, 22, 0.5)),
-            url("{{ asset('assets/images/bg.webp') }}") 0 0 no-repeat fixed;
+            url("{{ asset('assets/images/'.env('APP_SUB').'/bg.webp') }}") 0 0 no-repeat fixed;
             background-size: cover;
         }
 

@@ -4,10 +4,12 @@
 @endsection
 @push('styles')
     <link rel="stylesheet" href="{{asset('assets/css/bo-slider.min.css')}}" />
+    @if(!$job->getMedia('images')->count() > 1)
     <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
     />
+    @endif
     <style>
         html,
         body {
@@ -82,8 +84,8 @@
                 <div class="row">
                     <div class="col-lg-8 column bg-white p-3">
                         <div class="job-single-sec">
-                                <div class="swiper mySwiper">
-                                    <div class="swiper-wrapper">
+                                <div @if($job->getMedia('images')->count() > 0) class="swiper mySwiper" @endif>
+                                    <div @if($job->getMedia('images')->count() > 0) class="swiper-wrapper" @endif>
                                         @forelse($job->getMedia('images') as $media)
                                             @if(str_contains($media->mime_type,"image"))
                                                 <div class="swiper-slide">
@@ -273,11 +275,12 @@
             });
         }
 
+        @if($job->getMedia('images')->count() > 0 && false)
         var swiper = new Swiper(".mySwiper", {
-       /*     autoplay:{
-                delay:3000,
-                disableOnInteraction: false
-            },*/
+            /*     autoplay:{
+                     delay:3000,
+                     disableOnInteraction: false
+                 },*/
             pagination: {
                 el: ".swiper-pagination",
                 dynamicBullets: true,
@@ -290,5 +293,6 @@
             spaceBetween: 30,
             loop: true,
         });
+       @endif
     </script>
 @endpush

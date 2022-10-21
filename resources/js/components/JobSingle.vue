@@ -5,7 +5,6 @@
                 :src="job?.media[0]"
                 class="rounded-xl image-single"
                 :fit="'fill'"
-                :preview-src-list="job?.media"
             ></el-image>
         </div>
         <div class="col-8 px-0">
@@ -24,9 +23,7 @@
             <div class="d-flex justify-content-between align-items-end">
                 <div style="color: #fb236a">
                     <i class="la la-map-marker"></i>
-                    {{ job?.district?.name }}
-                    <small style="color:black;font-size:10px">
-                        /{{job?.city?.name}}
+                    {{ job?.district?.name }}<small style="color:black;font-size:12px">, {{job?.city?.name}}
                     </small>
                 </div>
                 <div>

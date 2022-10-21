@@ -10,7 +10,7 @@
                         <small>
                             isbull.com
                         </small>
-                        /firinci
+                        /{{appSub}}
                     </a>
                 </div>
                 <div>
@@ -48,17 +48,21 @@
                         <tab-content title="Kategori secimi" icon="la la-info" :before-change="categoryValidation">
                             <div class="row">
                                 <div @click="categoryClicked(category)" v-for="category in categories"
-                                     class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                    <a href="#" title="" class="text-center card my-2">
-                                        <img style="
-                                         object-fit: cover;height: 200px"
+                                     class="col-5 col-md-4 pull-right">
+                                    <a href="#" class="text-center card row my-2">
+                                    <el-card :body-style="{ padding: '0px',margin:'20px',textAlign:'center' }" shadow="hover">
+
+                                        <img style="object-fit: cover;height: 150px;width:200px"
+                                             class="text-right "
                                              :src="category.default_cover_image"
-                                             :alt="category.name"
-                                             class="mx-auto"
-                                        >
-                                        <div class="mx-auto text-center font-weight-bold " style="font-size:18px">
-                                            {{ category.name }}
+                                             :alt="category.name">
+
+                                        <div style="padding: 14px;">
+                                            <div class="bottom clearfix">
+                                                <h1 class="time font-weight-bold" style="font-size:18px">{{ category.name }}</h1>
+                                            </div>
                                         </div>
+                                    </el-card>
                                     </a>
                                 </div>
                             </div>
@@ -78,7 +82,8 @@
                                     :on-progress="handleProgress"
                                     :auto-upload="false"
                                     multiple
-                                    class="row mx-auto px-0"
+                                    style=""
+                                    class="text-left px-0"
                                     accept="image/*,video/*"
                                 >
                                     <i class="el-icon-plus"></i>
@@ -211,7 +216,6 @@
                             <div class="plans-sec">
                                 <div v-if="job">
                                     <JobSingle :job="job"></JobSingle>
-                                    {{this.formInline}}
                                     <div @click="formInline.package_id = c.id" class="col-lg-4" v-for="c in packages">
                                         <el-card  :body-style="{ padding: '0px' }">
                                             <img src="/assets/images/src/img.png" class="image">
@@ -243,7 +247,8 @@ import VuePhoneNumberInput from 'vue-phone-number-input';
 import JobSingle from "./JobSingle";
 
 const apiUrl = process.env.MIX_API_URL;
-const appUrl = process.env.APP_URL;
+const appSub = process.env.MIX_SUB;
+const appUrl = process.env.MIX_APP_URL;
 export default {
     props: ['csrf','telefon'],
     components: {
@@ -255,6 +260,7 @@ export default {
             dialogImageUrl: '',
             fullscreenLoading: false,
             dialogVisible: false,
+            appSub:appSub,
             formInline: {
                 title: null,
                 category_id: null,
@@ -313,7 +319,7 @@ export default {
 
             this.fullscreenLoading = true
             axios.post(
-                '/firinci/ilan',
+                '/'+appSub+'/ilan',
                 form,
                 {
                     headers: {
@@ -352,7 +358,7 @@ export default {
             }
             this.fullscreenLoading = true
             axios.get(
-                '/firinci/ilan/' + this.job.slug + '/paket/' + this.formInline.package_id + '/api',
+                '/'+appSub+'/ilan/' + this.job.slug + '/paket/' + this.formInline.package_id + '/api',
                 {
                     headers: {
                         'X-CSRF-TOKEN': this.csrf,
@@ -360,7 +366,7 @@ export default {
                 })
                 .then(resp => {
                     setTimeout(() => {
-                        window.location.href = window.location.origin + '/firinci/ilan/' + this.job.slug + '/odeme';
+                        window.location.href = window.location.origin + '/'+appSub+'/ilan/' + this.job.slug + '/odeme';
                     }, 500)
 
                 })
@@ -423,7 +429,7 @@ export default {
 
         },
         goBack(){
-            window.location.href = "/"
+            window.location.href = appUrl;
         },
         categoryClicked(category) {
             axios.get(apiUrl + 'category/' + category.id + '/sub-category')
@@ -433,7 +439,7 @@ export default {
                         this.categories = resp
                     } else {
                         this.formInline.category_id = category.id;
-                        this.fileList.push({name: category.name, url: category.default_cover_image})
+                        // this.fileList.push({name: category.name, url: category.default_cover_image})
                         this.$refs.wizard.nextTab()
                     }
                 })
@@ -510,8 +516,8 @@ export default {
     z-index: 100;
 }
 .pf-title{
-    margin-top: 10px;
-    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 40px;
     font-size: 16px;
     padding:20px 0
 }
@@ -548,7 +554,7 @@ bottom {
     clear: both
 }
 .el-upload--picture-card{
-    width:140px
+    width:50%
 }
 .el-loading-spinner .circular{
     margin-left:48%
