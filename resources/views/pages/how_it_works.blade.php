@@ -6,8 +6,6 @@
             <div data-velocity="-.1"
                  style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;"
                  class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
-            <div class="inner-header mb-20">
-            </div>
         </div>
     </section>
     <section>

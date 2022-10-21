@@ -156,7 +156,7 @@
                                                                                     <li><i class="la la-hand-paper-o"></i>
                                                                                         <h3>Sözleşme</h3><span>@if($job->has_contract) Var @else Yok @endif</span></li>
                                                                                     <li><i class="la la-eye"></i>
-                                                                                        <h3>Görüntüleyen Kişi Sayısı</h3><span>{{$job->view_counter}}</span></li>
+                                                                                        <h3>İletişime Geçen Kişi Sayısı</h3><span>{{$job->view_counter}}</span></li>
 
                                                                                 </ul>
                                                                                 <a href="{{route('job.show',$job->slug)}}"

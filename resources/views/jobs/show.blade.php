@@ -177,7 +177,7 @@
                                     </li>
                                     <li>
                                         <i class="la la-eye"></i>
-                                        <h3>Görüntüleyen Kişi Sayısı</h3>
+                                        <h3>İletişime Geçen Kişi Sayısı</h3>
                                         <span>
                                             {{$job->view_counter}}
                                         </span>

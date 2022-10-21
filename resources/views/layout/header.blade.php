@@ -1,4 +1,10 @@
-<div class="responsive-header">
+<div class="responsive-header" style="  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  background-color: @if(isset($isHomepage) && $isHomepage) rgba(184, 24, 40, 0.88) @else rgb(54 61 115) @endif;
+  opacity: 0.9;
+  ">
     <!--TODO-->
     <div class="responsive-menubar">
         <div class="res-logo">
@@ -19,7 +25,8 @@
             </div>
         </div>
     </div>
-    <div class="responsive-opensec">
+    <div class="responsive-opensec" style=" background-color: @if(isset($isHomepage) && $isHomepage) rgba(184, 24, 40, 0.88) @else rgb(54 61 115) @endif;
+  ">
 
         <div class="btn-extars">
             <ul class="account-btns">
