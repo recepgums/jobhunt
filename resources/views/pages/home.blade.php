@@ -46,17 +46,6 @@
             .px-6 {
                 padding-right: 1rem;
             }
-
-            .mobile_mt {
-                position: relative;
-                top: -4rem;
-            }
-
-            .mobile_mt2 {
-                position: relative;
-                top: -1rem;
-            }
-
         }
 
         @media only screen and (max-width: 600px) {
@@ -97,7 +86,7 @@
                 <div>
                     <div class="container job-search-sec">
                         <div class="row job-search">
-                            <div class="col-md-6 align-self-center padding-t1 mobile_mt ">
+                            <div class="col-md-6 align-self-center padding-t1 ">
                                 <div class="">
                                     <h3 class="text-white h1">Mükemmel İş</h3>
                                     <h3 class="text-white h2">Mükemmel Yetenek</h3>
@@ -112,7 +101,7 @@
                                 </div>
                             </div>
                             <div class="col-md"></div>
-                            <div class="col-md-4 mobile_mt2 mx-auto">
+                            <div class="col-md-4 mx-auto">
                                 <form method="get" action="{{route('job.index')}}" class="">
                                     <div class="job-field pb-2 m-0">
                                         <select data-placeholder="Şehir" name="city_id" class="chosen-city ">

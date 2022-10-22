@@ -60,7 +60,7 @@ return [
         'media' => [
             'driver' => 'local',
             'root'   => public_path('media'),
-            'url'    => env('BASE_URL').'/media',
+            'url'    => env('APP_ENV') === "local" ? env('BASE_URL').'/media' : env('APP_URL').'/media',
             'permissions' => [
                 'dir' => [
                     'public' => 0777,

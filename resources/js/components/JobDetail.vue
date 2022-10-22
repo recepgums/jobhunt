@@ -1,10 +1,10 @@
 <template>
     <div class="bg-white" style="border-radius:20px;overflow-x: hidden;height:100%">
-        <div class="bant">
+        <div class="bant ">
             <div></div>
         </div>
         <span class="el-image-viewer__btn el-image-viewer__close d-none" @click="closeDrawer">
-            <i class="el-icon-close"></i>
+            <i class="la la-close"></i>
         </span>
         <div class="tw-flex tw-flex-col tw-row-span-2 w-full">
             <div class="tw-grid tw-col-span-5 text-center mx-auto">
@@ -158,10 +158,9 @@ export default {
     }
 
     .bant {
-        display: none;
         margin: 0 5px;
         background-color: black;
-        opacity: 0.6;
+        opacity: 0.3;
         height: 7px;
         text-align: center
     }
