@@ -66,10 +66,14 @@
                         </el-button>
                     </div>
                     <div class="col-6">
-                        <el-button style="width:100%;font-size:20px" @click="getContactClicked" type="danger">
+<!--                        Mobile-->
+                        <el-button class="d-block d-md-none" style="width:100%;font-size:20px" @click="getContactClicked(true)" type="danger">
                             Ara
                             <i class="el-icon-phone"></i>
-
+                        </el-button>
+                        <el-button class="d-none d-md-block" style="width:100%;font-size:20px" @click="getContactClicked(false)" type="danger">
+                            İletişime geç
+                            <i class="el-icon-phone"></i>
                         </el-button>
                     </div>
                 </div>
@@ -90,22 +94,49 @@ export default {
         };
     },
     methods:{
-        getContactClicked(){
+        getContactClicked(isMobile = true){
             if (this.isloggedin){
                 axios.post( `/${appSub}/ilan/${this.job.slug}/get_contact_info`)
                     .then(resp => {
                         this.showContactInformation = true
-                        window.location.href = 'tel://0' + resp.data.phone;
+                        if (!isMobile){
+                            //Desktop
+                            this.$confirm(`
+                        <img src="${resp.data.profile_image}" alt="">
+                            <a href="tel:${resp.data.phone}">
+                                      Telefon numarası: ${resp.data.phone}, <br>
+                                      Email adresi: ${resp.data.email}
+                            </a>
+                        `, resp.data.name,
+                                {
+                                    dangerouslyUseHTMLString: true,
+                                    confirmButtonText: 'Tamam',
+                                    showCancelButton: false,
+                                    showClose: false,
+                                });
+                        }else {
+                            //Mobile
+                            this.showContactInformation = true
+                            window.location.href = 'tel://0' + resp.data.phone;
+                        }
                     })
+                this.showContactInformation =true;
             }else{
                 window.location.href = '/'+appSub+'/giris'
             }
+
+
         },
         seeDetailsClicked(){
             window.location.href = '/'+appSub+'/ilan/' + this.job.slug
         },
         closeDrawer (){
             this.$emit('drawerToggle')
+        }
+    },
+    watch:{
+        showContactInformation(){
+
         }
     }
 };

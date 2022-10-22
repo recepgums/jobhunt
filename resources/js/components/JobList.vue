@@ -267,26 +267,27 @@
                         </div>
                     </div>
                     <div class="col-12 d-block d-md-none mx-auto bg-white py-3 mb-3">
-                        <h1 class="font-weight-bold fs-22 my-3">
+                        <h1 class="font-weight-bold fs-22 my-3 responsive-header">
                             {{ cities.find(q => q.value === selectedCity).label }}
-                            {{ categories.find(q => q.value === selectedCategory)?.label }} iş ilanları</h1>
+                            {{ categories.find(q => q.value === selectedCategory)?.label }} iş ilanları
+                            <el-button class="d-block d-md-none" @click="filterDrawer=true" type="primary" plain>
+                                Filtrele
+                            </el-button>
+                        </h1>
 
                         <!--Filter-->
                         <div class="row">
                             <div class="col-12">
-                                <el-badge :value="12" class="item" max="9"
-                                          v-for="category in categories"
+                                <el-tag   class="item"
+                                          style="margin-top: 10px;margin-right:5px"
+                                          v-for="category in categories.slice(0,3)"
                                           :key="category.value"
                                           @click="selectedCategory=category.value"
                                           :type="category.type"
+                                          :effect="selectedCategory===category.value ? 'dark' : 'light'"
                                 >
                                     <el-button size="small" type="primary">{{category.label}}</el-button>
-                                </el-badge>
-                            </div>
-                            <div class="col-6 text-right">
-                                <el-button @click="filterDrawer=true" type="primary" plain>
-                                    Filtrele
-                                </el-button>
+                                </el-tag>
                             </div>
                         </div>
                     </div>

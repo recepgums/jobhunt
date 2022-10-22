@@ -34,12 +34,8 @@
 <div class="theme-layout" id="scrollup">
     @include('layout.header')
     <section class="py-2 mt-5" style="background-color: #f4f5fa">
-        <div class="container-fluid p-1">
-            <div class="row">
-                <div class="col-lg-2">
-
-                </div>
-               <div class="col-lg-8">
+            <div class="container-fluid">
+               <div class="col-lg-12">
                    <div id="app" style="min-height: 450px">
                        <job-list style="max-width: 1368px;"
                                  class="job-list"
@@ -49,7 +45,6 @@
                    </div>
                </div>
             </div>
-        </div>
     </section>
     @include('layout.footer')
 

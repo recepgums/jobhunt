@@ -34,11 +34,13 @@ class CandidateController extends Controller
 
         $user->categories()->delete();
 
-        foreach ($request->category_id as $category) {
-            CategoryUser::create([
-                'category_id' => $category,
-                'user_id' => auth()->id(),
-            ]);
+        if ($request->filled('category_id') && count($request->category_id) > 0){
+            foreach ($request->category_id as $category) {
+                CategoryUser::create([
+                    'category_id' => $category,
+                    'user_id' => auth()->id(),
+                ]);
+            }
         }
 
         if ($request->hasFile('profile_image_file')) {
