@@ -33,18 +33,13 @@
 <body>
 <div class="theme-layout" id="scrollup">
     @include('layout.header')
-    <section class="py-2 mt-5" style="background-color: #f4f5fa">
-            <div class="container-fluid">
-               <div class="col-lg-12">
-                   <div id="app" style="min-height: 450px">
-                       <job-list style="max-width: 1368px;"
-                                 class="job-list"
-                                 :isLoggedIn="'{{auth()->check()}}'"
-                                 currentLocation="{{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları"
-                       ></job-list>
-                   </div>
-               </div>
+    <section class="">
+        <div class="gray homepage-slider">
+            <div id="app">
+                <job-list class="job-list" :isLoggedIn="'{{auth()->check()}}'"
+                          currentLocation="{{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları"></job-list>
             </div>
+        </div>
     </section>
     @include('layout.footer')
 
