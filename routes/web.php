@@ -80,6 +80,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
     Route::resource('faq', Controllers\Admin\FaqController::class);
     Route::get('reviews', [Controllers\Admin\AdminController::class, 'reviews'])->name('reviews');
     Route::resource('categories', Controllers\Admin\CategoriesController::class);
+    Route::resource('jobs', Controllers\Admin\JobsController::class);
 });
 Route::get('clear', function () {
     \Illuminate\Support\Facades\Artisan::command("'cache:clear'");
