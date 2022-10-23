@@ -30,9 +30,9 @@ class JobResource extends JsonResource
             'phone' => $this->phone,
             'level' => $this->level,
             'has_contract' => $this->has_contract,
-            'media' => $this->getMedia('images')->map(function ($media){
+            'media' => count( $this->getMedia('images')) < 0 ? [$this->category->default_cover_image] :  $this->getMedia('images')->map(function ($media){
                 return $media->getFullUrl();
-            }),
+            }) ,
 //            'apply_count' = $this->users()->count(),
             'highlighted_until_at' => $this->highlighted_until_at,
             'published_until_at' => $this->published_until_at,

@@ -1,8 +1,8 @@
 <template>
-    <div class="row job-list-element" style="width: 100%" role="button">
+    <div class="row job-list-element" :style="'width: 100%;' + theme?.color ? 'background-color:' + theme?.color : ''" role="button">
         <div class="col-4 px-0">
             <el-image
-                :src="job?.media[0]"
+                :src="job?.media?.length > 0 ? job?.media[0] : job?.category?.default_cover_image"
                 class="rounded-xl image-single"
                 :fit="'fill'"
             ></el-image>
@@ -40,12 +40,7 @@
 <script>
 
 export default {
-    props:['job'],
-    data() {
-        return {
-
-        };
-    },
+    props:['job','theme']
 };
 </script>
 <style>

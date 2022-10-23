@@ -14,7 +14,6 @@ class WorkType extends Model
     const TYPES = [
         'Full Time' => 1,
         'Part Time' => 2,
-        'Hybrit' => 3,
     ];
 
     public $timestamps = false;

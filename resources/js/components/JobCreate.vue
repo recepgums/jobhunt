@@ -18,13 +18,14 @@
                 </div>
             </div>
         </div>
-        <div class="row no-gape" v-loading="fullscreenLoading"  element-loading-text="Yukleniyor...">
-            <div class="col-sm-11 col-lg-8 column mx-auto" style="max-width:1250px">
+        <div class="row no-gape" v-loading="fullscreenLoading"  element-loading-text="Yükleniyor...">
+            <div class="col-sm-11 col-lg-8 column mx-auto" style="max-width:1000px">
                 <div class="padding-left">
                     <el-card class="box-card mt-4" shadow="always">
-                        <h2 class="text-muted text-center" style="font-size:22px">ilan ver</h2>
+                        <h2 class="text-muted text-center" style="font-size:22px">{{formWizardTitle}}</h2>
 
                         <form-wizard color="#8b91dd" subtitle="" title=""
+                                 :start-index="3"
                                  backButtonText="Geri"
                                  nextButtonText="İleri"
                                  finishButtonText="Yayınla"
@@ -36,28 +37,28 @@
                             slot-scope="props"
                             slot="step">
                         </wizard-step>
-                        <div slot="finish" class="col-lg-12 py-2">
+                        <div slot="finish" class="col-lg-12 py-3">
                             <el-button size="medium" style="margin-top: 12px;font-size: 18px;" type="danger">Yayınla!</el-button>
                         </div>
-                        <div slot="next" class="col-lg-12 py-2">
+                        <div slot="next" class="col-lg-12 py-3">
                             <el-button size="medium" style="margin-top: 12px;font-size: 18px;" type="danger">İleri</el-button>
                         </div>
-                        <div slot="prev" class="col-lg-12 py-2">
-                            <el-button size="medium" style="margin-top: 12px;font-size: 18px;" type="danger">Geri</el-button>
+                        <div slot="prev" class="col-lg-12 py-3">
+                            <el-button v-if="!$refs?.wizard?.isLastStep" size="medium" style="margin-top: 12px;font-size: 18px;" type="danger">Geri</el-button>
                         </div>
                         <tab-content title="Kategori secimi" icon="la la-info" :before-change="categoryValidation">
                             <div class="row">
                                 <div @click="categoryClicked(category)" v-for="category in categories"
-                                     class="col-5 col-md-4 pull-right">
+                                     class="col-5 col-md-4 mx-auto">
                                     <a href="#" class="text-center card row my-2">
-                                    <el-card :body-style="{ padding: '0px',margin:'20px',textAlign:'center' }" shadow="hover">
+                                    <el-card :body-style="{ textAlign:'center' }" shadow="hover">
 
-                                        <img style="object-fit: cover;height: 150px;width:200px"
+                                        <img style="object-fit: cover;height: 150px;width:200px;margin: auto"
                                              class="text-right "
                                              :src="category.default_cover_image"
                                              :alt="category.name">
 
-                                        <div style="padding: 14px;">
+                                        <div style="padding: 14px 0">
                                             <div class="bottom clearfix">
                                                 <h1 class="time font-weight-bold" style="font-size:18px">{{ category.name }}</h1>
                                             </div>
@@ -69,7 +70,7 @@
                         </tab-content>
                         <tab-content title="İş Detayı" icon="la la-info" :before-change="titleDescriptionValidation">
                             <div class="col-lg-12 px-0">
-                                <span class="pf-title mb-4">Resim ve videolar yükleyiniz</span>
+                                <span class="rg-title mb-4">Resim ve videolar yükleyiniz</span>
                                 <el-upload
                                     ref="upload"
                                     :action="actionUrl"
@@ -82,7 +83,6 @@
                                     :on-progress="handleProgress"
                                     :auto-upload="false"
                                     multiple
-                                    style=""
                                     class="text-left px-0"
                                     accept="image/*,video/*"
                                 >
@@ -93,8 +93,8 @@
                                 </el-dialog>
                             </div>
 
-                            <div class="col-lg-12 py-2 px-0">
-                                <span class="pf-title">İlan Başlığı </span>
+                            <div class="col-lg-12 py-3 px-0">
+                                <span class="rg-title">İlan Başlığı </span>
                                 <div class="pf-field">
                                     <el-input placeholder="Başlık" v-model="formInline.title" minlength="10"
                                               size="medium"
@@ -105,8 +105,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-12 py-2 px-0">
-                                <span class="pf-title">İş tanımı</span>
+                            <div class="col-lg-12 py-3 px-0">
+                                <span class="rg-title">İş tanımı</span>
                                 <div class="pf-field">
                                     <el-input
                                         type="textarea"
@@ -122,8 +122,8 @@
                         </tab-content>
                         <tab-content :before-change="onSubmit" title="Paket Seçimi ve Ödeme" icon="la la-cc-mastercard">
                             <div class="row">
-                                <div class="col-sm-12 col-md-6 py-2">
-                                    <span class="pf-title">Şehir</span>
+                                <div class="col-6 py-3">
+                                    <span class="rg-title">Şehir</span>
                                     <div class="pf-field">
                                         <el-select
                                             filterable
@@ -140,23 +140,21 @@
                                         </el-select>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-6 py-2">
+                                <div class="col-6 py-3">
                                     <div class="pf-field">
-                                        <span class="pf-title">İlçe</span>
-                                        <div class="pf-field" id="districtSelect">
-                                            <el-select v-model="formInline.district" placeholder="Select">
-                                                <el-option
-                                                    v-for="item in districts"
-                                                    :key="item.value"
-                                                    :label="item.label"
-                                                    :value="item.value">
-                                                </el-option>
-                                            </el-select>
-                                        </div>
+                                        <span class="rg-title">İlçe</span>
+                                        <el-select v-model="formInline.district" placeholder="Select">
+                                            <el-option
+                                                v-for="item in districts"
+                                                :key="item.value"
+                                                :label="item.label"
+                                                :value="item.value">
+                                            </el-option>
+                                        </el-select>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-6 py-2">
-                                    <span class="pf-title">Telefon numaranız</span>
+                                <div class="col-sm-12 col-md-6 py-3">
+                                    <span class="rg-title">Telefon numaranız</span>
                                     <div class="pf-field">
                                         <VuePhoneNumberInput
                                             ref="vuePhoneTel"
@@ -164,50 +162,36 @@
                                             v-model="formInline.phone"/>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-6 py-2">
+                                <div class="col-sm-12 col-md-6 py-3">
                                     <div class="row">
-                                        <div class="col-sm-6">
-                                            <span class="pf-title">Aylık ücret</span>
+                                        <div class="col-6 pr-0">
+                                            <span class="rg-title">Aylık ücret</span>
                                             <div class="pf-field">
                                                 <el-input-number class="mx-auto"  style="width: 100%" :disabled="fee_disabled" v-model="formInline.fee"
                                                                  :min="5500"
                                                                  :step="500" />
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="pf-field pf-title" style="padding:13px 0">
-                                                <el-button
-                                                    style="padding: 12px 5px"
-                                                    @click="fee_disabled=!fee_disabled">Ücret belirtmek istemiyorum
-                                                </el-button>
+                                        <div class="col-6">
+                                            <span class="rg-title"> &nbsp;</span>
+                                            <div class="pf-field">
+                                                <el-checkbox v-model="fee_disabled" label="1" border>
+                                                    Ücret belirtmeyeceğim
+                                                </el-checkbox>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-6 py-2">
-                                    <span class="pf-title">Cinsiyet</span>
+                                <div class="col-sm-12 col-md-6 py-3">
+                                    <span class="rg-title">Aradığınız personelin cinsiyeti</span>
                                     <div class="pf-field">
-                                        <el-select v-model="formInline.gender" placeholder="Select">
-                                            <el-option
-                                                v-for="item in genders"
-                                                :key="item.value"
-                                                :label="item.label"
-                                                :value="item.value">
-                                            </el-option>
-                                        </el-select>
+                                        <el-radio  v-for="item in genders" v-model="formInline.gender" :label="item.value" border>{{item.label}}</el-radio>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-6 py-2">
-                                    <span class="pf-title">Çalışma türü</span>
-                                    <div class="pf-field">
-                                        <el-select v-model="formInline.work_type" placeholder="Select">
-                                            <el-option
-                                                v-for="item in work_types"
-                                                :key="item.value"
-                                                :label="item.label"
-                                                :value="item.value">
-                                            </el-option>
-                                        </el-select>
+                                <div class="col-sm-12 col-md-6 py-3">
+                                    <span class="rg-title">Çalışma türü</span>
+                                    <div class="pf-field row">
+                                        <el-radio v-for="item in work_types" v-model="formInline.work_type" :label="item.value" border>{{item.label}}</el-radio>
                                     </div>
                                 </div>
                             </div>
@@ -215,18 +199,41 @@
                         <tab-content title="Paket Seçimi ve Ödeme2" icon="la la-cc-mastercard">
                             <div class="plans-sec">
                                 <div v-if="job">
-                                    <JobSingle :job="job"></JobSingle>
-                                    <div @click="formInline.package_id = c.id" class="col-lg-4" v-for="c in packages">
-                                        <el-card  :body-style="{ padding: '0px' }">
-                                            <img src="/assets/images/src/img.png" class="image">
-                                            <div style="padding: 14px;">
-                                                <span>Yummy hamburger</span>
-                                                <div class="bottom clearfix">
-                                                    <time class="time">{{c.name}}</time>
-                                                    <el-button type="text" class="button">Operating</el-button>
-                                                </div>
-                                            </div>
-                                        </el-card>
+                                   <div>
+                                       <h1  class="text-center">İlan ön izleme</h1>
+                                       <small class="text-muted text-left">
+                                           İlanınız, diğer kullanıcılara bu şekilde gözükecektir.
+                                           <br>
+                                           Dilerseniz, aşağıdaki seçenekleri deneyerek ilanınızın görünümünü değiştirebilirsiniz
+                                       </small>
+                                   </div>
+                                   <div class="card-body shadow-lg p-3 mb-5 bg-white rounded">
+                                       <JobSingle :theme="theme" :job="job"></JobSingle>
+                                   </div>
+                                    <el-divider></el-divider>
+                                    <div class="row text-center">
+                                        <div class="col-md-6 col-sm-12">
+                                            <span> Arka plan rengi</span>
+                                            <el-switch v-model="theme.selectColor"></el-switch>
+                                            <el-color-picker v-if="theme.selectColor"
+                                                             @active-change="changeColor"
+                                                             :show-alpha="false"
+                                                             v-model="theme.color"
+                                                             :predefine="predefineColors"
+                                            ></el-color-picker>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <span>Yayında kalacağı süre</span>
+                                            <el-select v-model="theme.selectedDate" placeholder="Select">
+                                                <el-option
+                                                    v-for="item in theme.dateOptions"
+                                                    :key="item.value"
+                                                    :label="item.label"
+                                                    :value="item.value">
+                                                </el-option>
+                                            </el-select>
+                                        </div>
+                                        <el-divider></el-divider>
                                     </div>
                                 </div>
                             </div>
@@ -258,6 +265,16 @@ export default {
     data() {
         return {
             dialogImageUrl: '',
+            predefineColors: [
+                '#ff8c00',
+                '#ffd700',
+                '#90ee90',
+                '#00ced1',
+                '#1e90ff',
+                '#c71585',
+                'hsl(181, 100%, 37%)',
+            ],
+            formWizardTitle: 'Kategori seçiniz',
             fullscreenLoading: false,
             dialogVisible: false,
             appSub:appSub,
@@ -273,6 +290,17 @@ export default {
                 package_id: 1,
                 phone: null,
                 sleep_after_at: null
+            },
+            theme:{
+                selectColor:false,
+                selectedDate:0,
+                color: '',
+                dateOptions:[
+                    {label:'1 gün (Ücretsiz)',value:0},
+                    {label:'3 gün (8₺)',value:1},
+                    {label:'7 gün (9₺)',value:2},
+                ],
+                ticketSelected:false,
             },
             percentage: 0,
             slug: null,
@@ -294,6 +322,9 @@ export default {
     },
     mounted() {
         this.getDatas()
+        axios.get(apiUrl + `job-v1`).then((resp) => {
+                this.job = resp.data.data[0]
+            });
     },
     methods: {
         onSubmit() {
@@ -334,6 +365,7 @@ export default {
                     this.isJobCreated = true;
                     this.$refs.wizard.nextTab();
                     this.fullscreenLoading = false
+                    this.formWizardTitle = 'Paket seçimi - İlan özelleştirme'
                 })
                 .catch(err => {
                     //todo
@@ -423,13 +455,16 @@ export default {
 
                 this.packages = resp.data.packages
                 this.formInline.phone = this.telefon
-                this.formInline.package_id = this.packages.filter(q => q.is_highlighted == true)[0]?.id
+                this.formInline.package_id = this.packages.filter(q => q.is_highlighted == true)[0]?.id ?? 1
                 this.fullscreenLoading = false
             })
 
         },
         goBack(){
             window.location.href = appUrl;
+        },
+        changeColor(color){
+          this.theme.color = color
         },
         categoryClicked(category) {
             axios.get(apiUrl + 'category/' + category.id + '/sub-category')
@@ -446,6 +481,7 @@ export default {
         },
         categoryValidation(){
             if (this.formInline.category_id){
+                this.formWizardTitle = 'Detayları giriniz'
                 return true
             }
             this.$notify({
@@ -471,6 +507,7 @@ export default {
                 return false
             }
 
+            this.formWizardTitle = 'İletişim ve haklar'
             return true
         },
 
@@ -478,6 +515,9 @@ export default {
 }
 </script>
 <style>
+.vue-form-wizard .wizard-header{
+    padding: 0;
+}
 .vue-form-wizard {
     margin-left: auto !important;
     margin-right: auto !important;
@@ -492,17 +532,23 @@ export default {
     padding: 65px 20px 10px;
 }
 
-@media only screen and (max-width: 600px) {
-    .vue-form-wizard .wizard-tab-content {
-        padding: 35px;
-    }
+.el-button.el-button--danger.el-button--medium{
+    padding:15px 40px;
+}
+.vue-form-wizard .wizard-card-footer{
+    padding:0
 }
 
-
-.pf-title {
-    font-weight: 600;
-    font-size: 18px;
-    color: #000000;
+@media only screen and (max-width: 600px) {
+    .vue-form-wizard .wizard-tab-content {
+        padding: 35px 0;
+    }
+    .el-card__body, .el-main{
+        padding: 10px;
+    }
+    .el-button.el-button--danger.el-button--medium{
+        padding:15px 40px;
+    }
 }
 
 .img-wrap {
@@ -515,12 +561,7 @@ export default {
     right: 2px;
     z-index: 100;
 }
-.pf-title{
-    padding-top: 10px;
-    padding-bottom: 40px;
-    font-size: 16px;
-    padding:20px 0
-}
+
 p {
     margin: 0;
 }
@@ -529,9 +570,13 @@ p {
     width:100%
 }
 
-bottom {
-    margin-top: 13px;
-    line-height: 12px;
+.rg-title{
+    font-size: 16px;
+    font-weight: bold;
+    margin:10px 0
+}
+.pf-field{
+    padding-top: 5px;
 }
 
 .button {
@@ -553,13 +598,19 @@ bottom {
 .clearfix:after {
     clear: both
 }
-.el-upload--picture-card{
-    width:50%
-}
 .el-loading-spinner .circular{
     margin-left:48%
 }
 body{
     overflow-x: hidden;
+}
+.el-color-dropdown__main-wrapper{
+    display:none
+}
+.el-color-dropdown__value{
+    display:none
+}
+.el-checkbox.is-bordered {
+padding: 10px;
 }
 </style>

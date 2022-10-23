@@ -134,7 +134,7 @@ class JobController extends Controller
 
         return response()->json([
             'message' => 'İş ilanı kaydedildi. Ödeme bekleniyor',
-            'job' => $job,
+            'job' => new JobResource($job),
             'url' => route('job.pricing', $job)
         ]);
     }

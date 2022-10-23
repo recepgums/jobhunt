@@ -39,7 +39,6 @@ class DatabaseSeeder extends Seeder
         Role::create(['name'=>'admin']);
         WorkType::create(['name' => 'Tam Zamanlı', 'type' => WorkType::TYPES['Full Time']]);
         WorkType::create(['name' => 'Yarı Zamanlı', 'type' => WorkType::TYPES['Part Time']]);
-        WorkType::create(['name' => 'Karışık', 'type' => WorkType::TYPES['Hybrit']]);
         Gender::insert(['name' => 'Erkek','type' => Gender::TYPES['Erkek']]);
         Gender::insert(['name' => 'Kadın','type' => Gender::TYPES['Kadin']]);
         Package::factory(3)->create();
