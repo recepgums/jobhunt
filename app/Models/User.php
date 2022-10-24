@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
-// use Omgtheking\OmgIyzicoPayment\OmgPayable;
+use Omgtheking\OmgIyzicoPayment\OmgPayable;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -16,7 +16,7 @@ use Spatie\Activitylog\LogOptions;
 
 class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles, InteractsWithMedia, LogsActivity;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, InteractsWithMedia, LogsActivity,OmgPayable;
 
     protected $fillable = [
         'name',
