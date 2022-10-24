@@ -33,7 +33,6 @@ class DatabaseSeeder extends Seeder
         Faq::factory(10)->create();
         Coupons::factory(2)->create();
         $this->call(ReviewSeeder::class);
-        $this->call(CategoriesSeeder::class);
         Role::create(['name'=>'candidate']);
         Role::create(['name'=>'employee']);
         Role::create(['name'=>'admin']);
@@ -90,7 +89,7 @@ class DatabaseSeeder extends Seeder
             $job->addMediaFromUrl('https://image.shutterstock.com/image-photo/suleymaniye-mosque-during-sunset-istanbul-600w-1889028265.jpg')->toMediaCollection('images');
         });
 
-        CategoryUser::factory(100)->create();
+//        CategoryUser::factory(100)->create();
 
 //        $this->call(WorkshopSeeder::class);
 

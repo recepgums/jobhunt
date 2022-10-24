@@ -25,7 +25,7 @@
                         <h2 class="text-muted text-center" style="font-size:22px">{{formWizardTitle}}</h2>
 
                         <form-wizard color="#8b91dd" subtitle="" title=""
-                                 :start-index="3"
+                                 :start-index="1"
                                  backButtonText="Geri"
                                  nextButtonText="İleri"
                                  finishButtonText="Yayınla"
