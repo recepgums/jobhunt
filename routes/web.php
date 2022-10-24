@@ -89,4 +89,3 @@ Route::get('clear', function () {
 Route::get('test', function () {
     dd(now()->toDateTimeString());
 });
-

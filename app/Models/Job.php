@@ -10,10 +10,13 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Sitemap\Contracts\Sitemapable;
 use Spatie\Sitemap\Tags\Url;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
+
 
 class Job extends Model implements HasMedia,Sitemapable
 {
-    use HasFactory, SoftDeletes, InteractsWithMedia;
+    use HasFactory, SoftDeletes, InteractsWithMedia,LogsActivity;
 
     protected $fillable = [
         'user_id',
@@ -138,5 +141,28 @@ class Job extends Model implements HasMedia,Sitemapable
     public function users()
     {
         return $this->hasMany(JobUser::class);
+    }
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+        ->logOnly(['user_id',
+        'category_id',
+        'city_id',
+        'district_id',
+        'package_id',
+        'gender_id',
+        'work_type_id',
+        'title',
+        'description',
+        'slug',
+        'fee',
+        'phone',
+        'level',
+        'has_contract',
+        'highlighted_until_at',
+        'published_until_at',
+        'status',
+        'view_counter',
+        'sleep_after_at']);
     }
 }

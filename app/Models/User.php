@@ -7,15 +7,16 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
-use Omgtheking\OmgIyzicoPayment\OmgPayable;
+// use Omgtheking\OmgIyzicoPayment\OmgPayable;
 use Spatie\Permission\Traits\HasRoles;
-
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 
 class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable, OmgPayable, HasRoles, InteractsWithMedia;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, InteractsWithMedia, LogsActivity;
 
     protected $fillable = [
         'name',
@@ -91,5 +92,31 @@ class User extends Authenticatable implements HasMedia
                 $user->save();
             }
         });
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logOnly([
+                'name',
+                'email',
+                'phone',
+                'about',
+                'age',
+                'profile_image_url',
+                'experience_year',
+                'expected_salary',
+                'company_name',
+                'is_searchable_for_job',
+                'user_type',
+                'city_id',
+                'district_id',
+                'email_verified_at',
+                'phone_verified_at',
+                'verify_code',
+                'password',
+                'coin',
+                'highlighted_until_at',
+            ]);
     }
 }
