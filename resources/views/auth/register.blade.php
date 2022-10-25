@@ -16,7 +16,7 @@
 @section('content')
     <div class="modal fade" id="serviceAgreement" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" >
-            <div class="modal-content" style="width: 750px; margin-left: -140px;">
+            <div class="modal-content" style="width: 750px; height:610px; margin-left: -140px;">
                 <div class="modal-header">
                     <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -298,7 +298,7 @@
     </div>
     <div class="modal fade" id="serviceAgreement1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" >
-            <div class="modal-content" style="width: 750px; margin-left: -140px;">
+            <div class="modal-content" style="width: 750px; margin-left: -140px;height:610px;">
                 <div class="modal-header">
                     <button type="button" class="close" id="close1" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -437,7 +437,7 @@
 
     <div class="modal fade" id="serviceAgreementMobile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" >
-            <div class="modal-content">
+            <div class="modal-content" style="height:610px;">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closemobile">
                         <span aria-hidden="true">&times;</span>
@@ -719,7 +719,7 @@
     </div>
     <div class="modal fade" id="serviceAgreement1Mobile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" >
-            <div class="modal-content">
+            <div class="modal-content" style="height:610px;">
                 <div class="modal-header">
                     <button type="button" class="close" id="close1mobile" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -862,14 +862,6 @@
             <div data-velocity="-.1"
                  style="background: url(https://place-hold.it/1600x800) repeat scroll 50% 422.28px transparent;"
                  class="parallax scrolly-invisible no-parallax"></div>
-            <div class="container fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="inner-header">
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 

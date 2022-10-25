@@ -29,17 +29,20 @@
                                     <div class="accordion__content">
                                         <div class="accordion__content__inner px-30 py-30">
                                             <div class="d-flex x-gap-10 y-gap-10 flex-wrap">
-                                                @if($job->published_until_at < date('Y-m-d H:i:s'))
-                                                    <form method="POST" action="{{route('admin.jobs.update',$job->id)}}">
+                                                @if($job->status === \App\Models\Job::STATUS['published'])
+                                                    <form method="POST" action="{{route('admin.jobs.passive',$job->id)}}">
                                                         @csrf
-                                                        @method('PUT')
+                                                        @method('put')
+                                                        <button class="button -sm py-15 -purple-3 text-purple-1 fw-500"
+                                                        >Pasif Yap</button>
+                                                    </form>
+                                                @elseif($job->status === \App\Models\Job::STATUS['expired'])
+                                                    <form method="POST" action="{{route('admin.jobs.active',$job->id)}}">
+                                                        @csrf
+                                                        @method('put')
                                                         <button class="button -sm py-15 -purple-3 text-purple-1 fw-500"
                                                         >Aktif Yap</button>
                                                     </form>
-                                                @else
-                                                <div>
-                                                    <a class="button -sm py-15 -purple-3 text-purple-1 fw-500">Pasif Yap</a>
-                                                </div>
                                                 @endif
                                             </div>
                                         </div>

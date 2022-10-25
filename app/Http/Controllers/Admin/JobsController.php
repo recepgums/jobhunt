@@ -17,19 +17,18 @@ class JobsController extends Controller
 
     }
 
-    public function update(Job $job)
+    public function active($job)
     {
-        dd('update');
-        $job->update(['status' => Job::STATUS['published']]);
+        Job::findOrFail($job)->update(['status' => Job::STATUS['published']]);
 
         return redirect('/firinci/admin/jobs');
     }
 
-    public function jobsPassive($job)
+    public function passive($job)
     {
-        $job->update(['status' => Job::STATUS['expired']]);
+        Job::findOrFail($job)->update(['status' => Job::STATUS['expired']]);
 
-        return redirect()->back();
+        return redirect('/firinci/admin/jobs');
     }
 
 }
