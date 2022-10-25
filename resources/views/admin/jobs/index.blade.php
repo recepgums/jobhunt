@@ -29,14 +29,14 @@
                                     <div class="accordion__content">
                                         <div class="accordion__content__inner px-30 py-30">
                                             <div class="d-flex x-gap-10 y-gap-10 flex-wrap">
-                                                @if($job->status == 2)
+                                                @if($job->status === \App\Models\Job::STATUS['published'])
                                                     <form method="POST" action="{{route('admin.jobs.passive',$job->id)}}">
                                                         @csrf
                                                         @method('put')
                                                         <button class="button -sm py-15 -purple-3 text-purple-1 fw-500"
                                                         >Pasif Yap</button>
                                                     </form>
-                                                @elseif($job->status == 4)
+                                                @elseif($job->status === \App\Models\Job::STATUS['expired'])
                                                     <form method="POST" action="{{route('admin.jobs.active',$job->id)}}">
                                                         @csrf
                                                         @method('put')
