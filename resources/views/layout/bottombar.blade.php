@@ -36,7 +36,11 @@
 
     <div class="tw-fixed tw-bottom-0 tw-inset-x-0 tw-bg-white  tw-text-sm tw-font-semibold tw-text-black tw-z-50 px-5 " style="background-color: rgb(95,101,158)">
         <div class="tw-flex tw-justify-between py-4 text-white">
+            @if (Request::route()->getName() == "job.show")
             <h1>İletisime gecmek icin</h1>
+            @else
+                <h1>İş mi Arıyorsun?</h1>
+            @endif
             <div class="tw-flex tw-space-x-3">
                 <a href="{{route('login')}}">
                     Giriş Yap
