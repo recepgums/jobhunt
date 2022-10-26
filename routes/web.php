@@ -59,6 +59,9 @@ Route::group(['prefix' => 'candidate', 'as' => 'candidate.', 'middleware' => 'au
 
     Route::get('my-resume', [Controllers\CandidateController::class, 'my_resume'])->name('my_resume');
     Route::get('ilanlarim', [Controllers\CandidateController::class, 'shortlist'])->name('shortlist');
+    Route::put('jobActive{job}', [Controllers\CandidateController::class,'active'])->name('job.active');
+    Route::put('jobPassive{job}', [Controllers\CandidateController::class,'passive'])->name('job.passive');
+    Route::delete('job{job}', [Controllers\CandidateController::class,'destroy'])->name('job.destroy');
     Route::get('basvurulan-ilanlar', [Controllers\CandidateController::class, 'applied_jobs'])->name('applied_jobs');
     Route::get('is-alarmi', [Controllers\CandidateController::class, 'job_alert'])->name('job_alert');
     Route::get('cv_cover_letter', [Controllers\CandidateController::class, 'cv_cover_letter'])->name('cv_cover_letter');
@@ -81,6 +84,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
     Route::get('reviews', [Controllers\Admin\AdminController::class, 'reviews'])->name('reviews');
     Route::resource('categories', Controllers\Admin\CategoriesController::class);
     Route::get('jobs', [Controllers\Admin\JobsController::class,'index'])->name('jobs.index');
+    Route::get('transactions',[Controllers\Admin\TransactionsController::class,'index'])->name('transactions.index');
     Route::put('jobsActive{job}', [Controllers\Admin\JobsController::class,'active'])->name('jobs.active');
     Route::put('jobsPassive{job}', [Controllers\Admin\JobsController::class,'passive'])->name('jobs.passive');
 });
