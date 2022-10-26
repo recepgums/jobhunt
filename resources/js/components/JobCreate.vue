@@ -569,10 +569,11 @@ export default {
         box-shadow: 5px 7px 12px 1px #dddddd;
         margin: 0px;
     }
-    .box-with-shadow .el-color-picker__trigger{
-        position: relative;
-        top: 2vh;
-    }
+}
+
+.box-with-shadow .el-color-picker__trigger{
+    position: relative;
+    top: 2vh;
 }
 
 .img-wrap {
