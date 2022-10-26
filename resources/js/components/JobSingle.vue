@@ -7,7 +7,7 @@
                 :fit="'fill'"
             ></el-image>
         </div>
-        <div class="col-8 px-0">
+        <div class="col-8 px-0 py-3">
               <span class="text-muted">
                 {{ job?.category?.name }}
             </span>
@@ -20,7 +20,7 @@
                 {{ job?.title }}
             </h1>
 
-            <div class="d-flex justify-content-between align-items-end">
+            <div class="d-flex justify-content-between align-items-end mr-4 mt-4">
                 <div style="color: #fb236a">
                     <i class="la la-map-marker"></i>
                     {{ job?.district?.name }}<small style="color:black;font-size:12px">, {{job?.city?.name}}

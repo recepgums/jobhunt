@@ -184,13 +184,13 @@
                                 </div>
                                 <div class="col-sm-12 col-md-6 py-3">
                                     <span class="rg-title">Aradığınız personelin cinsiyeti</span>
-                                    <div class="pf-field">
+                                    <div class="pf-field radio-buttons">
                                         <el-radio  v-for="item in genders" v-model="formInline.gender" :label="item.value" border>{{item.label}}</el-radio>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 py-3">
                                     <span class="rg-title">Çalışma türü</span>
-                                    <div class="pf-field row">
+                                    <div class="pf-field radio-buttons">
                                         <el-radio v-for="item in work_types" v-model="formInline.work_type" :label="item.value" border>{{item.label}}</el-radio>
                                     </div>
                                 </div>
@@ -211,8 +211,8 @@
                                        <JobSingle :theme="theme" :job="job"></JobSingle>
                                    </div>
                                     <el-divider></el-divider>
-                                    <div class="row text-center">
-                                        <div class="col-md-6 col-sm-12">
+                                    <div class="row text-center box-with-shadow">
+                                        <div class="col-md-6 col-sm-12 my-2">
                                             <span> Arka plan rengi</span>
                                             <el-switch v-model="theme.selectColor"></el-switch>
                                             <el-color-picker v-if="theme.selectColor"
@@ -222,7 +222,7 @@
                                                              :predefine="predefineColors"
                                             ></el-color-picker>
                                         </div>
-                                        <div class="col-md-6 col-sm-12">
+                                        <div class="col-md-6 col-sm-12 color-picker-mobile">
                                             <span>Yayında kalacağı süre</span>
                                             <el-select v-model="theme.selectedDate" placeholder="Select">
                                                 <el-option
@@ -548,6 +548,30 @@ export default {
     }
     .el-button.el-button--danger.el-button--medium{
         padding:15px 40px;
+    }
+    .radio-buttons {
+        text-align: center;
+    }
+    .radio-buttons .is-bordered{
+        width: 45%;
+        margin-right: 10px;
+        margin-left: unset !important;
+    }
+    .color-picker-mobile{
+        margin-top: 32px;
+        margin-bottom: 32px;
+        text-align: left;
+    }
+    .el-divider--horizontal{
+        display: none !important;
+    }
+    .box-with-shadow{
+        box-shadow: 5px 7px 12px 1px #dddddd;
+        margin: 0px;
+    }
+    .box-with-shadow .el-color-picker__trigger{
+        position: relative;
+        top: 2vh;
     }
 }
 
