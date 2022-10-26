@@ -58,11 +58,32 @@ class CandidateController extends Controller
 
     public function shortlist()
     {
-        $jobs = Job::listable()->where('user_id', auth()->id())->get();
+        $jobs = Job::orderBy('id','desc')->listable()->where('user_id', auth()->id())->where('status',Job::STATUS['published'])->get();
 
-        $endPubJobs = Job::where('user_id', auth()->id())->where('published_until_at' ,'<', now()->toDateTimeString())->get();
+        $endPubJobs = Job::orderBy('id','desc')->where('user_id', auth()->id())->where('status',Job::STATUS['expired'])->get();
 
         return view('candidates.shortlist', compact('jobs','endPubJobs'));
+    }
+
+    public function active($job)
+    {
+        Job::findOrFail($job)->update(['status' => Job::STATUS['published']]);
+
+        return redirect()->back();
+    }
+
+    public function passive($job)
+    {
+        Job::findOrFail($job)->update(['status' => Job::STATUS['expired']]);
+
+        return redirect()->back();
+    }
+
+    public function destroy($job)
+    {
+        Job::findOrfail($job)->delete();
+
+        return redirect()->back();
     }
 
     public function applied_jobs()
