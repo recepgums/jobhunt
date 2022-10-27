@@ -64,6 +64,7 @@ Route::group(['prefix' => 'candidate', 'as' => 'candidate.', 'middleware' => 'au
     Route::delete('job{job}', [Controllers\CandidateController::class,'destroy'])->name('job.destroy');
     Route::get('basvurulan-ilanlar', [Controllers\CandidateController::class, 'applied_jobs'])->name('applied_jobs');
     Route::get('is-alarmi', [Controllers\CandidateController::class, 'job_alert'])->name('job_alert');
+    Route::get('odemeler', [Controllers\CandidateController::class, 'payments'])->name('payment');
     Route::get('cv_cover_letter', [Controllers\CandidateController::class, 'cv_cover_letter'])->name('cv_cover_letter');
     Route::get('change_password', [Controllers\CandidateController::class, 'change_password'])->name('change_password');
 });

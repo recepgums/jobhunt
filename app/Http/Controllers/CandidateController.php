@@ -10,6 +10,7 @@ use App\Models\City;
 use App\Models\Job;
 use App\Models\User;
 use App\Services\StorageService;
+use Illuminate\Support\Facades\DB;
 
 class CandidateController extends Controller
 {
@@ -58,6 +59,7 @@ class CandidateController extends Controller
 
     public function shortlist()
     {
+
         $jobs = Job::orderBy('id','desc')->listable()->where('user_id', auth()->id())->where('status',Job::STATUS['published'])->get();
 
         $endPubJobs = Job::orderBy('id','desc')->where('user_id', auth()->id())->where('status',Job::STATUS['expired'])->get();
@@ -106,5 +108,10 @@ class CandidateController extends Controller
     public function change_password()
     {
         return view('candidates.change_password');
+    }
+
+    public function payments()
+    {
+        return view('candidates.payment');
     }
 }
