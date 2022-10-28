@@ -25,7 +25,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}"/>
-
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/colors/colors.css')}}"/>
     <link rel="stylesheet" href="{{asset('assets/css/icons.css')}}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}"/>
 </head>

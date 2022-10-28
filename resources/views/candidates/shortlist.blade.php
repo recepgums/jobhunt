@@ -208,18 +208,21 @@
                                             <div class="job-listing wtabs  d-lg-none d-xs-none d-md-none">
                                                 <div class="job-title-sec">
                                                     <div class="row">
-                                                        <div class="col-4">
+                                                        <div class="col-3 px-0">
                                                             <img src="{{$endPubJob->cover_image}}"
                                                                  alt="{{$endPubJob->title}}"/>
                                                         </div>
-                                                        <div class="col-5 text-left">
+                                                        <div class="col-6 text-left pl-1" style="
+                                                                    overflow: hidden;
+                                                                    white-space: nowrap;
+                                                                    text-overflow: ellipsis;">
                                                             <h3><a href="#" title=""
-                                                                   style="font-size: 14px; overflow: hidden;text-overflow: ellipsis;">{{$endPubJob->title}}</a>
+                                                                   style="font-size: 16px;font-weight: bold;">{{$endPubJob->title}}</a>
                                                             </h3>
                                                             <div
                                                                 class="job-lctn">{{$endPubJob->created_at->diffForHumans()}}</div>
                                                         </div>
-                                                        <div class="col-3">
+                                                        <div class="col-2 px-0">
                                                             <div class="btn-group">
                                                                 <button type="button"
                                                                         class="btn btn-primary dropdown-toggle bg-primary"
@@ -228,7 +231,7 @@
                                                                 </button>
                                                                 <div class="dropdown-menu">
                                                                     <form method="POST"
-                                                                          action="{{route('candidate.job.active',$job->id)}}">
+                                                                          action="{{route('candidate.job.active',$endPubJob->id)}}">
                                                                         @csrf
                                                                         @method('put')
                                                                         <button class="dropdown-item">
@@ -238,7 +241,7 @@
                                                                     <a class="dropdown-item" href="#">Düzenle</a>
                                                                     <div class="dropdown-divider"></div>
                                                                     <form method="POST"
-                                                                          action="{{route('candidate.job.destroy',$job->id)}}">
+                                                                          action="{{route('candidate.job.destroy',$endPubJob->id)}}">
                                                                         @csrf
                                                                         @method('delete')
                                                                         <button onclick="return myFunction()"

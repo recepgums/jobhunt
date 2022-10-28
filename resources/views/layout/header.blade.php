@@ -93,7 +93,7 @@
                 </a>
             </div><!-- Logo -->
             <div class="btn-extars">
-                <a href="{{route('job.create')}}" title="" class="post-job-btn active"><i class="la la-plus"></i>Ücretsiz*
+                <a href="{{route('job.create')}}" title="" class="post-job-btn active" style="border: 2px solid #ffffff;"><i class="la la-plus"></i>Ücretsiz*
                     ilan Ver</a>
 
                 <ul class="account-btns">
