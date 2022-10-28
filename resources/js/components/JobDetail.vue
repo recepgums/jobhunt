@@ -1,84 +1,92 @@
 <template>
-    <div class="bg-white" style="border-radius:20px;overflow-x: hidden;height:100%">
-        <div class="bant ">
-            <div></div>
-        </div>
-        <span class="el-image-viewer__btn el-image-viewer__close d-none" @click="closeDrawer">
+    <div v-if="job">
+        <div class="bg-white" style="border-radius:20px;overflow-x: hidden;height:100%">
+            <div class="bant ">
+                <div></div>
+            </div>
+            <span class="el-image-viewer__btn el-image-viewer__close d-none" @click="closeDrawer">
             <i class="la la-close"></i>
         </span>
-        <div class="tw-flex tw-flex-col tw-row-span-2 w-full">
-            <div class="tw-grid tw-col-span-5 text-center mx-auto">
-                <el-image
-                    :src="job?.media[0]"
-                    class="tw-rounded-xl tw-w-200 tw-h-200 tw-col-span-1"
-                    :fit="'fill'"
-                    :preview-src-list="job?.media"
-                ></el-image>
+            <div class="tw-flex tw-flex-col tw-row-span-2 w-full">
+                <div class="tw-grid tw-col-span-5 text-center mx-auto">
+                    <el-image
+                        :src="job?.media[0]"
+                        class="tw-rounded-xl tw-w-200 tw-h-200 tw-col-span-1"
+                        :fit="'fill'"
+                        :preview-src-list="job?.media"
+                    ></el-image>
+                </div>
+                <div class="d-flex justify-content-around">
+                    <div class="job-property">
+                        <i class="la la-clock-o"></i>
+                        {{ job?.work_type?.name }}
+                    </div>
+                    <div class="job-property">
+                        <i class="la la-mars-double"></i>
+                        {{
+                            job?.gender?.name ?? "Farketmez"
+                        }}
+                    </div>
+                    <div class="job-property">
+                        <i class="la la-money"></i>
+                        {{
+                            job?.fee
+                                ? job?.fee + " TL"
+                                : "Belirtilmemiş"
+                        }}
+                    </div>
+                    <div class="job-property">
+                        <i class="el-icon-user"></i>
+                        {{ job?.category?.name ?? '' }}
+                    </div>
+                </div>
             </div>
-            <div class="d-flex justify-content-around">
-                <div class="job-property">
-                    <i class="la la-clock-o"></i>
-                    {{ job?.work_type?.name }}
+
+            <div class="p-3">
+                <div >
+                    <h1 style="font-size: 18px;font-weight: bolder; text-transform: capitalize;">
+                        {{ job?.title }}
+                    </h1>
+                    <h1 style="color:rgb(251, 35, 106);font-weight: bold;padding-top:0.5rem;">
+                        <i class="la la-map-marker"></i>
+                        {{ job?.district?.name }},
+                        {{ job?.city?.name }}
+                    </h1>
                 </div>
-                <div class="job-property">
-                    <i class="la la-mars-double"></i>
-                    {{
-                        job?.gender?.name ?? "Farketmez"
-                    }}
+                <div >
+                    <h2 class="mt-4">
+                        {{ job?.description }}
+                    </h2>
                 </div>
-                <div class="job-property">
-                    <i class="la la-money"></i>
-                    {{
-                        job?.fee
-                            ? job?.fee + " TL"
-                            : "Belirtilmemiş"
-                    }}
-                </div>
-                <div class="job-property">
-                    <i class="el-icon-user"></i>
-                    {{ job?.category?.name ?? '' }}
+                <div class="mt-2" style="position:absolute;bottom:20px;width: 90%">
+                    <div class="row">
+                        <div class="col-6">
+                            <el-button style="width:100%;padding:15px;font-size:16px" @click="seeDetailsClicked" type="primary">
+                                Detayları gör
+                                <i class="el-icon-right"></i>
+                            </el-button>
+                        </div>
+                        <div class="col-6">
+                            <!--                        Mobile-->
+                            <el-button class="d-block d-md-none" style="width:100%;font-size:20px" @click="getContactClicked(true)" type="danger">
+                                Ara
+                                <i class="el-icon-phone"></i>
+                            </el-button>
+                            <el-button class="d-none d-md-block" style="width:100%;font-size:20px" @click="getContactClicked(false)" type="danger">
+                                İletişime geç
+                                <i class="el-icon-phone"></i>
+                            </el-button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="p-3">
-            <div >
-                <h1 style="font-size: 18px;font-weight: bolder; text-transform: capitalize;">
-                    {{ job?.title }}
-                </h1>
-                <h1 style="color:rgb(251, 35, 106);font-weight: bold;padding-top:0.5rem;">
-                    <i class="la la-map-marker"></i>
-                    {{ job?.district?.name }},
-                    {{ job?.city?.name }}
-                </h1>
-            </div>
-            <div >
-                <h2 class="mt-4">
-                    {{ job?.description }}
-                </h2>
-            </div>
-            <div class="mt-2" style="position:absolute;bottom:20px;width: 90%">
-                <div class="row">
-                    <div class="col-6">
-                        <el-button style="width:100%;padding:15px;font-size:16px" @click="seeDetailsClicked" type="primary">
-                            Detayları gör
-                            <i class="el-icon-right"></i>
-                        </el-button>
-                    </div>
-                    <div class="col-6">
-<!--                        Mobile-->
-                        <el-button class="d-block d-md-none" style="width:100%;font-size:20px" @click="getContactClicked(true)" type="danger">
-                            Ara
-                            <i class="el-icon-phone"></i>
-                        </el-button>
-                        <el-button class="d-none d-md-block" style="width:100%;font-size:20px" @click="getContactClicked(false)" type="danger">
-                            İletişime geç
-                            <i class="el-icon-phone"></i>
-                        </el-button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
+    <div v-else>
+        <el-empty description="İlan Bulunamadı">
+        <a href="/firinci/ilan">Tüm İlanları Gör</a>
+        </el-empty>
     </div>
 </template>
 
@@ -137,7 +145,7 @@ export default {
     watch:{
         showContactInformation(){
 
-        }
+        },
     }
 };
 </script>
