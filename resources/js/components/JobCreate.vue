@@ -185,13 +185,13 @@
                                 <div class="col-sm-12 col-md-6 py-3">
                                     <span class="rg-title">Aradığınız personelin cinsiyeti</span>
                                     <div class="pf-field radio-buttons">
-                                        <el-radio  v-for="item in genders" v-model="formInline.gender" :label="item.value" border>{{item.label}}</el-radio>
+                                        <el-radio  v-for="item in genders" :key="item.value" v-model="formInline.gender" :label="item.value" border>{{item.label}}</el-radio>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 py-3">
                                     <span class="rg-title">Çalışma türü</span>
                                     <div class="pf-field radio-buttons">
-                                        <el-radio v-for="item in work_types" v-model="formInline.work_type" :label="item.value" border>{{item.label}}</el-radio>
+                                        <el-radio v-for="item in work_types" :key="item.value" v-model="formInline.work_type" :label="item.value" border>{{item.label}}</el-radio>
                                     </div>
                                 </div>
                             </div>

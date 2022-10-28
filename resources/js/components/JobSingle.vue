@@ -7,7 +7,7 @@
                 :fit="'fill'"
             ></el-image>
         </div>
-        <div class="col-8 px-0 py-3">
+        <div class="col-8 py-0 p3-mobile">
               <span class="text-muted">
                 {{ job?.category?.name }}
             </span>
@@ -59,6 +59,10 @@ export default {
 .job-list-element{
     max-height: 600px;
 }
+.p3-mobile{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
 @media only screen and (max-width: 768px) {
     .location-date{
         font-size:14px;
@@ -67,6 +71,9 @@ export default {
     }
     .image-single   {
         max-height:100px
+    }
+    .p3-mobile{
+        padding:0!important
     }
 }
 </style>

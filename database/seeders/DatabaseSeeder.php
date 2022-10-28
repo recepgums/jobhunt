@@ -71,7 +71,7 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10),
         ])->assignRole('admin');
 
-        Categories::factory(30)->create();
+        Categories::factory(8)->create();
 
 
         \App\Models\User::factory(10)->create()->each(function ($user){
@@ -82,7 +82,7 @@ class DatabaseSeeder extends Seeder
         });
 
 
-        Blog::factory(10)->create()->each(function ($blog){
+        Blog::factory(1)->create()->each(function ($blog){
             $blog->addMediaFromUrl('https://img.imageus.dev/https://depo.isbul.net/v2/home/bilisim-is-ilanlari.jpg?width=400&height=267&mode=contain&background=ffffff')->toMediaCollection('images');
         });
         Job::factory(900)->create()->each(function ($job){

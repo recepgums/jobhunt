@@ -2,7 +2,7 @@
     <el-skeleton :loading="filterloading" animated>
         <template slot="template">
             <!--Filtreleme-->
-            <div class="col-xs-12 col-md-10  mx-auto" style="max-width: 1200px">
+            <div class="col-xs-12 col-md-10  mx-auto" style="max-width: 1400px">
                 <div class="row">
                     <div class="col-12 d-none d-md-block mx-auto bg-white py-3 mb-3">
                         <el-skeleton-item variant="h1" style="width: 135px;"/>
@@ -197,15 +197,18 @@
         </template>
 
         <template>
-            <div class="col-xs-12 col-md-10  mx-auto" style="max-width: 1200px">
-                <div class="row">
-                    <div class="col-12 d-none d-md-block mx-auto bg-white py-3 mb-3">
-                        <h1 class="font-weight-bold fs-22 my-3">
-                            {{ cities.find(q => q.value === selectedCity).label }}
-                            {{ categories.find(q => q.value === selectedCategory)?.label }} iş ilanları</h1>
+            <div class="col-xs-12 col-md-10  mx-auto" style="max-width: 1300px">
+                <div class="row pt-3">
+                    <div class="col-12 d-none d-md-block mx-auto py-3 mb-3" >
                         <div class="row">
                             <div class="col-3">
+                                <h1 class="font-weight-bold fs-22 my-3" v-if="!changeCityClicked">
+                                    {{ cities.find(q => q.value === selectedCity).label }}
+                                    {{ categories.find(q => q.value === selectedCategory)?.label }} iş ilanları
+                                    <el-link type="primary" @click="changeCityClicked = true">değiştir</el-link>
+                                </h1>
                                 <el-select
+                                    v-if="changeCityClicked"
                                     filterable
                                     v-model="selectedCity"
                                     placeholder="İl"
@@ -280,13 +283,13 @@
                             <div class="col-12">
                                 <el-tag   class="item"
                                           style="margin-top: 10px;margin-right:5px"
-                                          v-for="category in categories.slice(0,3)"
+                                          v-for="category in categories"
                                           :key="category.value"
                                           @click="selectedCategory=category.value"
                                           :type="category.type"
                                           :effect="selectedCategory===category.value ? 'dark' : 'light'"
                                 >
-                                    <el-button size="small" type="primary">{{category.label}}</el-button>
+                                    {{category.label}}
                                 </el-tag>
                             </div>
                         </div>
@@ -418,6 +421,7 @@ export default {
         return {
             loading: true,
             filterloading: true,
+            changeCityClicked: false,
             jobs: null,
             selectedJob: null,
             selectedCity: null,
@@ -470,7 +474,9 @@ export default {
             });
             this.categories = data.categories.map((q) => {
                 return {label: q.name, value: q.id,};
-            });
+            })
+
+
         },
         jobClicked(job) {
             this.selectedJob = job;
@@ -533,7 +539,7 @@ export default {
 }
 
 .job-list-container {
-    height: 50rem;
+    height: 48rem;
     padding-left: 2px;
     padding-right: 2px;
     margin-left: 2px;

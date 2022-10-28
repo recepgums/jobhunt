@@ -46,7 +46,7 @@
                 <h1 style="font-size: 18px;font-weight: bolder; text-transform: capitalize;">
                     {{ job?.title }}
                 </h1>
-                <h1 style="font-size: 12px;color:rgb(251, 35, 106);font-weight: bold;">
+                <h1 style="color:rgb(251, 35, 106);font-weight: bold;padding-top:0.5rem;">
                     <i class="la la-map-marker"></i>
                     {{ job?.district?.name }},
                     {{ job?.city?.name }}
@@ -60,18 +60,18 @@
             <div class="mt-2" style="position:absolute;bottom:20px;width: 90%">
                 <div class="row">
                     <div class="col-6">
-                        <el-button style="width:100%;padding:15px;font-size:16px" @click="seeDetailsClicked" type="primary">
+                        <el-button style="width:100%;padding:15px;font-size:16px" @click="seeDetailsClicked" type="primary" plain>
                             Detayları gör
                             <i class="el-icon-right"></i>
                         </el-button>
                     </div>
                     <div class="col-6">
 <!--                        Mobile-->
-                        <el-button class="d-block d-md-none" style="width:100%;font-size:20px" @click="getContactClicked(true)" type="danger">
+                        <el-button class="d-block d-md-none" style="width:100%;font-size:20px" @click="getContactClicked(true)"  type="primary" >
                             Ara
                             <i class="el-icon-phone"></i>
                         </el-button>
-                        <el-button class="d-none d-md-block" style="width:100%;font-size:20px" @click="getContactClicked(false)" type="danger">
+                        <el-button class="d-none d-md-block" style="width:100%;font-size:20px" @click="getContactClicked(false)"  type="primary" >
                             İletişime geç
                             <i class="el-icon-phone"></i>
                         </el-button>
