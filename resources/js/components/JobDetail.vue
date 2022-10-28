@@ -60,18 +60,18 @@
             <div class="mt-2" style="position:absolute;bottom:20px;width: 90%">
                 <div class="row">
                     <div class="col-6">
-                        <el-button style="width:100%;padding:15px;font-size:16px" @click="seeDetailsClicked" type="primary" plain>
+                        <el-button style="width:100%;padding:15px;font-size:16px" @click="seeDetailsClicked" type="primary">
                             Detayları gör
                             <i class="el-icon-right"></i>
                         </el-button>
                     </div>
                     <div class="col-6">
 <!--                        Mobile-->
-                        <el-button class="d-block d-md-none" style="width:100%;font-size:20px" @click="getContactClicked(true)"  type="primary" >
+                        <el-button class="d-block d-md-none" style="width:100%;font-size:20px" @click="getContactClicked(true)" type="danger">
                             Ara
                             <i class="el-icon-phone"></i>
                         </el-button>
-                        <el-button class="d-none d-md-block" style="width:100%;font-size:20px" @click="getContactClicked(false)"  type="primary" >
+                        <el-button class="d-none d-md-block" style="width:100%;font-size:20px" @click="getContactClicked(false)" type="danger">
                             İletişime geç
                             <i class="el-icon-phone"></i>
                         </el-button>

@@ -1,6 +1,5 @@
 @extends('layout.app')
 
-
 @section('content')
     <section class="overlape d-none d-md-block">
         <div class="block no-padding">
@@ -16,10 +15,10 @@
                     <div class="col-lg-9 column">
                         <div class="padding-left">
                             <div class="manage-jobs-sec">
-                                <h3 class="text-center">Başvurulan İlanlar</h3>
+                                <h3 class="text-center">İletişime geçtiğim ilanlar</h3>
                                 <table>
                                     <tbody>
-                                    @forelse($jobs as $job)
+                                    @forelse($appliedJobs as $job)
                                         <tr>
                                             <td width="20%">
                                                 <div class="table-list-title">

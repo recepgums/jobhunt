@@ -20,27 +20,45 @@
                                     <div class="row no-gape">
                                         <div class="col-sm-4 col-6">
                                             <div class="p-category">
+                                                <a href="{{route('candidate.profile')}}" title="">
+                                                    <i class="la la-user"></i>
+                                                    <span>Profilim</span>
+                                                    <p>Profilini Görüntüle</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 col-6">
+                                            <div class="p-category">
+                                                <a href="{{route('candidate.shortlist')}}" title="">
+                                                    <i class="la la-file-text"></i>
+                                                    <span>İlanlarım</span>
+                                                    <p> {{$user->jobs->count()}} Başvuru</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 col-6">
+                                            <div class="p-category">
                                                 <a href="{{route('candidate.applied_jobs')}}" title="">
-                                                    <i class="la la-briefcase"></i>
-                                                    <span>Başvurulan İş İlanları</span>
-                                                    <p>14 Başvuru</p>
+                                                    <i class="la la-hand-paper-o"></i>
+                                                    <span>İletişime geçtiğim ilanlar</span>
+                                                    <p> {{$user->appliedJobs->count()}} Başvuru</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 col-6">
+                                            <div class="p-category">
+                                                <a href="{{route('candidate.payment')}}" title="">
+                                                    <i class="la la-money"></i>
+                                                    <span>Ödeme geçmişim</span>
+                                                    <p>{{$user->transactions->count()}} işlem</p>
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="col-sm-4 col-6">
                                             <div class="p-category">
                                                 <a href="{{route('candidate.change_password')}}" title="">
-                                                    <i class="la la-user"></i>
-                                                    <span>Şifre Değiştir</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-6">
-                                            <div class="p-category">
-                                                <a href="{{route('candidate.profile')}}" title="">
-                                                    <i class="la la-file"></i>
-                                                    <span>Profilim</span>
-                                                    <p>Profilini Görüntüle</p>
+                                                    <i class="la la-lock"></i>
+                                                    <span>Şifre değiştir</span>
                                                 </a>
                                             </div>
                                         </div>

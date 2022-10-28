@@ -82,7 +82,7 @@ class CustomAuthController extends Controller
     public function dashboard()
     {
         if (Auth::check()) {
-            return view('dashboard.index', ['user' => \auth()->user()]);
+            return view('dashboard.index', ['user' => \auth()->user()->load('appliedJobs','jobs')]);
         }
 
         return redirect()->route('register-user')->withSuccess('You are not allowed to access');

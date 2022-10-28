@@ -14,110 +14,51 @@
             <div class="container">
                 <div class="row no-gape">
                     @include('layout.dashboard_menu')
-                    <div class="col-lg-9">
-                        <table>
-                            <thead>
-                            <tr>
-                                <td>Package ID</td>
-                                <td>Title</td>
-                                <td>Payment Date</td>
-                                <td>Payment Type</td>
-                                <td>Amount</td>
-                                <td>Status</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <span>221319456</span>
-                                </td>
-                                <td>
-                                    <div class="table-list-title">
-                                        <h3><a href="#" title="">Advertise job - Supper Jobs</a></h3>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span>April 04, 2017</span>
-                                </td>
-                                <td>
-                                    <span>Pre Bank Transfer</span>
-                                </td>
-                                <td>
-                                    <span class="status active">$99</span>
-                                </td>
-                                <td>
-                                    <span>Pending</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>221319456</span>
-                                </td>
-                                <td>
-                                    <div class="table-list-title">
-                                        <h3><a href="#" title="">CV Search - Unlimited CV Pack</a></h3>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span>April 04, 2017</span>
-                                </td>
-                                <td>
-                                    <span>Skrill</span>
-                                </td>
-                                <td>
-                                    <span class="status active">$150</span>
-                                </td>
-                                <td>
-                                    <span>Approved</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>221319456</span>
-                                </td>
-                                <td>
-                                    <div class="table-list-title">
-                                        <h3><a href="#" title=""> Advertise job - Golden Package</a></h3>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span>April 04, 2017</span>
-                                </td>
-                                <td>
-                                    <span>Paypal</span>
-                                </td>
-                                <td>
-                                    <span class="status active">$124</span>
-                                </td>
-                                <td>
-                                    <span>Pending</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>221319456</span>
-                                </td>
-                                <td>
-                                    <div class="table-list-title">
-                                        <h3><a href="#" title="">Advertise job - Supper Jobs</a></h3>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span>April 04, 2017</span>
-                                </td>
-                                <td>
-                                    <span>Payoneer</span>
-                                </td>
-                                <td>
-                                    <span class="status active">$117</span>
-                                </td>
-                                <td>
-                                    <span>Pending</span>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-
+                    <div class="col-lg-9 column">
+                        <div class="padding-left">
+                            <div class="manage-jobs-sec addscroll">
+                                <h3>Ödeme işlemlerim</h3>
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <td>Id</td>
+                                        <td width="300">Başlık</td>
+                                        <td>Ödeme tarihi</td>
+                                        <td>Ücret</td>
+                                        <td>Durum</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @forelse($payments as $payment)
+                                        <tr>
+                                            <td>
+                                                <span>#{{$payment->id}}</span>
+                                            </td>
+                                            <td>
+                                                <div class="table-list-title">
+                                                    @php
+                                                        $job = \App\Models\Job::find(json_decode($payment->product_json)->model_id);
+                                                    @endphp
+                                                    <h3><a href="#" title="">{{$job->title}}</a></h3>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span>{{$payment->created_at->diffForHumans()}}</span>
+                                            </td>
+                                            <td>
+                                                <span class="status active">{{$payment->price}}</span>
+                                            </td>
+                                            <td>
+                                                <span>{{$payment->status === 'success' ? 'Başarılı' : 'Başarısız'}}</span>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <p>Ödeme işleminiz bulunmuyor</p>
+                                    @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

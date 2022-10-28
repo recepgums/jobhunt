@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
+use Omgtheking\OmgIyzicoPayment\Models\OmgPayTransactions;
 use Omgtheking\OmgIyzicoPayment\OmgPayable;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\MediaLibrary\HasMedia;
@@ -59,11 +60,6 @@ class User extends Authenticatable implements HasMedia
         $this->attributes['password'] = bcrypt($value);
     }
 
-    public function categories()
-    {
-        return $this->hasMany(CategoryUser::class);
-    }
-
     public function setRoleByTypeId($data)
     {
         if (isset($data['type'])) {
@@ -76,11 +72,6 @@ class User extends Authenticatable implements HasMedia
         }
 
         $this->save();
-    }
-
-    public function jobs()
-    {
-        return $this->hasMany(JobUser::class);
     }
 
     protected static function boot()
@@ -118,5 +109,25 @@ class User extends Authenticatable implements HasMedia
                 'coin',
                 'highlighted_until_at',
             ]);
+    }
+
+    public function appliedJobs(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(JobUser::class);
+    }
+
+    public function categories(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(CategoryUser::class);
+    }
+
+    public function transactions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(OmgPayTransactions::class);
+    }
+
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
     }
 }

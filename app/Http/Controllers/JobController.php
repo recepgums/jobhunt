@@ -194,9 +194,9 @@ class JobController extends Controller
 
         $packages = $jobHelper->getPackageData();
 
-        if (!auth()->user()->jobs()->count() > 1) {
+        /*if (!auth()->user()->jobs()->count() > 1) {
             $packages = $jobHelper->getFreePackageData();
-        }
+        }*/
 
         return view('jobs.pricing', compact('packages', 'job'));
     }

@@ -39,7 +39,7 @@ Route::get('city/{city}/districts', [Controllers\GeneralController::class, 'getD
 
 Route::group(['prefix' => 'ilan/{job}', 'middleware' => 'auth', 'as' => 'job.'], function () {
     Route::get('odeme', [Controllers\JobController::class, 'payment'])->name('payment');
-    Route::get('fiyatlama', [Controllers\JobController::class, 'pricing'])->name('pricing');
+//    Route::get('fiyatlama', [Controllers\JobController::class, 'pricing'])->name('pricing');
     Route::get('paket/{package}', [Controllers\JobController::class, 'packageSelectPost'])->name('price.post');
     Route::get('paket/{package}/api', [Controllers\JobController::class, 'packageSelectPostApi']);
     Route::post('get_contact_info', [Controllers\JobController::class, 'getContactInfo'])->name('get_contact_info');

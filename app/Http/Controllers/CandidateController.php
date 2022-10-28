@@ -11,6 +11,7 @@ use App\Models\Job;
 use App\Models\User;
 use App\Services\StorageService;
 use Illuminate\Support\Facades\DB;
+use Omgtheking\OmgIyzicoPayment\Models\OmgPayTransactions;
 
 class CandidateController extends Controller
 {
@@ -90,9 +91,9 @@ class CandidateController extends Controller
 
     public function applied_jobs()
     {
-        $user = auth()->user();
-        $jobs = $user->jobs->load('job');
-        return view('candidates.applied_jobs', compact('jobs'));
+        $appliedJobs = auth()->user()->appliedJobs;
+
+        return view('candidates.applied_jobs', compact('appliedJobs'));
     }
 
     public function job_alert()
@@ -112,6 +113,9 @@ class CandidateController extends Controller
 
     public function payments()
     {
-        return view('candidates.payment');
+        $payments = OmgPayTransactions::where('user_id',auth()->id())->get();
+        $user = auth()->user();
+
+        return view('candidates.payment',['payments' => $payments,'user' => $user]);
     }
 }
