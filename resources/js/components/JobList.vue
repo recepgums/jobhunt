@@ -83,7 +83,7 @@
                            </el-skeleton>
                        </div>
                        <div class="col-6">
-                           <el-skeleton :loading="loading" animated >
+                           <el-skeleton :loading="showClickLoading" animated >
                                <template slot="template">
                                    <div class="col-sm d-none d-md-block">
                                        <template>
@@ -269,18 +269,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 d-block d-md-none mx-auto bg-white py-3 mb-3">
-                        <h1 class="font-weight-bold fs-22 my-3 responsive-header">
+                    <div class="col-12 d-block d-md-none mx-auto  py-3 mb-3">
+                        <h1 class="font-weight-bold fs-22 my-3 responsive-header text-center" style="background-color: transparent;">
                             {{ cities.find(q => q.value === selectedCity).label }}
                             {{ categories.find(q => q.value === selectedCategory)?.label }} iş ilanları
-                            <el-button class="d-block d-md-none" @click="filterDrawer=true" type="primary" plain>
-                                Filtrele
-                            </el-button>
                         </h1>
 
                         <!--Filter-->
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-8">
                                 <el-tag   class="item"
                                           style="margin-top: 10px;margin-right:5px"
                                           v-for="category in categories"
@@ -291,6 +288,11 @@
                                 >
                                     {{category.label}}
                                 </el-tag>
+                            </div>
+                            <div class="col-4">
+                                <el-button class="d-block d-md-none" @click="filterDrawer=true" type="primary" plain>
+                                    Filtrele
+                                </el-button>
                             </div>
                         </div>
                     </div>
@@ -430,7 +432,7 @@ export default {
             selectedSallary: null,
             selectedOrderType: null,
             selectedWorkType: null,
-
+            showClickLoading: true,
             cities: [],
             districts: [],
             workTypes: [],
@@ -513,9 +515,16 @@ export default {
     watch: {
         selectedCity() {
             this.districts = []
+            this.filterloading = true;
+            this.loading = false;
+            this.showClickLoading = true;
             this.selectedDistricts = null
             axios.get(apiUrl + `city/${this.selectedCity}/district`)
                 .then(resp => {
+                    setTimeout(()=>{
+                        this.filterloading = false;
+                        this.showClickLoading = false;
+                    },500)
                     this.districts = resp.data.map((q) => {
                         return {label: q.name, value: q.id};
                     })
@@ -523,7 +532,45 @@ export default {
         },
         selectedCategory() {
            this.getJobList()
-        }
+            this.filterloading = true;
+            this.loading = false;
+            this.showClickLoading = true;
+
+            setTimeout(()=>{
+                this.filterloading = false;
+                this.showClickLoading = false;
+            },250)
+        },
+        selectedJob(){
+                this.filterloading = true;
+                this.loading = false;
+                this.showClickLoading = true;
+
+               setTimeout(()=>{
+                   this.filterloading = false;
+                   this.showClickLoading = false;
+               },250)
+        },
+        selectedDistricts(){
+            this.filterloading = true;
+            this.loading = false;
+            this.showClickLoading = true;
+
+            setTimeout(()=>{
+                this.filterloading = false;
+                this.showClickLoading = false;
+            },250)
+        },
+        selectedWorkType(){
+            this.filterloading = true;
+            this.loading = false;
+            this.showClickLoading = true;
+
+            setTimeout(()=>{
+                this.filterloading = false;
+                this.showClickLoading = false;
+            },250)
+        },
     }
 };
 </script>

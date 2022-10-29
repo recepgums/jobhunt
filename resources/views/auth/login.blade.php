@@ -10,7 +10,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="mt-5">
         <div class="block remove-bottom">
             <div class="container">
                 <div class="row">
