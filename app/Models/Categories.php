@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
@@ -22,6 +23,18 @@ class Categories extends Model implements HasMedia
         'description',
         'default_cover_image',
     ];
+
+    protected function defaultCoverImage():Attribute
+    {
+        return Attribute::make(
+            get:function($value) {
+                return
+                    env('APP_ENV') === 'local' ?
+                        asset($value):
+                        asset($value) . 'ds';
+            }
+        );
+    }
 
     public function scopeForBlog($query)
     {

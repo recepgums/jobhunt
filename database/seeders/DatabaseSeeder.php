@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
         Faq::factory(10)->create();
         Coupons::factory(2)->create();
         $this->call(ReviewSeeder::class);
+        $this->call(CategoriesSeeder::class);
         Role::create(['name'=>'candidate']);
         Role::create(['name'=>'employee']);
         Role::create(['name'=>'admin']);
@@ -71,7 +72,7 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10),
         ])->assignRole('admin');
 
-        Categories::factory(8)->create();
+//        Categories::factory(8)->create();
 
 
         \App\Models\User::factory(10)->create()->each(function ($user){
@@ -82,9 +83,9 @@ class DatabaseSeeder extends Seeder
         });
 
 
-        Blog::factory(1)->create()->each(function ($blog){
+        /*Blog::factory(1)->create()->each(function ($blog){
             $blog->addMediaFromUrl('https://img.imageus.dev/https://depo.isbul.net/v2/home/bilisim-is-ilanlari.jpg?width=400&height=267&mode=contain&background=ffffff')->toMediaCollection('images');
-        });
+        });*/
         Job::factory(900)->create()->each(function ($job){
             $job->addMediaFromUrl('https://image.shutterstock.com/image-photo/suleymaniye-mosque-during-sunset-istanbul-600w-1889028265.jpg')->toMediaCollection('images');
         });
