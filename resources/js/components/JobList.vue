@@ -539,7 +539,7 @@ export default {
             setTimeout(()=>{
                 this.filterloading = false;
                 this.showClickLoading = false;
-            },250)
+            },500)
         },
         selectedJob(){
                 this.filterloading = true;
@@ -559,7 +559,7 @@ export default {
             setTimeout(()=>{
                 this.filterloading = false;
                 this.showClickLoading = false;
-            },250)
+            },500)
         },
         selectedWorkType(){
             this.filterloading = true;
@@ -569,7 +569,7 @@ export default {
             setTimeout(()=>{
                 this.filterloading = false;
                 this.showClickLoading = false;
-            },250)
+            },500)
         },
     }
 };
