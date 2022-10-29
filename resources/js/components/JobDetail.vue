@@ -1,5 +1,5 @@
 <template>
-    <div v-if="job">
+    <div v-if="job" style="border-radius:20px;overflow-x: hidden;height:100%">
         <div class="bg-white" style="border-radius:20px;overflow-x: hidden;height:100%">
             <div class="bant ">
                 <div></div>
@@ -81,11 +81,12 @@
                 </div>
             </div>
         </div>
-
     </div>
     <div v-else>
         <el-empty description="İlan Bulunamadı">
-        <a href="/firinci/ilan">Tüm İlanları Gör</a>
+            <el-link>
+                <a :href="process.env.MIX_API_URL + '/ilan' ">Tüm İlanları Gör</a>
+            </el-link>
         </el-empty>
     </div>
 </template>
@@ -98,6 +99,7 @@ export default {
     props:['job','isloggedin'],
     data() {
         return {
+            jobs_index_url:null,
             showContactInformation:false,
         };
     },

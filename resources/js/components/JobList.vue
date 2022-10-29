@@ -297,7 +297,7 @@
                     <div class="col-12 px-0">
                         <div class="row mx-auto">
                             <!--Desktop Job List Item col-6-->
-                            <div class="col-sm d-none d-md-block px-0 job-list-container">
+                            <div class="col-sm d-none d-md-block px-0 job-list-container" style="max-width: 100%;overflow-x: hidden;">
                                 <div
                                     @click="selectedJob = job"
                                     v-for="(job, index) in jobs"
