@@ -96,8 +96,8 @@
 
                                 </div>
                                 <div class="d-flex justify-content-between padding-t">
-                                    <h3 class="text-white h7">82.324 <span class="lead">Is Iiani</span></h3>
-                                    <h3 class="text-white px-6 h7">8.54323 <span class="lead">Is Arayan</span></h3>
+                                    <h3 class="text-white h7">82.324 <span class="lead">İş ilanı</span></h3>
+                                    <h3 class="text-white px-6 h7">8.54323 <span class="lead">İş Arayan</span></h3>
                                 </div>
                             </div>
                             <div class="col-md"></div>

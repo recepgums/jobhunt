@@ -70,7 +70,7 @@
                         </tab-content>
                         <tab-content title="İş Detayı" icon="la la-info" :before-change="titleDescriptionValidation">
                             <div class="col-lg-12 px-0">
-                                <span class="rg-title mb-4">Video veya resim yükleyebilirsiniz(Zorunlu değil)</span>
+                                <span class="rg-title mb-4">Video veya fotoğraf yükleyebilirsiniz(Zorunlu değil)</span>
                                 <el-upload
                                     ref="upload"
                                     :action="actionUrl"
@@ -199,17 +199,17 @@
                         <tab-content title="Paket Seçimi ve Ödeme2" icon="la la-cc-mastercard">
                             <div class="plans-sec">
                                 <div v-if="job">
-                                   <div>
-                                       <h1  class="text-center">İlan ön izleme</h1>
-                                       <small class="text-muted text-left">
-                                           İlanınız, diğer kullanıcılara bu şekilde gözükecektir.
-                                           <br>
-                                           Dilerseniz, aşağıdaki seçenekleri deneyerek ilanınızın görünümünü değiştirebilirsiniz
-                                       </small>
-                                   </div>
                                    <div class="card-body shadow-lg p-3 mb-5 bg-white rounded">
                                        <JobSingle :theme="theme" :job="job"></JobSingle>
                                    </div>
+                                    <div class="bg-warning">
+                                        <h1  class="text-center">İlan ön izleme</h1>
+                                        <small class="text-muted text-left">
+                                            İlanınız, diğer kullanıcılara bu şekilde gözükecektir.
+                                            <br>
+                                            Dilerseniz, aşağıdaki seçenekleri deneyerek ilanınızın görünümünü değiştirebilirsiniz
+                                        </small>
+                                    </div>
                                     <el-divider></el-divider>
                                     <div class="row text-center box-with-shadow">
                                         <div class="col-md-6 col-sm-12 my-2">

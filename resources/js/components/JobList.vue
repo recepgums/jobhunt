@@ -83,7 +83,7 @@
                            </el-skeleton>
                        </div>
                        <div class="col-6">
-                           <el-skeleton :loading="showClickLoading" animated >
+                           <el-skeleton :loading="loading" animated >
                                <template slot="template">
                                    <div class="col-sm d-none d-md-block">
                                        <template>
@@ -203,7 +203,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <h1 class="font-weight-bold fs-22 my-3" v-if="!changeCityClicked">
-                                    {{ cities.find(q => q.value === selectedCity).label }}
+                                    {{ cities.find(q => q.value === selectedCity)?.label }}
                                     {{ categories.find(q => q.value === selectedCategory)?.label }} iş ilanları
                                     <el-link type="primary" @click="changeCityClicked = true">değiştir</el-link>
                                 </h1>
@@ -213,11 +213,12 @@
                                     v-model="selectedCity"
                                     placeholder="İl"
                                     @change="getJobList"
+                                    clearable
                                 >
                                     <el-option
                                         v-for="item in cities"
                                         :key="item.value"
-                                        :label="item.label"
+                                        :label="item?.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
@@ -228,11 +229,12 @@
                                     v-model="selectedDistricts"
                                     placeholder="İlçe"
                                     @change="getJobList"
+                                    clearable
                                 >
                                     <el-option
                                         v-for="item in districts"
                                         :key="item.value"
-                                        :label="item.label"
+                                        :label="item?.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
@@ -243,11 +245,12 @@
                                     v-model="selectedCategory"
                                     placeholder="Uzmanlığı"
                                     @change="getJobList"
+                                    clearable
                                 >
                                     <el-option
                                         v-for="item in categories"
                                         :key="item.value"
-                                        :label="item.label"
+                                        :label="item?.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
@@ -258,41 +261,43 @@
                                     v-model="selectedWorkType"
                                     placeholder="Çalışma şekli"
                                     @change="getJobList"
+                                    clearable
                                 >
                                     <el-option
                                         v-for="item in workTypes"
                                         :key="item.value"
-                                        :label="item.label"
+                                        :label="item?.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 d-block d-md-none mx-auto  py-3 mb-3">
-                        <h1 class="font-weight-bold fs-22 my-3 responsive-header text-center" style="background-color: transparent;">
-                            {{ cities.find(q => q.value === selectedCity).label }}
-                            {{ categories.find(q => q.value === selectedCategory)?.label }} iş ilanları
-                        </h1>
-
+                    <div class="col-12 d-block d-md-none mx-auto mb-3">
+                        <div class="row px-4">
+                            <h1 class="col-6 font-weight-bold fs-22 my-1  responsive-header text-left"
+                                style="background-color: transparent;padding:0"
+                            >
+                                {{ cities.find(q => q.value === selectedCity).label }}
+                                {{ categories.find(q => q.value === selectedCategory)?.label }} iş ilanları
+                            </h1>
+                            <el-link class="col-6 d-block d-md-none text-right" @click="filterDrawer=true" type="primary">
+                                Filtrele
+                            </el-link>
+                        </div>
                         <!--Filter-->
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-12 horizontal-scroll">
                                 <el-tag   class="item"
-                                          style="margin-top: 10px;margin-right:5px"
+                                          style="margin-top: 10px;margin-right:5px;overflow: hidden"
                                           v-for="category in categories"
                                           :key="category.value"
                                           @click="selectedCategory=category.value"
                                           :type="category.type"
                                           :effect="selectedCategory===category.value ? 'dark' : 'light'"
                                 >
-                                    {{category.label}}
+                                    {{category?.label}}
                                 </el-tag>
-                            </div>
-                            <div class="col-4">
-                                <el-button class="d-block d-md-none" @click="filterDrawer=true" type="primary" plain>
-                                    Filtrele
-                                </el-button>
                             </div>
                         </div>
                     </div>
@@ -350,48 +355,48 @@
                         <div style="height: 20rem" class="container-fluid p-0">
                             <div class="col my-5">
                                 <el-select v-model="selectedCity" placeholder="İl"
-                                           @change="getJobList"
+                                           @change="getJobList" clearable
                                 >
                                     <el-option
                                         v-for="item in cities"
                                         :key="item.value"
-                                        :label="item.label"
+                                        :label="item?.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
                             </div>
                             <div class="col my-5">
                                 <el-select v-model="selectedDistricts" placeholder="İlçe"
-                                           @change="getJobList"
+                                           @change="getJobList" clearable
                                 >
                                     <el-option
                                         v-for="item in districts"
                                         :key="item.value"
-                                        :label="item.label"
+                                        :label="item?.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
                             </div>
                             <div class="col my-5">
                                 <el-select v-model="selectedCategory" placeholder="Uzmanlığı"
-                                           @change="getJobList"
+                                           @change="getJobList" clearable
                                 >
                                     <el-option
                                         v-for="item in categories"
                                         :key="item.value"
-                                        :label="item.label"
+                                        :label="item?.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
                             </div>
                             <div class="col my-5">
-                                <el-select v-model="selectedWorkType" placeholder="Calisma Sekli"
+                                <el-select v-model="selectedWorkType" placeholder="Calisma Sekli" clearable
                                            @change="getJobList"
                                 >
                                     <el-option
                                         v-for="item in workTypes"
                                         :key="item.value"
-                                        :label="item.label"
+                                        :label="item?.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
@@ -432,7 +437,7 @@ export default {
             selectedSallary: null,
             selectedOrderType: null,
             selectedWorkType: null,
-            showClickLoading: true,
+
             cities: [],
             districts: [],
             workTypes: [],
@@ -515,16 +520,9 @@ export default {
     watch: {
         selectedCity() {
             this.districts = []
-            this.filterloading = true;
-            this.loading = false;
-            this.showClickLoading = true;
             this.selectedDistricts = null
             axios.get(apiUrl + `city/${this.selectedCity}/district`)
                 .then(resp => {
-                    setTimeout(()=>{
-                        this.filterloading = false;
-                        this.showClickLoading = false;
-                    },500)
                     this.districts = resp.data.map((q) => {
                         return {label: q.name, value: q.id};
                     })
@@ -532,45 +530,7 @@ export default {
         },
         selectedCategory() {
            this.getJobList()
-            this.filterloading = true;
-            this.loading = false;
-            this.showClickLoading = true;
-
-            setTimeout(()=>{
-                this.filterloading = false;
-                this.showClickLoading = false;
-            },500)
-        },
-        selectedJob(){
-                this.filterloading = true;
-                this.loading = false;
-                this.showClickLoading = true;
-
-               setTimeout(()=>{
-                   this.filterloading = false;
-                   this.showClickLoading = false;
-               },250)
-        },
-        selectedDistricts(){
-            this.filterloading = true;
-            this.loading = false;
-            this.showClickLoading = true;
-
-            setTimeout(()=>{
-                this.filterloading = false;
-                this.showClickLoading = false;
-            },500)
-        },
-        selectedWorkType(){
-            this.filterloading = true;
-            this.loading = false;
-            this.showClickLoading = true;
-
-            setTimeout(()=>{
-                this.filterloading = false;
-                this.showClickLoading = false;
-            },500)
-        },
+        }
     }
 };
 </script>
@@ -603,13 +563,13 @@ export default {
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {
-    scrollbar-width: auto;
+    scrollbar-width: 2px;
     scrollbar-color: #7d767f #ffffff;
 }
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-    width: 10px;
+    width: 1px;
 }
 
 *::-webkit-scrollbar-track {
@@ -619,7 +579,11 @@ export default {
 *::-webkit-scrollbar-thumb {
     background-color: #7d767f;
     border-radius: 10px;
-    border: 3px solid #ffffff;
+    border: 1px solid #ffffff;
 }
+.horizontal-scroll{
+    overflow: hidden;
+    white-space: nowrap;
 
+}
 </style>

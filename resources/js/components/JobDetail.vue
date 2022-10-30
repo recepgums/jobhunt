@@ -68,7 +68,7 @@
                         </div>
                         <div class="col-6">
                             <!--                        Mobile-->
-                            <el-button class="d-block d-md-none" style="width:100%;font-size:20px" @click="getContactClicked(true)" type="danger">
+                            <el-button class="d-block d-md-none" style="width:100%;font-size:20px" @click="getContactClicked(true)" type="success">
                                 Ara
                                 <i class="el-icon-phone"></i>
                             </el-button>
