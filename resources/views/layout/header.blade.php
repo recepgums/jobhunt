@@ -9,10 +9,7 @@
     <div class="responsive-menubar">
         <div class="res-logo">
             <a href="{{route('homepage')}}">
-{{--                    <img style="width: 50px" src="{{asset('assets/images/logo.png')}}" alt="{{env('APP_NAME')}}"/>--}}
-                <span style="font-size: 20px;font-weight: bolder;color:white;">
-                    {{env('APP_NAME')}}
-                </span>
+                    <img style="width: 150px;padding-top: 5px" src="{{asset('assets/images/isbull-yeni-logo.svg')}}" alt="{{env('APP_NAME')}}"/>
             </a>
 
         </div>
@@ -72,7 +69,6 @@
   top: 0;
   width: 100vw;
   background-color: @if(isset($isHomepage) && $isHomepage) rgba(184, 24, 40, 0.88) @else rgb(54 61 115) @endif;
-  opacity: 0.9;
   ">
     <div class="menu-sec" style="margin: 0">
         <div class="container fluid">
@@ -80,14 +76,14 @@
                 <a href="{{route('homepage')}}" title="">
                     <div class="container">
                         <div class="col">
-                            <!--                            <img style="width: 75px" src="{{asset('assets/images/logo.png')}}" width="100"
-                                 height="71" alt=""/>-->
-                            <span style="font-size: 30px;font-weight: bolder;color:white;">
+                              <img style="padding-top: 5px" src="{{asset('assets/images/isbull-yeni-logo.svg')}}" width="150"
+                                 height="50" alt=""/>
+<!--                            <span style="font-size: 30px;font-weight: bolder;color:white;">
                     {{env('BASE_NAME')}}
                                 <small>
                                     /{{env('APP_SUB')}}
                                 </small>
-                </span>
+                </span>-->
                         </div>
                     </div>
                 </a>

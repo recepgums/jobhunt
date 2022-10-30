@@ -7,12 +7,12 @@
             class="tw-w-full tw-block tw-py-1 tw-px-3 tw-text-center hover:tw-bg-red-400 hover:tw-text-red-600 transition duration-300">
             <i class="la la-file tw-text-[30px] tw-font-medium"></i>
             <h1 class="tw-font-semibold">İlanlar</h1>
-        </a>
-        <a href="{{route('candidate.shortlist')}}"
+        </a><!--
+        <a href="{{route('candidate.applied_jobs')}}"
             class="tw-w-full tw-block tw-py-1 tw-px-3 tw-text-center hover:tw-bg-red-400 hover:tw-text-red-600 transition duration-300">
             <i class="la la-bell tw-text-[30px] tw-font-medium"></i>
             <h1 class="tw-font-semibold">Bildirimler</h1>
-        </a>
+        </a>-->
         <a href="{{route('job.create')}}"
            style="color: rgb(95,101,158)"
             class="tw-w-full tw-block tw-py-1 tw-px-3 tw-text-center tw-bg-white hover:tw-bg-red-400 hover:tw-text-red-600 transition duration-300">

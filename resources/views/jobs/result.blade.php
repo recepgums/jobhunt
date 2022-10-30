@@ -29,27 +29,20 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="heading">
-                                                <h2>Ödeme Sonucunuz</h2>
-                                                <span>Paranız çekildiği halde işlemin başarısız olduğunu düşünüyorsanız bizimle
-                                                    <a style="color: dodgerblue"
-                                                       href="{{route('contact')}}">İletişime</a> geçebilirsiniz.
+                                                <i class="la la-check-circle" style="font-size: 80px;color:green"></i>
+                                                <h2>İlanınız yayınlanmıştır</h2>
+                                                <span>
+                                                    İlanınız başarıyla alındı. Kontrolden geçtikten sonra yayınlanacaktır.
+                                                    Bu süreç genellikle 30 dakika içerisinde tamamlanır ve size sms yoluyla bildirim gönderilir.
                                                 </span>
                                             </div><!-- Heading -->
 
                                             <div class="plans-sec">
                                                 <div class="row p-0">
                                                     <div class="col-md-9 col-sm-12 mx-auto">
-                                                        @if ($errors->any())
-                                                            @foreach ($errors->all() as $error)
-                                                                <div class="alert alert-primary" role="alert">
-                                                                    {{$error}}
-                                                                </div>
-                                                            @endforeach
-                                                        @endif
+
                                                         @isset($success)
-                                                            <div class="alert alert-success" role="alert">
-                                                                {{$success}}
-                                                            </div>
+
 
                                                           @if(env('GOOGLE_REKLAMI_ACIK_MI',false))
 

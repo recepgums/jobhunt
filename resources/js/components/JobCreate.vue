@@ -21,11 +21,11 @@
         <div class="row no-gape" v-loading="fullscreenLoading"  element-loading-text="Yükleniyor...">
             <div class="col-sm-11 col-lg-8 column mx-auto" style="max-width:1000px">
                 <div class="padding-left">
-                    <el-card class="box-card mt-4" shadow="always">
+                    <el-card class="box-card mt-4" shadow="hover">
                         <h2 class="text-muted text-center" style="font-size:22px">{{formWizardTitle}}</h2>
 
                         <form-wizard color="#8b91dd" subtitle="" title=""
-                                 :start-index="0"
+                                 :start-index="3"
                                  backButtonText="Geri"
                                  nextButtonText="İleri"
                                  finishButtonText="Yayınla"
@@ -44,7 +44,7 @@
                             <el-button size="medium" style="margin-top: 12px;font-size: 18px;" type="danger">İleri</el-button>
                         </div>
                         <div slot="prev" class="col-lg-12 py-3">
-                            <el-button v-if="!$refs?.wizard?.isLastStep" size="medium" style="margin-top: 12px;font-size: 18px;" type="danger">Geri</el-button>
+                            <el-button v-if="!$refs?.wizard?.isLastStep" size="medium" style="margin-top: 12px;font-size: 18px;" type="danger" plain>Geri</el-button>
                         </div>
                         <tab-content title="Kategori secimi" icon="la la-info" :before-change="categoryValidation">
                             <div class="row">
@@ -199,11 +199,11 @@
                         <tab-content title="Paket Seçimi ve Ödeme2" icon="la la-cc-mastercard">
                             <div class="plans-sec">
                                 <div v-if="job">
-                                   <div class="card-body shadow-lg p-3 mb-5 bg-white rounded">
+                                   <div class="card-body shadow-lg  mb-4 bg-white rounded" style="padding:0">
                                        <JobSingle :theme="theme" :job="job"></JobSingle>
                                    </div>
-                                    <div class="bg-warning">
-                                        <h1  class="text-center">İlan ön izleme</h1>
+                                    <div style="background-color:wheat;border-radius:7px" class="text-center p-2">
+                                        <h1>İlan ön izleme</h1>
                                         <small class="text-muted text-left">
                                             İlanınız, diğer kullanıcılara bu şekilde gözükecektir.
                                             <br>
@@ -211,30 +211,64 @@
                                         </small>
                                     </div>
                                     <el-divider></el-divider>
-                                    <div class="row text-center box-with-shadow">
-                                        <div class="col-md-6 col-sm-12 my-2">
-                                            <span> Arka plan rengi</span>
-                                            <el-switch v-model="theme.selectColor"></el-switch>
-                                            <el-color-picker v-if="theme.selectColor"
+                                    <div class="row text-center mb-3">
+                                        <div class="col-md-4 col-sm-12 my-2">
+                                            <span> Arka plan rengi <del>(20₺)</del> (Ücretsiz)</span>
+                                            <br>
+                                            <el-tag v-for="item in predefineColors"
+                                                    @click="changeColor(item.value)"
+                                                    style="width:33%;cursor:pointer;color:black"
+                                                    :style="{'background-color':item.value}">
+                                                {{ item.label }}
+                                            </el-tag>
+<!--                                            <el-color-picker
                                                              @active-change="changeColor"
                                                              :show-alpha="false"
                                                              v-model="theme.color"
                                                              :predefine="predefineColors"
-                                            ></el-color-picker>
+                                            ></el-color-picker>-->
                                         </div>
                                         <div class="col-md-6 col-sm-12 color-picker-mobile">
                                             <span>Yayında kalacağı süre</span>
-                                            <el-select v-model="theme.selectedDate" placeholder="Select">
+                                            <el-radio-group style="width: 100%;" v-model="theme.selectedDate" >
+                                                <el-radio-button  v-for="item in theme.dateOptions"
+                                                                 :label="item.label"></el-radio-button>
+                                            </el-radio-group>
+
+<!--                                            <el-select v-model="theme.selectedDate" placeholder="Select">
                                                 <el-option
                                                     v-for="item in theme.dateOptions"
                                                     :key="item.value"
                                                     :label="item.label"
                                                     :value="item.value">
+                                                    <span style="float: left">{{ item.label.split('(')[0] }}</span>
+                                                    <del style="float: left">{{ item.label }}</del>
+                                                    <span style="float: right;">Ücretsiz</span>
                                                 </el-option>
-                                            </el-select>
+                                            </el-select>-->
                                         </div>
-                                        <el-divider></el-divider>
+                                        <div class="col-md-2 col-sm-12">
+                                            <span>Benim işim acil <del>(500₺)</del> (Ücretsiz)</span>
+                                            <br>
+                                            <el-switch
+                                                v-model="theme.selectUrgent"
+                                                active-color="#AA2B36"
+                                            >
+                                            </el-switch>
+                                        </div>
                                     </div>
+                                    <el-alert
+                                        class="mt-1"
+                                        :closable="false"
+                                        type="success">
+                                        <div slot="title" class="col-lg-12 py-3 text-black">
+                                            isbull.com'un açılış kampanyası boyunca  01 Şubat 2023 tarihine kadar yapacağınız her türlü ilan ve ilan özelliği tamamen ücretsiz!.
+                                            <br><br>
+                                            Merak etmeyin, isbull.com 'da her zaman ücretsiz ilan verme seçeneklerimiz olacak. :)
+
+                                        </div>
+                                    </el-alert>
+
                                 </div>
                             </div>
                         </tab-content>
@@ -266,13 +300,12 @@ export default {
         return {
             dialogImageUrl: '',
             predefineColors: [
-                '#ff8c00',
-                '#ffd700',
-                '#90ee90',
-                '#00ced1',
-                '#1e90ff',
-                '#c71585',
-                'hsl(181, 100%, 37%)',
+                {label:'Yok',value:'#FFFFFF'},
+                {label:'Sarı',value:'#F8F9D7'},
+                {label:'Mavi',value:'#BCCEF8'},
+                {label:'Kahve',value:'#E4DCCF'},
+                {label:'Yeşil',value:'#C4DFAA'},
+                {label:'Kırmızı',value:'#FFD1D1'},
             ],
             formWizardTitle: 'Kategori seçiniz',
             fullscreenLoading: false,
@@ -292,13 +325,13 @@ export default {
                 sleep_after_at: null
             },
             theme:{
-                selectColor:false,
+                selectUrgent:false,
                 selectedDate:0,
                 color: '',
                 dateOptions:[
-                    {label:'1 gün (Ücretsiz)',value:0},
-                    {label:'3 gün (8₺)',value:1},
-                    {label:'7 gün (9₺)',value:2},
+                    {label:'1 gün',value:0},
+                    {label:'3 gün',value:1},
+                    {label:'7 gün',value:2},
                 ],
                 ticketSelected:false,
             },
@@ -560,7 +593,7 @@ export default {
     .color-picker-mobile{
         margin-top: 32px;
         margin-bottom: 32px;
-        text-align: left;
+        text-align: center;
     }
     .el-divider--horizontal{
         display: none !important;
