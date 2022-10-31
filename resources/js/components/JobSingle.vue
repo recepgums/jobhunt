@@ -1,6 +1,6 @@
 <template>
     <div class="row job-list-element" :style="'width: 100%;' + theme?.color ? 'background-color:' + theme?.color : ''" role="button">
-        <div class="col-4 px-0">
+        <div class="col-4 px-0 list-image">
             <svg
                 v-if="theme?.selectUrgent" class="urgent-tag"
                 width="74" height="72" viewBox="0 0 74 72" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +29,7 @@
               <span class="text-muted">
                 {{ job?.category?.name }}
             </span>
-            <h1 class="tw-font-bold" style="
+            <h1 class="tw-font-bold h1-mobile" style="
                 white-space: nowrap;
                     overflow: hidden !important;
                     text-overflow: ellipsis;
@@ -38,7 +38,7 @@
                 {{ job?.title }}
             </h1>
 
-            <div class="d-flex justify-content-between align-items-end mr-4 mt-4">
+            <div class="d-flex justify-content-between align-items-end mr-4 mt-4 card-right-content">
                 <div style="color: #fb236a">
                     <i class="la la-map-marker"></i>
                     {{ job?.district?.name }}<small style="color:black;font-size:12px">, {{job?.city?.name}}
@@ -94,11 +94,25 @@ export default {
         padding-right:0;
         padding-left:0;
     }
-    .image-single   {
-        max-height:100px
+    .image-single{
+        max-height:100px;
+        border-radius:15px;
+    }
+    .image-single img{
+       border-radius:15px;
     }
     .p3-mobile{
-        padding:0!important
+        padding-top:5px !important;
+        padding-bottom:5px !important;
+    }
+    .h1-mobile {
+        max-width: 95% !important;
+    }
+    .list-image{
+        align-self: center;
+    }
+    .card-right-content{
+        margin-top: 0px !important;
     }
 }
 </style>

@@ -17,27 +17,28 @@
                     ></el-image>
                 </div>
                 <div class="d-flex justify-content-around">
-                    <div class="job-property">
+                    <div class="job-property icon-details">
                         <i class="la la-clock-o"></i>
-                        {{ job?.work_type?.name }}
+                        <p>{{ job?.work_type?.name }}</p>
                     </div>
-                    <div class="job-property">
+                    <div class="job-property icon-details">
                         <i class="la la-mars-double"></i>
-                        {{
+                        <p> {{
                             job?.gender?.name ?? "Farketmez"
-                        }}
+                        }}</p>
                     </div>
-                    <div class="job-property">
+                    <div class="job-property icon-details">
                         <i class="la la-money"></i>
-                        {{
+                        <p>{{
                             job?.fee
                                 ? job?.fee + " TL"
                                 : "Belirtilmemiş"
-                        }}
+                        }}</p>
+                        
                     </div>
-                    <div class="job-property">
+                    <div class="job-property icon-details">
                         <i class="el-icon-user"></i>
-                        {{ job?.category?.name ?? '' }}
+                        <p>{{ job?.category?.name ?? '' }}</p>
                     </div>
                 </div>
             </div>
@@ -54,11 +55,11 @@
                     </h1>
                 </div>
                 <div >
-                    <h2 class="mt-4">
+                    <h2 class="mt-4 job-des">
                         {{ job?.description }}
                     </h2>
                 </div>
-                <div class="mt-2" style="position:absolute;bottom:20px;width: 90%">
+                <div class="mt-2 action-btns" style="bottom:20px;width: 90%">
                     <div class="row">
                         <div class="col-6">
                             <el-button style="width:100%;padding:15px;font-size:16px" @click="seeDetailsClicked" type="primary">
@@ -199,6 +200,35 @@ export default {
         top: 2px;
         right: 2px;
         display: flex !important;
+    }
+    .icon-details{
+        text-align: center;
+        padding: 2px;
+    }
+    .icon-details p{
+        line-height: 1;
+        font-size: 10px !important;
+    }
+    .icon-details i{
+        font-size: 20px;
+    }
+    .job-des{
+        padding-bottom: 10vh !important;
+    }
+    .action-btns{
+        width: 100% !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    margin-left: -15px !important;
+    margin-right: -13px !important;
+    background: white !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    }
+    .el-button{
+        font-size: 12px !important;
     }
 }
 </style>

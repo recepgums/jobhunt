@@ -5,19 +5,19 @@
             <div class="col-xs-12 col-md-10  mx-auto" style="max-width: 1400px">
                 <div class="row">
                     <div class="col-12 d-none d-md-block mx-auto bg-white py-3 mb-3">
-                        <el-skeleton-item variant="h1" style="width: 135px;"/>
+                        <el-skeleton-item variant="h1" style="width: 135px;" />
                         <div class="row">
                             <div class="col-3">
-                                <el-skeleton-item variant="h3" style="width: 80%; height: 40px;"/>
+                                <el-skeleton-item variant="h3" style="width: 80%; height: 40px;" />
                             </div>
                             <div class="col-3">
-                                <el-skeleton-item variant="h3" style="width: 80%; height: 40px;"/>
+                                <el-skeleton-item variant="h3" style="width: 80%; height: 40px;" />
                             </div>
                             <div class="col-3">
-                                <el-skeleton-item variant="h3" style="width: 80%; height: 40px;"/>
+                                <el-skeleton-item variant="h3" style="width: 80%; height: 40px;" />
                             </div>
                             <div class="col-3">
-                                <el-skeleton-item variant="h3" style="width: 80%; height: 40px;"/>
+                                <el-skeleton-item variant="h3" style="width: 80%; height: 40px;" />
                             </div>
                         </div>
                     </div>
@@ -28,128 +28,126 @@
             <!--Mobile -->
 
             <div class="col-12 d-block d-md-none mx-auto bg-white py-3 mb-3">
-                <el-skeleton-item variant="h1"/>
+                <el-skeleton-item variant="h1" />
                 <div class="row">
                     <div class="col-6">
-                        <el-skeleton-item variant="h3" style="width: 50%;"/>
+                        <el-skeleton-item variant="h3" style="width: 50%;" />
                     </div>
                     <div class="col-6">
-                        <el-skeleton-item variant="h3" style="width: 50%;"/>
+                        <el-skeleton-item variant="h3" style="width: 50%;" />
                     </div>
                 </div>
             </div>
 
             <div class="col-xs-12 col-md-10  mx-auto" style="max-width: 1200px">
-               <div class="d-none d-md-block">
-                   <div class="row">
-                       <div class="col-6 bg-white">
-                           <el-skeleton :loading="loading" animated :count="5">
-                               <template slot="template">
-                                   <div class="col-xs-12 col-md-10  mx-auto my-3" style="max-width: 1200px">
-                                       <div class="row job-list-element" style="width: 100%" role="button">
-                                           <div class="col-4 px-0">
-                                               <el-skeleton-item
-                                                   variant="image"
-                                                   style="width: 171px; height: 119.69px;"
-                                               />
-                                           </div>
-                                           <div class="col-8 px-0">
-                                        <span class="text-muted">
-                                            <el-skeleton-item variant="text" style="width: 30%;"/>
-                                             </span>
-                                               <el-skeleton-item variant="h1" style="width: 270px; white-space: nowrap;
+                <div class="d-none d-md-block">
+                    <div class="row">
+                        <div class="col-6 bg-white">
+                            <el-skeleton :loading="loading" animated :count="5">
+                                <template slot="template">
+                                    <div class="col-xs-12 col-md-10  mx-auto my-3 job-list-card" style="max-width: 1200px">
+                                        <div class="row job-list-element" style="width: 100%" role="button">
+                                            <div class="col-4 px-0">
+                                                <el-skeleton-item variant="image"
+                                                    style="width: 171px; height: 119.69px;" />
+                                            </div>
+                                            <div class="col-8 px-0">
+                                                <span class="text-muted">
+                                                    <el-skeleton-item variant="text" style="width: 30%;" />
+                                                </span>
+                                                <el-skeleton-item variant="h1" style="width: 270px; white-space: nowrap;
                                              overflow: hidden !important;
                                             text-overflow: ellipsis;
                                              height:2em;
-                                               "/>
+                                               " />
 
-                                               <div class="d-flex justify-content-between align-items-end">
-                                                   <div style="color: #fb236a">
-                                                       <small style="color:black;font-size:10px">
-                                                           <el-skeleton-item variant="text"/>
-                                                       </small>
-                                                   </div>
-                                                   <div>
-                                                       <small>
-                                                           <el-skeleton-item variant="text" style="width: 30%;"/>
-                                                       </small>
-                                                   </div>
-                                               </div>
-                                           </div>
+                                                <div class="d-flex justify-content-between align-items-end">
+                                                    <div style="color: #fb236a">
+                                                        <small style="color:black;font-size:10px">
+                                                            <el-skeleton-item variant="text" />
+                                                        </small>
+                                                    </div>
+                                                    <div>
+                                                        <small>
+                                                            <el-skeleton-item variant="text" style="width: 30%;" />
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                       </div>
-                                   </div>
-                               </template>
-                           </el-skeleton>
-                       </div>
-                       <div class="col-6">
-                           <el-skeleton :loading="loading" animated >
-                               <template slot="template">
-                                   <div class="col-sm d-none d-md-block">
-                                       <template>
-                                           <div class="bg-white" style="border-radius:20px;overflow-x: hidden;height:100%">
-                                               <div class="bant">
-                                                   <div></div>
-                                               </div>
+                                        </div>
+                                    </div>
+                                </template>
+                            </el-skeleton>
+                        </div>
+                        <div class="col-6">
+                            <el-skeleton :loading="loading" animated>
+                                <template slot="template">
+                                    <div class="col-sm d-none d-md-block">
+                                        <template>
+                                            <div class="bg-white"
+                                                style="border-radius:20px;overflow-x: hidden;height:100%">
+                                                <div class="bant">
+                                                    <div></div>
+                                                </div>
 
-                                               <div class="tw-flex tw-flex-col tw-row-span-2 w-full">
-                                                   <div class="tw-grid tw-col-span-5 text-center mx-auto">
-                                                       <el-skeleton-item
-                                                           variant="image"
-                                                           style="width: 583px; height: 408px;"
-                                                       />
-                                                   </div>
-                                                   <div class="d-flex justify-content-around">
-                                                       <div class="job-property">
-                                                           <el-skeleton-item variant="text" style="width: 30%;" />
-                                                       </div>
-                                                       <div class="job-property">
-                                                           <el-skeleton-item variant="text" style="width: 30%;" />
-                                                       </div>
-                                                       <div class="job-property">
-                                                           <el-skeleton-item variant="text" style="width: 30%;" />
-                                                       </div>
-                                                       <div class="job-property">
-                                                           <el-skeleton-item variant="text" style="width: 30%;" />
-                                                       </div>
-                                                   </div>
-                                               </div>
+                                                <div class="tw-flex tw-flex-col tw-row-span-2 w-full">
+                                                    <div class="tw-grid tw-col-span-5 text-center mx-auto">
+                                                        <el-skeleton-item variant="image"
+                                                            style="width: 583px; height: 408px;" />
+                                                    </div>
+                                                    <div class="d-flex justify-content-around">
+                                                        <div class="job-property">
+                                                            <el-skeleton-item variant="text" style="width: 30%;" />
+                                                        </div>
+                                                        <div class="job-property">
+                                                            <el-skeleton-item variant="text" style="width: 30%;" />
+                                                        </div>
+                                                        <div class="job-property">
+                                                            <el-skeleton-item variant="text" style="width: 30%;" />
+                                                        </div>
+                                                        <div class="job-property">
+                                                            <el-skeleton-item variant="text" style="width: 30%;" />
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                               <div class="p-3">
-                                                   <div >
-                                                       <h1 class="tw-pt-3" style="font-size: 12px;color:blue">
-                                                           <el-skeleton-item variant="text" style="width: 30%;" />
-                                                       </h1>
-                                                       <h1 style=" font-size: 20px;font-weight: bolder; text-transform: capitalize;">
-                                                           <el-skeleton-item variant="h1" style="width: 270px;"/>
-                                                       </h1>
-                                                   </div>
-                                                   <div >
-                                                       <h2 class="mt-4">
-                                                           <el-skeleton-item variant="text" style="width: 30%;" />
-                                                       </h2>
-                                                   </div>
-                                                   <div class="mt-2" style="position:absolute;bottom:20px;width: 90%">
-                                                       <div class="row">
-                                                           <div class="col-6">
-                                                               <el-skeleton-item variant="h1" style="width: 270px;"/>
-                                                           </div>
-                                                           <div class="col-6">
-                                                               <el-skeleton-item variant="h1" style="width: 270px;"/>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                           </div>
-                                       </template>
+                                                <div class="p-3">
+                                                    <div>
+                                                        <h1 class="tw-pt-3" style="font-size: 12px;color:blue">
+                                                            <el-skeleton-item variant="text" style="width: 30%;" />
+                                                        </h1>
+                                                        <h1
+                                                            style=" font-size: 20px;font-weight: bolder; text-transform: capitalize;">
+                                                            <el-skeleton-item variant="h1" style="width: 270px;" />
+                                                        </h1>
+                                                    </div>
+                                                    <div>
+                                                        <h2 class="mt-4">
+                                                            <el-skeleton-item variant="text" style="width: 30%;" />
+                                                        </h2>
+                                                    </div>
+                                                    <div class="mt-2" style="position:absolute;bottom:20px;width: 90%">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <el-skeleton-item variant="h1" style="width: 270px;" />
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <el-skeleton-item variant="h1" style="width: 270px;" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </template>
 
-                                   </div>
+                                    </div>
 
-                               </template>
-                           </el-skeleton>
-                       </div>
-                   </div>
-               </div>
+                                </template>
+                            </el-skeleton>
+                        </div>
+                    </div>
+                </div>
                 <div class="d-block d-md-none bg-white">
                     <div class="col-12">
                         <el-skeleton :loading="loading" animated :count="5">
@@ -157,31 +155,28 @@
                                 <div class="col-xs-12 col-md-10 mx-auto  my-3" style="max-width: 1200px">
                                     <div class="row job-list-element" style="width: 100%" role="button">
                                         <div class="col-4 px-0 py-2">
-                                            <el-skeleton-item
-                                                variant="image"
-                                                style="width: 30vw; height: 20vw;"
-                                            />
+                                            <el-skeleton-item variant="image" style="width: 30vw; height: 20vw;" />
                                         </div>
                                         <div class="col-8 px-0">
-                                        <span class="text-muted">
-                                            <el-skeleton-item variant="text" style="width: 30%;margin-left:30px"/>
-                                             </span>
-                                            <el-skeleton-item  variant="h1" style="width: 40vw; white-space: nowrap;
+                                            <span class="text-muted">
+                                                <el-skeleton-item variant="text" style="width: 30%;margin-left:30px" />
+                                            </span>
+                                            <el-skeleton-item variant="h1" style="width: 40vw; white-space: nowrap;
                                              overflow: hidden !important;
                                             text-overflow: ellipsis;
                                              height:2em;
                                              margin-left: 30px;
-                                               "/>
+                                               " />
 
                                             <div class="d-flex justify-content-between align-items-end">
                                                 <div style="color: #fb236a">
                                                     <small style="color:black;font-size:10px">
-                                                        <el-skeleton-item variant="text"/>
+                                                        <el-skeleton-item variant="text" />
                                                     </small>
                                                 </div>
                                                 <div>
                                                     <small>
-                                                        <el-skeleton-item variant="text" style="width: 30%;"/>
+                                                        <el-skeleton-item variant="text" style="width: 30%;" />
                                                     </small>
                                                 </div>
                                             </div>
@@ -199,7 +194,7 @@
         <template>
             <div class="col-xs-12 col-md-10  mx-auto" style="max-width: 1300px">
                 <div class="row pt-3">
-                    <div class="col-12 d-none d-md-block mx-auto py-3 mb-3" >
+                    <div class="col-12 d-none d-md-block mx-auto py-3 mb-3">
                         <div class="row">
                             <div class="col-3">
                                 <h1 class="font-weight-bold fs-22 my-3" v-if="!changeCityClicked">
@@ -207,96 +202,59 @@
                                     {{ categories.find(q => q.value === selectedCategory)?.label }} iş ilanları
                                     <el-link type="primary" @click="changeCityClicked = true">değiştir</el-link>
                                 </h1>
-                                <el-select
-                                    v-if="changeCityClicked"
-                                    filterable
-                                    v-model="selectedCity"
-                                    placeholder="İl"
-                                    @change="getJobList"
-                                    clearable
-                                >
-                                    <el-option
-                                        v-for="item in cities"
-                                        :key="item.value"
-                                        :label="item?.label"
+                                <el-select v-if="changeCityClicked" filterable v-model="selectedCity" placeholder="İl"
+                                    @change="getJobList" clearable>
+                                    <el-option v-for="item in cities" :key="item.value" :label="item?.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
                             </div>
                             <div class="col-3">
-                                <el-select
-                                    filterable
-                                    v-model="selectedDistricts"
-                                    placeholder="İlçe"
-                                    @change="getJobList"
-                                    clearable
-                                >
-                                    <el-option
-                                        v-for="item in districts"
-                                        :key="item.value"
-                                        :label="item?.label"
+                                <el-select filterable v-model="selectedDistricts" placeholder="İlçe"
+                                    @change="getJobList" clearable>
+                                    <el-option v-for="item in districts" :key="item.value" :label="item?.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
                             </div>
                             <div class="col-3">
-                                <el-select
-                                    filterable
-                                    v-model="selectedCategory"
-                                    placeholder="Uzmanlığı"
-                                    @change="getJobList"
-                                    clearable
-                                >
-                                    <el-option
-                                        v-for="item in categories"
-                                        :key="item.value"
-                                        :label="item?.label"
+                                <el-select filterable v-model="selectedCategory" placeholder="Uzmanlığı"
+                                    @change="getJobList" clearable>
+                                    <el-option v-for="item in categories" :key="item.value" :label="item?.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
                             </div>
                             <div class="col-3">
-                                <el-select
-                                    filterable
-                                    v-model="selectedWorkType"
-                                    placeholder="Çalışma şekli"
-                                    @change="getJobList"
-                                    clearable
-                                >
-                                    <el-option
-                                        v-for="item in workTypes"
-                                        :key="item.value"
-                                        :label="item?.label"
+                                <el-select filterable v-model="selectedWorkType" placeholder="Çalışma şekli"
+                                    @change="getJobList" clearable>
+                                    <el-option v-for="item in workTypes" :key="item.value" :label="item?.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 d-block d-md-none mx-auto mb-3">
+                    <div class="col-12 d-block d-md-none mx-auto mb-3 pop-up-fixed">
                         <div class="row px-4">
-                            <h1 class="col-6 font-weight-bold fs-22 my-1  responsive-header text-left"
-                                style="background-color: transparent;padding:0"
-                            >
+                            <h1 class="col-6 font-weight-bold fs-22 my-1  responsive-header text-left filter-header"
+                                style="background-color: transparent;padding:0">
                                 {{ cities.find(q => q.value === selectedCity).label }}
                                 {{ categories.find(q => q.value === selectedCategory)?.label }} iş ilanları
                             </h1>
-                            <el-link class="col-6 d-block d-md-none text-right" @click="filterDrawer=true" type="primary">
+                            <el-link class="col-6 d-block d-md-none text-right Filtrele" @click="filterDrawer = true"
+                                type="primary">
                                 Filtrele
                             </el-link>
                         </div>
                         <!--Filter-->
                         <div class="row">
                             <div class="col-12 horizontal-scroll">
-                                <el-tag   class="item"
-                                          style="margin-top: 10px;margin-right:5px;overflow: hidden"
-                                          v-for="category in categories"
-                                          :key="category.value"
-                                          @click="selectedCategory=category.value"
-                                          :type="category.type"
-                                          :effect="selectedCategory===category.value ? 'dark' : 'light'"
-                                >
-                                    {{category?.label}}
+                                <el-tag class="item" style="margin-top: 10px;margin-right:5px;overflow: hidden"
+                                    v-for="category in categories" :key="category.value"
+                                    @click="selectedCategory = category.value" :type="category.type"
+                                    :effect="selectedCategory === category.value ? 'dark' : 'light'">
+                                    {{ category?.label }}
                                 </el-tag>
                             </div>
                         </div>
@@ -304,107 +262,74 @@
                     <div class="col-12 px-0">
                         <div class="row mx-auto">
                             <!--Desktop Job List Item col-6-->
-                            <div class="col-sm d-none d-md-block px-0 job-list-container" style="max-width: 100%;overflow-x: hidden;">
-                                <div
-                                    @click="selectedJob = job"
-                                    v-for="(job, index) in jobs"
+                            <div class="col-sm d-none d-md-block px-0 job-list-container"
+                                style="max-width: 100%;overflow-x: hidden;">
+                                <div @click="selectedJob = job" v-for="(job, index) in jobs"
                                     class="bg-white rounded-lg mt-2"
-                                    :class="{ 'active-job': job?.id === selectedJob?.id }"
-                                >
-                                    <JobSingle :job="job"
-                                    />
+                                    :class="{ 'active-job': job?.id === selectedJob?.id }">
+                                    <JobSingle :job="job" />
                                 </div>
                             </div>
                             <!--Mobile Job List Item col-6-->
                             <div class="col-12 d-block d-md-none px-0 job-list-container">
-                                <div
-                                    @click="jobClicked(job)"
-                                    v-for="(job, index) in jobs"
-                                    class="bg-white rounded-lg my-1"
-                                    :class="{ 'active-job': job?.id === selectedJob?.id }"
-                                >
-                                    <JobSingle :job="job"/>
+                                <div @click="jobClicked(job)" v-for="(job, index) in jobs"
+                                    class="bg-white rounded-lg my-1 job-list-card"
+                                    :class="{ 'active-job': job?.id === selectedJob?.id }">
+                                    <JobSingle :job="job" />
                                 </div>
                             </div>
                             <!--JobDetail-->
                             <div class="col-sm d-none d-md-block">
-                                <JobDetail :job="selectedJob" :isloggedin="isloggedin"/>
+                                <JobDetail :job="selectedJob" :isloggedin="isloggedin" />
                             </div>
                         </div>
                     </div>
 
 
-                    <el-drawer
-                        :title="selectedJob?.title"
-                        :direction="'btt'"
-                        size="80%"
-                        :append-to-body="true"
-                        :visible.sync="drawer"
-                    >
-                        <JobDetail @drawerToggle="drawer=false" style="overflow-y: hidden" class="job-drawer-container"
-                                   :job="selectedJob" :isloggedin="isloggedin"/>
+                    <el-drawer :title="selectedJob?.title" :direction="'btt'" size="80%" :append-to-body="true"
+                        :visible.sync="drawer">
+                        <JobDetail @drawerToggle="drawer = false" style="overflow-y: hidden"
+                            class="job-drawer-container" :job="selectedJob" :isloggedin="isloggedin" />
                     </el-drawer>
 
-                    <el-drawer
-                        title="Filtrele"
-                        :direction="'rtl'"
-                        size="80%"
-                        :append-to-body="true"
-                        :visible.sync="filterDrawer"
-                    >
+                    <el-drawer title="Filtrele" :direction="'rtl'" size="80%" :append-to-body="true"
+                        :visible.sync="filterDrawer">
                         <div style="height: 20rem" class="container-fluid p-0">
                             <div class="col my-5">
-                                <el-select v-model="selectedCity" placeholder="İl"
-                                           @change="getJobList" clearable
-                                >
-                                    <el-option
-                                        v-for="item in cities"
-                                        :key="item.value"
-                                        :label="item?.label"
+                                <el-select v-model="selectedCity" placeholder="İl" @change="getJobList" clearable>
+                                    <el-option v-for="item in cities" :key="item.value" :label="item?.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
                             </div>
                             <div class="col my-5">
-                                <el-select v-model="selectedDistricts" placeholder="İlçe"
-                                           @change="getJobList" clearable
-                                >
-                                    <el-option
-                                        v-for="item in districts"
-                                        :key="item.value"
-                                        :label="item?.label"
+                                <el-select v-model="selectedDistricts" placeholder="İlçe" @change="getJobList"
+                                    clearable>
+                                    <el-option v-for="item in districts" :key="item.value" :label="item?.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
                             </div>
                             <div class="col my-5">
-                                <el-select v-model="selectedCategory" placeholder="Uzmanlığı"
-                                           @change="getJobList" clearable
-                                >
-                                    <el-option
-                                        v-for="item in categories"
-                                        :key="item.value"
-                                        :label="item?.label"
+                                <el-select v-model="selectedCategory" placeholder="Uzmanlığı" @change="getJobList"
+                                    clearable>
+                                    <el-option v-for="item in categories" :key="item.value" :label="item?.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
                             </div>
                             <div class="col my-5">
                                 <el-select v-model="selectedWorkType" placeholder="Calisma Sekli" clearable
-                                           @change="getJobList"
-                                >
-                                    <el-option
-                                        v-for="item in workTypes"
-                                        :key="item.value"
-                                        :label="item?.label"
+                                    @change="getJobList">
+                                    <el-option v-for="item in workTypes" :key="item.value" :label="item?.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
                             </div>
 
                             <div class="col-12 ">
-                                <button @click="filterDrawer=false" class="tw-bg-red-500 btn w-full text-white p-2"
-                                        style="font-weight: 600;width:100%">
+                                <button @click="filterDrawer = false" class="tw-bg-red-500 btn w-full text-white p-2"
+                                    style="font-weight: 600;width:100%">
                                     Sonuçları Göster
                                 </button>
                             </div>
@@ -470,17 +395,17 @@ export default {
         },
         fillHomePageData(data) {
             this.cities = data.cities.map((q) => {
-                return {label: q.name, value: q.id};
+                return { label: q.name, value: q.id };
             });
             this.selectedCity = data.selected_city.id
             this.districts = data.selected_city.districts.map((q) => {
-                return {label: q.name, value: q.id};
+                return { label: q.name, value: q.id };
             });
             this.workTypes = data.work_types.map((q) => {
-                return {label: q.name, value: q.id};
+                return { label: q.name, value: q.id };
             });
             this.categories = data.categories.map((q) => {
-                return {label: q.name, value: q.id,};
+                return { label: q.name, value: q.id, };
             })
 
 
@@ -524,19 +449,19 @@ export default {
             axios.get(apiUrl + `city/${this.selectedCity}/district`)
                 .then(resp => {
                     this.districts = resp.data.map((q) => {
-                        return {label: q.name, value: q.id};
+                        return { label: q.name, value: q.id };
                     })
                 })
         },
         selectedCategory() {
-           this.getJobList()
+            this.getJobList()
         }
     }
 };
+
 </script>
 
 <style scoped>
-
 .active-job {
     outline: none !important;
     border-color: #719ece;
@@ -581,9 +506,60 @@ export default {
     border-radius: 10px;
     border: 1px solid #ffffff;
 }
-.horizontal-scroll{
+
+.horizontal-scroll {
     overflow: hidden;
     white-space: nowrap;
 
+}
+
+@media screen and (max-width: 600px) {
+    .horizontal-scroll {
+        overflow: auto !important;
+        white-space: nowrap;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: #f4f5fa !important;
+        border: 0px;
+        border-radius: 0px !important;
+        width: 100% !important;
+    }
+
+    .Filtrele {
+        align-self: center;
+        font-size:12px;
+    }
+.pop-up-fixed{
+    margin-bottom: 0px !important;
+}
+
+.job-list-container{
+    height: auto;
+    padding: 15px !important;
+    overflow: hidden !important;
+    margin-bottom: 10px !important;
+}
+.job-list-card{
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    border-radius: 12px;
+    box-shadow: 1px 6px 6px 3px #0000002f;
+    margin-bottom: 10px !important;
+}
+.active-job {
+    outline: none !important;
+    border:0px !important;
+    box-shadow: 0px important;
+    width: auto !important;
+    height: auto !important;
+}
+.filter-header{
+    font-size: 12px !important;
+}
+.el-image__inner {
+    border-radius:15px !important;
+}
+   
 }
 </style>
