@@ -63,6 +63,10 @@
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
             }
+
+            .h1-title{
+                font-size: 2em!important;
+            }
         }
         .bg-overlay {
             background: linear-gradient(to bottom, rgba(184, 24, 40, 0.88), rgba(23, 23, 22, 0.5)),
@@ -88,17 +92,18 @@
                         <div class="row job-search">
                             <div class="col-md-6 align-self-center padding-t1 ">
                                 <div class="">
-                                    <h3 class="text-white h1">Mükemmel İş</h3>
-                                    <h3 class="text-white h2">Mükemmel Yetenek</h3>
-                                    <span class="tw-font-light l text-white h4">Aradığınız
-                                    güvenilir işi ve işçiyi
-                                    bulmanın en kolay yolu.</span>
+                                    <h1 style="font-size: 3em;font-weight: bolder" class="text-white h2 h1-title">
+                                        Fırıncıların Ortak Platformu
+                                    </h1>
+                                    <span class="tw-font-light l text-white h4">
+                                        İstediğin iş, aradığın eleman burada
+                                    </span>
 
                                 </div>
-                                <div class="d-flex justify-content-between padding-t">
-                                    <h3 class="text-white h7">82.324 <span class="lead">İş ilanı</span></h3>
-                                    <h3 class="text-white px-6 h7">8.54323 <span class="lead">İş Arayan</span></h3>
-                                </div>
+<!--                                <div class="d-flex justify-content-between padding-t">
+                                    <h3 class="text-white h7">5.324 <span class="lead">İş ilanı</span></h3>
+                                    <h3 class="text-white px-6 h7">14.5323 <span class="lead">İş Arayan</span></h3>
+                                </div>-->
                             </div>
                             <div class="col-md"></div>
                             <div class="col-md-4 mx-auto">
@@ -165,7 +170,7 @@
                      src="{{asset('assets/images/bakerworker.png')}}">
                 <div class="tw-space-y-1 tw-text-center  tw-row-span-1 tw-pt-8">
                     <div class="px-3">
-                        <h1 style="font-size: 28px;font-weight:600" class="tw-text-red-600">İş Arayanlar</h1>
+                        <h2 style="font-size: 28px;font-weight:600" class="tw-text-red-600">İş Arayanlar</h2>
 
                         <h3 class="tw-mt-4 text-dark w-75 ml-5"
                             style="font-size: 16px;font-weight:bold; width: 95%;">
@@ -185,7 +190,7 @@
                 <img class="tw-pt-6 tw-row-span-1" width="250" height="250" src="{{asset('assets/images/baker.png')}}">
                 <div class="tw-space-y-1 tw-text-center  tw-row-span-1 tw-pt-8">
                     <div class="px-5">
-                        <h1 style="font-size: 28px;font-weight:600" class="text-primary">Eleman Arayanlar</h1>
+                        <h2 style="font-size: 28px;font-weight:600" class="text-primary">Eleman Arayanlar</h2>
                         <h3 class="tw-mt-4 text-dark w-80 ml-3" style="font-size: 16px;font-weight:bold;">
                             Türkiye'nin her yerinden eleman arayan fırıncılara {{env('APP_NAME')}} ile ulaşın.
                             Sokak sokak iş aramakla zaman kaybetmeyin.
