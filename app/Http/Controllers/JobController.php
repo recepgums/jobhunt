@@ -129,7 +129,7 @@ class JobController extends Controller
         }
 
         if (count($job->getMedia('images')) < 1) {
-            $job->addMediaFromUrl(asset($job->category->default_cover_image))->toMediaCollection('images');
+            $job->addMediaFromUrl($job->category->default_cover_image)->toMediaCollection('images');
         }
 
         return response()->json([

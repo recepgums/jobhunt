@@ -232,14 +232,14 @@
                                         <div class="col-md-6 col-sm-12 color-picker-mobile">
                                             <span>Yayında kalacağı süre</span>
                                             <el-radio-group style="width: 100%;" v-model="theme.selectedDate" >
-                                                <el-radio-button  v-for="item in theme.dateOptions"
+                                                <el-radio-button  v-for="item in dateOptions"
                                                                   :key="item.value"
                                                                  :label="item.label"></el-radio-button>
                                             </el-radio-group>
 
 <!--                                            <el-select v-model="theme.selectedDate" placeholder="Select">
                                                 <el-option
-                                                    v-for="item in theme.dateOptions"
+                                                    v-for="item in dateOptions"
                                                     :key="item.value"
                                                     :label="item.label"
                                                     :value="item.value">
@@ -291,7 +291,7 @@ import JobSingle from "./JobSingle";
 
 const apiUrl = process.env.MIX_API_URL;
 const appSub = process.env.MIX_SUB;
-const appUrl = process.env.BASE_URL;
+const appUrl = process.env.MIX_APP_URL;
 export default {
     props: ['csrf','telefon'],
     components: {
@@ -330,13 +330,12 @@ export default {
                 selectUrgent:false,
                 selectedDate:0,
                 color: '',
-                dateOptions:[
-                    {label:'1 gün',value:0},
-                    {label:'3 gün',value:1},
-                    {label:'7 gün',value:2},
-                ],
-                ticketSelected:false,
             },
+            dateOptions:[
+                {label:'1 gün',value:0},
+                {label:'3 gün',value:1},
+                {label:'7 gün',value:2},
+            ],
             percentage: 0,
             slug: null,
             isJobCreated: false,
@@ -496,7 +495,7 @@ export default {
 
         },
         goBack(){
-            window.location.href = '/' + appSub;
+            window.location.href = appUrl;
         },
         changeColor(color){
           this.theme.color = color

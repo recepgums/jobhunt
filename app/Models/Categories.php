@@ -28,10 +28,7 @@ class Categories extends Model implements HasMedia
     {
         return Attribute::make(
             get:function($value) {
-                return
-                    env('APP_ENV') === 'local' ?
-                        asset($value):
-                        asset($value) . '';
+                return asset($value);
             }
         );
     }
