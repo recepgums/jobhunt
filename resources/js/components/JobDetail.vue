@@ -17,26 +17,26 @@
                     ></el-image>
                 </div>
                 <div class="d-flex justify-content-around">
-                    <div class="job-property icon-details">
+                    <div class="job-property">
                         <i class="la la-clock-o"></i>
                         <p>{{ job?.work_type?.name }}</p>
                     </div>
-                    <div class="job-property icon-details">
+                    <div class="job-property">
                         <i class="la la-mars-double"></i>
                         <p> {{
                             job?.gender?.name ?? "Farketmez"
                         }}</p>
                     </div>
-                    <div class="job-property icon-details">
+                    <div class="job-property">
                         <i class="la la-money"></i>
                         <p>{{
                             job?.fee
                                 ? job?.fee + " TL"
                                 : "Belirtilmemiş"
                         }}</p>
-                        
+
                     </div>
-                    <div class="job-property icon-details">
+                    <div class="job-property">
                         <i class="el-icon-user"></i>
                         <p>{{ job?.category?.name ?? '' }}</p>
                     </div>

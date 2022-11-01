@@ -31,7 +31,7 @@ class Categories extends Model implements HasMedia
                 return
                     env('APP_ENV') === 'local' ?
                         asset($value):
-                        asset($value) . 'ds';
+                        asset($value) . '';
             }
         );
     }

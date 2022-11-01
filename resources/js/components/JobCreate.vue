@@ -48,7 +48,7 @@
                         </div>
                         <tab-content title="Kategori secimi" icon="la la-info" :before-change="categoryValidation">
                             <div class="row">
-                                <div @click="categoryClicked(category)" v-for="category in categories"
+                                <div @click="categoryClicked(category)" v-for="category in categories" :key="category.id"
                                      class="col-5 col-md-4 mx-auto">
                                     <a href="#" class="text-center card row my-2">
                                     <el-card :body-style="{ textAlign:'center' }" shadow="hover">
@@ -216,6 +216,7 @@
                                             <span> Arka plan rengi <del>(20₺)</del> (Ücretsiz)</span>
                                             <br>
                                             <el-tag v-for="item in predefineColors"
+                                                    :key="item.value"
                                                     @click="changeColor(item.value)"
                                                     style="width:33%;cursor:pointer;color:black"
                                                     :style="{'background-color':item.value}">
@@ -232,6 +233,7 @@
                                             <span>Yayında kalacağı süre</span>
                                             <el-radio-group style="width: 100%;" v-model="theme.selectedDate" >
                                                 <el-radio-button  v-for="item in theme.dateOptions"
+                                                                  :key="item.value"
                                                                  :label="item.label"></el-radio-button>
                                             </el-radio-group>
 

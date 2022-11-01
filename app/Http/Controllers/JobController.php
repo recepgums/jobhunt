@@ -129,7 +129,7 @@ class JobController extends Controller
         }
 
         if (count($job->getMedia('images')) < 1) {
-            $job->addMediaFromUrl($job->category->default_cover_image)->toMediaCollection('images');
+            $job->addMediaFromUrl(asset($job->category->default_cover_image))->toMediaCollection('images');
         }
 
         return response()->json([
@@ -297,7 +297,7 @@ class JobController extends Controller
         }
 
         $jobs = $jobFilterService->filter($request);
-        $jobs = $jobs->listable()->orderByDesc('created_at')->paginate(8);
+        $jobs = $jobs->listable()->orderByDesc('created_at')->paginate(6);
 
         return JobResource::collection($jobs);
     }
