@@ -8,11 +8,13 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\LogOptions;
 
-class CategoryUser extends Pivot
+class CategoryUser extends Model
 {
     use HasFactory, LogsActivity;
 
     public $timestamps = false;
+
+    protected $table = 'category_user';
 
     protected $fillable = [
         'category_id',
