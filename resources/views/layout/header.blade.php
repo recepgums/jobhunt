@@ -14,11 +14,11 @@
 
         </div>
         <div class="menu-resaction">
-            <div class="res-openmenu">
-                <img src="{{asset('assets/images/icon.png')}}" alt=""/> Menü
+            <div class="res-openmenu" style="padding-right: 0px">
+                <img src="{{asset('assets/images/icon.png')}}" alt=""/>
             </div>
-            <div class="res-closemenu">
-                <img src="{{asset('assets/images/icon2.png')}}" alt=""/> Kapat
+            <div class="res-closemenu" style="padding-right: 0px">
+                <img src="{{asset('assets/images/icon2.png')}}" alt=""/>
             </div>
         </div>
     </div>

@@ -289,7 +289,7 @@ import JobSingle from "./JobSingle";
 
 const apiUrl = process.env.MIX_API_URL;
 const appSub = process.env.MIX_SUB;
-const appUrl = process.env.MIX_APP_URL;
+const appUrl = process.env.BASE_URL;
 export default {
     props: ['csrf','telefon'],
     components: {
@@ -494,7 +494,7 @@ export default {
 
         },
         goBack(){
-            window.location.href = appUrl;
+            window.location.href = '/' + appSub;
         },
         changeColor(color){
           this.theme.color = color
