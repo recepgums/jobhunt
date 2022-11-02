@@ -176,9 +176,11 @@ class JobController extends Controller
             'selectedDistricts'));
     }
 
-    public function update(Request $request, Job $job)
+    public function update(Request $request, $job)
     {
+        $success = Job::where('id', $job)->update(['theme' => $request->all()]);
 
+        return response()->json($success);
     }
 
     public function destroy(Job $job)
@@ -287,7 +289,7 @@ class JobController extends Controller
         }
 
         $user = $job->user;
-        return response()->json(['phone' => $job->phone, 'email' => $user->email, 'name' => $user->name,'avatar' => strlen($user->getFirstMediaUrl('images')) > 0 ? $user->getFirstMediaUrl('images') : 'https://www.mtsolar.us/wp-content/uploads/2020/04/avatar-placeholder.png']);
+        return response()->json(['phone' => $job->phone, 'email' => $user->email, 'name' => $user->name, 'avatar' => strlen($user->getFirstMediaUrl('images')) > 0 ? $user->getFirstMediaUrl('images') : 'https://www.mtsolar.us/wp-content/uploads/2020/04/avatar-placeholder.png']);
     }
 
     public function indexAjax(Request $request, JobFilterService $jobFilterService, JobHelper $jobHelper)

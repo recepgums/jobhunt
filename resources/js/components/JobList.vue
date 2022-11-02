@@ -236,26 +236,25 @@
                         </div>
                     </div>
                     <div class="col-12 d-block d-md-none mx-auto mb-3 pop-up-fixed">
-                        <div class="row px-4">
-                            <h1 class="col-6 font-weight-bold fs-22 my-1  responsive-header text-left filter-header"
+                        <div class="row px-4" style="background-color: rgba(184, 24, 40, 0.88); padding-bottom: 14px;">
+                            <h1 class="col-12 font-weight-bold responsive-header text-center mt-3"
                                 style="background-color: transparent;padding:0">
                                 {{ cities.find(q => q.value === selectedCity).label }}
                                 {{ categories.find(q => q.value === selectedCategory)?.label }} iş ilanları
                             </h1>
-                            <el-link class="col-6 d-block d-md-none text-right Filtrele" @click="filterDrawer = true"
-                                type="primary">
-                                Filtrele
-                            </el-link>
                         </div>
                         <!--Filter-->
-                        <div class="row">
-                            <div class="col-12 horizontal-scroll">
+                        <div class="row mt-3">
+                            <div class="col-9">
                                 <el-tag class="item" style="margin-top: 10px;margin-right:5px;overflow: hidden"
                                     v-for="category in categories" :key="category.value"
                                     @click="selectedCategory = category.value" :type="category.type"
                                     :effect="selectedCategory === category.value ? 'dark' : 'light'">
                                     {{ category?.label }}
                                 </el-tag>
+                            </div>
+                            <div class="col-3 mt-2">
+                                <el-button type="primary" @click="filterDrawer = true">Filtrele</el-button>
                             </div>
                         </div>
                     </div>
@@ -267,7 +266,7 @@
                                 <div @click="selectedJob = job" v-for="(job, index) in jobs"
                                     class="bg-white rounded-lg mt-2"
                                     :class="{ 'active-job': job?.id === selectedJob?.id }">
-                                    <JobSingle :job="job" />
+                                    <JobSingle :theme='job.theme' :job="job" />
                                 </div>
                             </div>
                             <!--Mobile Job List Item col-6-->
@@ -560,6 +559,6 @@ export default {
 .el-image__inner {
     border-radius:15px !important;
 }
-   
+
 }
 </style>

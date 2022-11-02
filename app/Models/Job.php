@@ -38,6 +38,11 @@ class Job extends Model implements HasMedia,Sitemapable
         'status',
         'view_counter',
         'sleep_after_at',
+        'theme',
+    ];
+
+    protected $casts = [
+        'theme' => 'array'
     ];
 
     public function getRouteKeyName()

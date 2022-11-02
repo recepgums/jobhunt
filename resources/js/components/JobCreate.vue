@@ -370,7 +370,6 @@ export default {
             uploadFiles.forEach(item => {
                 form.append('files[]', item.raw)
             })
-
             form.append('gender_id', this.formInline.gender ?? null)
             form.append('work_type_id', this.formInline.work_type ?? null)
             form.append('city_id', this.formInline.city ?? null)
@@ -423,6 +422,11 @@ export default {
                 return false
             }
             this.fullscreenLoading = true
+            axios({
+                url: '/'+appSub+'/ilan'+ '/' + this.job.id,
+                method: 'put',
+                data: this.theme
+            })
             axios.get(
                 '/'+appSub+'/ilan/' + this.job.slug + '/paket/' + this.formInline.package_id + '/api',
                 {

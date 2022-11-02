@@ -28,6 +28,7 @@ class JobResource extends JsonResource
             'slug' => $this->slug,
             'fee' => $this->fee,
             'phone' => $this->phone,
+            'theme' => $this->theme,
             'level' => $this->level,
             'has_contract' => $this->has_contract,
             'media' => count( $this->getMedia('images')) < 0 ? [$this->category->default_cover_image] :  $this->getMedia('images')->map(function ($media){
