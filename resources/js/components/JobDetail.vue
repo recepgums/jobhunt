@@ -19,26 +19,25 @@
                 <div class="d-flex justify-content-around">
                     <div class="job-property">
                         <i class="la la-clock-o"></i>
-                        <p>{{ job?.work_type?.name }}</p>
+                        {{ job?.work_type?.name }}
                     </div>
                     <div class="job-property">
                         <i class="la la-mars-double"></i>
-                        <p> {{
+                        {{
                             job?.gender?.name ?? "Farketmez"
-                        }}</p>
+                        }}
                     </div>
                     <div class="job-property">
                         <i class="la la-money"></i>
-                        <p>{{
+                        {{
                             job?.fee
                                 ? job?.fee + " TL"
                                 : "Belirtilmemiş"
-                        }}</p>
-
+                        }}
                     </div>
                     <div class="job-property">
                         <i class="el-icon-user"></i>
-                        <p>{{ job?.category?.name ?? '' }}</p>
+                        {{ job?.category?.name ?? '' }}
                     </div>
                 </div>
             </div>
@@ -59,7 +58,7 @@
                         {{ job?.description }}
                     </h2>
                 </div>
-                <div class="mt-2 action-btns" style="bottom:20px;width: 90%">
+                <div class="mt-2" style="position:absolute;bottom:20px;width: 90%">
                     <div class="row">
                         <div class="col-6">
                             <el-button style="width:100%;padding:15px;font-size:16px" @click="seeDetailsClicked" type="primary">

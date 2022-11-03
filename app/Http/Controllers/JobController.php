@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\JobStoreRequest;
+use App\Http\Requests\JobUpdateRequest;
 use App\Http\Resources\JobResource;
 use App\Models\City;
 use App\Models\Job;
@@ -176,11 +177,15 @@ class JobController extends Controller
             'selectedDistricts'));
     }
 
-    public function update(Request $request, $job)
+    public function update(JobUpdateRequest $request,Job $job)
     {
-        $success = Job::where('id', $job)->update(['theme' => $request->all()]);
+        try {
+            $job->update($request->validated());
+        }catch (\Exception $exception){
+            return $this->returnJsonException($exception);
+        }
 
-        return response()->json($success);
+        return $this->returnSuccess('Başarıyla güncellendi');
     }
 
     public function destroy(Job $job)
@@ -237,7 +242,7 @@ class JobController extends Controller
             $job->published_until_at = now()->addDays($job->package->expire_day)->toDateTimeString();
             $job->save();
 
-            return view('jobs.show', ['job' => $job]);
+            return view('jobs.result')->with(['success' => 'İlanınız artık yayında!', 'job' => $job]);
         }
 
         $payment = (new omgIyzicoPayment(auth()->user(), $product))

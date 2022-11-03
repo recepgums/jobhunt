@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Log;
 
-class JobStoreRequest extends FormRequest
+class JobUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +14,8 @@ class JobStoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        Log::info(print_r($this->job,true));
+        return auth()->check() && $this->job->user_id === auth()->id();
     }
 
     /**
@@ -24,20 +26,19 @@ class JobStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'description' => 'required',
-            'phone' => 'required',
+            'title' => 'nullable',
+            'description' => 'nullable',
+            'phone' => 'nullable',
             'sleep_after_at' => 'nullable',
-            'work_type_id' => 'required|exists:work_types,id',
+            'work_type_id' => 'nullable|exists:work_types,id',
             'category_id' => 'nullable|exists:categories,id',
             'city_id' => 'nullable|exists:cities,id',
             'district_id' => 'nullable|exists:districts,id',
-            'package_id' => 'nullable|exists:packages,id',
             'gender_id' => 'nullable|exists:genders,id',
             'fee' => 'nullable|numeric',
             'files' => 'nullable|array',
             'files.*' => 'nullable',//todo image and video max file size 10 mb
+            'theme' => 'nullable'
         ];
     }
-
 }

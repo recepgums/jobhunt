@@ -380,6 +380,7 @@ export default {
             form.append('category_id', this.formInline.category_id)
             form.append('phone', this.formInline.phone)
             form.append('sleep_after_at', this.formInline.sleep_after_at)
+            form.append('package_id', this.formInline.package_id ?? 1)
 
             this.fullscreenLoading = true
             axios.post(
@@ -422,33 +423,22 @@ export default {
                 return false
             }
             this.fullscreenLoading = true
-            axios({
-                url: '/'+appSub+'/ilan'+ '/' + this.job.id,
-                method: 'put',
-                data: this.theme
-            })
-            axios.get(
-                '/'+appSub+'/ilan/' + this.job.slug + '/paket/' + this.formInline.package_id + '/api',
-                {
-                    headers: {
-                        'X-CSRF-TOKEN': this.csrf,
-                    },
-                })
-                .then(resp => {
-                    setTimeout(() => {
-                        window.location.href = window.location.origin + '/'+appSub+'/ilan/' + this.job.slug + '/odeme';
-                    }, 500)
 
-                })
-                .catch(err => {
-                    //todo
-                    this.fullscreenLoading = false
-                    this.$notify({
-                        title: 'Eksik alanları doldurunuz.',
-                        type: 'error',
-                        message: err.response.data.message
-                    });
-                })
+            axios.put('/'+appSub+'/ilan'+ '/' + this.job.slug,{
+                theme:this.theme
+            }).then(resp=>{
+                this.fullscreenLoading = false
+                setTimeout(() => {
+                    window.location.href = window.location.origin + '/'+appSub+'/ilan/' + this.job.slug + '/odeme';
+                }, 500)
+            }).catch(err => {
+                this.fullscreenLoading = false
+                this.$notify({
+                    title: 'Hata',
+                    type: 'error',
+                    message: err.response.data.message
+                });
+            });
         },
         handleProgress(progressEvent) {
             let pers = Math.floor((progressEvent.loaded * 100) / progressEvent.total);
