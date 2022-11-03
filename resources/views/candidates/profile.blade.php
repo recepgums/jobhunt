@@ -17,7 +17,7 @@
                     <div class="col-lg-9">
 
                         @if(session()->has('message'))
-                            <div class="alert alert-success">
+                            <div class="alert alert-success mt-5">
                                 {{ session()->get('message') }}
                             </div>
                         @endif

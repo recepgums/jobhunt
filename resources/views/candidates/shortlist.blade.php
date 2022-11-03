@@ -18,7 +18,7 @@
                     @include('layout.dashboard_menu')
                     <div class="col-lg-9 column">
                         <div class="padding-left">
-                            <div class="manage-jobs-sec ml-3 mt-5">
+                            <div class="manage-jobs-sec ml-3 mt-2">
 
                                 <ul class="nav nav-tabs d-none d-lg-block d-xs-block d-md-block" id="myTab"
                                     role="tablist">
@@ -33,7 +33,7 @@
                                             İlanlarım</a>
                                     </li>
                                 </ul>
-                                <div class="row" style="margin-right: 15px">
+                                <div class="row" style="margin-right: 15px;">
                                     <ul class="nav nav-tabs d-lg-none d-xs-none d-md-none" id="myTab" role="tablist">
                                         <li class="col-4 nav-item">
                                             <a class=" nav-link" id="home-tab" data-toggle="tab" href="#home"

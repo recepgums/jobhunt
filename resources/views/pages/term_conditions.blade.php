@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section>
+    <section class="mt-5">
         <div class="block no-padding  gray">
             <div class="container">
                 <div class="row">

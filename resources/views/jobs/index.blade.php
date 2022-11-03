@@ -33,9 +33,9 @@
 <body>
 <div class="theme-layout" id="scrollup">
     @include('layout.header')
-    <section class="">
+    <section >
         <div class="gray homepage-slider">
-            <div id="app">
+            <div id="app" class="mt-5">
                 <job-list class="job-list" :isLoggedIn="'{{auth()->check()}}'"
                           currentLocation="{{ucfirst(strtolower($selectedCity->name))}}'d{{is_last_letter_bold($selectedCity->name) ? 'a' : 'e'}}ki iş ilanları"></job-list>
             </div>
