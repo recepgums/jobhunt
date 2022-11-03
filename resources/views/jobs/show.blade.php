@@ -78,7 +78,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="mt-5">
         <div class="block">
             <div class="container">
                 <div class="row">

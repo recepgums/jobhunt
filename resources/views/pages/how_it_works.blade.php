@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('content')
-    <section class="overlape">
+    <section class="overlape mt-5">
         <div class="block no-padding">
             <div data-velocity="-.1"
                  style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;"

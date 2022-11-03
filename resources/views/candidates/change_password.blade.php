@@ -16,7 +16,7 @@
                     <div class="col-lg-9 column">
                         <div class="padding-left">
                             <div class="manage-jobs-sec">
-                                <h3>Change Password</h3>
+                                <h3>Şifre değiştir</h3>
                                 <div class="change-password">
 
                                     @if (session('success'))

@@ -22,7 +22,7 @@
 
     <section class="overlape">
         <div class="block remove-top">
-            <div class="container mt-5">
+            <div class="container mt-3">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="cand-single-user">
