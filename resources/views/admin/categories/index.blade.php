@@ -26,7 +26,7 @@
                                             <div class="d-flex x-gap-10 y-gap-10 flex-wrap">
                                                 <div>
                                                     <a class="button -sm py-15 -purple-3 text-purple-1 fw-500"
-                                                       href="{{route('admin.categories.edit',$category->id)}}">Duzenle</a>
+                                                       href="{{route('admin.categories.edit',$category->id)}}">Düzenle</a>
                                                 </div>
                                                 <div>
                                                     <form method="post" action="{{route('admin.categories.destroy',$category)}}">

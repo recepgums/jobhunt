@@ -74,17 +74,17 @@
                                                     </button>
                                                     <div class="dropdown-menu">
                                                         <form method="POST"
-                                                              action="{{route('candidate.job.passive',$job->id)}}">
+                                                              action="{{route('candidate.job.passive',$job)}}">
                                                             @csrf
                                                             @method('put')
                                                             <button class="dropdown-item">
                                                                 Yayından Kaldır
                                                             </button>
                                                         </form>
-                                                        <a class="dropdown-item" href="#">Düzenle</a>
+                                                        <a class="dropdown-item" href="{{route('job.edit',$job)}}">Düzenle</a>
                                                         <div class="dropdown-divider"></div>
                                                         <form method="POST"
-                                                              action="{{route('candidate.job.destroy',$job->id)}}">
+                                                              action="{{route('candidate.job.destroy',$job)}}">
                                                             @csrf
                                                             @method('delete')
                                                             <button onclick="return myFunction()"

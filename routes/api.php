@@ -23,3 +23,4 @@ Route::get('homepageDatas', [Controllers\PublicDataController::class, 'homepageD
 
 Route::get('city/{city}/district', [Controllers\PublicDataController::class, 'district']);
 Route::get('job-v1', [Controllers\JobController::class, 'indexAjax'])->name('job.ajax');
+Route::get('job/{job}', [Controllers\JobController::class, 'showAjax'])->name('job.ajax.show');

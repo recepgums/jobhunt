@@ -72,21 +72,21 @@ class CandidateController extends Controller
     {
         Job::findOrFail($job)->update(['status' => Job::STATUS['published']]);
 
-        return redirect()->back();
+        return redirect()->back()->with(['msg' => 'İlanınız başarıyla aktif edilmiştir']);
     }
 
-    public function passive($job)
+    public function passive(Job $job)
     {
-        Job::findOrFail($job)->update(['status' => Job::STATUS['expired']]);
+        $job->update(['status' => Job::STATUS['expired']]);
 
-        return redirect()->back();
+        return redirect()->back()->with(['msg' => 'İlanınız başarıyla yayından kaldırılmıştır']);
     }
 
-    public function destroy($job)
+    public function destroy(Job $job)
     {
-        Job::findOrfail($job)->delete();
+        $job->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with(['msg' => 'İlanınız başarıyla silindi']);
     }
 
     public function applied_jobs()

@@ -30,10 +30,11 @@
                                         <div class="col-lg-12">
                                             <div class="heading">
                                                 <i class="la la-check-circle" style="font-size: 80px;color:green"></i>
-                                                <h2>İlanınız yayınlanmıştır</h2>
+                                                <h2>İlanınız artık yayında!</h2>
                                                 <span>
-                                                    İlanınız başarıyla alındı. Kontrolden geçtikten sonra yayınlanacaktır.
-                                                    Bu süreç genellikle 30 dakika içerisinde tamamlanır ve size sms yoluyla bildirim gönderilir.
+                                                    İlanınız başarıyla alındı. İş arayanlar, ilan verirken girdiğiniz telefon numarası üzerinden sizinle iletişime geçecektir.
+                                                    Dolandırıcılığa karşı dikkatli olunuz. {{env('APP_URL')}} bu konuda sorumluluk kabul etmez. Konuyla ilgili detayları
+                                                    incelemek için tıklayınız
                                                 </span>
                                             </div><!-- Heading -->
 

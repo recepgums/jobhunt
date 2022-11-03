@@ -21,7 +21,10 @@
 
     <section>
         <div id="app">
-            <job-create csrf="{{ csrf_token() }}" telefon="{{auth()->check() ? auth()->user()->phone : ''}}"></job-create>
+            <job-create
+                csrf="{{ csrf_token() }}"
+                telefon="{{auth()->check() ? auth()->user()->phone : ''}}"
+            ></job-create>
         </div>
         <script src="{{asset('js/app.js')}}"></script>
     </section>

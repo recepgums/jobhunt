@@ -153,6 +153,12 @@ class JobController extends Controller
 
     public function edit(Job $job, JobHelper $jobHelper)
     {
+        if (!auth()->check())
+            return redirect()->route('register-user');
+
+        if ($job->user_id !== auth()->id())
+            return \redirect()->back()->withErrors(['msg' =>'Sizin olmayan ilani güncelleyemezsiniz' ]);
+
         $selectedCity = $this->city;
 
         [
@@ -166,12 +172,13 @@ class JobController extends Controller
         ] = $jobHelper->getJobCreateData($selectedCity);
 
 
-        return view('jobs.edit', compact(
+        return view('jobs.create', compact(
             'workTypes',
             'categories',
             'genders',
             'jobPackages',
             'cities',
+            'job',
             'districts',
             'selectedCity',
             'selectedDistricts'));
@@ -307,5 +314,16 @@ class JobController extends Controller
         $jobs = $jobs->listable()->orderByDesc('created_at')->paginate(6);
 
         return JobResource::collection($jobs);
+    }
+
+    public function showAjax(Request $request, Job $job)
+    {
+        if (!auth()->check() || auth()->id() !== $job->user->id) {
+            if (!Cache::has(\request()->ip() . $job->slug)) {
+                $job->increment('view_counter');
+            }
+        }
+
+        return new JobResource($job->fresh());
     }
 }

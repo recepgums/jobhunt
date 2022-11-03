@@ -48,6 +48,7 @@
                         </div>
                         <tab-content title="Kategori secimi" icon="la la-info" :before-change="categoryValidation">
                             <div class="row">
+
                                 <div @click="categoryClicked(category)" v-for="category in categories" :key="category.id"
                                      class="col-5 col-md-4 mx-auto">
                                     <a href="#" class="text-center card row my-2">
@@ -60,7 +61,7 @@
 
                                         <div style="padding: 14px 0">
                                             <div class="bottom clearfix">
-                                                <h1 class="time font-weight-bold" style="font-size:18px">{{ category.name }}</h1>
+                                                <h1 class="time font-weight-bold" style="font-size:18px"> {{ category.name }}</h1>
                                             </div>
                                         </div>
                                     </el-card>
@@ -337,7 +338,6 @@ export default {
                 {label:'7 gün',value:2},
             ],
             percentage: 0,
-            slug: null,
             isJobCreated: false,
             fileList: [],
             url: '',
@@ -351,14 +351,28 @@ export default {
             genders: [],
             districts: [],
             packages: [],
-            job:null
+            job:null,
+            slug: null,
+
         }
     },
     mounted() {
         this.getDatas()
         axios.get(apiUrl + `job-v1`).then((resp) => {
                 this.job = resp.data.data[0]
-            });
+            })
+        const slugArray = (new URL(window.location.href)).pathname.split('/');
+        let slug = slugArray.length > 3 ? slugArray[3] : null
+
+        if (slug){
+            this.slug = slug
+            axios.get(apiUrl+'job/'+slug).
+                then(resp=>{
+                    //todo muhammet gerekli yerlere yerlestir data kisminda
+
+                console.log(resp)
+            })
+        }
     },
     methods: {
         onSubmit() {
@@ -383,33 +397,38 @@ export default {
             form.append('package_id', this.formInline.package_id ?? 1)
 
             this.fullscreenLoading = true
-            axios.post(
-                '/'+appSub+'/ilan',
-                form,
-                {
-                    headers: {
-                        'X-CSRF-TOKEN': this.csrf,
-                        'content-type': 'multipart/form-data',
-                        'Accept' : 'application/json'
-                    },
-                    onUploadProgress: this.handleProgress
-                })
-                .then(resp => {
-                    this.job = resp.data.job
-                    this.isJobCreated = true;
-                    this.$refs.wizard.nextTab();
-                    this.fullscreenLoading = false
-                    this.formWizardTitle = 'Paket seçimi - İlan özelleştirme'
-                })
-                .catch(err => {
-                    //todo
-                    this.fullscreenLoading = false
-                    this.$notify({
-                        title: 'Eksik alanları doldurunuz.',
-                        type: 'error',
-                        message: err.response.data.message
-                    });
-                })
+
+            if (this.slug){
+                //todo muhammet update istegi buradan atilacak
+            }else{
+                axios.post(
+                    '/'+appSub+'/ilan',
+                    form,
+                    {
+                        headers: {
+                            'X-CSRF-TOKEN': this.csrf,
+                            'content-type': 'multipart/form-data',
+                            'Accept' : 'application/json'
+                        },
+                        onUploadProgress: this.handleProgress
+                    })
+                    .then(resp => {
+                        this.job = resp.data.job
+                        this.isJobCreated = true;
+                        this.$refs.wizard.nextTab();
+                        this.fullscreenLoading = false
+                        this.formWizardTitle = 'Paket seçimi - İlan özelleştirme'
+                    })
+                    .catch(err => {
+                        //todo
+                        this.fullscreenLoading = false
+                        this.$notify({
+                            title: 'Eksik alanları doldurunuz.',
+                            type: 'error',
+                            message: err.response.data.message
+                        });
+                    })
+            }
         },
 
         toPaymentPage() {
