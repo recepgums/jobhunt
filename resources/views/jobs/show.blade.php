@@ -67,14 +67,6 @@
                  style="background: url(https://placehold.jp/1600x800) repeat scroll 50% 422.28px transparent;"
                  class="parallax scrolly-invisible no-parallax">
             </div>
-            <div class="container fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="inner-header"></div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -213,6 +205,35 @@
                                     İletişim Bilgilerini Görüntüle
                                 </span>
                                 <br>
+                                @if(@auth()->id() == $job->user_id && $job->status == \App\Models\Job::STATUS["published"])
+                                    <form method="POST"
+                                          action="{{route('candidate.job.passive',$job)}}">
+                                        @csrf
+                                        @method('put')
+                                        <button class="apply-job-btn mt-5 d-none d-lg-block"
+                                                style="margin-right: 80px; width: 230px;">Yayından Kaldır
+                                        </button>
+                                    </form>
+                                    <a href="{{route('job.edit',$job)}}">
+                                        <button class="apply-job-btn mt-5 d-none d-lg-block"
+                                                style="width: 230px;">Düzenle
+                                        </button>
+                                    </a>
+                                    <a href="{{route('job.edit',$job)}}">
+                                        <button class="apply-job-btn mt-5 d-lg-none"
+                                                style="width: 230px;">Düzenle
+                                        </button>
+                                    </a>
+                                    <form method="POST"
+                                          action="{{route('candidate.job.passive',$job)}}">
+                                        @csrf
+                                        @method('put')
+                                        <button class="apply-job-btn mt-5 d-lg-none"
+                                                style="margin-right: 60px; width: 230px;">Yayından Kaldır
+                                        </button>
+                                    </form>
+                                    <br>
+                                @endif
                             @endauth
 
                             @guest
