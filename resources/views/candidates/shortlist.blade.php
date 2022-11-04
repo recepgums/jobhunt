@@ -56,15 +56,18 @@
                                     <div class="tab-pane fade show active" id="home" role="tabpanel"
                                          aria-labelledby="home-tab">    @forelse($jobs as $job)
                                             <div class="job-listing wtabs  d-none d-lg-block d-xs-block d-md-block">
+                                                <a href="{{route('job.show',$job->slug)}}">
                                                 <div class="job-title-sec">
+
                                                     <div class="c-logo">
                                                         <img src="{{$job->cover_image}}" alt="{{$job->title}}"/>
                                                     </div>
-                                                    <h3 class="pl-3"><a href="#" title="">{{$job->title}}</a></h3>
+                                                    <h3 class="pl-3">{{$job->title}}</h3>
                                                     <span class="pl-3">{{$job->category->name}}</span>
                                                     <div
                                                         class="job-lctn pl-3">{{$job->created_at->diffForHumans()}}</div>
                                                 </div>
+                                                </a>
                                                 <div class="btn-group">
                                                     <button type="button"
                                                             class="btn btn-primary dropdown-toggle bg-primary"
@@ -99,20 +102,24 @@
                                                 <div class="job-title-sec">
                                                     <div class="row">
                                                         <div class="col-3 px-0">
+                                                            <a href="{{route('job.show',$job->slug)}}">
                                                             <img src="{{$job->cover_image}}" alt="{{$job->title}}"/>
+                                                           </a>
                                                         </div>
+
                                                         <div class="col-6 text-left pl-1"
                                                              style="
                                                                     overflow: hidden;
                                                                     white-space: nowrap;
                                                                     text-overflow: ellipsis;"
                                                         >
-                                                            <h3><a href="#" title=""
-                                                                   style="font-size: 16px;font-weight: bold"
-                                                                 >{{$job->title}}</a>
+                                                            <a href="{{route('job.show',$job->slug)}}">
+                                                            <h3 style="font-size: 16px;font-weight: bold">
+                                                                 {{$job->title}}
                                                             </h3>
                                                             <div
                                                                 class="job-lctn">{{$job->created_at->diffForHumans()}}</div>
+                                                            </a>
                                                         </div>
                                                         <div class="col-2 px-0">
                                                             <div class="btn-group">
@@ -123,14 +130,14 @@
                                                                 </button>
                                                                 <div class="dropdown-menu">
                                                                     <form method="POST"
-                                                                          action="{{route('candidate.job.passive',$job->id)}}">
+                                                                          action="{{route('candidate.job.passive',$job)}}">
                                                                         @csrf
                                                                         @method('put')
                                                                         <button class="dropdown-item">
                                                                             Yayından Kaldır
                                                                         </button>
                                                                     </form>
-                                                                    <a class="dropdown-item" href="#">Düzenle</a>
+                                                                    <a class="dropdown-item" href="{{route('job.edit',$job)}}">Düzenle</a>
                                                                     <div class="dropdown-divider"></div>
                                                                     <form method="POST"
                                                                           action="{{route('candidate.job.destroy',$job->id)}}">
@@ -146,8 +153,6 @@
 
                                                         </div>
                                                     </div>
-
-
                                                 </div>
                                             </div>
 
@@ -166,14 +171,16 @@
                                          aria-labelledby="profile-tab">@forelse($endPubJobs as $endPubJob)
                                             <div class="job-listing wtabs d-none d-lg-block d-xs-block d-md-block">
                                                 <div class="job-title-sec">
+                                                    <a href="{{route('job.show',$endPubJob->slug)}}">
                                                     <div class="c-logo">
                                                         <img src="{{$endPubJob->cover_image}}"
                                                              alt="{{$endPubJob->title}}"/>
                                                     </div>
-                                                    <h3 class="pl-3"><a href="#" title="">{{$endPubJob->title}}</a></h3>
+                                                    <h3 class="pl-3">{{$endPubJob->title}}</h3>
                                                     <span class="pl-3">{{$endPubJob->category->name}}</span>
                                                     <div
                                                         class="job-lctn pl-3">{{$endPubJob->created_at->diffForHumans()}}</div>
+                                                    </a>
                                                 </div>
                                                 <div class="btn-group">
                                                     <button type="button"
@@ -184,17 +191,17 @@
                                                     </button>
                                                     <div class="dropdown-menu">
                                                         <form method="POST"
-                                                              action="{{route('candidate.job.active',$endPubJob->id)}}">
+                                                              action="{{route('candidate.job.active',$endPubJob)}}">
                                                             @csrf
                                                             @method('put')
                                                             <button class="dropdown-item">
                                                                 Tekrar Yayınla
                                                             </button>
                                                         </form>
-                                                        <a class="dropdown-item" href="#">Düzenle</a>
+                                                        <a class="dropdown-item" href="{{route('job.edit',$job)}}">Düzenle</a>
                                                         <div class="dropdown-divider"></div>
                                                         <form method="POST"
-                                                              action="{{route('candidate.job.destroy',$endPubJob->id)}}">
+                                                              action="{{route('candidate.job.destroy',$endPubJob)}}">
                                                             @csrf
                                                             @method('delete')
                                                             <button onclick="return myFunction()"
@@ -209,18 +216,21 @@
                                                 <div class="job-title-sec">
                                                     <div class="row">
                                                         <div class="col-3 px-0">
+                                                            <a href="{{route('job.show',$endPubJob->slug)}}">
                                                             <img src="{{$endPubJob->cover_image}}"
                                                                  alt="{{$endPubJob->title}}"/>
+                                                            </a>
                                                         </div>
                                                         <div class="col-6 text-left pl-1" style="
                                                                     overflow: hidden;
                                                                     white-space: nowrap;
                                                                     text-overflow: ellipsis;">
-                                                            <h3><a href="#" title=""
-                                                                   style="font-size: 16px;font-weight: bold;">{{$endPubJob->title}}</a>
-                                                            </h3>
-                                                            <div
-                                                                class="job-lctn">{{$endPubJob->created_at->diffForHumans()}}</div>
+                                                            <a href="{{route('job.show',$endPubJob->slug)}}">
+                                                                <h3 style="font-size: 16px;font-weight: bold;">{{$endPubJob->title}}
+                                                                </h3>
+                                                                <div
+                                                                    class="job-lctn">{{$endPubJob->created_at->diffForHumans()}}</div>
+                                                            </a>
                                                         </div>
                                                         <div class="col-2 px-0">
                                                             <div class="btn-group">
@@ -231,17 +241,17 @@
                                                                 </button>
                                                                 <div class="dropdown-menu">
                                                                     <form method="POST"
-                                                                          action="{{route('candidate.job.active',$endPubJob->id)}}">
+                                                                          action="{{route('candidate.job.active',$endPubJob)}}">
                                                                         @csrf
                                                                         @method('put')
                                                                         <button class="dropdown-item">
                                                                             Tekrar Yayınla
                                                                         </button>
                                                                     </form>
-                                                                    <a class="dropdown-item" href="#">Düzenle</a>
+                                                                    <a class="dropdown-item" href="{{route('job.edit',$job)}}">Düzenle</a>
                                                                     <div class="dropdown-divider"></div>
                                                                     <form method="POST"
-                                                                          action="{{route('candidate.job.destroy',$endPubJob->id)}}">
+                                                                          action="{{route('candidate.job.destroy',$endPubJob)}}">
                                                                         @csrf
                                                                         @method('delete')
                                                                         <button onclick="return myFunction()"

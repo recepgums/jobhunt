@@ -68,9 +68,9 @@ class CandidateController extends Controller
         return view('candidates.shortlist', compact('jobs','endPubJobs'));
     }
 
-    public function active($job)
+    public function active(Job $job)
     {
-        Job::findOrFail($job)->update(['status' => Job::STATUS['published']]);
+        $job->update(['status' => Job::STATUS['published']]);
 
         return redirect()->back()->with(['msg' => 'İlanınız başarıyla aktif edilmiştir']);
     }

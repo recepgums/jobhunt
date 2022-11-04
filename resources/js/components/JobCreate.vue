@@ -52,19 +52,51 @@
                                 <div @click="categoryClicked(category)" v-for="category in categories" :key="category.id"
                                      class="col-5 col-md-4 mx-auto">
                                     <a href="#" class="text-center card row my-2">
-                                    <el-card :body-style="{ textAlign:'center' }" shadow="hover">
+                                        <div v-if="category.id == formInline.parent_id">
+                                            <el-card :body-style="{ textAlign:'center', backgroundColor:'rgba(184, 24, 40, 0.88)' }" shadow="hover">
 
-                                        <img style="object-fit: cover;height: 150px;width:200px;margin: auto"
-                                             class="text-right "
-                                             :src="category.default_cover_image"
-                                             :alt="category.name">
+                                                <img style="object-fit: cover;height: 150px;width:200px;margin: auto"
+                                                     class="text-right "
+                                                     :src="category.default_cover_image"
+                                                     :alt="category.name">
 
-                                        <div style="padding: 14px 0">
-                                            <div class="bottom clearfix">
-                                                <h1 class="time font-weight-bold" style="font-size:18px"> {{ category.name }}</h1>
-                                            </div>
+                                                <div style="padding: 14px 0">
+                                                    <div class="bottom clearfix">
+                                                        <h1 class="time font-weight-bold" style="font-size:18px"> {{ category.name }}</h1>
+                                                    </div>
+                                                </div>
+                                            </el-card>
                                         </div>
-                                    </el-card>
+                                        <div v-else-if="category.id == formInline.category_id">
+                                            <el-card :body-style="{ textAlign:'center', backgroundColor:'rgba(184, 24, 40, 0.88)' }" shadow="hover">
+
+                                                <img style="object-fit: cover;height: 150px;width:200px;margin: auto"
+                                                     class="text-right "
+                                                     :src="category.default_cover_image"
+                                                     :alt="category.name">
+
+                                                <div style="padding: 14px 0">
+                                                    <div class="bottom clearfix">
+                                                        <h1 class="time font-weight-bold" style="font-size:18px"> {{ category.name }}</h1>
+                                                    </div>
+                                                </div>
+                                            </el-card>
+                                        </div>
+                                        <div v-else>
+                                            <el-card :body-style="{ textAlign:'center' }" shadow="hover">
+
+                                                <img style="object-fit: cover;height: 150px;width:200px;margin: auto"
+                                                     class="text-right "
+                                                     :src="category.default_cover_image"
+                                                     :alt="category.name">
+
+                                                <div style="padding: 14px 0">
+                                                    <div class="bottom clearfix">
+                                                        <h1 class="time font-weight-bold" style="font-size:18px"> {{ category.name }}</h1>
+                                                    </div>
+                                                </div>
+                                            </el-card>
+                                        </div>
                                     </a>
                                 </div>
                             </div>
@@ -317,6 +349,7 @@ export default {
             formInline: {
                 title: null,
                 category_id: null,
+                parent_id:null,
                 description: null,
                 work_type: null,
                 city: null,
@@ -362,15 +395,23 @@ export default {
                 this.job = resp.data.data[0]
             })
         const slugArray = (new URL(window.location.href)).pathname.split('/');
-        let slug = slugArray.length > 3 ? slugArray[3] : null
-
+        let slug = slugArray.length > 3 ? slugArray[3]   : null
         if (slug){
             this.slug = slug
             axios.get(apiUrl+'job/'+slug).
                 then(resp=>{
-                    //todo muhammet gerekli yerlere yerlestir data kisminda
-
-                console.log(resp)
+                this.formInline.title = resp.data.data.title
+                this.formInline.description = resp.data.data.description
+                this.formInline.work_type = resp.data.data.work_type.type
+                this.formInline.category_id = resp.data.data.category.id
+                this.formInline.parent_id = resp.data.data.category.parent_id
+                this.formInline.city = resp.data.data.city
+                this.formInline.district = resp.data.data.district
+                this.formInline.fee = resp.data.data.fee
+                this.formInline.gender = resp.data.data.gender.type
+                this.formInline.phone = resp.data.data.phone
+                this.formInline.sleep_after_at = resp.data.data.sleep_after_at
+                console.log(resp.data.data)
             })
         }
     },
@@ -399,7 +440,33 @@ export default {
             this.fullscreenLoading = true
 
             if (this.slug){
-                //todo muhammet update istegi buradan atilacak
+                axios.put(
+                    '/'+appSub+'/ilan' + '/' + this.slug,
+                    form,
+                    {
+                        headers: {
+                            'X-CSRF-TOKEN': this.csrf,
+                            'content-type': 'multipart/form-data',
+                            'Accept' : 'application/json'
+                        },
+                        onUploadProgress: this.handleProgress
+                    })
+                    .then(resp => {
+                        this.job = resp.data.job
+                        this.isJobCreated = true;
+                        this.$refs.wizard.nextTab();
+                        this.fullscreenLoading = false
+                        this.formWizardTitle = 'Paket seçimi - İlan özelleştirme'
+                    })
+                    .catch(err => {
+                        //todo
+                        this.fullscreenLoading = false
+                        this.$notify({
+                            title: 'Eksik alanları doldurunuz.',
+                            type: 'error',
+                            message: err.response.data.message
+                        });
+                    })
             }else{
                 axios.post(
                     '/'+appSub+'/ilan',
@@ -429,6 +496,8 @@ export default {
                         });
                     })
             }
+
+
         },
 
         toPaymentPage() {
