@@ -192,7 +192,11 @@ class JobController extends Controller
             return $this->returnJsonException($exception);
         }
 
-        return $this->returnSuccess('Başarıyla güncellendi');
+        return response()->json([
+            'message' => 'İş ilanı kaydedildi. Ödeme bekleniyor',
+            'job' => new JobResource($job),
+            'url' => route('job.pricing', $job)
+        ]);
     }
 
     public function destroy(Job $job)

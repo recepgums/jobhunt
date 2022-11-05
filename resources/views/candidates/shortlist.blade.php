@@ -19,7 +19,6 @@
                     <div class="col-lg-9 column">
                         <div class="padding-left">
                             <div class="manage-jobs-sec ml-3 mt-2">
-
                                 <ul class="nav nav-tabs d-none d-lg-block d-xs-block d-md-block" id="myTab"
                                     role="tablist">
                                     <li class="nav-item">
@@ -54,11 +53,12 @@
 
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel"
-                                         aria-labelledby="home-tab">    @forelse($jobs as $job)
+                                         aria-labelledby="home-tab">
+
+                                        @forelse($jobs as $job)
                                             <div class="job-listing wtabs  d-none d-lg-block d-xs-block d-md-block">
                                                 <a href="{{route('job.show',$job->slug)}}">
                                                 <div class="job-title-sec">
-
                                                     <div class="c-logo">
                                                         <img src="{{$job->cover_image}}" alt="{{$job->title}}"/>
                                                     </div>
@@ -155,7 +155,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                         @empty
                                             <div class="mx-auto text-center">
                                                 <p class="text-center mx-auto">
@@ -167,8 +166,10 @@
                                                 </p>
                                             </div>
                                         @endforelse</div>
+
                                     <div class="tab-pane fade" id="profile" role="tabpanel"
-                                         aria-labelledby="profile-tab">@forelse($endPubJobs as $endPubJob)
+                                         aria-labelledby="profile-tab">
+                                        @forelse($endPubJobs as $endPubJob)
                                             <div class="job-listing wtabs d-none d-lg-block d-xs-block d-md-block">
                                                 <div class="job-title-sec">
                                                     <a href="{{route('job.show',$endPubJob->slug)}}">
@@ -198,7 +199,7 @@
                                                                 Tekrar Yayınla
                                                             </button>
                                                         </form>
-                                                        <a class="dropdown-item" href="{{route('job.edit',$job)}}">Düzenle</a>
+                                                        <a class="dropdown-item" href="{{route('job.edit',$endPubJob)}}">Düzenle</a>
                                                         <div class="dropdown-divider"></div>
                                                         <form method="POST"
                                                               action="{{route('candidate.job.destroy',$endPubJob)}}">
@@ -248,7 +249,7 @@
                                                                             Tekrar Yayınla
                                                                         </button>
                                                                     </form>
-                                                                    <a class="dropdown-item" href="{{route('job.edit',$job)}}">Düzenle</a>
+                                                                    <a class="dropdown-item" href="{{route('job.edit',$endPubJob)}}">Düzenle</a>
                                                                     <div class="dropdown-divider"></div>
                                                                     <form method="POST"
                                                                           action="{{route('candidate.job.destroy',$endPubJob)}}">
@@ -271,9 +272,9 @@
                                             <p class="text-center mx-auto">
                                                 Bu Sayfada süresi geçmiş ilanınız bulunmamakta.
                                             </p>
-                                        @endforelse</div>
+                                        @endforelse
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
