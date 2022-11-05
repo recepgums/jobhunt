@@ -13,9 +13,6 @@
                         /{{appSub}}
                     </a>
                 </div>
-                <div>
-                    c
-                </div>
             </div>
         </div>
         <div class="row no-gape" v-loading="fullscreenLoading"  element-loading-text="Yükleniyor...">
@@ -46,7 +43,7 @@
                         <div slot="prev" class="col-lg-12 py-3">
                             <el-button v-if="!$refs?.wizard?.isLastStep" size="medium" style="margin-top: 12px;font-size: 18px;" type="danger" plain>Geri</el-button>
                         </div>
-                        <tab-content title="Kategori secimi" icon="la la-info" :before-change="categoryValidation">
+                        <tab-content title="Kategori secimi(*)" icon="la la-info" :before-change="categoryValidation">
                             <div class="row">
 
                                 <div @click="categoryClicked(category)" v-for="category in categories" :key="category.id"
@@ -127,7 +124,7 @@
                             </div>
 
                             <div class="col-lg-12 py-3 px-0">
-                                <span class="rg-title">İlan Başlığı </span>
+                                <span class="rg-title">İlan Başlığı(*) </span>
                                 <div class="pf-field">
                                     <el-input placeholder="Başlık" v-model="formInline.title" minlength="10"
                                               size="medium"
@@ -139,7 +136,7 @@
                             </div>
 
                             <div class="col-lg-12 py-3 px-0">
-                                <span class="rg-title">İş tanımı</span>
+                                <span class="rg-title">İş tanımı(*)</span>
                                 <div class="pf-field">
                                     <el-input
                                         type="textarea"
@@ -156,7 +153,7 @@
                         <tab-content :before-change="onSubmit" title="Paket Seçimi ve Ödeme" icon="la la-cc-mastercard">
                             <div class="row">
                                 <div class="col-6 py-3">
-                                    <span class="rg-title">Şehir</span>
+                                    <span class="rg-title">Şehir(*)</span>
                                     <div class="pf-field">
                                         <el-select
                                             filterable
@@ -175,7 +172,7 @@
                                 </div>
                                 <div class="col-6 py-3">
                                     <div class="pf-field">
-                                        <span class="rg-title">İlçe</span>
+                                        <span class="rg-title">İlçe(*)</span>
                                         <el-select v-model="formInline.district" placeholder="Select">
                                             <el-option
                                                 v-for="item in districts"
@@ -187,7 +184,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 py-3">
-                                    <span class="rg-title">Telefon numaranız</span>
+                                    <span class="rg-title">Telefon numaranız(*)</span>
                                     <div class="pf-field">
                                         <VuePhoneNumberInput
                                             ref="vuePhoneTel"
@@ -216,20 +213,20 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 py-3">
-                                    <span class="rg-title">Aradığınız personelin cinsiyeti</span>
+                                    <span class="rg-title">Aradığınız personelin cinsiyeti(*)</span>
                                     <div class="pf-field radio-buttons">
                                         <el-radio  v-for="item in genders" :key="item.value" v-model="formInline.gender" :label="item.value" border>{{item.label}}</el-radio>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 py-3">
-                                    <span class="rg-title">Çalışma türü</span>
+                                    <span class="rg-title">Çalışma türü(*)</span>
                                     <div class="pf-field radio-buttons">
                                         <el-radio v-for="item in work_types" :key="item.value" v-model="formInline.work_type" :label="item.value" border>{{item.label}}</el-radio>
                                     </div>
                                 </div>
                             </div>
                         </tab-content>
-                        <tab-content title="Paket Seçimi ve Ödeme2" icon="la la-cc-mastercard">
+                        <tab-content title="Paket Seçimi ve Ödeme" icon="la la-cc-mastercard">
                             <div class="plans-sec">
                                 <div v-if="job">
                                    <div class="card-body shadow-lg  mb-4 bg-white rounded" style="padding:0">
@@ -245,7 +242,7 @@
                                     </div>
                                     <el-divider></el-divider>
                                     <div class="row text-center mb-3">
-                                        <div class="col-md-4 col-sm-12 my-2">
+                                        <div class="col-md-6 col-sm-12 my-2">
                                             <span> Arka plan rengi <del>(20₺)</del> (Ücretsiz)</span>
                                             <br>
                                             <el-tag v-for="item in predefineColors"
@@ -262,7 +259,7 @@
                                                              :predefine="predefineColors"
                                             ></el-color-picker>-->
                                         </div>
-                                        <div class="col-md-6 col-sm-12 color-picker-mobile">
+<!--                                        <div class="col-md-6 col-sm-12 color-picker-mobile">
                                             <span>Yayında kalacağı süre</span>
                                             <el-radio-group style="width: 100%;" v-model="theme.selectedDate" >
                                                 <el-radio-button  v-for="item in dateOptions"
@@ -270,7 +267,7 @@
                                                                  :label="item.label"></el-radio-button>
                                             </el-radio-group>
 
-<!--                                            <el-select v-model="theme.selectedDate" placeholder="Select">
+&lt;!&ndash;                                            <el-select v-model="theme.selectedDate" placeholder="Select">
                                                 <el-option
                                                     v-for="item in dateOptions"
                                                     :key="item.value"
@@ -280,9 +277,9 @@
                                                     <del style="float: left">{{ item.label }}</del>
                                                     <span style="float: right;">Ücretsiz</span>
                                                 </el-option>
-                                            </el-select>-->
-                                        </div>
-                                        <div class="col-md-2 col-sm-12">
+                                            </el-select>&ndash;&gt;
+                                        </div>-->
+                                        <div class="col-md-6 col-sm-12">
                                             <span>Benim işim acil <del>(500₺)</del> (Ücretsiz)</span>
                                             <br>
                                             <el-switch
@@ -296,7 +293,7 @@
                                         class="mt-1"
                                         :closable="false"
                                         type="success">
-                                        <div slot="title" class="col-lg-12 py-3 text-black">
+                                        <div slot="title" class="col-lg-12 text-black">
                                             isbull.com'un açılış kampanyası boyunca  01 Şubat 2023 tarihine kadar yapacağınız her türlü ilan ve ilan özelliği tamamen ücretsiz!.
                                             <br><br>
                                             Merak etmeyin, isbull.com 'da her zaman ücretsiz ilan verme seçeneklerimiz olacak. :)
@@ -391,27 +388,27 @@ export default {
     },
     mounted() {
         this.getDatas()
-        axios.get(apiUrl + `job-v1`).then((resp) => {
-                this.job = resp.data.data[0]
-            })
         const slugArray = (new URL(window.location.href)).pathname.split('/');
-        let slug = slugArray.length > 3 ? slugArray[3]   : null
+        let slug = slugArray.length > 4 ? slugArray[3]   : null
         if (slug){
             this.slug = slug
-            axios.get(apiUrl+'job/'+slug).
-                then(resp=>{
-                this.formInline.title = resp.data.data.title
-                this.formInline.description = resp.data.data.description
-                this.formInline.work_type = resp.data.data.work_type.type
-                this.formInline.category_id = resp.data.data.category.id
-                this.formInline.parent_id = resp.data.data.category.parent_id
-                this.formInline.city = resp.data.data.city
-                this.formInline.district = resp.data.data.district
-                this.formInline.fee = resp.data.data.fee
-                this.formInline.gender = resp.data.data.gender.type
-                this.formInline.phone = resp.data.data.phone
-                this.formInline.sleep_after_at = resp.data.data.sleep_after_at
-                console.log(resp.data.data)
+            axios.get(apiUrl+'job/'+slug)
+                .then(resp=>{
+                    this.formInline.title = resp.data.data.title
+                    this.formInline.description = resp.data.data.description
+                    this.formInline.work_type = resp.data.data.work_type.id
+                    this.formInline.category_id = resp.data.data.category.id
+                    this.formInline.parent_id = resp.data.data.category.parent_id
+                    this.formInline.city = resp.data.data.city.id
+                    this.formInline.district = resp.data.data.district.id
+                    this.formInline.fee = resp.data.data.fee
+                    this.formInline.gender = resp.data.data.gender.id
+                    this.formInline.phone = resp.data.data.phone
+                    this.theme = resp.data.data.theme
+                    resp.data.data.media.map(q=>{
+                        this.fileList.push({name: q, url: q})
+                    })
+                    this.formInline.sleep_after_at = resp.data.data.sleep_after_at
             })
         }
     },
@@ -420,6 +417,7 @@ export default {
             if (this.isJobCreated) {
                 return true
             }
+
             let {uploadFiles} = this.$refs.upload
             let form = new FormData()
             uploadFiles.forEach(item => {
@@ -440,8 +438,7 @@ export default {
             this.fullscreenLoading = true
 
             if (this.slug){
-                axios.put(
-                    '/'+appSub+'/ilan' + '/' + this.slug,
+                axios.post('/'+appSub+'/ilan' + '/' + this.slug,
                     form,
                     {
                         headers: {
@@ -450,16 +447,15 @@ export default {
                             'Accept' : 'application/json'
                         },
                         onUploadProgress: this.handleProgress
-                    })
-                    .then(resp => {
+                    }).then(resp => {
                         this.job = resp.data.job
                         this.isJobCreated = true;
                         this.$refs.wizard.nextTab();
                         this.fullscreenLoading = false
                         this.formWizardTitle = 'Paket seçimi - İlan özelleştirme'
-                    })
-                    .catch(err => {
+                    }).catch(err => {
                         //todo
+                        console.log(err)
                         this.fullscreenLoading = false
                         this.$notify({
                             title: 'Eksik alanları doldurunuz.',
@@ -496,8 +492,6 @@ export default {
                         });
                     })
             }
-
-
         },
 
         toPaymentPage() {
@@ -626,7 +620,6 @@ export default {
             this.formWizardTitle = 'İletişim ve haklar'
             return true
         },
-
     }
 }
 </script>

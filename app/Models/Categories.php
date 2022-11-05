@@ -28,7 +28,7 @@ class Categories extends Model implements HasMedia
     {
         return Attribute::make(
             get:function($value) {
-                return asset($value);
+                return $value;
             }
         );
     }

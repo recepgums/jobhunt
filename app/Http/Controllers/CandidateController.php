@@ -60,10 +60,8 @@ class CandidateController extends Controller
 
     public function shortlist()
     {
-
-        $jobs = Job::orderBy('id','desc')->listable()->where('user_id', auth()->id())->where('status',Job::STATUS['published'])->get();
-
-        $endPubJobs = Job::orderBy('id','desc')->where('user_id', auth()->id())->where('status',Job::STATUS['expired'])->get();
+        $jobs = Job::listable()->where('user_id', auth()->id())->orderByDesc('created_at')->get();
+        $endPubJobs = Job::unListable()->where('user_id', auth()->id())->get();
 
         return view('candidates.shortlist', compact('jobs','endPubJobs'));
     }

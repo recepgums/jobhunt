@@ -25,7 +25,7 @@
                 :fit="'fill'"
             ></el-image>
         </div>
-        <div class="col-8 pb-0 pt-2 p3-mobile px-0">
+        <div class="col-8 pb-0 pt-2 p3-mobile px-1">
               <span class="text-muted">
                 {{ job?.category?.name }}
             </span>

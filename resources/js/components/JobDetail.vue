@@ -1,6 +1,6 @@
 <template>
     <div v-if="job" style="border-radius:20px;overflow-x: hidden;height:100%">
-        <div :style="{'background-color':job?.theme?.color ?? 'white'}" style="border-radius:20px;overflow-x: hidden;height:100%">
+        <div class="bg-white" style="border-radius:20px;overflow-x: hidden;height:100%">
             <div class="bant ">
                 <div></div>
             </div>
@@ -32,26 +32,26 @@
                         :fit="'fill'"
                     ></el-image>
                 </div>
-                <div class="d-flex justify-content-around">
-                    <div class="job-property">
+                <div class="d-flex justify-content-between">
+                    <div class="job-property p-2">
                         <i class="la la-clock-o"></i>
                         {{ job?.work_type?.name }}
                     </div>
-                    <div class="job-property">
+                    <div class="job-property p-2">
                         <i class="la la-mars-double"></i>
                         {{
                             job?.gender?.name ?? "Farketmez"
                         }}
                     </div>
-                    <div class="job-property">
+                    <div class="job-property p-2">
                         <i class="la la-money"></i>
                         {{
                             job?.fee
-                                ? job?.fee + " TL"
+                                ? job?.fee + "₺"
                                 : "Belirtilmemiş"
                         }}
                     </div>
-                    <div class="job-property">
+                    <div class="job-property p-2">
                         <i class="el-icon-user"></i>
                         {{ job?.category?.name ?? '' }}
                     </div>
@@ -170,13 +170,21 @@ export default {
 <style>
 .job-property {
     text-align: left;
-    color: rgb(95, 101, 158)
+    color: rgb(95, 101, 158);
+    font-size: 16px;
 }
 
 @media only screen and (max-width: 600px) {
     .el-drawer.btt {
         border-top-left-radius: 25px;
         border-top-right-radius: 25px;
+    }
+
+
+    .job-property {
+        text-align: left;
+        color: rgb(95, 101, 158);
+        font-size: 13px;
     }
 
     .el-drawer__body {

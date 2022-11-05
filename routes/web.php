@@ -49,6 +49,7 @@ Route::get('user/{user:username}', [Controllers\UserController::class, 'show'])-
 
 Route::get('user/verify', [Controllers\UserVerifyController::class, 'verify'])->name('verify');
 
+Route::post('ilan/{job}', [Controllers\JobController::class,'update'])->name('job.update');
 Route::resource('ilan', Controllers\JobController::class,['names' => 'job','parameters' => ['ilan'=>'job']]);
 //Route::resource('employer', Controllers\EmployerController::class);
 Route::resource('blog', Controllers\BlogController::class);

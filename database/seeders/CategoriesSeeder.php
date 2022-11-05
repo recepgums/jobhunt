@@ -16,101 +16,103 @@ class CategoriesSeeder extends Seeder
      */
     public function run()
     {
-       $pisirici =  Categories::create([
+        $baseUrl = env('APP_ENV') == 'local' ? env('BASE_URL')."/" : env('APP_URL')."/";
+
+        $pisirici = Categories::create([
             'name' => 'Pişirici',
             'parent_id' => null,
             'model' => Job::class,
-            'default_cover_image' => env('APP_URL').'images/category/1.webp'
+            'default_cover_image' => $baseUrl . 'images/category/1.webp'
         ]);
         Categories::create([
             'name' => 'Odunlu Karafırın Pişiricisi',
             'parent_id' => $pisirici->id,
             'model' => Job::class,
-            'default_cover_image' => env('APP_URL').'images/category/2.webp'
+            'default_cover_image' => $baseUrl . 'images/category/2.webp'
         ]);
         Categories::create([
             'name' => 'Borulu Fırın Pişiricisi',
             'parent_id' => $pisirici->id,
             'model' => Job::class,
-            'default_cover_image' => env('APP_URL').'images/category/3.webp'
+            'default_cover_image' => $baseUrl . 'images/category/3.webp'
         ]);
         Categories::create([
             'name' => 'Taş Fırın Pişiricisi',
             'parent_id' => $pisirici->id,
             'model' => Job::class,
-            'default_cover_image' => env('APP_URL').'images/category/4.webp'
+            'default_cover_image' => $baseUrl . 'images/category/4.webp'
         ]);
         Categories::create([
             'name' => 'Matador Fırın Pişiricisi',
             'parent_id' => $pisirici->id,
             'model' => Job::class,
-            'default_cover_image' => env('APP_URL').'images/category/5.webp'
+            'default_cover_image' => $baseUrl . 'images/category/5.webp'
         ]);
         Categories::create([
             'name' => 'Döner Fırın Pişiricisi',
             'parent_id' => $pisirici->id,
             'model' => Job::class,
-            'default_cover_image' => env('APP_URL').'images/category/6.webp'
+            'default_cover_image' => $baseUrl . 'images/category/6.webp'
         ]);
-       $hamurkar = Categories::create([
+        $hamurkar = Categories::create([
             'name' => 'Hamurkar',
             'parent_id' => null,
             'model' => Job::class,
-            'default_cover_image' => env('APP_URL').'images/category/7.webp'
+            'default_cover_image' => $baseUrl . 'images/category/7.webp'
         ]);
         Categories::create([
             'name' => 'Ekmek Hamurkarı',
             'parent_id' => $hamurkar->id,
             'model' => Job::class,
-            'default_cover_image' => env('APP_URL').'images/category/8.webp'
+            'default_cover_image' => $baseUrl . 'images/category/8.webp'
         ]);
         Categories::create([
             'name' => 'Pide Hamurkarı',
             'parent_id' => $hamurkar->id,
             'model' => Job::class,
-            'default_cover_image' => env('APP_URL').'images/category/9.webp'
+            'default_cover_image' => $baseUrl . 'images/category/9.webp'
         ]);
         Categories::create([
             'name' => 'Ekşi Mayalı Ekmek Hamurkarı',
             'parent_id' => $hamurkar->id,
             'model' => Job::class,
-            'default_cover_image' => env('APP_URL').'images/category/10.webp'
+            'default_cover_image' => $baseUrl . 'images/category/10.webp'
         ]);
         Categories::create([
             'name' => 'Pasacı',
             'parent_id' => null,
             'model' => Job::class,
-            'default_cover_image' => env('APP_URL').'images/category/11.webp'
+            'default_cover_image' => $baseUrl . 'images/category/11.webp'
         ]);
         Categories::create([
             'name' => 'Simit Ustası',
             'parent_id' => null,
             'model' => Job::class,
-            'default_cover_image' => env('APP_URL').'images/category/12.webp'
+            'default_cover_image' => $baseUrl . 'images/category/12.webp'
         ]);
         Categories::create([
             'name' => 'Pastaneci',
             'parent_id' => null,
             'model' => Job::class,
-            'default_cover_image' => env('APP_URL').'images/category/13.webp'
+            'default_cover_image' => $baseUrl . 'images/category/13.webp'
         ]);
         Categories::create([
             'name' => 'Tezgâhtar/Kasiyer',
             'parent_id' => null,
             'model' => Job::class,
-            'default_cover_image' => env('APP_URL').'images/category/14.webp'
+            'default_cover_image' => $baseUrl . 'images/category/14.webp'
         ]);
         Categories::create([
             'name' => 'Çırak',
             'parent_id' => null,
             'model' => Job::class,
-            'default_cover_image' => env('APP_URL').'images/category/15.webp'
+            'default_cover_image' => $baseUrl . 'images/category/15.webp'
         ]);
         Categories::create([
             'name' => 'Şoför',
             'parent_id' => null,
             'model' => Job::class,
-            'default_cover_image' => env('APP_URL').'images/category/16.webp'
+            'default_cover_image' => $baseUrl . 'images/category/16.webp'
         ]);
     }
 }
