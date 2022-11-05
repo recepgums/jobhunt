@@ -130,7 +130,11 @@ class JobController extends Controller
         }
 
         if (count($job->getMedia('images')) < 1) {
-            $job->addMediaFromUrl($job->category->default_cover_image)->toMediaCollection('images');
+            if (env('APP_ENV') == "local"){
+                $job->addMediaFromUrl('https://image.shutterstock.com/image-photo/suleymaniye-mosque-during-sunset-istanbul-600w-1889028265.jpg')->toMediaCollection('images');
+            }else{
+                $job->addMediaFromUrl($job->category->default_cover_image)->toMediaCollection('images');
+            }
         }
 
         return response()->json([
@@ -240,17 +244,17 @@ class JobController extends Controller
     public function payment(Job $job)
     {
         $product = [
-            'name' => $job->package->name,
+            'name' => optional($job->package)->name,
             'model_type' => Job::class,
             'model_id' => $job->id,
             'type' => 'money',
-            'price' => $job->package->price,
-            'expire_date' => now()->addDays($job->package->expire_day)->toDateTimeString(),
+            'price' => optional($job->package)->price ?? 0,
+            'expire_date' => now()->addDays(optional($job->package)->expire_day ?? 7)->toDateTimeString(),
         ];
 
         if ($product['price'] <= 0) {
             $job->status = Job::STATUS['published'];
-            $job->published_until_at = now()->addDays($job->package->expire_day)->toDateTimeString();
+            $job->published_until_at = now()->addDays(optional($job->package)->expire_day ?? 7)->toDateTimeString();
             $job->save();
 
             return view('jobs.result')->with(['success' => 'İlanınız artık yayında!', 'job' => $job]);

@@ -2,7 +2,7 @@
     <div class="row job-list-element" :style="'width: 100%;' + theme?.color ? 'background-color:' + theme?.color : ''" role="button">
         <div class="col-4 px-0 list-image">
             <svg
-                v-if="job?.theme?.selectUrgent" class="urgent-tag"
+                v-if="theme?.selectUrgent" class="urgent-tag"
                 width="74" height="72" viewBox="0 0 74 72" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_4_13)">
                     <rect width="74" height="72" fill="transparent"/>
