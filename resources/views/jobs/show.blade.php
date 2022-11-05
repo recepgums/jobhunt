@@ -233,6 +233,34 @@
                                         </button>
                                     </form>
                                     <br>
+                                @elseif(@auth()->id() == $job->user_id && $job->status == \App\Models\Job::STATUS["expired"])
+                                    <form method="POST"
+                                          action="{{route('candidate.job.active',$job)}}">
+                                        @csrf
+                                        @method('put')
+                                        <button class="apply-job-btn mt-5 d-none d-lg-block"
+                                                style="margin-right: 80px; width: 230px;">Tekrar Yayınla
+                                        </button>
+                                    </form>
+                                    <a href="{{route('job.edit',$job)}}">
+                                        <button class="apply-job-btn mt-5 d-none d-lg-block"
+                                                style="width: 230px;">Düzenle
+                                        </button>
+                                    </a>
+                                    <a href="{{route('job.edit',$job)}}">
+                                        <button class="apply-job-btn mt-5 d-lg-none"
+                                                style="width: 230px;">Düzenle
+                                        </button>
+                                    </a>
+                                    <form method="POST"
+                                          action="{{route('candidate.job.active',$job)}}">
+                                        @csrf
+                                        @method('put')
+                                        <button class="apply-job-btn mt-5 d-lg-none"
+                                                style="margin-right: 60px; width: 230px;">Tekrar Yayınla
+                                        </button>
+                                    </form>
+                                    <br>
                                 @endif
                             @endauth
 
