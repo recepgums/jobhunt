@@ -249,13 +249,19 @@
                         </div>
                         <!--Filter-->
                         <div class="row">
-                            <div class="col-12 horizontal-scroll">
+                            <div class="col-1 mt-3">
+                                <i class="el-icon-arrow-left" @click.prevent="horizonleft"></i>
+                            </div>
+                            <div class="col-9 horizontal-scroll" ref="horizontal">
                                 <el-tag class="item" style="margin-top: 10px;margin-right:5px;overflow: hidden"
                                     v-for="category in categories" :key="category.value"
                                     @click="selectedCategory = category.value" :type="category.type"
                                     :effect="selectedCategory === category.value ? 'dark' : 'light'">
                                     {{ category?.label }}
                                 </el-tag>
+                            </div>
+                            <div class="col-2 mt-3">
+                                <i class="el-icon-arrow-right" @click.prevent="horizonright"></i>
                             </div>
                         </div>
                     </div>
@@ -419,6 +425,7 @@ export default {
                 return { label: q.name, value: q.id, };
             })
 
+            this.categories = this.categories.push({label: 'all', value: null})
 
         },
         jobClicked(job) {
@@ -456,6 +463,12 @@ export default {
             this.selectedCategory = null
             this.selectedWorkType = []
             this.selectedDistricts = null
+        },
+        horizonright(){
+            this.$refs.horizontal.scrollLeft += 75;
+        },
+        horizonleft(){
+            this.$refs.horizontal.scrollLeft -= 75;
         }
     },
     watch: {
