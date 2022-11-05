@@ -39,9 +39,11 @@
             </h1>
 
             <div class="d-flex justify-content-between align-items-end mr-4 mt-4 card-right-content">
-                <div style="color: #fb236a">
+                <div style="color: #fb236a;font-size:12px">
                     <i class="la la-map-marker"></i>
-                    {{ job?.district?.name }}<small style="color:black;font-size:12px">, {{job?.city?.name}}
+                    {{ job?.district?.name }}
+                    <small style="color:black;font-size:10px">
+                        , {{job?.city?.name}}
                     </small>
                 </div>
                 <div>
@@ -87,6 +89,11 @@ export default {
     left:0;
     z-index:3;
 }
+.text-muted {
+    color: #409eff !important;
+    font-weight:bold
+}
+
 @media only screen and (max-width: 768px) {
     .location-date{
         font-size:14px;

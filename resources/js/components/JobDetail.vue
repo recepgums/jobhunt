@@ -77,7 +77,7 @@
                 <div class="mt-2" style="position:absolute;bottom:20px;width: 90%">
                     <div class="row">
                         <div class="col-6">
-                            <el-button style="width:100%;padding:15px;font-size:16px" @click="seeDetailsClicked" type="primary">
+                            <el-button style="width:100%;padding:15px;font-size:16px" @click="seeDetailsClicked" type="info" plain>
                                 Detayları gör
                                 <i class="el-icon-right"></i>
                             </el-button>

@@ -97,7 +97,7 @@
                         </tab-content>
                         <tab-content title="İş Detayı" icon="la la-info" :before-change="titleDescriptionValidation">
                             <div class="col-lg-12 px-0">
-                                <span class="rg-title mb-4">Video veya fotoğraf yükleyebilirsiniz(Zorunlu değil)</span>
+                                <span class="rg-title mb-4">Video ve fotoğraf yükleyebilirsiniz(Zorunlu değil)</span>
                                 <el-upload
                                     ref="upload"
                                     :action="actionUrl"

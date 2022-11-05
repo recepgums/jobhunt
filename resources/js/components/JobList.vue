@@ -236,32 +236,42 @@
                         </div>
                     </div>
                     <div class="col-12 d-block d-md-none mx-auto mb-3 pop-up-fixed">
-                        <div class="row px-4">
-                            <h1 class="col-6 font-weight-bold fs-22 my-1  responsive-header text-left filter-header"
+                        <div class="row px-4" style="font-size: 14px">
+                            <h1 class="col-6 font-weight-bold fs-22 my-1 responsive-header text-left"
                                 style="background-color: transparent;padding:0">
                                 {{ cities.find(q => q.value === selectedCity).label }}
                                 {{ categories.find(q => q.value === selectedCategory)?.label }} iş ilanları
                             </h1>
                             <el-link class="col-6 d-block d-md-none text-right Filtrele" @click="filterDrawer = true"
-                                type="primary">
+                                type="primary" style="font-size: 14px">
                                 Filtrele
                             </el-link>
                         </div>
                         <!--Filter-->
                         <div class="row">
-                            <div class="col-1 mt-3">
-                                <i class="el-icon-arrow-left" @click.prevent="horizonleft"></i>
-                            </div>
-                            <div class="col-9 horizontal-scroll" ref="horizontal">
-                                <el-tag class="item" style="margin-top: 10px;margin-right:5px;overflow: hidden"
+                            <div class="col-10 horizontal-scroll" ref="horizontal">
+                                <el-tag class="item" style="margin-top: 10px;margin-right:5px;overflow: hidden;font-size: 14px"
                                     v-for="category in categories" :key="category.value"
                                     @click="selectedCategory = category.value" :type="category.type"
                                     :effect="selectedCategory === category.value ? 'dark' : 'light'">
                                     {{ category?.label }}
                                 </el-tag>
                             </div>
-                            <div class="col-2 mt-3">
-                                <i class="el-icon-arrow-right" @click.prevent="horizonright"></i>
+                            <div class=" mt-3" style="
+                                    width: 30px;
+                                    float: right;
+                                    top: 20px;
+                                    right: 10px;
+                                    position: absolute;
+                                    height: 30px;
+                                    background-color: gray;
+                                    border-radius: 50%;
+                                    text-align: center;
+                                    color: white;
+                                    font-weight: bolder;
+                                    padding: 2px;
+                                ">
+                                <i class="el-icon-arrow-right" @click="horizonright"></i>
                             </div>
                         </div>
                     </div>
@@ -421,11 +431,13 @@ export default {
             this.workTypes = data.work_types.map((q) => {
                 return { label: q.name, value: q.id };
             });
-            this.categories = data.categories.map((q) => {
-                return { label: q.name, value: q.id, };
+            let categoryArray = data.categories.map((q) => {
+                return { label: q.name, value: q.id};
             })
 
-            this.categories = this.categories.push({label: 'all', value: null})
+            categoryArray.push({label: 'Tümü', value: null})
+            this.categories = [{label: 'Tümü', value: null},...categoryArray]
+
 
         },
         jobClicked(job) {
@@ -465,11 +477,9 @@ export default {
             this.selectedDistricts = null
         },
         horizonright(){
+            console.log(this.$refs.horizontal.scrollLeft)
             this.$refs.horizontal.scrollLeft += 75;
         },
-        horizonleft(){
-            this.$refs.horizontal.scrollLeft -= 75;
-        }
     },
     watch: {
         selectedCity() {
@@ -582,9 +592,6 @@ export default {
     box-shadow: 0 !important;
     width: auto !important;
     height: auto !important;
-}
-.filter-header{
-    font-size: 12px !important;
 }
 .el-image__inner {
     border-radius:15px !important;

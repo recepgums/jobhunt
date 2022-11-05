@@ -132,7 +132,7 @@
                                 </span>
                                 @endif
                             </div>
-                                <h3>Kazanç</h3>
+                                <h3>İş Tanımı</h3>
                             <div class="job-details" style="border-bottom: 1px solid #e8ecec;padding-bottom: 10px">
                                 {!! $job->description !!}
                             </div>
