@@ -3,7 +3,6 @@
         <div style="width: 100%;background-color: #0b1b46" class="py-3" @back="goBack" >
             <div class="d-flex justify-content-around">
                 <div class="text-left">
-
                 </div>
                 <div>
                     <a href="#" @click="goBack" style="color:#F56C6C;font-size:22px;font-weight:bolder">
@@ -13,6 +12,8 @@
                         /{{appSub}}
                     </a>
                 </div>
+                <div>
+                </div>
             </div>
         </div>
         <div class="row no-gape" v-loading="fullscreenLoading"  element-loading-text="Yükleniyor...">
@@ -20,7 +21,6 @@
                 <div class="padding-left">
                     <el-card class="box-card mt-4" shadow="hover">
                         <h2 class="text-muted text-center" style="font-size:22px">{{formWizardTitle}}</h2>
-
                         <form-wizard color="#8b91dd" subtitle="" title=""
                                  :start-index="0"
                                  backButtonText="Geri"
@@ -45,13 +45,11 @@
                         </div>
                         <tab-content title="Kategori secimi(*)" icon="la la-info" :before-change="categoryValidation">
                             <div class="row">
-
                                 <div @click="categoryClicked(category)" v-for="category in categories" :key="category.id"
                                      class="col-5 col-md-4 mx-auto">
                                     <a href="#" class="text-center card row my-2">
-                                        <div v-if="category.id == formInline.parent_id">
+                                        <div v-if="category.id === formInline.parent_id">
                                             <el-card :body-style="{ textAlign:'center', backgroundColor:'rgba(184, 24, 40, 0.88)' }" shadow="hover">
-
                                                 <img style="object-fit: cover;height: 150px;width:200px;margin: auto"
                                                      class="text-right "
                                                      :src="category.default_cover_image"
@@ -64,7 +62,7 @@
                                                 </div>
                                             </el-card>
                                         </div>
-                                        <div v-else-if="category.id == formInline.category_id">
+                                        <div v-else-if="category.id === formInline.category_id">
                                             <el-card :body-style="{ textAlign:'center', backgroundColor:'rgba(184, 24, 40, 0.88)' }" shadow="hover">
 
                                                 <img style="object-fit: cover;height: 150px;width:200px;margin: auto"
@@ -81,7 +79,6 @@
                                         </div>
                                         <div v-else>
                                             <el-card :body-style="{ textAlign:'center' }" shadow="hover">
-
                                                 <img style="object-fit: cover;height: 150px;width:200px;margin: auto"
                                                      class="text-right "
                                                      :src="category.default_cover_image"
@@ -229,7 +226,7 @@
                         <tab-content title="Paket Seçimi ve Ödeme" icon="la la-cc-mastercard">
                             <div class="plans-sec">
                                 <div v-if="job">
-                                   <div class="card-body shadow-lg  mb-4 bg-white rounded" style="padding:0">
+                                   <div class="card-body shadow-lg mb-3 px-1 bg-white rounded" style="padding:0;max-width:100%">
                                        <JobSingle :theme="theme" :job="job"></JobSingle>
                                    </div>
                                     <div style="background-color:wheat;border-radius:7px" class="text-center p-2">
@@ -383,7 +380,6 @@ export default {
             packages: [],
             job:null,
             slug: null,
-
         }
     },
     mounted() {
@@ -404,7 +400,8 @@ export default {
                     this.formInline.fee = resp.data.data.fee
                     this.formInline.gender = resp.data.data.gender.id
                     this.formInline.phone = resp.data.data.phone
-                    this.theme = resp.data.data.theme
+                    this.theme = resp.data.data.theme ?? {selectUrgent:false,selectedDate:0,color: '',}
+
                     resp.data.data.media.map(q=>{
                         this.fileList.push({name: q, url: q})
                     })
