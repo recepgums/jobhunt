@@ -319,15 +319,26 @@
                                 </el-select>
                             </div>
                             <div class="col my-5">
-                                <el-select v-model="selectedWorkType" placeholder="Calisma Sekli" clearable
-                                    @change="getJobList">
-                                    <el-option v-for="item in workTypes" :key="item.value" :label="item?.label"
-                                        :value="item.value">
-                                    </el-option>
-                                </el-select>
+<!--                                <el-select v-model="selectedWorkType" placeholder="Calisma Sekli" clearable-->
+<!--                                    @change="getJobList">-->
+<!--                                    <el-option v-for="item in workTypes" :key="item.value" :label="item?.label"-->
+<!--                                        :value="item.value">-->
+<!--                                    </el-option>-->
+<!--                                </el-select>-->
+                                {{ selectedWorkType }} <br>
+                                {{workTypes}}
+                                <el-checkbox-group v-model="selectedWorkType"  @change="getJobList" size="small">
+                                    <el-checkbox-button  v-for="item in workTypes" :key="item.value" :label="item?.value">{{item?.label}}</el-checkbox-button>
+                                </el-checkbox-group>
                             </div>
 
-                            <div class="col-12 ">
+                            <div class="col-12 " >
+                                <el-button type="primary" round
+                                           style="width: 300px; margin-right: -15px; margin-top: 50px;" @click.prevent="clearFilter">Filtreyi Temizle
+                                </el-button>
+                            </div>
+                            <div class="col-12 "
+                                 style="visibility: visible;z-index: 3;padding: 15px;border-top: 1px solid #d8d8d8;position: fixed;width: 300px;bottom: 0">
                                 <button @click="filterDrawer = false" class="tw-bg-red-500 btn w-full text-white p-2"
                                     style="font-weight: 600;width:100%">
                                     Sonuçları Göster
@@ -361,7 +372,7 @@ export default {
             selectedCategory: null,
             selectedSallary: null,
             selectedOrderType: null,
-            selectedWorkType: null,
+            selectedWorkType: [],
 
             cities: [],
             districts: [],
@@ -441,6 +452,11 @@ export default {
             this.jobs = data.data;
             this.selectedJob = this.jobs[0];
         },
+        clearFilter(){
+            this.selectedCategory = null
+            this.selectedWorkType = []
+            this.selectedDistricts = null
+        }
     },
     watch: {
         selectedCity() {
