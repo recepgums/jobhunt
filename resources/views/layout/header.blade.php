@@ -70,7 +70,7 @@
   width: 100vw;
   background-color: @if(isset($isHomepage) && $isHomepage) rgba(184, 24, 40, 0.88) @else rgb(54 61 115) @endif;
   ">
-    <div class="menu-sec" style="margin: 0">
+    <div class="menu-sec" style="margin: 0; padding-right: 10px;">
         <div class="container fluid">
             <div class="logo">
                 <a href="{{route('homepage')}}" title="">

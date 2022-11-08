@@ -28,8 +28,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
-                                           role="tab" aria-controls="profile" aria-selected="false">Süresi Geçmiş
-                                            İlanlarım</a>
+                                           role="tab" aria-controls="profile" aria-selected="false">Yayında Olmayan İlanlarım</a>
                                     </li>
                                 </ul>
                                 <div class="row" style="margin-right: 15px;">
@@ -44,9 +43,7 @@
                                         <li class=" col-4 nav-item">
                                             <a class=" nav-link" id="profile-tab" data-toggle="tab" href="#profile"
                                                role="tab" aria-controls="profile" aria-selected="false"
-                                               style="width: 180px; margin-left: -20px; font-size: 14px;background-color:transparent;padding: 5px;">Süresi
-                                                Geçmiş
-                                                İlanlarım</a>
+                                               style="width: 180px; margin-left: -20px; font-size: 14px;background-color:transparent;padding: 5px;">Yayında Olmayan İlanlarım</a>
                                         </li>
                                     </ul>
                                 </div>
