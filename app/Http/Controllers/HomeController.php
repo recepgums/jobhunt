@@ -77,6 +77,6 @@ class HomeController extends Controller
     {
         Artisan::call(GenerateSitemap::class);
 
-        return redirect('sitemap.xml');
+        return redirect(env('APP_URL').'/sitemap.xml');
     }
 }
