@@ -350,7 +350,7 @@
 
                             <div class="col-12 " >
                                 <el-button type="primary" round
-                                           style="width: 300px; margin-right: -15px; margin-top: 50px;" @click.prevent="clearFilter">Filtreyi Temizle
+                                           style="width: 250px; margin-top: 50px;" @click.prevent="clearFilter" ref="filter">Filtreyi Temizle
                                 </el-button>
                             </div>
                             <div class="col-12 "
@@ -401,6 +401,8 @@ export default {
         };
     },
     mounted() {
+        const el = this.$refs.filter;
+        console.log(el)
         this.getJobList();
         this.getGeneralData();
     },
@@ -494,7 +496,7 @@ export default {
         },
         selectedCategory() {
             this.getJobList()
-        }
+        },
     }
 };
 

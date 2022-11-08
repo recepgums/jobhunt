@@ -21,6 +21,7 @@
                                     @forelse($appliedJobs as $job)
                                         <tr>
                                             <td width="20%">
+                                                <a href="{{route('job.show',$job->job->slug)}}">
                                                 <div class="table-list-title">
                                                     <i>{{$job->job->user->name}}</i><br />
                                                     <span><i class="la la-map-marker"></i>
@@ -30,6 +31,7 @@
                                                         {{$job->job->city->name}}
                                                     </span>
                                                 </div>
+                                                </a>
                                             </td>
                                             <td width="60%">
                                                 <div class="table-list-title">
