@@ -39,7 +39,7 @@
             </h1>
 
             <div class="d-flex justify-content-between align-items-end mr-4 mt-4 card-right-content">
-                <div style="color: #fb236a;font-size:12px">
+                <div style="color: #fb236a;font-size:1rem">
                     <i class="la la-map-marker"></i>
                     {{ job?.district?.name }}
                     <small style="color:black;font-size:10px">

@@ -175,7 +175,6 @@ class Job extends Model implements HasMedia,Sitemapable
         'highlighted_until_at',
         'published_until_at',
         'status',
-        'view_counter',
         'sleep_after_at']);
     }
 }

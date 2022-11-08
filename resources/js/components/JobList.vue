@@ -401,8 +401,10 @@ export default {
         };
     },
     mounted() {
-        const el = this.$refs.filter;
-        console.log(el)
+     setTimeout(()=>{
+         this.clearFilter()
+     },1750)
+
         this.getJobList();
         this.getGeneralData();
     },

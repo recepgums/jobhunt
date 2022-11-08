@@ -146,10 +146,8 @@ class JobController extends Controller
 
     public function show(Job $job)
     {
-        if (!auth()->check() || auth()->id() !== $job->user->id) {
-            if (!Cache::has(\request()->ip() . $job->slug)) {
-                $job->increment('view_counter');
-            }
+        if (!Cache::has(\request()->ip() . $job->slug)) {
+            $job->increment('view_counter');
         }
 
         return view('jobs.show', ['job' => $job]);
