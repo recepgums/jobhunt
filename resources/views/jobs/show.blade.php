@@ -100,6 +100,53 @@
                                     <div class="swiper-button-prev"></div>
                                     <div class="swiper-pagination"></div>
                                 </div>
+                            <div class="job-overview">
+                                <ul class="row">
+                                    @if(optional($job->category)->name)
+                                        <li class="col-6 col-md-4"><i class="la la-puzzle-piece"></i>
+                                            <h3>Aranıyor</h3><span>{{optional($job->category)->name}}</span></li>
+                                    @endif
+                                    @if($job->fee)
+                                        <li class="col-6 col-md-4"><i class="la la-money"></i>
+                                            <h3>Ücret</h3><span>{{$job->fee}}₺</span></li>
+                                    @endif
+                                    <li class="col-6 col-md-4"><i class="la la-location-arrow"></i>
+                                        <h3>Konum</h3>
+                                        <span>@if(optional($job->district)->name)
+                                                {{$job->district->name}}
+                                                ,
+                                            @endif {{$job->city->name}}</span>
+                                    </li>
+                                    @if(optional($job->workType)->name)
+                                        <li class="col-6 col-md-4"><i class="la la-clock-o"></i>
+                                            <h3>Çalışma Türü</h3><span>{{$job->workType->name}}</span></li>
+                                    @endif
+                                    @if(optional($job->gender)->name)
+                                        <li class="col-6 col-md-4"><i class="la la-mars-double"></i>
+                                            <h3>Cinsiyet</h3><span>{{$job->gender->name}}</span></li>
+                                    @endif
+                                    <li class="col-6 col-md-4">
+                                        <i class="la la-eye"></i>
+                                        <h3>İletişime Geçildi</h3>
+                                        <span>
+                                            {{$job->view_counter}}
+                                        </span>
+                                    </li>
+                                    <li class="col-6 col-md-4">
+                                        <i class="la la-eye"></i>
+                                        <h3>Görüntüleyen Kişi Sayısı</h3>
+                                        <span>
+                                            {{$job->view_counter}}
+                                        </span>
+                                    </li>
+                                    <li class="col-6 col-md-4">
+                                        <i class="la la-calendar-o"></i>
+                                        <span>
+                                            {{$job->created_at->diffForHumans()}}
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
 
                             <div class="job-single-head2">
                                 <div class="job-title2 pt-3">
@@ -125,157 +172,119 @@
                                         <span>{{$job->workType->name}}</span>
                                     </li>
                                 </ul>
-                                @if(optional($job->category)->name)
-                                    <span>
-                                    <strong>Aranıyor</strong>
-                                    : {{optional($job->category)->name}}
-                                </span>
-                                @endif
                             </div>
                                 <h3>İş Tanımı</h3>
                             <div class="job-details" style="border-bottom: 1px solid #e8ecec;padding-bottom: 10px">
                                 {!! $job->description !!}
                             </div>
-                            <div class="job-overview">
-                                <ul>
-                                    @if($job->fee)
-                                        <li><i class="la la-money"></i>
-                                            <h3>Teklif Edilen Maaş</h3><span>{{$job->fee}}₺</span></li>
-                                    @endif
-                                    @if(optional($job->gender)->name)
-                                        <li><i class="la la-mars-double"></i>
-                                            <h3>Cinsiyet</h3><span>{{$job->gender->name}}</span></li>
-                                    @endif
-                                    @if(optional($job->category)->name)
-                                        <li><i class="la la-puzzle-piece"></i>
-                                            <h3>Rol</h3><span>{{optional($job->category)->name}}</span></li>
-                                    @endif
-
-                                    @if(optional($job->workType)->name)
-                                        <li><i class="la la-clock-o"></i>
-                                            <h3>Çalışma Türü</h3><span>{{$job->workType->name}}</span></li>
-                                    @endif
-                                    <li><i class="la la-location-arrow"></i>
-                                        <h3>Konum</h3>
-                                        <span>@if(optional($job->district)->name) {{$job->district->name}}
-                                            , @endif {{$job->city->name}}</span>
-                                    </li>
-                                    <li>
-                                        <i class="la la-hand-paper-o"></i>
-                                        <h3>Sözleşme</h3>
-                                        <span>
-                                            @if($job->has_contract) Var @else Yok @endif
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <i class="la la-eye"></i>
-                                        <h3>İletişime Geçen Kişi Sayısı</h3>
-                                        <span>
-                                            {{$job->view_counter}}
-                                        </span>
-                                    </li>
-                                    @isset($job->user?->company_name)
-                                        <li>
-                                            <i class="la la-building"></i>
-                                            <h3>Şirket adı</h3>
-                                            <span>
-                                                 {{$job->user?->company_name}}
-                                            </span>
-                                        </li>
-                                    @endisset
-
-                                </ul>
-                            </div>
                         </div>
                     </div>
                     <div class="col-lg-4 column">
-                        <div class="job-single-head style2">
-                            <div class="job-thumb">
-                                <img style="width: 30%"
-                                    src="{{optional($job->user)->profile_image_url ?? 'https://placehold.jp/1600x800'}}"/>
+                        <div class="card" style="width: 23rem;">
+                            <img src="{{strlen($job->user->getFirstMediaUrl('images')) > 0 ? $job->user->getFirstMediaUrl('images') : 'https://placehold.jp/1600x800'}}"
+                                 alt=""/>
+                            <div class="card-body">
+                                <div class="job-head-info" id="job-head-info">
+                                    <h4>{{optional($job->user)->name}}</h4>
+                                </div>
                             </div>
-                            <div class="job-head-info" id="job-head-info">
-                                <h4>{{optional($job->user)->name}}</h4>
-                            </div>
-                            @auth
-                                <span style="cursor: pointer;padding: 20px 5px" id="show_contact_info_button_auth"
-                                      onclick="showContact(event,`{{$job->slug}}`)"
-                                      title="" class="apply-job-btn">
+
+                            <ul class="list-group list-group-flush">
+                                @if($job->user?->company_name)
+                                    <li class="list-group-item">
+                                        <h3>Şirket adı</h3>
+                                        <span style="font-weight: bold">
+                                                 {{$job->user?->company_name}}
+                                            </span>
+                                    </li>
+                                @endif
+                                    <li class="list-group-item">@auth
+                                            <span style="cursor: pointer;padding: 20px 5px; line-height: 60px;"
+                                                  id="show_contact_info_button_auth"
+                                                  onclick="showContact(event,`{{$job->slug}}`)"
+                                                  title="" class="apply-job-btn">
                                     <i class="la la-paper-plane"></i>
                                     İletişim Bilgilerini Görüntüle
                                 </span>
-                                <br>
-                                @if(@auth()->id() == $job->user_id && $job->status == \App\Models\Job::STATUS["published"])
-                                    <form method="POST"
-                                          action="{{route('candidate.job.passive',$job)}}">
-                                        @csrf
-                                        @method('put')
-                                        <button class="apply-job-btn mt-5 d-none d-lg-block"
-                                                style="margin-right: 80px; width: 230px;">Yayından Kaldır
-                                        </button>
-                                    </form>
-                                    <a href="{{route('job.edit',$job)}}">
-                                        <button class="apply-job-btn mt-5 d-none d-lg-block"
-                                                style="width: 230px;">Düzenle
-                                        </button>
-                                    </a>
-                                    <a href="{{route('job.edit',$job)}}">
-                                        <button class="apply-job-btn mt-5 d-lg-none"
-                                                style="width: 230px;">Düzenle
-                                        </button>
-                                    </a>
-                                    <form method="POST"
-                                          action="{{route('candidate.job.passive',$job)}}">
-                                        @csrf
-                                        @method('put')
-                                        <button class="apply-job-btn mt-5 d-lg-none"
-                                                style="margin-right: 60px; width: 230px;">Yayından Kaldır
-                                        </button>
-                                    </form>
-                                    <br>
-                                @elseif(@auth()->id() == $job->user_id && $job->status == \App\Models\Job::STATUS["expired"])
-                                    <form method="POST"
-                                          action="{{route('candidate.job.active',$job)}}">
-                                        @csrf
-                                        @method('put')
-                                        <button class="apply-job-btn mt-5 d-none d-lg-block"
-                                                style="margin-right: 80px; width: 230px;">Tekrar Yayınla
-                                        </button>
-                                    </form>
-                                    <a href="{{route('job.edit',$job)}}">
-                                        <button class="apply-job-btn mt-5 d-none d-lg-block"
-                                                style="width: 230px;">Düzenle
-                                        </button>
-                                    </a>
-                                    <a href="{{route('job.edit',$job)}}">
-                                        <button class="apply-job-btn mt-5 d-lg-none"
-                                                style="width: 230px;">Düzenle
-                                        </button>
-                                    </a>
-                                    <form method="POST"
-                                          action="{{route('candidate.job.active',$job)}}">
-                                        @csrf
-                                        @method('put')
-                                        <button class="apply-job-btn mt-5 d-lg-none"
-                                                style="margin-right: 60px; width: 230px;">Tekrar Yayınla
-                                        </button>
-                                    </form>
-                                    <br>
-                                @endif
-                            @endauth
+                                            <br>
+                                            @if(@auth()->id() == $job->user_id && $job->status == \App\Models\Job::STATUS["published"])
+                                                <form method="POST"
+                                                      action="{{route('candidate.job.passive',$job)}}">
+                                                    @csrf
+                                                    @method('put')
+                                                    <button class="apply-job-btn mt-5 d-none d-lg-block"
+                                                            style="margin-right: 95px; width: 230px; height: 58px">Yayından Kaldır
+                                                    </button>
+                                                </form>
+                                                <a href="{{route('job.edit',$job)}}">
+                                                    <button class="apply-job-btn mt-5 d-none d-lg-block"
+                                                            style="margin-right: 95px; width: 230px; height: 58px">Düzenle
+                                                    </button>
+                                                </a>
+                                                <a href="{{route('job.edit',$job)}}">
+                                                    <button class="apply-job-btn mt-5 d-lg-none"
+                                                            style="margin-right: 95px; width: 230px; height: 58px">Düzenle
+                                                    </button>
+                                                </a>
+                                                <form method="POST"
+                                                      action="{{route('candidate.job.passive',$job)}}">
+                                                    @csrf
+                                                    @method('put')
+                                                    <button class="apply-job-btn mt-5 d-lg-none"
+                                                            style="margin-right: 95px; width: 230px; height: 58px">Yayından Kaldır
+                                                    </button>
+                                                </form>
+                                                <br>
+                                            @elseif(@auth()->id() == $job->user_id && $job->status == \App\Models\Job::STATUS["expired"])
+                                                <form method="POST"
+                                                      action="{{route('candidate.job.active',$job)}}">
+                                                    @csrf
+                                                    @method('put')
+                                                    <button class="apply-job-btn mt-5 d-none d-lg-block"
+                                                            style="margin-right: 95px; width: 230px; height: 58px">Tekrar Yayınla
+                                                    </button>
+                                                </form>
+                                                <a href="{{route('job.edit',$job)}}">
+                                                    <button class="apply-job-btn mt-5 d-none d-lg-block"
+                                                            style="margin-right: 95px; width: 230px; height: 58px">Düzenle
+                                                    </button>
+                                                </a>
+                                                <a href="{{route('job.edit',$job)}}">
+                                                    <button class="apply-job-btn mt-5 d-lg-none"
+                                                            style="margin-right: 95px; width: 230px; height: 58px">Düzenle
+                                                    </button>
+                                                </a>
+                                                <form method="POST"
+                                                      action="{{route('candidate.job.active',$job)}}">
+                                                    @csrf
+                                                    @method('put')
+                                                    <button class="apply-job-btn mt-5 d-lg-none"
+                                                            style="margin-right: 95px; width: 230px; height: 58px">Tekrar Yayınla
+                                                    </button>
+                                                </form>
+                                                <br>
+                                            @endif
+                                        @endauth
+                                    </li>
+                                    @guest
+                                        <li class="list-group-item" style="padding: 10px;">
+                                            <a href="#" title="" class="apply-job-btn signup-popup"
+                                               style="cursor: pointer;padding: 20px 5px; width: 230px; margin-left: 7px; line-height: 50px;"><i
+                                                    class="la la-paper-plane"></i>
+                                                İletişim Bilgilerini Görüntüle
+                                            </a>
+                                            @endguest
+                                        </li>
+                                        <li class="list-group-item" style="padding: 10px;">
 
-                            @guest
-                                <a href="#" title="" class="apply-job-btn signup-popup"
-                                   style="cursor: pointer;padding: 20px 0px"><i
-                                        class="la la-paper-plane"></i>
-                                    İletişim Bilgilerini Görüntüle
-                                </a>
-                            @endguest
-                            <a href="{{route('user.show',$job->user->username)}}" title="" class="viewall-jobs">
-                                <i class="la la-user"></i>
-                                İş sahibinin profilini görüntüle
-                            </a>
-                        </div><!-- Job Head -->
+                                            <a href="{{route('user.show',$job->user->username)}}" style="padding: 20px 5px; width: 230px;font-size: 12px;
+    font-weight: bold; margin-left: 7px;" title="" class="viewall-jobs">
+                                                <i class="la la-user"></i>
+                                                {{$job->user->username}} Profilini Görüntüle
+                                            </a>
+                                        </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -309,6 +318,7 @@
                 },
                 success: function (response) {
                     let html = `<h4>${response?.name}</h4><p><i class="la la-phone"></i>`
+                    console.log(response)
                     html += response?.phone ? `<a href="tel:${response?.phone}">${response?.phone}</p><p><i class="la la-envelope-o"></i>` : 'Kullanicinin telefon numarasi bulunmuyor </p><p><i class="la la-envelope-o"></i>'
                     html += response?.email ? `${response?.email}</p>` : 'Kullanicinin mail adresi bulunmuyor</p>';
 
