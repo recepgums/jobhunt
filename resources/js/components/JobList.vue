@@ -335,22 +335,18 @@
                                 </el-select>
                             </div>
                             <div class="col my-5">
-<!--                                <el-select v-model="selectedWorkType" placeholder="Calisma Sekli" clearable-->
-<!--                                    @change="getJobList">-->
-<!--                                    <el-option v-for="item in workTypes" :key="item.value" :label="item?.label"-->
-<!--                                        :value="item.value">-->
-<!--                                    </el-option>-->
-<!--                                </el-select>-->
-                                {{ selectedWorkType }} <br>
-                                {{workTypes}}
+                                  <h1 class="text-center mb-3 font-weight-bold">Çalışma Şekli</h1>
                                 <el-checkbox-group v-model="selectedWorkType"  @change="getJobList" size="small">
                                     <el-checkbox-button  v-for="item in workTypes" :key="item.value" :label="item?.value">{{item?.label}}</el-checkbox-button>
                                 </el-checkbox-group>
                             </div>
 
                             <div class="col-12 " >
-                                <el-button type="primary" round
-                                           style="width: 250px; margin-top: 50px;" @click.prevent="clearFilter" ref="filter">Filtreyi Temizle
+                                <el-button type="info"
+                                           style="margin-top: 50px; margin-top: 50px; visibility: visible;
+                                              z-index: 3;  padding: 15px; border-top: 1px solid rgb(216, 216, 216);
+                                              position: fixed;     width: 270px; bottom: 80px;"
+                                           @click.prevent="clearFilter" ref="filter">Filtreyi Temizle
                                 </el-button>
                             </div>
                             <div class="col-12 "

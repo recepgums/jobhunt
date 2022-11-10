@@ -1,5 +1,14 @@
 @extends('layout.app')
 @push('styles')
+    <style>
+        .active_mh{
+            background-color: #141f72 !important;
+            color: white !important;
+        }
+        .active_mh:hover{
+            color: white !important;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -22,7 +31,7 @@
                                 <ul class="nav nav-tabs d-none d-lg-block d-xs-block d-md-block" id="myTab"
                                     role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
+                                        <a class="nav-link active active_mh" id="home-tab" data-toggle="tab" href="#home"
                                            role="tab" aria-controls="home" aria-selected="true">Yayında Olan
                                             İlanlarım</a>
                                     </li>
@@ -31,19 +40,19 @@
                                            role="tab" aria-controls="profile" aria-selected="false">Yayında Olmayan İlanlarım</a>
                                     </li>
                                 </ul>
-                                <div class="row" style="margin-right: 15px;">
+                                <div class="row" style="margin-left: 15px;">
                                     <ul class="nav nav-tabs d-lg-none d-xs-none d-md-none" id="myTab" role="tablist">
                                         <li class="col-4 nav-item">
-                                            <a class=" nav-link" id="home-tab" data-toggle="tab" href="#home"
+                                            <a class="nav-link active active_mh" id="home-tabMobile" data-toggle="tab" href="#home"
                                                role="tab" aria-controls="home" aria-selected="true"
-                                               style="width: 180px; margin-left: -75px;font-size: 14px; background-color:transparent; padding: 5px;">Yayında
+                                               style="width: 180px; margin-left: -75px;font-size: 13px; background-color:transparent; padding: 5px;">Yayında
                                                 Olan
                                                 İlanlarım</a>
                                         </li>
                                         <li class=" col-4 nav-item">
-                                            <a class=" nav-link" id="profile-tab" data-toggle="tab" href="#profile"
+                                            <a class=" nav-link" id="profile-tabMobile" data-toggle="tab" href="#profile"
                                                role="tab" aria-controls="profile" aria-selected="false"
-                                               style="width: 180px; margin-left: -20px; font-size: 14px;background-color:transparent;padding: 5px;">Yayında Olmayan İlanlarım</a>
+                                               style="width: 196px; margin-left: -26px; font-size: 13px;background-color:transparent;padding: 5px;">Yayında Olmayan İlanlarım</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -53,56 +62,59 @@
                                          aria-labelledby="home-tab">
 
                                         @forelse($jobs as $job)
-                                            <div class="job-listing wtabs  d-none d-lg-block d-xs-block d-md-block">
-                                                <a href="{{route('job.show',$job->slug)}}">
-                                                <div class="job-title-sec">
-                                                    <div class="c-logo">
-                                                        <img src="{{$job->cover_image}}" alt="{{$job->title}}"/>
+                                            <div class="job-listing wtabs  d-none d-lg-block d-xs-block d-md-block mb-2 mt-2"
+                                                 style="border: 1px solid rgba(0, 0, 0, 0.125); border-radius: 1rem;">
+                                                    <a href="{{route('job.show',$job->slug)}}">
+                                                        <div class="job-title-sec">
+                                                            <div class="c-logo">
+                                                                <img src="{{$job->cover_image}}" alt="{{$job->title}}"/>
+                                                            </div>
+                                                            <h3 class="pl-3">{{$job->title}}</h3>
+                                                            <span class="pl-3">{{$job->category->name}}</span>
+                                                            <div
+                                                                class="job-lctn pl-3">{{$job->created_at->diffForHumans()}}</div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="btn-group">
+                                                        <button type="button"
+                                                                class="btn btn-primary dropdown-toggle bg-primary"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                            Secenekler
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <form method="POST"
+                                                                  action="{{route('candidate.job.passive',$job)}}">
+                                                                @csrf
+                                                                @method('put')
+                                                                <button class="dropdown-item">
+                                                                    Yayından Kaldır
+                                                                </button>
+                                                            </form>
+                                                            <a class="dropdown-item" href="{{route('job.edit',$job)}}">Düzenle</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <form method="POST"
+                                                                  action="{{route('candidate.job.destroy',$job)}}">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <button onclick="return myFunction()"
+                                                                        class="dropdown-item bg-danger text-white">
+                                                                    Sil
+                                                                </button>
+                                                            </form>
+                                                        </div>
                                                     </div>
-                                                    <h3 class="pl-3">{{$job->title}}</h3>
-                                                    <span class="pl-3">{{$job->category->name}}</span>
-                                                    <div
-                                                        class="job-lctn pl-3">{{$job->created_at->diffForHumans()}}</div>
-                                                </div>
-                                                </a>
-                                                <div class="btn-group">
-                                                    <button type="button"
-                                                            class="btn btn-primary dropdown-toggle bg-primary"
-                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                            aria-expanded="false">
-                                                        Secenekler
-                                                    </button>
-                                                    <div class="dropdown-menu">
-                                                        <form method="POST"
-                                                              action="{{route('candidate.job.passive',$job)}}">
-                                                            @csrf
-                                                            @method('put')
-                                                            <button class="dropdown-item">
-                                                                Yayından Kaldır
-                                                            </button>
-                                                        </form>
-                                                        <a class="dropdown-item" href="{{route('job.edit',$job)}}">Düzenle</a>
-                                                        <div class="dropdown-divider"></div>
-                                                        <form method="POST"
-                                                              action="{{route('candidate.job.destroy',$job)}}">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <button onclick="return myFunction()"
-                                                                    class="dropdown-item bg-danger text-white">
-                                                                Sil
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </div>
                                             </div>
                                             <div class="job-listing wtabs  d-lg-none d-xs-none d-md-none">
                                                 <div class="job-title-sec">
                                                     <div class="row">
-                                                        <div class="col-3 px-0">
-                                                            <a href="{{route('job.show',$job->slug)}}">
-                                                            <img src="{{$job->cover_image}}" alt="{{$job->title}}"/>
-                                                           </a>
-                                                        </div>
+                                                        <div class="card" style="width: 400px; flex-direction: row;">
+                                                            <div class="col-3 px-0">
+                                                                <a href="{{route('job.show',$job->slug)}}">
+                                                                    <img src="{{$job->cover_image}}"
+                                                                         alt="{{$job->title}}"/>
+                                                                </a>
+                                                            </div>
 
                                                         <div class="col-6 text-left pl-1"
                                                              style="
@@ -119,7 +131,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="col-2 px-0">
-                                                            <div class="btn-group">
+                                                            <div class="btn-group ml-3">
                                                                 <button type="button"
                                                                         class="btn btn-primary dropdown-toggle bg-primary"
                                                                         data-toggle="dropdown" aria-haspopup="true"
@@ -147,7 +159,7 @@
                                                                     </form>
                                                                 </div>
                                                             </div>
-
+                                                          </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -167,7 +179,8 @@
                                     <div class="tab-pane fade" id="profile" role="tabpanel"
                                          aria-labelledby="profile-tab">
                                         @forelse($endPubJobs as $endPubJob)
-                                            <div class="job-listing wtabs d-none d-lg-block d-xs-block d-md-block">
+                                            <div class="job-listing wtabs d-none d-lg-block d-xs-block d-md-block mb-2 mt-2"
+                                                 style="border: 1px solid rgba(0, 0, 0, 0.125); border-radius: 1rem;">
                                                 <div class="job-title-sec">
                                                     <a href="{{route('job.show',$endPubJob->slug)}}">
                                                     <div class="c-logo">
@@ -213,50 +226,53 @@
                                             <div class="job-listing wtabs  d-lg-none d-xs-none d-md-none">
                                                 <div class="job-title-sec">
                                                     <div class="row">
-                                                        <div class="col-3 px-0">
-                                                            <a href="{{route('job.show',$endPubJob->slug)}}">
-                                                            <img src="{{$endPubJob->cover_image}}"
-                                                                 alt="{{$endPubJob->title}}"/>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-6 text-left pl-1" style="
+                                                        <div class="card" style="width: 400px; flex-direction: row;">
+                                                            <div class="col-3 px-0">
+                                                                <a href="{{route('job.show',$endPubJob->slug)}}">
+                                                                    <img src="{{$endPubJob->cover_image}}"
+                                                                         alt="{{$endPubJob->title}}"/>
+                                                                </a>
+                                                            </div>
+                                                            <div class="col-6 text-left pl-1" style="
                                                                     overflow: hidden;
                                                                     white-space: nowrap;
                                                                     text-overflow: ellipsis;">
-                                                            <a href="{{route('job.show',$endPubJob->slug)}}">
-                                                                <h3 style="font-size: 16px;font-weight: bold;">{{$endPubJob->title}}
-                                                                </h3>
-                                                                <div
-                                                                    class="job-lctn">{{$endPubJob->created_at->diffForHumans()}}</div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-2 px-0">
-                                                            <div class="btn-group">
-                                                                <button type="button"
-                                                                        class="btn btn-primary dropdown-toggle bg-primary"
-                                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false">
-                                                                </button>
-                                                                <div class="dropdown-menu">
-                                                                    <form method="POST"
-                                                                          action="{{route('candidate.job.active',$endPubJob)}}">
-                                                                        @csrf
-                                                                        @method('put')
-                                                                        <button class="dropdown-item">
-                                                                            Tekrar Yayınla
-                                                                        </button>
-                                                                    </form>
-                                                                    <a class="dropdown-item" href="{{route('job.edit',$endPubJob)}}">Düzenle</a>
-                                                                    <div class="dropdown-divider"></div>
-                                                                    <form method="POST"
-                                                                          action="{{route('candidate.job.destroy',$endPubJob)}}">
-                                                                        @csrf
-                                                                        @method('delete')
-                                                                        <button onclick="return myFunction()"
-                                                                                class="dropdown-item bg-danger text-white">
-                                                                            Sil
-                                                                        </button>
-                                                                    </form>
+                                                                <a href="{{route('job.show',$endPubJob->slug)}}">
+                                                                    <h3 style="font-size: 16px;font-weight: bold;">{{$endPubJob->title}}
+                                                                    </h3>
+                                                                    <div
+                                                                        class="job-lctn">{{$endPubJob->created_at->diffForHumans()}}</div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="col-2 px-0">
+                                                                <div class="btn-group ml-3">
+                                                                    <button type="button"
+                                                                            class="btn btn-primary dropdown-toggle bg-primary"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                    </button>
+                                                                    <div class="dropdown-menu">
+                                                                        <form method="POST"
+                                                                              action="{{route('candidate.job.active',$endPubJob)}}">
+                                                                            @csrf
+                                                                            @method('put')
+                                                                            <button class="dropdown-item">
+                                                                                Tekrar Yayınla
+                                                                            </button>
+                                                                        </form>
+                                                                        <a class="dropdown-item"
+                                                                           href="{{route('job.edit',$endPubJob)}}">Düzenle</a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <form method="POST"
+                                                                              action="{{route('candidate.job.destroy',$endPubJob)}}">
+                                                                            @csrf
+                                                                            @method('delete')
+                                                                            <button onclick="return myFunction()"
+                                                                                    class="dropdown-item bg-danger text-white">
+                                                                                Sil
+                                                                            </button>
+                                                                        </form>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -292,5 +308,23 @@
                 return false;
             }
         }
+    </script>
+    <script>
+        $('body').on('click','#home-tab',function (){
+            $("#profile-tab").removeClass("active_mh");
+            $("#home-tab").addClass("active_mh");
+        })
+        $('body').on('click','#profile-tab',function (){
+            $("#home-tab").removeClass("active_mh");
+            $("#profile-tab").addClass("active_mh");
+        })
+        $('body').on('click','#home-tabMobile',function (){
+            $("#profile-tabMobile").removeClass("active_mh");
+            $("#home-tabMobile").addClass("active_mh");
+        })
+        $('body').on('click','#profile-tabMobile',function (){
+            $("#home-tabMobile").removeClass("active_mh");
+            $("#profile-tabMobile").addClass("active_mh");
+        })
     </script>
 @endpush
