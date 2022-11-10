@@ -21,7 +21,7 @@ class ForgotPasswordRequest extends FormRequest
     public function messages()
     {
         return [
-            'email' => 'Böyle bir email yok lütfen emailinizi doğru yazınız',
+            'email.exists' => 'Böyle bir email yok lütfen emailinizi doğru yazınız',
         ];
     }
 }

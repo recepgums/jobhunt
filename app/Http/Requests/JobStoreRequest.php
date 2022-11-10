@@ -40,4 +40,12 @@ class JobStoreRequest extends FormRequest
         ];
     }
 
+    public function messages()
+    {
+        return [
+            'district_id.required' => 'İlçe bilgisi zorunludur',
+            'district_id.exists' => 'Böyle bir ilçe bulunmamaktadır',
+
+        ];
+    }
 }

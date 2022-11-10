@@ -90,6 +90,15 @@
                                                        value="{{$user->email}}"/>
                                             </div>
                                         </div>
+                                        @if($user->hasRole('employee'))
+                                            <div class="col-lg-6">
+                                                <span class="pf-title">Firma adı</span>
+                                                <div class="pf-field">
+                                                    <input type="text" placeholder="Firma adı"
+                                                           value="{{$user->company_name}}" name="company_name"/>
+                                                </div>
+                                            </div>
+                                        @endif
                                         <div class="col-lg-6">
                                             <span class="pf-title">Yaşadığınız şehir</span>
                                             <div class="pf-field">
@@ -160,7 +169,7 @@
                                                 @error('experience_year')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
-                                                <input type="text" name="experience_year"
+                                                <input type="number" name="experience_year"
                                                        value="{{$user->experience_year}}"
                                                        placeholder="Deneyim yılınız">
                                             </div>
@@ -190,15 +199,6 @@
                                                        value="{{$user->age}}" name="age"/>
                                             </div>
                                         </div>
-                                        @if($user->hasRole('employee'))
-                                            <div class="col-lg-6">
-                                                <span class="pf-title">Şirket İsminiz</span>
-                                                <div class="pf-field">
-                                                    <input type="text" placeholder="Şirket İsminiz"
-                                                           value="{{$user->company_name}}" name="company_name"/>
-                                                </div>
-                                            </div>
-                                        @endif
                                         <div class="col-12 mb-5">
                                             <button type="submit" class="tw-bg-red-500 btn w-full text-white py-2 px-4 mx-auto">Güncelle</button>
                                         </div>

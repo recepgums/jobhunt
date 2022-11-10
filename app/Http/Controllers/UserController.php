@@ -52,7 +52,7 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        if ($user->hasRole('employer')){
+        if ($user->hasRole('employee')){
             $jobs = $user->jobs()->orderByDesc('created_at')->limit(4)->get();
 
             return view('employers.show',compact('user','jobs'));

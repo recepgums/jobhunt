@@ -24,10 +24,9 @@ class CategoryStoreRequest extends FormRequest
     public function messages()
     {
         return [
-            'name' => 'Lütfen İsminizi Giriniz',
-            'parent_id' => 'Main Category Boş Bırakmayınız',
-            'description' => 'Açıklama Giriniz',
-            'image' => 'Resim Yükleyiniz',
+            'name.required' => 'Lütfen İsminizi Giriniz',
+            'description.required' => 'Açıklama Giriniz',
+            'image.image' => 'Resim Yükleyiniz',
         ];
     }
 }

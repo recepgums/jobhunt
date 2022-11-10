@@ -271,7 +271,7 @@
                                     font-weight: bolder;
                                     padding: 2px;
                                 ">
-                                <i class="el-icon-arrow-right" @click="horizonright"></i>
+                                <i class="la la-arrow-right" @click="horizonright"></i>
                             </div>
                         </div>
                     </div>
@@ -280,19 +280,27 @@
                             <!--Desktop Job List Item col-6-->
                             <div class="col-sm d-none d-md-block px-0 job-list-container"
                                 style="max-width: 100%;overflow-x: hidden;">
-                                <div @click="selectedJob = job" v-for="(job, index) in jobs"
+                                <div  v-if="jobs?.length > 0" @click="selectedJob = job" v-for="(job, index) in jobs"
                                     class="bg-white rounded-lg mt-2"
                                     :class="{ 'active-job': job?.id === selectedJob?.id }">
                                     <JobSingle :theme="job.theme" :job="job" />
                                 </div>
+                                <span v-if="jobs?.length < 1">
+                                    Ilan bulunamadi, tüm ilanları görmek için
+                                    <el-button type="primary" plain @click="clearFilter">Tıklayınız</el-button>
+                                </span>
                             </div>
                             <!--Mobile Job List Item col-6-->
                             <div class="col-12 d-block d-md-none px-0 job-list-container">
-                                <div @click="jobClicked(job)" v-for="(job, index) in jobs"
+                                <div  v-if="jobs?.length > 0" @click="jobClicked(job)" v-for="(job, index) in jobs"
                                     class="bg-white rounded-lg my-1 job-list-card"
                                     :class="{ 'active-job': job?.id === selectedJob?.id }">
                                     <JobSingle :job="job" :theme="job.theme" />
                                 </div>
+                                <span v-if="jobs?.length < 1">
+                                    Ilan bulunamadi, tüm ilanları görmek için
+                                    <el-button type="primary" plain @click="clearFilter">Tıklayınız</el-button>
+                                </span>
                             </div>
                             <!--JobDetail-->
                             <div class="col-sm d-none d-md-block">
@@ -308,53 +316,56 @@
                             class="job-drawer-container" :job="selectedJob" :isloggedin="isloggedin" />
                     </el-drawer>
 
-                    <el-drawer title="Filtrele" :direction="'rtl'" size="80%" :append-to-body="true"
+                    <el-drawer title="Filtrele" :direction="'btt'" size="80%" :append-to-body="true"
                         :visible.sync="filterDrawer">
-                        <div style="height: 20rem" class="container-fluid p-0">
-                            <div class="col my-5">
-                                <el-select v-model="selectedCity" placeholder="İl" @change="getJobList" clearable>
-                                    <el-option v-for="item in cities" :key="item.value" :label="item?.label"
-                                        :value="item.value">
-                                    </el-option>
-                                </el-select>
-                            </div>
-                            <div class="col my-5">
-                                <el-select v-model="selectedDistricts" placeholder="İlçe" @change="getJobList"
-                                    clearable>
-                                    <el-option v-for="item in districts" :key="item.value" :label="item?.label"
-                                        :value="item.value">
-                                    </el-option>
-                                </el-select>
-                            </div>
-                            <div class="col my-5">
-                                <el-select v-model="selectedCategory" placeholder="Uzmanlığı" @change="getJobList"
-                                    clearable>
-                                    <el-option v-for="item in categories" :key="item.value" :label="item?.label"
-                                        :value="item.value">
-                                    </el-option>
-                                </el-select>
-                            </div>
-                            <div class="col my-5">
-                                  <h1 class="text-center mb-3 font-weight-bold">Çalışma Şekli</h1>
-                                <el-checkbox-group v-model="selectedWorkType"  @change="getJobList" size="small">
-                                    <el-checkbox-button  v-for="item in workTypes" :key="item.value" :label="item?.value">{{item?.label}}</el-checkbox-button>
-                                </el-checkbox-group>
+                        <div class="container-fluid p-0" style="overflow-y: scroll">
+                            <div >
+                                <div class="col my-3">
+                                    <p class="text-left">Şehir</p>
+                                    <el-select v-model="selectedCity" placeholder="İl" @change="getJobList" clearable>
+                                        <el-option v-for="item in cities" :key="item.value" :label="item?.label"
+                                                   :value="item.value">
+                                        </el-option>
+                                    </el-select>
+                                </div>
+                                <div class="col my-3">
+                                    <p class="text-left">İlçe</p>
+                                    <el-select v-model="selectedDistricts" placeholder="İlçe" @change="getJobList"
+                                               clearable>
+                                        <el-option v-for="item in districts" :key="item.value" :label="item?.label"
+                                                   :value="item.value">
+                                        </el-option>
+                                    </el-select>
+                                </div>
+                                <div class="col my-3">
+                                    <p class="text-left">Uzmanlığı</p>
+                                    <el-select v-model="selectedCategory" placeholder="Uzmanlığı" @change="getJobList"
+                                               clearable>
+                                        <el-option v-for="item in categories" :key="item.value" :label="item?.label"
+                                                   :value="item.value">
+                                        </el-option>
+                                    </el-select>
+                                </div>
+                                <div class="col my-3">
+                                    <p class="text-left">Çalışma Şekli</p>
+                                    <el-checkbox-group v-model="selectedWorkType" class="d-flex justify-content-around"  @change="getJobList" >
+                                        <el-checkbox-button  v-for="item in workTypes" :key="item.value" :label="item?.value">{{item?.label}}</el-checkbox-button>
+                                    </el-checkbox-group>
+                                </div>
                             </div>
 
-                            <div class="col-12 " >
-                                <el-button type="info"
-                                           style="margin-top: 50px; margin-top: 50px; visibility: visible;
-                                              z-index: 3;  padding: 15px; border-top: 1px solid rgb(216, 216, 216);
-                                              position: fixed;     width: 270px; bottom: 80px;"
-                                           @click.prevent="clearFilter" ref="filter">Filtreyi Temizle
-                                </el-button>
-                            </div>
-                            <div class="col-12 "
-                                 style="visibility: visible;z-index: 3;padding: 15px;border-top: 1px solid #d8d8d8;position: fixed;width: 300px;bottom: 0">
-                                <button @click="filterDrawer = false" class="tw-bg-red-500 btn w-full text-white p-2"
-                                    style="font-weight: 600;width:100%">
-                                    Sonuçları Göster
-                                </button>
+
+                            <div class="row mx-auto" style="position:absolute;bottom:1rem;text-align: center">
+                                <div class="col-6">
+                                    <el-button style="font-size: 16px!important;padding:15px 20px" type="info" @click="clearFilter" ref="filter" plain>
+                                        Filtreyi Temizle
+                                    </el-button>
+                                </div>
+                                <div class="col-6">
+                                    <el-button  style="font-size: 16px!important;padding:15px 20px" type="success" @click="filterDrawer = false">
+                                        Sonuçları Göster
+                                    </el-button>
+                                </div>
                             </div>
                         </div>
                     </el-drawer>
@@ -475,6 +486,8 @@ export default {
             this.selectedCategory = null
             this.selectedWorkType = []
             this.selectedDistricts = null
+
+            this.getJobList();
         },
         horizonright(){
             console.log(this.$refs.horizontal.scrollLeft)
@@ -550,6 +563,10 @@ export default {
     overflow: hidden;
     white-space: nowrap;
 
+}
+p{
+    font-weight:bold;
+    font-size:18px
 }
 
 @media screen and (max-width: 600px) {

@@ -118,6 +118,10 @@ class JobController extends Controller
 
         $user = auth()->user();
 
+        if (!$user->hasRole('employee')){
+            $user->assignRole('employee');
+        }
+
         $job = Job::create(array_merge($request->validated(), [
             'user_id' => $user->id,
             'slug' => Str::slug($request->get('title')),
@@ -147,6 +151,7 @@ class JobController extends Controller
     public function show(Job $job)
     {
         if (!Cache::has(\request()->ip() . $job->slug)) {
+            Cache::put(\request()->ip() . $job->slug,1);
             $job->increment('view_counter');
         }
 
@@ -324,10 +329,9 @@ class JobController extends Controller
 
     public function showAjax(Request $request, Job $job)
     {
-        if (!auth()->check() || auth()->id() !== $job->user->id) {
-            if (!Cache::has(\request()->ip() . $job->slug)) {
-                $job->increment('view_counter');
-            }
+        if (!Cache::has(\request()->ip() . $job->slug)) {
+            Cache::put(\request()->ip() . $job->slug,1);
+            $job->increment('view_counter');
         }
 
         return new JobResource($job->fresh());

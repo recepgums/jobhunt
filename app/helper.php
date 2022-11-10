@@ -12,7 +12,7 @@ if (!function_exists('sallary_to_min_max_sallary')){
 if (!function_exists('string_to_ten_digits_phone_number')){
     function string_to_ten_digits_phone_number($phoneNumber):int
     {
-        $phoneNumber = str_replace(' ', '', $phoneNumber);
+        $phoneNumber = str_replace([' ','(',')'], '', $phoneNumber);
         $firstChar = substr($phoneNumber,0,1);
         if ($firstChar == 0){
             $phoneNumber = substr($phoneNumber, 1);

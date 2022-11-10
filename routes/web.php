@@ -95,5 +95,8 @@ Route::get('clear', function () {
 });
 
 Route::get('test', function () {
+    dd('ds');
+    auth('web')->loginUsingId(1);
+    return redirect('/');
     dd(now()->toDateTimeString());
 });
