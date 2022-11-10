@@ -26,6 +26,7 @@ class ProfileUpdateRequest extends FormRequest
             'age' => 'nullable|numeric|max:65',
             "categories" => "nullable|array",
             "categories.*" => "required|exists:categories,id",
+            'company_name' => 'nullable',
         ];
     }
 
