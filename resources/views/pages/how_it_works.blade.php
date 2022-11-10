@@ -43,10 +43,12 @@
                                 <div class="how-work-box">
                                     <span>1</span>
                                     <i class="la la-user"></i>
-                                    <h3>Bir hesap kaydettirme</h3>
-                                    <p>ın Job, Türkiye'nin önde gelen ve en uzun soluklu online işe alım şirketidir. İş
-                                        arayanların bize sadece bir iş için değil, profesyonellerini gerçekleştirme
-                                        fırsatı için geldiklerini anlıyoruz.</p>
+                                    <h3>Hesap Oluşturun</h3>
+                                    <p>İlan açmak ve ilan verenlerle iletişime geçmek için
+                                        şimdi <a href="{{route('homepage')}}" style="color: red;">isbull.com</a>’a
+                                        kaydolun, gerekli iş gücünü bulun
+                                        ve sergileyin! Bu süreçte gerçek bilgilerinizi kullanmanız iş ticaretinizde
+                                        yararınıza olacaktır.</p>
                                 </div>
                             </div>
                         </div>
@@ -58,10 +60,11 @@
                                 <div class="how-work-box">
                                     <span>2</span>
                                     <i class="la la-file-text"></i>
-                                    <h3>İşinizi Belirtin ve Arayın</h3>
-                                    <p>Başvuruları e-posta yoluyla alacaksınız. İşleri ve adayları Indeed panonuzdan da
-                                        yönetebilirsiniz. Başvuruları gözden geçirin, görüşmeleri planlayın ve önerilen
-                                        adayları tek bir yerden görüntüleyin.</p>
+                                    <h3>İlan Verin</h3>
+                                    <p>İki dakika içinde doldurabileceğiniz ilan formunuzu diğerlerinden farklı kılmanız
+                                        mümkün! Dilediğiniz özelliklerde işçileri bulmanız ve diğer ilanların önüne
+                                        geçmeniz <a href="{{route('homepage')}}" style="color: red;">isbull.com</a>
+                                        sayesinde çok kolay!</p>
                                 </div>
                             </div>
                         </div>
@@ -73,10 +76,24 @@
                                 <div class="how-work-box">
                                     <span>3</span>
                                     <i class="la la-pencil"></i>
-                                    <h3>İş Başvurusu Yap</h3>
-                                    <p>ın Job, Türkiye'nin önde gelen ve en uzun soluklu online işe alım şirketidir. İş
-                                        arayanların bize sadece bir iş için değil, aynı zamanda profesyonellerini
-                                        gerçekleştirme fırsatı için geldiklerini anlıyoruz.</p>
+                                    <h3>İlanlara Başvurun</h3>
+                                    <p>İşbull’un seri ve güvenli yapısı aracılığıyla beğendiğiniz ilanların sahibiyle
+                                        çabucak iletişime geçin, aradığınız işi bulun.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="how-works flip">
+                            <div class="how-workimg"><img
+                                    src="https://creativelayers.net/themes/jobhunt-html/images/resource/hw2.jpg" alt="">
+                            </div>
+                            <div class="how-work-detail">
+                                <div class="how-work-box">
+                                    <span>4</span>
+                                    <i class="la la-phone"></i>
+                                    <h3>Telefonlarınız Hiç Susmasın!</h3>
+                                    <p><a href="{{route('homepage')}}" style="color: red;">isbull.com</a>’da ilan verdiğiniz an büyük
+                                        işçi ve iş veren kitlesi sayesinde telefonlarınız artık hiç susmayacak! Acele
+                                        edin!</p>
                                 </div>
                             </div>
                         </div>
