@@ -34,27 +34,73 @@
                     ></el-image>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <div class="job-property p-2">
-                        <i class="la la-clock-o"></i>
-                        {{ job?.work_type?.name }}
+                    <div class="container">
+                    <div class="row">
+                        <div class="col-2 col-lg-2 mb-3">
+                            <div  :class="[left]"  style="
+                                    width: 30px;
+                                    float: right;
+                                    top: 10px;
+                                    right: 25px;
+                                    position: absolute;
+                                    height: 30px;
+                                    background-color: gray;
+                                    border-radius: 50%;
+                                    text-align: center;
+                                    color: white;
+                                    font-weight: bolder;
+                                    padding: 2px;
+                                ">
+                                <i class="la la-arrow-left" @click="horizonleft"></i>
+                            </div>
+                        </div>
+                        <div class="col-8 col-lg-8">
+                            <div class="row flex-nowrap horizontal-scroll"
+                                 style="overflow: hidden;white-space: nowrap;"
+                                 ref="horizontal">
+                                    <div class="job-property p-2 mr-2" style="min-width:30%">
+                                        <i class="la la-clock-o"></i>
+                                        {{ job?.work_type?.name }}
+                                    </div>
+                                    <div class="job-property p-2" style="min-width:30%">
+                                        <i class="la la-mars-double"></i>
+                                        {{
+                                            job?.gender?.name ?? "Farketmez"
+                                        }}
+                                    </div>
+                                    <div class="job-property p-2" style="min-width:30%">
+                                        <i class="la la-money"></i>
+                                        {{
+                                            job?.fee
+                                                ? job?.fee + "₺"
+                                                : "Belirtilmemiş"
+                                        }}
+                                    </div>
+                                    <div class="job-property p-2" style="min-width:50%">
+                                        <i class="la la-user"></i>
+                                        {{ job?.category?.name ?? '' }}
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-2 col-lg-2 mb-3">
+                            <div  style="
+                                    width: 30px;
+                                    float: right;
+                                    top: 10px;
+                                    right: 25px;
+                                    position: absolute;
+                                    height: 30px;
+                                    background-color: gray;
+                                    border-radius: 50%;
+                                    text-align: center;
+                                    color: white;
+                                    font-weight: bolder;
+                                    padding: 2px;
+                                ">
+                                <i class="la la-arrow-right" @click="horizonright"></i>
+                            </div>
+                        </div>
                     </div>
-                    <div class="job-property p-2">
-                        <i class="la la-mars-double"></i>
-                        {{
-                            job?.gender?.name ?? "Farketmez"
-                        }}
-                    </div>
-                    <div class="job-property p-2">
-                        <i class="la la-money"></i>
-                        {{
-                            job?.fee
-                                ? job?.fee + "₺"
-                                : "Belirtilmemiş"
-                        }}
-                    </div>
-                    <div class="job-property p-2">
-                        <i class="el-icon-user"></i>
-                        {{ job?.category?.name ?? '' }}
                     </div>
                 </div>
             </div>
@@ -86,11 +132,11 @@
                             <!--                        Mobile-->
                             <el-button class="d-block d-md-none" style="width:100%;font-size:1rem!important;padding:15px" @click="getContactClicked(true)" type="success">
                                 Ara
-                                <i class="el-icon-phone"></i>
+                                <i class="la la-phone"></i>
                             </el-button>
                             <el-button class="d-none d-md-block" style="width:100%;font-size:1rem!important;padding:15px" @click="getContactClicked(false)" type="danger">
                                 İletişime geç
-                                <i class="el-icon-phone"></i>
+                                <i class="la la-phone"></i>
                             </el-button>
                         </div>
                     </div>
@@ -117,6 +163,7 @@ export default {
         return {
             jobs_index_url:null,
             showContactInformation:false,
+            left: 'd-none',
         };
     },
     methods:{
@@ -158,7 +205,14 @@ export default {
         },
         closeDrawer (){
             this.$emit('drawerToggle')
-        }
+        },
+        horizonright(){
+            this.left = '';
+            this.$refs.horizontal.scrollLeft += 75;
+        },
+        horizonleft(){
+            this.$refs.horizontal.scrollLeft -= 75;
+        },
     },
     watch:{
         showContactInformation(){
