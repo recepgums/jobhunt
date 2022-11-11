@@ -113,7 +113,7 @@
                                     class="text-left px-0"
                                     accept="image/*,video/*"
                                 >
-                                    <i class="el-icon-plus"></i>
+                                    <i class="el-icon-plus" id="changeIcon"></i>
                                 </el-upload>
                                 <el-dialog :visible.sync="dialogVisible">
                                     <img width="100%" :src="dialogImageUrl" alt="">
@@ -383,6 +383,7 @@ export default {
         }
     },
     mounted() {
+        document.getElementById("changeIcon").classList.remove("el-icon-plus");
         this.getDatas()
         const slugArray = (new URL(window.location.href)).pathname.split('/');
         let slug = slugArray.length > 4 ? slugArray[3]   : null
