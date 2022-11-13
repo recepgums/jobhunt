@@ -56,7 +56,7 @@
                 @endauth
                 @guest
                     <li>
-                        <a href="{{route('blog.index')}}" title="">Blog</a>
+                        <a href="{{route('how_it_works')}}" title="">Nasıl Çalışır</a>
                     </li>
                 @endguest
             </ul>
@@ -121,7 +121,7 @@
                         <a href="{{route('candidates.index')}}" title="">İş Arayanlar</a>
                     </li>--}}
                     <li>
-                        <a href="{{route('blog.index')}}" title="">Blog</a>
+                        <a href="{{route('how_it_works')}}" title="">Nasıl Çalışır</a>
                     </li>
                     {{--
                     <li>
