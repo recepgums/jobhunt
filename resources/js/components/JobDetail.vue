@@ -1,7 +1,7 @@
 <template>
     <div v-if="job" style="border-radius:20px;overflow-x: hidden;height:100%">
         <div class="bg-white" style="border-radius:20px;overflow-x: hidden;height:100%">
-            <div class="bant">
+            <div class="bant ">
                 <div></div>
             </div>
             <span class="el-image-viewer__btn el-image-viewer__close d-none" @click="closeDrawer">
@@ -34,73 +34,27 @@
                     ></el-image>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <div class="container">
-                    <div class="row">
-                        <div class="col-2 mb-3 d-lg-none d-xs-none d-md-none">
-                            <div  :class="[left]"  style="
-                                    width: 30px;
-                                    float: right;
-                                    top: 10px;
-                                    right: 25px;
-                                    position: absolute;
-                                    height: 30px;
-                                    background-color: gray;
-                                    border-radius: 50%;
-                                    text-align: center;
-                                    color: white;
-                                    font-weight: bolder;
-                                    padding: 2px;
-                                ">
-                                <i class="la la-arrow-left" @click="horizonleft"></i>
-                            </div>
-                        </div>
-                        <div class="col-8 col-lg-12">
-                            <div class="row flex-nowrap horizontal-scroll"
-                                 style="overflow: hidden;white-space: nowrap;"
-                                 ref="horizontal">
-                                    <div class="job-property p-2">
-                                        <i class="la la-clock-o"></i>
-                                        {{ job?.work_type?.name }}
-                                    </div>
-                                    <div class="job-property p-2" >
-                                        <i class="la la-mars-double"></i>
-                                        {{
-                                            job?.gender?.name ?? "Farketmez"
-                                        }}
-                                    </div>
-                                    <div class="job-property p-2" >
-                                        <i class="la la-money"></i>
-                                        {{
-                                            job?.fee
-                                                ? job?.fee + "₺"
-                                                : "Belirtilmemiş"
-                                        }}
-                                    </div>
-                                    <div class="job-property p-2">
-                                        <i class="la la-user"></i>
-                                        {{ job?.category?.name ?? '' }}
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="col-2 mb-3 d-lg-none d-xs-none d-md-none">
-                            <div  style="
-                                    width: 30px;
-                                    float: right;
-                                    top: 10px;
-                                    right: 25px;
-                                    position: absolute;
-                                    height: 30px;
-                                    background-color: gray;
-                                    border-radius: 50%;
-                                    text-align: center;
-                                    color: white;
-                                    font-weight: bolder;
-                                    padding: 2px;
-                                ">
-                                <i class="la la-arrow-right" @click="horizonright"></i>
-                            </div>
-                        </div>
+                    <div class="job-property p-2">
+                        <i class="la la-clock-o"></i>
+                        {{ job?.work_type?.name }}
                     </div>
+                    <div class="job-property p-2">
+                        <i class="la la-mars-double"></i>
+                        {{
+                            job?.gender?.name ?? "Farketmez"
+                        }}
+                    </div>
+                    <div class="job-property p-2">
+                        <i class="la la-money"></i>
+                        {{
+                            job?.fee
+                                ? job?.fee + "₺"
+                                : "Belirtilmemiş"
+                        }}
+                    </div>
+                    <div class="job-property p-2">
+                        <i class="la la-user"></i>
+                        {{ job?.category?.name ?? '' }}
                     </div>
                 </div>
             </div>
@@ -163,7 +117,6 @@ export default {
         return {
             jobs_index_url:null,
             showContactInformation:false,
-            left: 'd-none',
         };
     },
     methods:{

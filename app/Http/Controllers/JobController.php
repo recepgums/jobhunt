@@ -150,8 +150,8 @@ class JobController extends Controller
 
     public function show(Job $job)
     {
-        if (!Cache::has(\request()->ip() . $job->slug)) {
-            Cache::put(\request()->ip() . $job->slug,1);
+        if (! Cache::has(\request()->ip() . $job->slug)) {
+            Cache::forever(\request()->ip() . $job->slug,1);
             $job->increment('view_counter');
         }
 
@@ -335,7 +335,7 @@ class JobController extends Controller
     public function showAjax(Request $request, Job $job)
     {
         if (!Cache::has(\request()->ip() . $job->slug)) {
-            Cache::put(\request()->ip() . $job->slug,1);
+            Cache::forever(\request()->ip() . $job->slug,1);
             $job->increment('view_counter');
         }
 

@@ -387,10 +387,10 @@ export default {
         this.getDatas()
         const slugArray = (new URL(window.location.href)).pathname.split('/');
         let slug = slugArray.length > 4 ? slugArray[3]   : null
-        if (slug){
+        if (slug) {
             this.slug = slug
-            axios.get(apiUrl+'job/'+slug)
-                .then(resp=>{
+            axios.get(apiUrl + 'job/' + slug)
+                .then(resp => {
                     this.formInline.title = resp.data.data.title
                     this.formInline.description = resp.data.data.description
                     this.formInline.work_type = resp.data.data.work_type.id
@@ -401,13 +401,13 @@ export default {
                     this.formInline.fee = resp.data.data.fee
                     this.formInline.gender = resp.data.data.gender.id
                     this.formInline.phone = resp.data.data.phone
-                    this.theme = resp.data.data.theme ?? {selectUrgent:false,selectedDate:0,color: '',}
+                    this.theme = resp.data.data.theme ?? {selectUrgent: false, selectedDate: 0, color: '',}
 
-                    resp.data.data.media.map(q=>{
+                    resp.data.data.media.map(q => {
                         this.fileList.push({name: q, url: q})
                     })
                     this.formInline.sleep_after_at = resp.data.data.sleep_after_at
-            })
+                })
         }
     },
     methods: {
