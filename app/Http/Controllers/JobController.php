@@ -322,9 +322,14 @@ class JobController extends Controller
         }
 
         $jobs = $jobFilterService->filter($request);
-        $jobs = $jobs->listable()->orderByDesc('created_at')->paginate(6);
+        $jobs = $jobs->listable()->orderByDesc('created_at')->paginate(8);
 
-        return JobResource::collection($jobs);
+        if (count($jobs) < 8) {
+            $limit =  8 - count($jobs);
+            $latest =   Job::latest()->limit($limit)->get();
+            $jobs = $jobs->merge($latest);
+        }
+          return JobResource::collection($jobs);
     }
 
     public function showAjax(Request $request, Job $job)

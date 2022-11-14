@@ -938,12 +938,6 @@
                                             </p>
                                         </div>
                                         <div class="col-lg-12">
-                                            <p class="remember-label" style="font-size: 11.22px">
-                                                <input type="checkbox"   id="cb2" required><label for="cb2">
-                                                    İletişim bilgilerime e-ileti gönderilmesine izin veriyorum.</label>
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-12">
                                             <p class="remember-label" style="font-size: 10.70px" id="cb1clear">
                                                 <input type="checkbox"   id="cb1" required>
                                                 <label for="cb1">
@@ -956,13 +950,6 @@
                                             <p class="remember-label" style="font-size: 11.22px" id="cb3clearmobile">
                                                 <input type="checkbox"   id="cb3mobile" required><label for="cb3mobile">
                                                     <span class="font-weight-bold" id="serviceModalOnclickMobile" data-toggle="modal" data-target="#serviceAgreementMobile">Hizmet Sözleşmesini</span> Onaylıyorum</label>
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <p class="remember-label" style="font-size: 11.22px">
-                                                <input type="checkbox"  id="cb2mobile" required>
-                                                <label for="cb2mobile">
-                                                    İletişim bilgilerime e-ileti gönderilmesine izin veriyorum.</label>
                                             </p>
                                         </div>
                                         <div class="col-lg-12">
@@ -1071,7 +1058,6 @@
         });
         $('#onClickRegister').on('click', function () {
             $('#cb3mobile').attr('required', false);
-            $('#cb2mobile').attr('required', false);
             $('#cb1mobile').attr('required', false);
 
             if (!$('#cb3').is(':checked')) {
@@ -1086,16 +1072,9 @@
             } else {
                 $('#messageDanger1').empty()
             }
-            if (!$('#cb2').is(':checked')) {
-                $('#messageDanger2').empty()
-                $('#messageDanger2').append('<div class="alert alert-danger" role="alert">Lütfen iletişim bilgilerine e-ileti ile gönderilmesine izin verin</div>')
-            } else {
-                $('#messageDanger2').empty()
-            }
         })
         $('#onClickRegistermobile').on('click', function () {
             $('#cb3').attr('required', false);
-            $('#cb2').attr('required', false);
             $('#cb1').attr('required', false);
             if (!$('#cb3mobile').is(':checked')) {
                 $('#messageDanger').empty()
@@ -1108,12 +1087,6 @@
                 $('#messageDanger1').append('<div class="alert alert-danger" role="alert">Lütfen Açık Rıza Metini Onaylayın</div>')
             } else {
                 $('#messageDanger1').empty()
-            }
-            if (!$('#cb2mobile').is(':checked')) {
-                $('#messageDanger2').empty()
-                $('#messageDanger2').append('<div class="alert alert-danger" role="alert">Lütfen iletişim bilgilerine e-ileti ile gönderilmesine izin verin</div>')
-            } else {
-                $('#messageDanger2').empty()
             }
         })
     </script>
