@@ -143,7 +143,7 @@ export default {
                         }else {
                             //Mobile
                             this.showContactInformation = true
-                            window.location.href = 'tel://0' + resp.data.phone;
+                            window.location.href = 'tel://' + resp.data.phone;
                         }
                     })
                 this.showContactInformation =true;
