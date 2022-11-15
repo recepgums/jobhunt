@@ -52,13 +52,13 @@ class UserController extends Controller
 
     public function show(User $user)
     {
+        $cities = City::select('id', 'name')->get();
+
         if ($user->hasRole('employee')){
             $jobs = $user->jobs()->orderByDesc('created_at')->limit(4)->get();
 
-            return view('employers.show',compact('user','jobs'));
+            return view('employers.show',compact('user','jobs','cities'));
         }
-
-        $cities = City::select('id', 'name')->get();
 
         return view('candidates.show',compact('user','cities'));
     }
