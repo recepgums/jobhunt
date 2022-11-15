@@ -999,12 +999,31 @@
         $(document).on('ready', function () {
             document.getElementById("jobSeeker").click();
         })
+        $('#serviceModalOnclick').on('click',function (){
+            $('#close').click()
+            $('#cb3clear').empty();
+            $('#cb3clear').append('<input type="checkbox"   id="cb3" required><label for="cb3"><span class="font-weight-bold" id="serviceModalOnclick" data-toggle="modal" data-target="#serviceAgreement">Hizmet Sözleşmesini</span> Onaylıyorum</label>')
+        });
+        $('#serviceModalOnclickMobile').on('click',function (){
+            $('#closemobile').click()
+            $('#cb3clearmobile').empty();
+            $('#cb3clearmobile').append('<input type="checkbox"   id="cb3mobile"  required><label for="cb3mobile"><span class="font-weight-bold" id="serviceModalOnclickMobile" data-toggle="modal" data-target="#serviceAgreementMobile">Hizmet Sözleşmesini</span> Onaylıyorum</label>')
+        });
+        $('#serviceModalOnclick1').on('click',function (){
+            $('#close1').click()
+            $('#cb1clear').empty();
+            $('#cb1clear').append('<input type="checkbox"   id="cb1" required><label for="cb1">Verilerimin <span class="font-weight-bold" id="serviceModalOnclick1" data-toggle="modal" data-target="#serviceAgreement1">Açık Rıza Metninde</span> belirtilen şekilde işlenmesine onay veriyorum..</label>')
+        });
+        $('#serviceModalOnclick1mobile').on('click',function (){
+            $('#close1mobile').click()
+            $('#cb1clearmobile').empty();
+            $('#cb1clearmobile').append('<input type="checkbox"   id="cb1mobile" required><label for="cb1mobile">Verilerimin <span class="font-weight-bold" id="serviceModalOnclick1mobile" data-toggle="modal" data-target="#serviceAgreement1Mobile">Açık Rıza Metninde</span> belirtilen şekilde işlenmesine onay veriyorum..</label>')
+        });
         $('#confirmation').on('click',function (){
             $('#close').click()
             $('#cb3clear').empty();
             $('#cb3clear').append('<input type="checkbox"   id="cb3" checked required><label for="cb3"><span class="font-weight-bold" id="serviceModalOnclick" data-toggle="modal" data-target="#serviceAgreement">Hizmet Sözleşmesini</span> Onaylıyorum</label>')
         });
-
         $('#confirmationmobile').on('click',function (){
             $('#closemobile').click()
             $('#cb3clearmobile').empty();
@@ -1019,42 +1038,6 @@
             $('#close1mobile').click()
             $('#cb1clearmobile').empty();
             $('#cb1clearmobile').append('<input type="checkbox"   id="cb1mobile" checked required><label for="cb1mobile">Verilerimin <span class="font-weight-bold" id="serviceModalOnclick1mobile" data-toggle="modal" data-target="#serviceAgreement1Mobile">Açık Rıza Metninde</span> belirtilen şekilde işlenmesine onay veriyorum..</label>')
-        });
-        $('#cb3').on('click',function (){
-            if (!$(this).is(':checked')) {
-                $(this).attr('checked', true);
-            }
-            else{
-                $('#serviceModalOnclick').click()
-                $(this).attr('checked', false);
-            }
-        });
-
-        $('#cb3mobile').on('click',function (){
-            if (!$(this).is(':checked')) {
-                $(this).attr('checked', true);
-            }
-            else{
-                $('#serviceModalOnclickMobile').click()
-                $(this).attr('checked', false);
-            }
-        });
-        $('#cb1').on('click',function (){
-            if (!$(this).is(':checked')) {
-                $(this).attr('checked', true);
-            }
-            else{
-                $('#serviceModalOnclick1').click()
-                $(this).attr('checked', false);
-            }
-        });
-        $('#cb1mobile').on('click', function () {
-            if (!$(this).is(':checked')) {
-                $(this).attr('checked', true);
-            } else {
-                $('#serviceModalOnclick1mobile').click()
-                $(this).attr('checked', false);
-            }
         });
         $('#onClickRegister').on('click', function () {
             $('#cb3mobile').attr('required', false);
