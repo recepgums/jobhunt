@@ -167,109 +167,41 @@
                                     <img style="width: 75%"
                                          src="{{optional($job->user)->profile_image_url ?? 'https://placehold.jp/1600x800'}}"/>
                                 </div>
-                                <div class="col-6 px-0">
+                                <div class="col-6 px-0 text-left">
                                     <div class="card-body">
                                         <div class="job-head-info" id="job-head-info">
-                                            <span style="font-size: 16px">{{optional($job->user)->name}}</span>
+                                           <span><i class="la la-user"></i><a
+                                                   href="{{route('user.show',$job->user->username)}}" title="" style="text-decoration: underline;
+                                                     text-decoration-color: red!important; color: #b34d4d; font-size: 14px;">{{optional($job->user)->name}}</a></span>
                                             @if($job->user?->company_name)
-                                                <h3>Şirket adı</h3>
-                                                <span style="font-weight: bold">
+                                                <h3><i class="fa fa-building" aria-hidden="true"></i>Şirket adı</h3>
+                                                <span style="font-size: 11px;">
                                              {{$job->user?->company_name}}
-                                        </span>
+                                              </span>
                                             @endif
+                                            <div id="job-head-info-contact" class="text-left">
+
+                                            </div>
+                                            @auth
+                                                <span style="color: #3a5fc3;" onclick="showContact(event,`{{$job->slug}}`)"><a href=""><i
+                                                        class="la la-paper-plane"></i>
+                                                        İletişime Geç</a></span>
+                                            @endauth
+                                            @guest
+                                                <span style="color: #3a5fc3;"><a href="{{route('login')}}"><i class="la la-paper-plane"></i>
+                                                İletişime Geç</a></span>
+                                            @endguest
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row text-center">
-                                <div class="col-6 px-0 mx-0">
-                                    @auth
-                                        <span style="cursor: pointer;"
-                                              id="show_contact_info_button_auth"
-                                              onclick="showContact(event,`{{$job->slug}}`)"
-                                              title="" class="apply-job-btn">
-                                                    <i class="la la-paper-plane"></i>
-                                                    İletişime Geç
-                                        </span>
-                                    @endauth
-                                    @guest
-                                        <span style="cursor: pointer">
-                                            <a href="{{route('login')}}" title="" class="apply-job-btn signup-popup"
-                                               style="cursor: pointer;padding: 20px 5px; width: 230px; margin-left: 7px; line-height: 50px;">
-                                                <i class="la la-paper-plane"></i>
-                                                İletişime Geç
-                                            </a>
-                                        </span>
-                                    @endguest
-                                </div>
-                                <div class="col-6 px-0 mx-0">
-                                    <span style="padding: 10px;">
-                                        <a href="{{route('user.show',$job->user->username)}}" style="padding: 20px 5px; width: 230px;font-size: 12px;
-font-weight: bold; margin-left: 7px;" title="" class="viewall-jobs">
-                                            <i class="la la-user"></i>
-                                            Profilini Görüntüle
-                                        </a>
-                                    </span>
-                                </div>
+                                <div class="col-4 px-0 mx-0">
 
-                                @if(auth()->id() === $job->user_id && $job->status == \App\Models\Job::STATUS["published"])
-                                    <form method="POST"
-                                          action="{{route('candidate.job.passive',$job)}}">
-                                        @csrf
-                                        @method('put')
-                                        <button class="apply-job-btn mt-5 d-none d-lg-block"
-                                                style="margin-right: 95px; width: 230px; height: 58px">Yayından Kaldır
-                                        </button>
-                                    </form>
-                                    <a href="{{route('job.edit',$job)}}">
-                                        <button class="apply-job-btn mt-5 d-none d-lg-block"
-                                                style="margin-right: 95px; width: 230px; height: 58px">Düzenle
-                                        </button>
-                                    </a>
-                                    <a href="{{route('job.edit',$job)}}">
-                                        <button class="apply-job-btn mt-5 d-lg-none"
-                                                style="margin-right: 95px; width: 230px; height: 58px">Düzenle
-                                        </button>
-                                    </a>
-                                    <form method="POST"
-                                          action="{{route('candidate.job.passive',$job)}}">
-                                        @csrf
-                                        @method('put')
-                                        <button class="apply-job-btn mt-5 d-lg-none"
-                                                style="margin-right: 95px; width: 230px; height: 58px">Yayından Kaldır
-                                        </button>
-                                    </form>
-                                @endif
+                                </div>
+                                <div class="col-8 px-0 mx-0">
 
-                                @if(auth()->id() == $job->user_id && $job->status == \App\Models\Job::STATUS["expired"])
-                                                    <form method="POST"
-                                                          action="{{route('candidate.job.active',$job)}}">
-                                                        @csrf
-                                                        @method('put')
-                                                        <button class="apply-job-btn mt-5 d-none d-lg-block"
-                                                                style="margin-right: 95px; width: 230px; height: 58px">Tekrar Yayınla
-                                                        </button>
-                                                    </form>
-                                                    <a href="{{route('job.edit',$job)}}">
-                                                        <button class="apply-job-btn mt-5 d-none d-lg-block"
-                                                                style="margin-right: 95px; width: 230px; height: 58px">Düzenle
-                                                        </button>
-                                                    </a>
-                                                    <a href="{{route('job.edit',$job)}}">
-                                                        <button class="apply-job-btn mt-5 d-lg-none"
-                                                                style="margin-right: 95px; width: 230px; height: 58px">Düzenle
-                                                        </button>
-                                                    </a>
-                                                    <form method="POST"
-                                                          action="{{route('candidate.job.active',$job)}}">
-                                                        @csrf
-                                                        @method('put')
-                                                        <button class="apply-job-btn mt-5 d-lg-none"
-                                                                style="margin-right: 95px; width: 230px; height: 58px">Tekrar Yayınla
-                                                        </button>
-                                                    </form>
-                                                    <br>
-                                                @endif
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -304,12 +236,12 @@ font-weight: bold; margin-left: 7px;" title="" class="viewall-jobs">
                     "_token": "{{ csrf_token() }}",
                 },
                 success: function (response) {
-                    let html = `<h4>${response?.name}</h4><p><i class="la la-phone"></i>`
+                    let html = `<p style="margin-left: -30px;"><i class="la la-phone"></i>`
                     console.log(response)
-                    html += response?.phone ? `<a href="tel:${response?.phone}">${response?.phone}</p><p><i class="la la-envelope-o"></i>` : 'Kullanicinin telefon numarasi bulunmuyor </p><p><i class="la la-envelope-o"></i>'
+                    html += response?.phone ? `<a href="tel:${response?.phone}">${response?.phone}</p><p style="margin-left: -20px;"><i class="la la-envelope-o"></i>` : 'Kullanicinin telefon numarasi bulunmuyor </p><p><i class="la la-envelope-o"></i>'
                     html += response?.email ? `${response?.email}</p>` : 'Kullanicinin mail adresi bulunmuyor</p>';
 
-                    $('#job-head-info').fadeOut(300, function () {
+                    $('#job-head-info-contact').fadeOut(300, function () {
                         $(this).html(html).fadeIn(300);
                     });
 

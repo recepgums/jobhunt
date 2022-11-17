@@ -76,7 +76,7 @@
                                     @endif
                                 @endforeach
                                 <p><i class="la la-unlink"></i><a href="{{route('homepage')}}">www.jobhunt.com</a></p>
-                                <p><i class="la la-phone"></i><a href="tel:{{$user->phone}}">{{string_to_ten_digits_phone_number($user->phone)}}</a></p>
+                                <p><i class="la la-phone"></i><a href="tel:{{$user->phone}}">{{$user->phone}}</a></p>
                                 <p><i class="la la-envelope-o"></i><a href="mailto:{{$user->email}}">{{$user->email}}</a></p>
                             </div>
                         </div>
