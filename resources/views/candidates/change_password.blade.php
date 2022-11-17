@@ -24,11 +24,14 @@
                                             {{ session('success') }}
                                         </div>
                                     @endif
-                                    @if (session('error'))
-                                        <div class="alert alert-danger">
-                                            {{ session('error') }}
-                                        </div>
-                                    @endif
+                                        @if($errors->any())
+                                            {!! implode('', $errors->all('<div class="col-12 text-left text-danger">:message</div>')) !!}
+                                        @endif
+                                        @if (session('error'))
+                                            <div class="alert alert-danger">
+                                                {{ session('error') }}
+                                            </div>
+                                        @endif
                                     <form action="{{route('change_password_post')}}" method="post">
                                         @csrf
                                         <div class="row">

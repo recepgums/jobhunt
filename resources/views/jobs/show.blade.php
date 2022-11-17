@@ -183,7 +183,7 @@
 
                                             </div>
                                             @auth
-                                                <span style="color: #3a5fc3;" onclick="showContact(event,`{{$job->slug}}`)"><a href=""><i
+                                                <span id="show_contact_info_button_auth" style="color: #3a5fc3;" onclick="showContact(event,`{{$job->slug}}`)"><a href=""><i
                                                         class="la la-paper-plane"></i>
                                                         İletişime Geç</a></span>
                                             @endauth

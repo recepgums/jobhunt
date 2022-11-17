@@ -316,9 +316,9 @@
                             class="job-drawer-container" :job="selectedJob" :isloggedin="isloggedin" />
                     </el-drawer>
 
-                    <el-drawer title="Filtrele" :direction="'btt'" size="80%" :append-to-body="true"
+                    <el-drawer title="Filtrele" :direction="'btt'" size="70%" :append-to-body="true"
                         :visible.sync="filterDrawer">
-                        <div class="container-fluid p-0" style="overflow-y: scroll">
+                        <div class="container-fluid p-0" style="overflow-y: scroll;height: 60vh">
                             <div >
                                 <div class="col my-3">
                                     <p class="text-left">Şehir</p>

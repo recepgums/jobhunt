@@ -93,7 +93,7 @@
                             <div class="col-md-6 align-self-center padding-t1 ">
                                 <div class="">
                                     <h1 style="font-size: 3em;font-weight: bolder" class="text-white h2 h1-title">
-                                        Fırıncıların Ortak Platformu
+                                        {{env('HOMEPAGE_TITLE')}} Ortak Platformu
                                     </h1>
                                     <span class="tw-font-light l text-white h4">
                                         İstediğin iş, aradığın eleman burada
@@ -174,7 +174,7 @@
 
                         <h3 class="tw-mt-4 text-dark w-75 ml-5"
                             style="font-size: 16px;font-weight:bold; width: 95%;">
-                            Türkiye'nin her yerinden eleman arayan fırıncılara {{env('APP_NAME')}} ile ulaşın.
+                            Türkiye'nin her yerinden eleman arayan {{env('HOMEPAGE_EXPLAIN')}} {{env('APP_NAME')}} ile ulaşın.
                             Sokak sokak iş aramakla zaman kaybetmeyin.
                             Hemen şimdi kayıt olun ve iş ilanları sahipleriyle iletişime geçin!
                         </h3>
@@ -192,9 +192,8 @@
                     <div class="px-5">
                         <h2 style="font-size: 28px;font-weight:600" class="text-primary">Eleman Arayanlar</h2>
                         <h3 class="tw-mt-4 text-dark w-80 ml-3" style="font-size: 16px;font-weight:bold;">
-                            Türkiye'nin her yerinden eleman arayan fırıncılara {{env('APP_NAME')}} ile ulaşın.
-                            Sokak sokak iş aramakla zaman kaybetmeyin.
-                            Hemen şimdi kayıt olun ve iş ilanları sahipleriyle iletişime geçin!
+                            Doğru kişiye ulaşmak için çalışma şartlarınızı ve çalışandan beklediğiniz
+                            tüm özellikleri belirtin. Dakikalar içerinde iş başvuruları almaya başlayın. Telefonlarınız hiç susmasın!
                         </h3>
                     </div>
                     @guest
@@ -211,29 +210,6 @@
                             İş İlanı verin
                         </a>
                     @endauth
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 mx-auto column">
-                        <div class="heading left">
-                            <h2>Sıkça Sorulan Sorular</h2>
-                        </div><!-- Heading -->
-                        <div id="toggle-widget" class="experties">
-                            @forelse($faqs as $faq)
-                                <h2>{{$faq->question}}</h2>
-                                <div class="content">
-                                    <p>{{$faq->answer}}</p>
-                                </div>
-                            @empty
-                            @endforelse
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

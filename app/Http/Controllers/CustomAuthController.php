@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\LoginAttemptRequest;
 use App\Http\Requests\UserRegisterRequest;
 use App\Jobs\SendMailJob;
@@ -101,23 +102,23 @@ class CustomAuthController extends Controller
         return redirect()->route('homepage');
     }
 
-    public function changePasswordPost(Request $request)
+    public function changePasswordPost(ChangePasswordRequest $request)
     {
         if (!(Hash::check($request->get('old_password'), Auth::user()->password))) {
             // The passwords matches
-            return redirect()->back()->with("error", "Your current password does not matches with the password.");
+            return redirect()->back()->with("error", "Önceki şifreyi yanlış girdiniz");
         }
 
         if (strcmp($request->get('old_password'), $request->get('password')) == 0) {
             // Current password and new password same
-            return redirect()->back()->with("error", "New Password cannot be same as your current password.");
+            return redirect()->back()->with("error", "Yeni şifre, eski şifrenizin aynısı olamaz");
         }
         //Change Password
         $user = Auth::user();
         $user->password = $request->get('password');
         $user->save();
 
-        return redirect()->back()->with("success", "Password successfully changed!");
+        return redirect()->back()->with("success", "Şifre başarıyla güncellendi");
     }
 
     public function changePasswordByTokenIndex($token)

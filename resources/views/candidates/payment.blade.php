@@ -19,6 +19,7 @@
                             <div class="manage-jobs-sec addscroll">
                                 <h3>Ödeme işlemlerim</h3>
                                 <table>
+                                    @if($payments && count($payments) > 0)
                                     <thead>
                                     <tr>
                                         <td>Id</td>
@@ -28,6 +29,7 @@
                                         <td>Durum</td>
                                     </tr>
                                     </thead>
+                                    @endif
                                     <tbody>
                                     @forelse($payments as $payment)
                                         <tr>
@@ -53,7 +55,7 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <p>Ödeme işleminiz bulunmuyor</p>
+                                        <p class="text-center">Ödeme işleminiz bulunmuyor</p>
                                     @endforelse
                                     </tbody>
                                 </table>

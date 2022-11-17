@@ -25,7 +25,7 @@
             <div class="container px-1">
                 <div class="row no-gape">
                     @include('layout.dashboard_menu')
-                    <div class="col-lg-9 column">
+                    <div class="col-lg-9 col-sm-12 column">
                         <div class="padding-left">
                             <div class="manage-jobs-sec ml-3 mt-2">
                                 <ul class="nav nav-tabs d-none d-lg-block d-xs-block d-md-block" id="myTab"

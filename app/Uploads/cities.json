@@ -7,7 +7,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Adana Havalimanı",
+                "ad": "Adana Merkez",
                 "merkezId": 90116,
                 "aciklama": ""
             },
@@ -87,7 +87,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "İncirlik Havalimanı",
+                "ad": "İncirlik Merkez",
                 "merkezId": 90117,
                 "aciklama": ""
             }
@@ -101,7 +101,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Adıyaman Havalimanı",
+                "ad": "Adıyaman Merkez",
                 "merkezId": 90210,
                 "aciklama": ""
             },
@@ -155,7 +155,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Afyonkarahisar Havalimanı",
+                "ad": "Afyonkarahisar Merkez",
                 "merkezId": 90319,
                 "aciklama": ""
             },
@@ -254,7 +254,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Ahmed-i Hani Havalimanı",
+                "ad": "Ahmed-i Hani Merkez",
                 "merkezId": 90409,
                 "aciklama": ""
             },
@@ -323,7 +323,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Merzifon Havalimanı",
+                "ad": "Merzifon Merkez",
                 "merkezId": 90508,
                 "aciklama": ""
             },
@@ -377,7 +377,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Esenboğa Havalimanı",
+                "ad": "Esenboğa Merkez",
                 "merkezId": 90626,
                 "aciklama": ""
             },
@@ -387,7 +387,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Etimesgut Havalimanı",
+                "ad": "Etimesgut Merkez",
                 "merkezId": 90628,
                 "aciklama": ""
             },
@@ -407,7 +407,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Güvercinlik Havalimanı",
+                "ad": "Güvercinlik Merkez",
                 "merkezId": 90629,
                 "aciklama": ""
             },
@@ -442,7 +442,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Mürted Havalimanı",
+                "ad": "Mürted Merkez",
                 "merkezId": 90627,
                 "aciklama": ""
             },
@@ -501,7 +501,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Antalya Havalimanı",
+                "ad": "Antalya Merkez",
                 "merkezId": 90721,
                 "aciklama": ""
             },
@@ -546,7 +546,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Gazipaşa Havalimanı",
+                "ad": "Gazipaşa Merkez",
                 "merkezId": 90722,
                 "aciklama": ""
             },
@@ -769,7 +769,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Çıldır Havalimanı",
+                "ad": "Çıldır Merkez",
                 "merkezId": 90919,
                 "aciklama": ""
             },
@@ -788,7 +788,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Balıkesir Havalimanı",
+                "ad": "Balıkesir Merkez",
                 "merkezId": 91022,
                 "aciklama": ""
             },
@@ -818,7 +818,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Bandırma Havalimanı",
+                "ad": "Bandırma Merkez",
                 "merkezId": 91023,
                 "aciklama": ""
             },
@@ -873,7 +873,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Koca Seyit Havalimanı",
+                "ad": "Koca Seyit Merkez",
                 "merkezId": 91024,
                 "aciklama": ""
             },
@@ -961,7 +961,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Bingöl Havalimanı",
+                "ad": "Bingöl Merkez",
                 "merkezId": 91209,
                 "aciklama": ""
             },
@@ -1247,7 +1247,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Yenişehir Havalimanı",
+                "ad": "Yenişehir Merkez",
                 "merkezId": 91619,
                 "aciklama": ""
             },
@@ -1276,7 +1276,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Çanakkale Havalimanı",
+                "ad": "Çanakkale Merkez",
                 "merkezId": 91713,
                 "aciklama": ""
             },
@@ -1321,7 +1321,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Gökçeada Havalimanı",
+                "ad": "Gökçeada Merkez",
                 "merkezId": 91714,
                 "aciklama": ""
             },
@@ -1593,7 +1593,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Çardak Havalimanı",
+                "ad": "Çardak Merkez",
                 "merkezId": 92021,
                 "aciklama": ""
             },
@@ -1612,7 +1612,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Diyarbakır Havalimanı",
+                "ad": "Diyarbakır Merkez",
                 "merkezId": 92118,
                 "aciklama": ""
             },
@@ -1770,7 +1770,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Elazığ Havalimanı",
+                "ad": "Elazığ Merkez",
                 "merkezId": 92313,
                 "aciklama": ""
             },
@@ -1839,7 +1839,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Erzincan Havalimanı",
+                "ad": "Erzincan Merkez",
                 "merkezId": 92410,
                 "aciklama": ""
             },
@@ -1898,7 +1898,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Erzurum Havalimanı",
+                "ad": "Erzurum Merkez",
                 "merkezId": 92522,
                 "aciklama": ""
             },
@@ -2017,7 +2017,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Eskişehir Havalimanı",
+                "ad": "Eskişehir Merkez",
                 "merkezId": 92615,
                 "aciklama": ""
             },
@@ -2042,7 +2042,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Hasan Polatkan Havalimanı",
+                "ad": "Hasan Polatkan Merkez",
                 "merkezId": 92616,
                 "aciklama": ""
             },
@@ -2082,7 +2082,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Sivrihisar Havalimanı",
+                "ad": "Sivrihisar Merkez",
                 "merkezId": 92617,
                 "aciklama": ""
             },
@@ -2111,7 +2111,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Gaziantep Havalimanı",
+                "ad": "Gaziantep Merkez",
                 "merkezId": 92710,
                 "aciklama": ""
             },
@@ -2298,7 +2298,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Yüksekova Selahaddin Eyyubi Havalimanı",
+                "ad": "Yüksekova Selahaddin Eyyubi Merkez",
                 "merkezId": 93005,
                 "aciklama": ""
             },
@@ -2322,7 +2322,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Hatay Havalimanı",
+                "ad": "Hatay Merkez",
                 "merkezId": 93116,
                 "aciklama": ""
             },
@@ -2451,7 +2451,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Süleyman Demirel Havalimanı",
+                "ad": "Süleyman Demirel Merkez",
                 "merkezId": 93215,
                 "aciklama": ""
             },
@@ -2561,10 +2561,10 @@
         "ilceler": [
             {
                 "merkezId": 93401,
-                "aciklama": "Bu merkez sondurum verisini Atatürk Havalimanı'ndan almaktadır."
+                "aciklama": "Bu merkez sondurum verisini Atatürk Merkez'ndan almaktadır."
             },
             {
-                "ad": "İstanbul Havalimanı",
+                "ad": "İstanbul Merkez",
                 "merkezId": 93445,
                 "aciklama": ""
             },
@@ -2579,7 +2579,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Atatürk Havalimanı",
+                "ad": "Atatürk Merkez",
                 "merkezId": 93440,
                 "aciklama": ""
             },
@@ -2601,7 +2601,7 @@
             {
                 "ad": "Bakırköy",
                 "merkezId": 93401,
-                "aciklama": "Bu merkez sondurum verisini Atatürk Havalimanı'ndan almaktadır."
+                "aciklama": "Bu merkez sondurum verisini Atatürk Merkez'ndan almaktadır."
             },
             {
                 "ad": "Bayrampaşa",
@@ -2704,12 +2704,12 @@
                 "aciklama": ""
             },
             {
-                "ad": "Sabiha Gökçen Havalimanı",
+                "ad": "Sabiha Gökçen Merkez",
                 "merkezId": 93441,
                 "aciklama": ""
             },
             {
-                "ad": "Samandıra Havalimanı",
+                "ad": "Samandıra Merkez",
                 "merkezId": 93442,
                 "aciklama": ""
             },
@@ -2798,7 +2798,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Adnan Menderes Havalimanı",
+                "ad": "Adnan Menderes Merkez",
                 "merkezId": 93531,
                 "aciklama": ""
             },
@@ -2868,7 +2868,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Kaklıç Havalimanı",
+                "ad": "Kaklıç Merkez",
                 "merkezId": 93534,
                 "aciklama": ""
             },
@@ -2958,7 +2958,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Çiğli Havalimanı",
+                "ad": "Çiğli Merkez",
                 "merkezId": 93532,
                 "aciklama": ""
             },
@@ -2997,7 +2997,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Harakani Havalimanı",
+                "ad": "Harakani Merkez",
                 "merkezId": 93610,
                 "aciklama": ""
             },
@@ -3036,7 +3036,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Kastamonu Havalimanı",
+                "ad": "Kastamonu Merkez",
                 "merkezId": 93721,
                 "aciklama": ""
             },
@@ -3145,7 +3145,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Kayseri Havalimanı",
+                "ad": "Kayseri Merkez",
                 "merkezId": 93818,
                 "aciklama": ""
             },
@@ -3332,7 +3332,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Cengiz Topel Havalimanı",
+                "ad": "Cengiz Topel Merkez",
                 "merkezId": 94114,
                 "aciklama": ""
             },
@@ -3406,7 +3406,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Konya Havalimanı",
+                "ad": "Konya Merkez",
                 "merkezId": 94232,
                 "aciklama": ""
             },
@@ -3580,7 +3580,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Kütahya Havalimanı",
+                "ad": "Kütahya Merkez",
                 "merkezId": 94315,
                 "aciklama": ""
             },
@@ -3635,7 +3635,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Zafer Havalimanı",
+                "ad": "Zafer Merkez",
                 "merkezId": 94314,
                 "aciklama": ""
             },
@@ -3659,7 +3659,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Malatya Havalimanı",
+                "ad": "Malatya Merkez",
                 "merkezId": 94415,
                 "aciklama": ""
             },
@@ -3719,7 +3719,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Tulga Havalimanı",
+                "ad": "Tulga Merkez",
                 "merkezId": 94416,
                 "aciklama": ""
             },
@@ -3753,7 +3753,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Akhisar Havalimanı",
+                "ad": "Akhisar Merkez",
                 "merkezId": 94520,
                 "aciklama": ""
             },
@@ -3847,7 +3847,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Kahramanmaraş Havalimanı",
+                "ad": "Kahramanmaraş Merkez",
                 "merkezId": 94613,
                 "aciklama": ""
             },
@@ -3916,7 +3916,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Mardin Havalimanı",
+                "ad": "Mardin Merkez",
                 "merkezId": 94712,
                 "aciklama": ""
             },
@@ -3985,7 +3985,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Bodrum Imsık Havalimanı",
+                "ad": "Bodrum Imsık Merkez",
                 "merkezId": 94816,
                 "aciklama": ""
             },
@@ -3995,7 +3995,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Dalaman Havalimanı",
+                "ad": "Dalaman Merkez",
                 "merkezId": 94814,
                 "aciklama": ""
             },
@@ -4035,7 +4035,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Milas Bodrum Havalimanı",
+                "ad": "Milas Bodrum Merkez",
                 "merkezId": 94815,
                 "aciklama": ""
             },
@@ -4069,7 +4069,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Muş Havalimanı",
+                "ad": "Muş Merkez",
                 "merkezId": 94907,
                 "aciklama": ""
             },
@@ -4138,7 +4138,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Kapadokya Havalimanı",
+                "ad": "Kapadokya Merkez",
                 "merkezId": 95010,
                 "aciklama": ""
             },
@@ -4196,7 +4196,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Ordu Giresun Havalimanı",
+                "ad": "Ordu Giresun Merkez",
                 "merkezId": 95221,
                 "aciklama": ""
             },
@@ -4553,7 +4553,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Çarşamba Havalimanı",
+                "ad": "Çarşamba Merkez",
                 "merkezId": 95519,
                 "aciklama": ""
             },
@@ -4572,7 +4572,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Siirt Havalimanı",
+                "ad": "Siirt Merkez",
                 "merkezId": 95608,
                 "aciklama": ""
             },
@@ -4616,7 +4616,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Sinop Havalimanı",
+                "ad": "Sinop Merkez",
                 "merkezId": 95710,
                 "aciklama": ""
             },
@@ -4725,7 +4725,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Nuri Demirağ Havalimanı",
+                "ad": "Nuri Demirağ Merkez",
                 "merkezId": 95819,
                 "aciklama": ""
             },
@@ -4824,7 +4824,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Çorlu Havalimanı",
+                "ad": "Çorlu Merkez",
                 "merkezId": 95912,
                 "aciklama": ""
             },
@@ -4843,7 +4843,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Tokat Havalimanı",
+                "ad": "Tokat Merkez",
                 "merkezId": 96013,
                 "aciklama": ""
             },
@@ -4912,7 +4912,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Trabzon Havalimanı",
+                "ad": "Trabzon Merkez",
                 "merkezId": 96119,
                 "aciklama": ""
             },
@@ -5095,7 +5095,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Gap Havalimanı",
+                "ad": "Gap Merkez",
                 "merkezId": 96314,
                 "aciklama": ""
             },
@@ -5149,7 +5149,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Uşak Havalimanı",
+                "ad": "Uşak Merkez",
                 "merkezId": 96407,
                 "aciklama": ""
             },
@@ -5208,7 +5208,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Ferit Melen Havalimanı",
+                "ad": "Ferit Melen Merkez",
                 "merkezId": 96514,
                 "aciklama": ""
             },
@@ -5376,7 +5376,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Çaycuma Havalimanı",
+                "ad": "Çaycuma Merkez",
                 "merkezId": 96709,
                 "aciklama": ""
             }
@@ -5541,7 +5541,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Batman Havalimanı",
+                "ad": "Batman Merkez",
                 "merkezId": 97207,
                 "aciklama": ""
             },
@@ -5610,7 +5610,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Şerafettin Elçi Havalimanı",
+                "ad": "Şerafettin Elçi Merkez",
                 "merkezId": 97308,
                 "aciklama": ""
             }
@@ -5697,7 +5697,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Şehit Bülent Aydın Havalimanı",
+                "ad": "Şehit Bülent Aydın Merkez",
                 "merkezId": 97605,
                 "aciklama": ""
             }
@@ -5711,7 +5711,7 @@
                 "aciklama": ""
             },
             {
-                "ad": "Yalova Havalimanı",
+                "ad": "Yalova Merkez",
                 "merkezId": 97707,
                 "aciklama": ""
             },

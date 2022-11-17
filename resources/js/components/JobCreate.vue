@@ -240,7 +240,7 @@
                                     <el-divider></el-divider>
                                     <div class="row text-center mb-3">
                                         <div class="col-md-6 col-sm-12 my-2">
-                                            <span> Arka plan rengi <del>(20₺)</del> (Ücretsiz)</span>
+                                            <span> Arka plan rengi</span>
                                             <br>
                                             <el-tag v-for="item in predefineColors"
                                                     :key="item.value"
@@ -277,7 +277,7 @@
                                             </el-select>&ndash;&gt;
                                         </div>-->
                                         <div class="col-md-6 col-sm-12">
-                                            <span>Benim işim acil <del>(500₺)</del> (Ücretsiz)</span>
+                                            <span>Benim işim acil </span>
                                             <br>
                                             <el-switch
                                                 v-model="theme.selectUrgent"
@@ -508,9 +508,14 @@ export default {
                 theme:this.theme
             }).then(resp=>{
                 this.fullscreenLoading = false
+                this.$notify({
+                    title: 'İlanınız yayında',
+                    type: 'success',
+                    message: 'İlanınız başarıyla yayınlandı'
+                });
                 setTimeout(() => {
                     window.location.href = window.location.origin + '/'+appSub+'/ilan/' + this.job.slug + '/odeme';
-                }, 500)
+                }, 1500)
             }).catch(err => {
                 this.fullscreenLoading = false
                 this.$notify({

@@ -56,6 +56,8 @@ class Job extends Model implements HasMedia,Sitemapable
         'Usta' => 3,
     ];
 
+    protected $appends = ['cover_image'];
+
     const STATUS = [
         'pending' => 1,
         'published' => 2, // paid

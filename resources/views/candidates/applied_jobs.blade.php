@@ -15,14 +15,14 @@
                     <div class="col-lg-9 column">
                         <div class="padding-left">
                             <div class="manage-jobs-sec">
-                                <h3 class="text-center">İletişime geçtiğim ilanlar</h3>
+                                <h3 class="text-center mt-0">İletişime geçtiğim ilanlar</h3>
 
                                     <div class="row">
                                         @forelse($appliedJobs as $job)
                                         <div class="col-12 col-md-4 mb-1 mt-1">
                                             <a href="{{route('job.show',$job->job->slug)}}">
                                             <div class="card" style="width: 18rem;">
-                                                <img class="card-img-top" src="{{$job->job->cover_image}}" alt="Card image cap">
+                                                <img class="card-img-top" src="{{$job->job->cover_image}}" alt="">
                                                 <div class="card-body">
                                                     <h5 class="card-title">{{$job->job->user->name}}</h5>
                                                     <p class="card-text">{{$job->job->title}}</p>
