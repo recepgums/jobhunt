@@ -78,6 +78,7 @@ class User extends Authenticatable implements HasMedia
     public function phone(): Attribute
     {
         return Attribute::make(
+            get: fn ($value) => string_to_ten_digits_phone_number($value),
             set: fn ($value) => string_to_ten_digits_phone_number($value),
         );
     }
