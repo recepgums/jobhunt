@@ -436,7 +436,7 @@ export default {
             this.fullscreenLoading = true
 
             if (this.slug){
-                axios.post('/'+appSub+'/ilan' + '/' + this.slug,
+                axios.post('/ilan' + '/' + this.slug,
                     form,
                     {
                         headers: {
@@ -463,7 +463,7 @@ export default {
                     })
             }else{
                 axios.post(
-                    '/'+appSub+'/ilan',
+                    '/ilan',
                     form,
                     {
                         headers: {
@@ -504,7 +504,7 @@ export default {
             }
             this.fullscreenLoading = true
 
-            axios.put('/'+appSub+'/ilan'+ '/' + this.job.slug,{
+            axios.put('/ilan'+ '/' + this.job.slug,{
                 theme:this.theme
             }).then(resp=>{
                 this.fullscreenLoading = false
@@ -514,7 +514,7 @@ export default {
                     message: 'İlanınız başarıyla yayınlandı'
                 });
                 setTimeout(() => {
-                    window.location.href = window.location.origin + '/'+appSub+'/ilan/' + this.job.slug + '/odeme';
+                    window.location.href = window.location.origin + '/ilan/' + this.job.slug + '/odeme';
                 }, 1500)
             }).catch(err => {
                 this.fullscreenLoading = false

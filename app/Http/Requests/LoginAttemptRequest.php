@@ -24,7 +24,7 @@ class LoginAttemptRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email',
+            'phone' => 'required',
             'password' => 'required|min:7',
         ];
     }
@@ -32,9 +32,8 @@ class LoginAttemptRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.required' => 'Email alanı zorunludur',
-            'password.required' => 'Şifre alanı zorunludur',
-            'email.email' => 'Geçerli bir email adresi giriniz.',
+            'phone.required' => 'Telefon girmek zorunludur',
+            'password.required' => 'Şifre girmek zorunludur',
             'password.min' => 'Şifreniz en az 7 hanelidir',
         ];
     }

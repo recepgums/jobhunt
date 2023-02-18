@@ -909,21 +909,13 @@
                                 <form method="post" action="{{route('register.custom')}}" autocomplete="off">
                                     @csrf
                                     <div class="cfield">
-                                        <input name="name" type="text" placeholder="İsim Soyisim"/>
-                                        <i class="la la-user"></i>
-                                    </div>
-                                    <div class="cfield">
-                                        <input name="email" type="text" placeholder="Email" autocomplete="off"/>
-                                        <i class="la la-envelope-o"></i>
+                                        <input name="phone" type="tel" placeholder="Telefon (53XXXXXXXX)" required></input>
+                                        <i class="la la-phone"></i>
                                     </div>
                                     <div class="cfield">
                                         <input name="password" type="password" placeholder="Şifre" required
-                                               autocomplete="new-password"/>
+                                               autocomplete="new-password"></input>
                                         <i class="la la-key"></i>
-                                    </div>
-                                    <div class="cfield">
-                                        <input name="phone" type="tel" placeholder="Telefon (53XXXXXXXX)" required/>
-                                        <i class="la la-phone"></i>
                                     </div>
                                     <div class="select-user mb-3 justify-content-around d-flex">
                                         <span id="jobSeeker" onclick="document.getElementById('role').value=1">İş Arayan</span>
@@ -948,7 +940,9 @@
                                     <div class="row d-lg-none">
                                         <div class="col-lg-12 mt-3">
                                             <p class="remember-label" style="font-size: 11.22px" id="cb3clearmobile">
-                                                <input type="checkbox"   id="cb3mobile" required><label for="cb3mobile">
+                                                <input type="checkbox"
+
+                                                       id="cb3mobile" required><label for="cb3mobile">
                                                     <span class="font-weight-bold" id="serviceModalOnclickMobile" data-toggle="modal" data-target="#serviceAgreementMobile">Hizmet Sözleşmesini</span> Onaylıyorum</label>
                                             </p>
                                         </div>
@@ -964,24 +958,7 @@
                                     <button type="submit" class="d-none d-lg-block" style="color: white" id="onClickRegister">Kayıt Ol</button>
                                     <button type="submit" class="d-lg-none" style="color: white" id="onClickRegistermobile">Kayıt Ol</button>
                                 </form>
-                                <div class="extra-login">
-                                    <span>Ya da</span>
-                                    <br>
-                                    <a class="tw-login" href="{{route('socialite.redirect','google')}}" title="">
-                                        <div class="g-sign-in-button">
-                                            <div class=content-wrapper>
-                                                <div class="logo-wrapper">
-                                                    <img src='https://developers.google.com/identity/images/g-logo.png'>
-                                                </div>
-                                                <span class='text-container'>
-                                                  <span>
-                                                      Google ile kayıt ol
-                                                  </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+
                             </div>
                         </div><!-- SIGNUP POPUP -->
                     </div>

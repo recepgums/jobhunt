@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('username')->nullable();//todo unique
-            $table->string('email')->unique();
-            $table->string('phone')->unique()->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->unique();
             $table->longText('about')->comment('html')->nullable();
             $table->integer('age')->nullable();
             $table->string('profile_image_url')->nullable();

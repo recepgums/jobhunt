@@ -28,6 +28,14 @@ class JobController extends Controller
 
     public function __construct()
     {
+        $this->middleware(['phone_verified','auth'])
+            ->only([
+                'create',
+                'store',
+                'update',
+                'edit',
+            ]);
+
         if ($position = Location::get()) {
             if (strlen($position->zipCode) == 4) {
                 $position->zipCode = "0" . $position->zipCode;

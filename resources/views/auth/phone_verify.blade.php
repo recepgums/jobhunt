@@ -1,6 +1,18 @@
 @extends('layout.app')
 
-
+@section('style')
+    <style>
+        p{
+            font-size: 12px;
+            font-weight: 400;
+            font-family: Montserrat,Helvetica,Arial,sans-serif;
+        }
+        .modal-body{
+            max-height: 80vh;
+            overflow-y: scroll;
+        }
+    </style>
+@endsection
 @section('content')
     <section class="overlape d-none d-md-block">
         <div class="block no-padding">
@@ -14,49 +26,66 @@
         <div class="block remove-bottom">
             <div class="container">
                 <div class="row">
+                    <div class="col-lg-3">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text-center" id="messageDanger">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text-center" id="messageDanger1">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text-center" id="messageDanger2">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
                     <div class="col-lg-12">
-                        <div class="account-popup-area signin-popup-box static">
+                        <div class="account-popup-area signup-popup-box static">
                             <div class="account-popup">
-                                <h3>Giriş Yap</h3>
-                                <span>Hesabınız yok mu?
-                                <a style="color: blue" href="{{route('register-user')}}">Kayıt olun</a>
+                                <h3>Telefon Doğrulama</h3>
+                                <span>
+                                    Bu telefon numarasına tek kullanımlık kod göndereceğiz
                                 </span>
-                                @if($errors->any())
-                                    {!! implode('', $errors->all('<div class="col-12 text-left text-danger">:message</div>')) !!}
-                                @endif
-                                <form action="{{route('login.custom')}}" method="POST">
+                                <form method="post" action="{{route('phone_verify.custom')}}" autocomplete="off">
                                     @csrf
                                     <div class="cfield">
-                                        <input autocomplete="nope" name="phone" type="tel" placeholder="Telefon numaranız(5XXXXXXXX)" required/>
-                                        <i class="la la-user"></i>
+                                        <input name="phone" type="tel" value="{{auth()->user()->phone}}" placeholder="Telefon (53XXXXXXXX)" required></input>
+                                        <i class="la la-phone"></i>
                                     </div>
-                                    <div class="cfield">
-                                        <input type="password" name="password" placeholder="********" required/>
-                                        <i class="la la-key"></i>
-                                    </div>
-                                    <p class="remember-label">
-                                        <input type="checkbox" name="remember" id="cb1"><label for="cb1">
-                                            Beni hatırla</label>
-                                    </p>
-
-                                    <a href="{{route('forgot-password')}}" title="">Şifremi unuttum</a>
-
-                                    <button type="submit" style="color: white">Giriş Yap</button>
+                                    <button type="submit" style="color: white">Kod Gönder</button>
                                 </form>
 
                             </div>
-                        </div><!-- LOGIN POPUP -->
+                        </div><!-- SIGNUP POPUP -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 @endsection
 
 @push('scripts')
     <script src="{{asset('assets/js/isotop.js')}}" type="text/javascript"></script>
     <script src="{{asset('assets/js/jquery.scrollbar.min.js')}}" type="text/javascript"></script>
 @endpush
+
 <style>
     *, *:before, *:after {
         box-sizing: border-box;

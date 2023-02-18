@@ -70,7 +70,7 @@
         }
         .bg-overlay {
             background: linear-gradient(to bottom, rgba(184, 24, 40, 0.88), rgba(23, 23, 22, 0.5)),
-            url("{{ asset('assets/images/'.env('APP_SUB').'/bg.webp') }}") center center no-repeat fixed;
+            url("{{ asset('assets/images/bg.webp') }}") center center no-repeat fixed;
             background-size: cover;
         }
 
@@ -151,14 +151,6 @@
         <div class="gray homepage-slider">
             <div id="app">
                 <job-list :isLoggedIn="'{{auth()->check()}}'"></job-list>
-            </div>
-            <div class="container">
-                <div class="mx-auto text-center">
-                    <div class="browse-all-cat ">
-                        <a href="{{route('job.index')}}" title="" style="background-color: #fb236a;color: white" class="style2">Daha fazla iş ilanı
-                            görüntüleyin</a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

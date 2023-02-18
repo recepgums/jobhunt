@@ -56,6 +56,13 @@ class User extends Authenticatable implements HasMedia
         'employee' => 2,
     ];
 
+    protected function hasVerifiedPhone(): Attribute
+    {
+        return new Attribute(
+            get: fn() => (bool)$this->verify()->whereNotNull('phone_verified_at')->first(),
+        );
+    }
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
@@ -94,6 +101,35 @@ class User extends Authenticatable implements HasMedia
         });
     }
 
+    public function appliedJobs(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(JobUser::class);
+    }
+
+    public function categories(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(CategoryUser::class);
+    }
+
+    public function transactions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(OmgPayTransactions::class);
+    }
+
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
+    }
+
+    public function verify()
+    {
+        return $this->hasOne(UserVerify::class);
+    }
+
+
+
+
+
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
@@ -118,25 +154,5 @@ class User extends Authenticatable implements HasMedia
                 'coin',
                 'highlighted_until_at',
             ]);
-    }
-
-    public function appliedJobs(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(JobUser::class);
-    }
-
-    public function categories(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(CategoryUser::class);
-    }
-
-    public function transactions(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(OmgPayTransactions::class);
-    }
-
-    public function jobs()
-    {
-        return $this->hasMany(Job::class);
     }
 }

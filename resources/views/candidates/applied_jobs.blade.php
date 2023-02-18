@@ -15,7 +15,7 @@
                     <div class="col-lg-9 column">
                         <div class="padding-left">
                             <div class="manage-jobs-sec">
-                                <h3 class="text-center mt-0">İletişime geçtiğim ilanlar</h3>
+                                <h3 class="text-center">İletişime geçtiğim ilanlar</h3>
 
                                     <div class="row">
                                         @forelse($appliedJobs as $job)
@@ -47,31 +47,6 @@
 
                                         @endforelse
                                     </div>
-
-{{--                                                                            <tr>--}}
-{{--                                            <td width="20%">--}}
-{{--                                                <a href="{{route('job.show',$job->job->slug)}}">--}}
-{{--                                                <div class="table-list-title">--}}
-{{--                                                    <i>{{$job->job->user->name}}</i><br />--}}
-{{--                                                    <span><i class="la la-map-marker"></i>--}}
-{{--                                                         @if(optional($job->job->district)->name)--}}
-{{--                                        {{$job->job->district->name}},--}}
-{{--                                                        @endif--}}
-{{--                                    {{$job->job->city->name}}--}}
-{{--                                    </span>--}}
-{{--                                </div>--}}
-{{--                                </a>--}}
-{{--                            </td>--}}
-{{--                            <td width="60%">--}}
-{{--                                <div class="table-list-title">--}}
-{{--                                    <h3><a href="{{route('job.show',$job->job->slug)}}" title="">{{$job->job->title}}</a></h3>--}}
-{{--                                                </div>--}}
-{{--                                            </td>--}}
-{{--                                            <td width="20%">--}}
-{{--                                                <span>{{$job->job->created_at->diffForHumans()}}</span><br />--}}
-{{--                                            </td>--}}
-{{--                                        </tr>--}}
-
                             </div>
                         </div>
                     </div>

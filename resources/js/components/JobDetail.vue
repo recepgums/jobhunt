@@ -148,13 +148,11 @@ export default {
                     })
                 this.showContactInformation =true;
             }else{
-                window.location.href = '/'+appSub+'/giris'
+                window.location.href = '/giris'
             }
-
-
         },
         seeDetailsClicked(){
-            window.location.href = '/'+appSub+'/ilan/' + this.job.slug
+            window.location.href = '/ilan/' + this.job.slug
         },
         closeDrawer (){
             this.$emit('drawerToggle')

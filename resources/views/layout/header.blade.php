@@ -43,6 +43,11 @@
 
         <div class="responsivemenu">
             <ul>
+                @auth
+                    <li>
+                        <a href="{{route('dashboard')}}" title="">Hesabım</a>
+                    </li>
+                @endauth
                 <li>
                     <a href="{{route('homepage')}}" title="">Anasayfa</a>
                 </li>
@@ -111,6 +116,11 @@
             </div><!-- Btn Extras -->
             <nav>
                 <ul>
+                    @auth
+                        <li>
+                            <a href="{{route('dashboard')}}" title="">Hesabım</a>
+                        </li>
+                    @endauth
                     <li>
                         <a href="{{route('homepage')}}" title="">Anasayfa</a>
                     </li>

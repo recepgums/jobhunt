@@ -75,7 +75,7 @@
                                                 @error('phone')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
-                                                <input type="tel" id="phone" placeholder="5XXXXXXXXX"
+                                                <input type="tel"  disabled id="phone" placeholder="5XXXXXXXXX"
                                                        value="{{$user->phone}}" name="phone"/>
                                             </div>
                                         </div>
@@ -90,15 +90,6 @@
                                                        value="{{$user->email}}"/>
                                             </div>
                                         </div>
-                                        @if($user->hasRole('employee'))
-                                            <div class="col-lg-6">
-                                                <span class="pf-title">Firma adı</span>
-                                                <div class="pf-field">
-                                                    <input type="text" placeholder="Firma adı"
-                                                           value="{{$user->company_name}}" name="company_name"/>
-                                                </div>
-                                            </div>
-                                        @endif
                                         <div class="col-lg-6">
                                             <span class="pf-title">Yaşadığınız şehir</span>
                                             <div class="pf-field">

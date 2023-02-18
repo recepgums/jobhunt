@@ -174,8 +174,8 @@
                                                    href="{{route('user.show',$job->user->username)}}" title="" style="text-decoration: underline;
                                                      text-decoration-color: red!important; color: #b34d4d; font-size: 14px;">{{optional($job->user)->name}}</a></span>
                                             @if($job->user?->company_name)
-                                                <h3><i class="fa fa-building" aria-hidden="true"></i>Şirket adı</h3>
                                                 <span style="font-size: 11px;">
+                                                <i class="fa fa-building" aria-hidden="true"></i>
                                              {{$job->user?->company_name}}
                                               </span>
                                             @endif

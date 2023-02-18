@@ -86,7 +86,7 @@ class DatabaseSeeder extends Seeder
         /*Blog::factory(1)->create()->each(function ($blog){
             $blog->addMediaFromUrl('https://img.imageus.dev/https://depo.isbul.net/v2/home/bilisim-is-ilanlari.jpg?width=400&height=267&mode=contain&background=ffffff')->toMediaCollection('images');
         });*/
-        Job::factory(900)->create()->each(function ($job){
+        Job::factory(100)->create()->each(function ($job){
             $job->addMediaFromUrl('https://image.shutterstock.com/image-photo/suleymaniye-mosque-during-sunset-istanbul-600w-1889028265.jpg')->toMediaCollection('images');
         });
 

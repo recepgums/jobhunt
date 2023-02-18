@@ -10,9 +10,10 @@ Route::post('contactPost', [App\Http\Controllers\MailSend::class,'mailSend'])->n
 Route::view('nasil-calisiyor', 'pages.how_it_works')->name('how_it_works');
 Route::view('anlasma', 'pages.term_conditions')->name('terms');
 
-Route::get('panel', [Controllers\CustomAuthController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+Route::get('panel', [Controllers\CustomAuthController::class, 'dashboard'])->name('dashboard')->middleware(['auth','employer']);
 Route::get('giris', [Controllers\CustomAuthController::class, 'index'])->name('login')->middleware('guest');
 Route::get('kayit', [Controllers\CustomAuthController::class, 'register'])->name('register-user')->middleware('guest');
+Route::get('telefon-dogrulama', [Controllers\CustomAuthController::class, 'phoneVerify'])->name('phone_verify')->middleware('auth');
 Route::get('signout', [Controllers\CustomAuthController::class, 'signOut'])->name('signout')->middleware('auth');
 
 
@@ -24,6 +25,8 @@ Route::post('yeni-sifre-olustur', [Controllers\CustomAuthController::class, 'cha
 
 Route::post('custom-login', [Controllers\CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::post('custom-registration', [Controllers\CustomAuthController::class, 'customRegistration'])->name('register.custom');
+Route::post('telefon-dogrulama-kod', [Controllers\CustomAuthController::class, 'customPhoneVerification'])->name('phone_verify.custom');
+Route::post('custom-phone-verify-code', [Controllers\CustomAuthController::class, 'customPhoneVerifyCode'])->name('phone_verify_code.custom');
 
 Route::group(['middleware' => 'guest', 'prefix' => 'ajax'], function () {
     Route::post('login', [Controllers\CustomAuthController::class, 'customLogin'])->name('login.ajax');
@@ -54,8 +57,9 @@ Route::resource('ilan', Controllers\JobController::class,['names' => 'job','para
 //Route::resource('employer', Controllers\EmployerController::class);
 Route::resource('blog', Controllers\BlogController::class);
 
-Route::group(['prefix' => 'candidate', 'as' => 'candidate.', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'panel', 'as' => 'candidate.', 'middleware' => 'auth'], function () {
     Route::get('profil', [Controllers\CandidateController::class, 'profile'])->name('profile');
+    Route::get('shop_profile', [Controllers\CandidateController::class, 'shopProfile'])->name('shop_profile');
     Route::post('profile', [Controllers\CandidateController::class, 'profileUpdate'])->name('update');
 
     Route::get('my-resume', [Controllers\CandidateController::class, 'my_resume'])->name('my_resume');
@@ -95,8 +99,6 @@ Route::get('clear', function () {
 });
 
 Route::get('test', function () {
-    dd('ds');
-    auth('web')->loginUsingId(1);
-    return redirect('/');
-    dd(now()->toDateTimeString());
+
+    $user= auth()->user();
 });

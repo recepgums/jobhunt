@@ -27,6 +27,18 @@ class CandidateController extends Controller
         return view('candidates.profile', $data);
     }
 
+    public function shopProfile()
+    {
+        $data = [
+            'cities' => City::select('id', 'name')->get(),
+            'user' => auth()->user(),
+            'categories' => Categories::forJob()->select('id', 'name')->get(),
+            'category' => CategoryUser::with('category')->where('user_id', auth()->user()->id)->get(),
+        ];
+
+        return view('employers.profile', $data);
+    }
+
     public function profileUpdate(ProfileUpdateRequest $request, StorageService $storageService)
     {
         $user = auth()->user();
