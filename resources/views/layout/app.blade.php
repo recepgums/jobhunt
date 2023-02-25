@@ -3,12 +3,9 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>@yield('title',env('APP_NAME'))</title>
+    <title>@yield('title',"Türkiye'nin En Güncel İş İlanları | isbull.com")</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="CreativeLayers">
-
+    <meta name="google-site-verification" content="qFW3clhKYebBmVGt222pRXWbNDQtpRILmbDyQ-6IX0Y" />
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}"/>
 

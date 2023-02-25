@@ -55,8 +55,8 @@ Route::get('user/verify', [Controllers\UserVerifyController::class, 'verify'])->
 Route::post('ilan/{job}', [Controllers\JobController::class,'update'])->name('job.update');
 Route::resource('ilan', Controllers\JobController::class,['names' => 'job','parameters' => ['ilan'=>'job']]);
 //Route::resource('employer', Controllers\EmployerController::class);
-Route::get('blog', [Controllers\BlogController::class,'index']);
-Route::get('blog/{blog}', [Controllers\BlogController::class,'show']);
+Route::get('blog', [Controllers\BlogController::class,'index'])->name('blog.index');
+Route::get('blog/{blog}', [Controllers\BlogController::class,'show'])->name('blog.show');
 
 Route::group(['prefix' => 'panel', 'as' => 'candidate.', 'middleware' => 'auth'], function () {
     Route::get('profil', [Controllers\CandidateController::class, 'profile'])->name('profile');

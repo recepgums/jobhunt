@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Blog;
 use App\Models\Job;
 use Illuminate\Console\Command;
 use Spatie\Sitemap\Sitemap;
@@ -30,6 +31,9 @@ class GenerateSitemap extends Command
      */
     public function handle()
     {
-        Sitemap::create()->add(Job::all())->writeToFile(public_path('sitemap.xml'));;
+        Sitemap::create()
+            ->add(Job::all())
+            ->add(Blog::all())
+            ->writeToFile(public_path('sitemap.xml'));;
     }
 }

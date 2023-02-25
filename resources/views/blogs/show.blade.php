@@ -1,5 +1,67 @@
 @extends('layout.app')
 
+@section('title')
+{{$blog->title}}
+@endsection
+@push('styles')
+    <meta name="title" content="{{$blog->title}}">
+    <meta name="description" content="{{substr(strip_tags($blog->content), 0, 100)}}">
+    <style>
+        h1 {
+            display: block;
+            font-size: 2em;
+            margin-top: 0.67em;
+            margin-bottom: 0.67em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+        }
+        h2 {
+            display: block;
+            font-size: 1.5em;
+            margin-top: 0.83em;
+            margin-bottom: 0.83em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+        }
+        h3 {
+            display: block;
+            font-size: 1.17em;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+        }
+        h4 {
+            display: block;
+            margin-top: 1.33em;
+            margin-bottom: 1.33em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+        }
+        h5 {
+            display: block;
+            font-size: .83em;
+            margin-top: 1.67em;
+            margin-bottom: 1.67em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+        }
+        h6 {
+            display: block;
+            font-size: .67em;
+            margin-top: 2.33em;
+            margin-bottom: 2.33em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+        }
+    </style>
+@endpush
 
 @section('content')
     <section class="overlape">
@@ -13,26 +75,34 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 column">
-                        <div class="blog-single">
-                            <div class="bs-thumb"><img src="{{$blog->cover_image ?? 'https://place-hold.it/834x340'}}" alt="{{$blog->title}}" /></div>
+                        <article itemscope itemtype="http://schema.org/BlogPosting">
+                            <div class="blog-single">
+                                <div class="bs-thumb"><img src="{{$blog->cover_image ?? 'https://place-hold.it/834x340'}}" alt="{{$blog->title}}" /></div>
 
-                            <h2>{{$blog->title}}</h2>
-                              {!! $blog->content !!}
+                                <header>
+                                    <h1 itemprop="headline">{{$blog->title}}</h1>
+                                    <p><time itemprop="datePublished" datetime="2023-02-25">{{\Carbon\Carbon::parse($blog->created_at)->locale('tr_TR')->isoFormat('LL')}}</time></p>
+                                </header>
+                                <div itemprop="articleBody">
+                                  {!! $blog->content !!}
+                                </div>
 
-                            <div class="post-navigation ">
-                                @isset($prevBlog)
-                                <div class="post-hist prev">
-                                    <a href="{{route('blog.show',$prevBlog->slug)}}" ><i class="la la-arrow-left"></i><span class="post-histext">Önceki Blog<i>{{$prevBlog->title}}</i></span></a>
+                                <div class="post-navigation ">
+
+                                    @isset($prevBlog)
+                                    <div class="post-hist prev">
+                                        <a href="{{route('blog.show',$prevBlog->slug)}}" ><i class="la la-arrow-left"></i><span class="post-histext">Önceki Blog<i>{{$prevBlog->title}}</i></span></a>
+                                    </div>
+                                    @endisset
+                                    @isset($nextBlog)
+                                    <div class="post-hist next">
+                                        <a href="{{route('blog.show',$nextBlog->slug)}}" title=""><span class="post-histext">Sonraki Blog<i>{{$nextBlog->title}}</i></span><i class="la la-arrow-right"></i></a>
+                                    </div>
+                                    @endisset
                                 </div>
-                                @endisset
-                                @isset($nextBlog)
-                                <div class="post-hist next">
-                                    <a href="{{route('blog.show',$nextBlog->slug)}}" title=""><span class="post-histext">Sonraki Blog<i>{{$nextBlog->title}}</i></span><i class="la la-arrow-right"></i></a>
-                                </div>
-                                @endisset
+
                             </div>
-
-                        </div>
+                        </article>
                     </div>
                     <aside class="col-lg-3 column">
                         <div class="widget">

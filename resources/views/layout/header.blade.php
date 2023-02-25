@@ -43,11 +43,6 @@
 
         <div class="responsivemenu">
             <ul>
-                @auth
-                    <li>
-                        <a href="{{route('dashboard')}}" title="">Hesabım</a>
-                    </li>
-                @endauth
                 <li>
                     <a href="{{route('homepage')}}" title="">Anasayfa</a>
                 </li>
@@ -58,12 +53,22 @@
                     <li>
                         <a href="{{route('signout')}}" title="">Çıkış Yap</a>
                     </li>
-                @endauth
+                @endauth{{--
                 @guest
                     <li>
                         <a href="{{route('how_it_works')}}" title="">Nasıl Çalışır</a>
                     </li>
-                @endguest
+                @endguest--}}
+
+                    <li>
+                        <a href="{{route('blog.index')}}" title="">Bülten</a>
+                    </li>
+
+                @auth
+                    <li>
+                        <a href="{{route('dashboard')}}" title="">Hesabım</a>
+                    </li>
+                @endauth
             </ul>
         </div>
     </div>
@@ -116,11 +121,6 @@
             </div><!-- Btn Extras -->
             <nav>
                 <ul>
-                    @auth
-                        <li>
-                            <a href="{{route('dashboard')}}" title="">Hesabım</a>
-                        </li>
-                    @endauth
                     <li>
                         <a href="{{route('homepage')}}" title="">Anasayfa</a>
                     </li>
@@ -129,14 +129,19 @@
                     </li>{{--
                     <li>
                         <a href="{{route('candidates.index')}}" title="">İş Arayanlar</a>
-                    </li>--}}
+                    </li>--}}{{--
                     <li>
                         <a href="{{route('how_it_works')}}" title="">Nasıl Çalışır</a>
-                    </li>
-                    {{--
-                    <li>
-                        <a href="{{route('employer.index')}}" title="">İşverenler</a>
                     </li>--}}
+                    <li>
+                        <a href="{{route('blog.index')}}" title="">Bülten</a>
+                    </li>
+
+                    @auth
+                        <li>
+                            <a href="{{route('dashboard')}}" title="">Hesabım</a>
+                        </li>
+                    @endauth
                 </ul>
             </nav>
         </div>

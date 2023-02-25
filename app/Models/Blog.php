@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\HasMedia;
+use Spatie\Sitemap\Contracts\Sitemapable;
+use Spatie\Sitemap\Tags\Url;
 
-class Blog extends Model implements HasMedia
+class Blog extends Model implements HasMedia,Sitemapable
 {
-    use HasFactory, SoftDeletes,InteractsWithMedia,Sluggable;
+    use HasFactory, SoftDeletes, InteractsWithMedia, Sluggable;
 
     protected string $sluggableField = 'title';
 
@@ -40,6 +42,11 @@ class Blog extends Model implements HasMedia
     public function getCoverImageAttribute($value)
     {
         $firstMediaUrl = $this->getFirstMediaUrl('images');
-        return strlen($firstMediaUrl)>0 ? $firstMediaUrl : optional($this->category)->default_cover_image;
+        return strlen($firstMediaUrl) > 0 ? $firstMediaUrl : optional($this->category)->default_cover_image;
+    }
+
+    public function toSitemapTag(): Url | string | array
+    {
+        return route('blog.show', $this);
     }
 }

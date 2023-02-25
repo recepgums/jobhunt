@@ -1,8 +1,12 @@
 @extends('layout.app')
 @section('title')
-    {{env('APP_NAME')}}
+    Türkiye'nin En Güncel İş İlanları | isbull.com
 @endsection
 @push('styles')
+    <meta name="title" content="Türkiye'nin En Güncel İş İlanları | isbull.com">
+    <meta name="description" content="isbull.com'da binlerce iş ilanı arasından size en uygun işi bulun. Hızlı ve kolay başvuru yapın. isbull.com, kariyer hedeflerinize ulaşmanız için burada!">
+    <meta name="keywords" content="iş ilanları, kariyer fırsatları, iş başvurusu">
+
     <script src="{{asset('js/app.js')}}" type="module" async></script>
 
     {{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>--}}
@@ -93,7 +97,7 @@
                             <div class="col-md-6 align-self-center padding-t1 ">
                                 <div class="">
                                     <h1 style="font-size: 3em;font-weight: bolder" class="text-white h2 h1-title">
-                                        {{env('HOMEPAGE_TITLE')}} Ortak Platformu
+                                        İş bulmanın en kolay yolu
                                     </h1>
                                     <span class="tw-font-light l text-white h4">
                                         İstediğin iş, aradığın eleman burada
