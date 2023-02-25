@@ -55,7 +55,8 @@ Route::get('user/verify', [Controllers\UserVerifyController::class, 'verify'])->
 Route::post('ilan/{job}', [Controllers\JobController::class,'update'])->name('job.update');
 Route::resource('ilan', Controllers\JobController::class,['names' => 'job','parameters' => ['ilan'=>'job']]);
 //Route::resource('employer', Controllers\EmployerController::class);
-Route::resource('blog', Controllers\BlogController::class);
+Route::get('blog', [Controllers\BlogController::class,'index']);
+Route::get('blog/{blog}', [Controllers\BlogController::class,'show']);
 
 Route::group(['prefix' => 'panel', 'as' => 'candidate.', 'middleware' => 'auth'], function () {
     Route::get('profil', [Controllers\CandidateController::class, 'profile'])->name('profile');
@@ -85,6 +86,9 @@ Route::get('redirect/{driver}', [Controllers\UserController::class, 'socialiteRe
 Route::get('callback/{driver}', [Controllers\UserController::class, 'socialiteCallback'])->name('socialite.callback');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function () {
+
+
+    Route::resource('blog', Controllers\Admin\BlogController::class);
     Route::get('/', [Controllers\Admin\AdminController::class, 'dashboard'])->name('index');
     Route::resource('faq', Controllers\Admin\FaqController::class);
     Route::get('reviews', [Controllers\Admin\AdminController::class, 'reviews'])->name('reviews');

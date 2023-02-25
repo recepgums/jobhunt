@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,7 +11,11 @@ use Spatie\MediaLibrary\HasMedia;
 
 class Blog extends Model implements HasMedia
 {
-    use HasFactory, SoftDeletes,InteractsWithMedia;
+    use HasFactory, SoftDeletes,InteractsWithMedia,Sluggable;
+
+    protected string $sluggableField = 'title';
+
+    protected $appends = ['cover_image'];
 
     protected $fillable = [
         'category_id',

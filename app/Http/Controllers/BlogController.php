@@ -28,4 +28,12 @@ class BlogController extends Controller
             'recentBlogs' => $recentBlogs,
         ]);
     }
+
+    public function adminIndex()
+    {
+
+        $blogs = Blog::all();
+
+        return view('admin.blog.index',compact('blogs'));
+    }
 }

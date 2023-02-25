@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CategoryStoreRequest extends FormRequest
 {
@@ -15,6 +16,7 @@ class CategoryStoreRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'model' => ['required',Rule::in([\App\Models\Job::class, \App\Models\Blog::class])],
             'parent_id' => 'nullable',
             'description' => 'required',
             'image' => 'nullable|image',

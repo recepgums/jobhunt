@@ -14,7 +14,7 @@ class CategoriesController extends Controller
 {
     public function index()
     {
-        $categories = Categories::get();
+        $categories = Categories::query()->orderByDesc('id')->get();
 
         return view('admin.categories.index', [
             'categories' => $categories,
@@ -33,20 +33,20 @@ class CategoriesController extends Controller
     public function store(CategoryStoreRequest $request)
     {
         $category = Categories::create($request->validated());
-
         if ($request->hasFile('image')) {
             $category->addMedia($request->file('image'))->toMediaCollection('category');
         }
 
-        $category->default_cover_image = $category->getFirstMediaUrl('category');
-        $category->save();
+        $category->update([
+            'default_cover_image' => $category->getFirstMediaUrl('category')
+        ]);
 
         return redirect()->route('admin.categories.store');
     }
 
     public function edit(Categories $category)
     {
-        $mainCategories = Categories::whereNull('parent_id')->where('model', 'App\Models\Job')->get();
+        $mainCategories = Categories::whereNull('parent_id')->get();
 
         $category = $category->load('parent');
 
@@ -67,6 +67,7 @@ class CategoriesController extends Controller
             'name' => $request->name,
             'parent_id' => $request->parent_id,
             'description' => $request->description,
+            'model' => $request->model,
             'default_cover_image' => $category->getFirstMediaUrl('category'),
         ]);
 

@@ -21,14 +21,14 @@ class JobsController extends Controller
     {
         Job::findOrFail($job)->update(['status' => Job::STATUS['published']]);
 
-        return redirect('/firinci/admin/jobs');
+        return redirect()->back();
     }
 
     public function passive($job)
     {
         Job::findOrFail($job)->update(['status' => Job::STATUS['expired']]);
 
-        return redirect('/firinci/admin/jobs');
+        return redirect()->back();
     }
 
 }

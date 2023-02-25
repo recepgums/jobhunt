@@ -28,12 +28,21 @@
                                           action="{{route('admin.categories.update',$category->id)}}" method="post">
                                         @csrf
                                         @method('put')
+
+                                        <div class="col-12">
+                                            <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">Model</label>
+                                            <select name="model" class="form-select"
+                                                    aria-label="Default select example">
+
+                                                <option @if($category->model === \App\Models\Job::class ) selected @endif value="{{\App\Models\Job::class}}">Job</option>
+                                                <option @if($category->model === \App\Models\Blog::class ) selected @endif value="{{\App\Models\Blog::class}}">Blog</option>
+                                            </select>
+                                        </div>
                                         <div class="col-12">
                                             <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">Name</label>
                                             <input name="name" type="text" placeholder="Name"
                                                    value="{{$category->name}}">
                                         </div>
-
                                         <div class="col-12">
                                             <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">Main category</label>
 

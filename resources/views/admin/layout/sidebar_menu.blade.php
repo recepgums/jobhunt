@@ -21,6 +21,13 @@
             All Jobs
         </a>
     </div>
+    <div class="sidebar__item @if(request()->is('admin/blog')) -is-active -dark-bg-dark-2 @endif">
+        <a href="{{route('admin.blog.index')}}"
+           class="d-flex items-center text-17 lh-1 fw-500 @if(request()->is('admin/blog')) -dark-text-white" @endif>
+            <i class="text-20 icon-discovery mr-15"></i>
+            Blogs
+        </a>
+    </div>
     <div class="sidebar__item @if(request()->is('admin/categories')) -is-active -dark-bg-dark-2 @endif">
         <a href="{{route('admin.categories.index')}}"
            class="d-flex items-center text-17 lh-1 fw-500 @if(request()->is('admin/categories')) -dark-text-white" @endif>

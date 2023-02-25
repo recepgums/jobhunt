@@ -7,9 +7,28 @@
         table {
             width: 100%;
         }
+        .tox-notifications-container{
+            display: none;
+        }
     </style>
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea',
+            height: 600,
+            plugins: [
+                'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+                'table emoticons template paste help'
+            ],
+            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons',
+
+        });
+    </script>
 @endpush
 @section('content')
+
     <div class="dashboard__main">
         <div class="dashboard__content bg-light-4">
             <div class="row y-gap-30 pt-30">
@@ -18,59 +37,56 @@
                         <div class="d-flex items-center py-20 px-30 border-bottom-light">
                             <div class="rounded-16 bg-white -dark-bg-dark-1 shadow-4 h-100">
                                 <div class="d-flex items-center py-20 px-30 border-bottom-light">
-                                    <h2 class="text-17 lh-1 fw-500">Create Categories</h2>
+                                    <h2 class="text-17 lh-1 fw-500">Edit Blog</h2>
                                 </div>
 
                                 <div class="py-30 px-30">
-                                    <form class="contact-form row y-gap-30" action="{{route('admin.categories.store')}}"
-                                          enctype="multipart/form-data" method="post">
+                                    <form class="contact-form row y-gap-30"
+                                          enctype="multipart/form-data"
+                                          action="{{route('admin.blog.update',$blog->slug)}}" method="post">
                                         @csrf
-                                        <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">Model</label>
-                                        <select name="model" class="form-select"
-                                                aria-label="Default select example">
-                                            <option value="{{\App\Models\Job::class}}">Job</option>
-                                            <option value="{{\App\Models\Blog::class}}">Blog</option>
-                                        </select>
+                                        @method('put')
+
                                         <div class="col-12">
-                                            <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">Name</label>
-                                            <input name="name" type="text" placeholder="Name">
+                                            <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">İmage</label><br/>
+                                            <img src="{{$blog->cover_image ?? null}}"
+                                                 style="height: 300px; width: 300px;">
+                                            <input type="file" name="cover_image" id="image" class="form-control-file">
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">Title</label>
+                                            <input name="title" type="text" placeholder="Title"
+                                                   value="{{$blog->title}}">
                                         </div>
 
                                         <div class="col-12">
-                                            <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">Main category</label>
+                                            <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">Category</label>
 
-                                            <select name="parent_id" class="form-select"
+                                            <select name="category_id" class="form-select"
                                                     aria-label="Default select example">
-                                                <option selected value="{{null}}">Open this select menu</option>
-                                                @foreach($mainCategories as $mainCategory)
+                                                @foreach($categories as $category)
                                                     <option
-                                                        value="{{$mainCategory->id}}">{{$mainCategory->name}}</option>
+                                                        value="{{$category->id}}">{{$category->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
 
                                         <div class="col-12">
                                             <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">Description</label>
-                                            <textarea name="description" class="form-control"
-                                                      id="exampleFormControlTextarea1"
-                                                      rows="3"></textarea>
+                                            <textarea name="content" class="form-control "
+                                                      id="mytextarea"
+                                                      rows="3">{{$blog->content}}</textarea>
                                         </div>
 
-                                        <div class="col-12">
-                                            <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">İmage</label>
-                                            <input type="file" name="image" id="image" class="form-control-file"
-                                                   id="exampleFormControlFile1">
-                                        </div>
 
                                         <div class="row y-gap-20 justify-between pt-15">
                                             <div class="col text-right">
                                                 <button type="submit"
-                                                        class="button -md -purple-1 text-white float-right">Create
+                                                        class="button -md -purple-1 text-white float-right">Update
                                                 </button>
                                             </div>
                                         </div>
                                     </form>
-
                                 </div>
                             </div>
                         </div>
