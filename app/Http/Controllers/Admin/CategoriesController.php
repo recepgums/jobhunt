@@ -59,6 +59,8 @@ class CategoriesController extends Controller
     public function update(CategoryUpdateRequest $request, Categories $category)
     {
         if ($request->hasFile('image')) {
+            $category->media()->delete();
+
             $category->clearMediaCollection('category');
             $category->addMedia($request->file('image'))->toMediaCollection('category');
         }

@@ -19,7 +19,7 @@ class CategoryUpdateRequest extends FormRequest
             'model' => ['required',Rule::in([\App\Models\Job::class, \App\Models\Blog::class])],
             'parent_id' => 'nullable',
             'image' => 'nullable|image',
-            'description' => 'required',
+            'description' => 'nullable',
         ];
     }
 

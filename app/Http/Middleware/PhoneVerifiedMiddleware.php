@@ -21,8 +21,8 @@ class PhoneVerifiedMiddleware
         if (!auth()->check())
             return redirect('login');
 
-        if (! auth()->user()->has_verified_phone)
-            return redirect()->route('phone_verify');
+       /* todo envden ayarlanmaliif (! auth()->user()->has_verified_phone)
+            return redirect()->route('phone_verify');*/
 
         return $next($request);
     }

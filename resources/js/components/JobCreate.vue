@@ -195,7 +195,7 @@
                                             <span class="rg-title">Aylık ücret</span>
                                             <div class="pf-field">
                                                 <el-input-number class="mx-auto"  style="width: 100%" :disabled="fee_disabled" v-model="formInline.fee"
-                                                                 :min="5500"
+                                                                 :min="8500"
                                                                  :step="500" />
                                             </div>
                                         </div>

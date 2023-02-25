@@ -18,7 +18,7 @@ class CategoryStoreRequest extends FormRequest
             'name' => 'required',
             'model' => ['required',Rule::in([\App\Models\Job::class, \App\Models\Blog::class])],
             'parent_id' => 'nullable',
-            'description' => 'required',
+            'description' => 'nullable',
             'image' => 'nullable|image',
         ];
     }
